@@ -1,30 +1,22 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  <groupId>org.projectlombok.test</groupId>
+  <parent>
+    <groupId>org.projectlombok</groupId>
+    <artifactId>lombok-maven</artifactId>
+    <version>0.9.3-SNAPSHOT</version>
+  </parent>
+  <groupId>${parent.groupId}.test</groupId>
   <artifactId>test-maven-lombok</artifactId>
-  <version>1.0-SNAPSHOT</version>
   <packaging>jar</packaging>
-  <name>test-maven-lombok</name>
-  <url>http://projectlombok.org</url>
-  <properties>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-  </properties>
+  <name>Sample project testing the maven-lombok-plugin.</name>
+  <description>This project is a simple demonstration of how to use the maven-lombok-plugin.</description>
   <build>
     <plugins>
       <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-compiler-plugin</artifactId>
-        <configuration>
-          <compilerVersion>1.6</compilerVersion>
-          <source>1.6</source>
-          <target>1.6</target>
-        </configuration>
-      </plugin>
-      <plugin>
         <groupId>org.projectlombok</groupId>
         <artifactId>maven-lombok-plugin</artifactId>
-        <version>1.0-SNAPSHOT</version>
+        <version>${project.version}</version>
         <executions>
           <execution>
             <phase>generate-sources</phase>
@@ -49,7 +41,7 @@
     <dependency>
       <groupId>org.projectlombok</groupId>
       <artifactId>lombok</artifactId>
-      <version>0.9.3</version>
+      <version>${lombok.version}</version>
       <scope>provided</scope>
     </dependency>
     <dependency>
@@ -64,10 +56,12 @@
       <plugin>
         <groupId>org.codehaus.mojo</groupId>
         <artifactId>cobertura-maven-plugin</artifactId>
+        <version>2.4</version>
       </plugin>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-javadoc-plugin</artifactId>
+        <version>2.7</version>
       </plugin>
     </plugins>
   </reporting>

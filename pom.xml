@@ -4,7 +4,7 @@
   <groupId>org.projectlombok</groupId>
   <artifactId>lombok-maven</artifactId>
   <packaging>pom</packaging>
-  <version>1.0-SNAPSHOT</version>
+  <version>0.9.3-SNAPSHOT</version>
   <name>Maven Plugin for Project Lombok</name>
   <url>http://projectlombok.org</url>
   <inceptionYear>2010</inceptionYear>
@@ -19,6 +19,7 @@
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.api.version>2.0.9</maven.api.version>
+    <lombok.version>0.9.3</lombok.version>
   </properties>
   <prerequisites>
     <maven>${maven.api.version}</maven>
@@ -28,6 +29,25 @@
     <module>test-maven-lombok</module>
   </modules>
   <build>
+    <pluginManagement>
+      <plugins>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-compiler-plugin</artifactId>
+          <version>2.3.1</version>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-install-plugin</artifactId>
+          <version>2.3.1</version>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-pmd-plugin</artifactId>
+          <version>2.5</version>
+        </plugin>
+      </plugins>
+    </pluginManagement>
     <plugins>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
@@ -40,37 +60,6 @@
       </plugin>
     </plugins>
   </build>
-  <dependencies>
-    <dependency>
-      <groupId>org.apache.maven</groupId>
-      <artifactId>maven-plugin-api</artifactId>
-      <version>${maven.api.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>org.apache.maven</groupId>
-      <artifactId>maven-project</artifactId>
-      <version>${maven.api.version}</version>
-      <!--
-        Note that Maven 2 and 3 always use the classes from the distro,
-        ignoring declared dependencies for Maven core stuff, so marking
-        this as provided to avoid risk around including a non thread-safe
-        plexus-utils dependency transitively.
-        See:  https://cwiki.apache.org/confluence/display/MAVEN/Parallel+builds+in+Maven+3
-      -->
-      <scope>provided</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.projectlombok</groupId>
-      <artifactId>lombok</artifactId>
-      <version>0.9.3</version>
-    </dependency>
-    <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <version>4.8.1</version>
-      <scope>test</scope>
-    </dependency>
-  </dependencies>
   <developers>
     <developer>
       <id>awhitford</id>
@@ -109,4 +98,13 @@
       <url>http://projectlombok.org/mavenrepo</url>
     </repository>
   </repositories>
+  <scm>
+    <connection>scm:git:git://github.com/awhitford/lombok.maven.git</connection>
+    <developerConnection>scm:git:git@github.com:awhitford/lombok.maven.git</developerConnection>
+    <url>http://github.com/awhitford/lombok.maven</url>
+  </scm>
+  <issueManagement>
+    <system>github</system>
+    <url>http://github.com/awhitford/lombok.maven/issues#issue/</url>
+  </issueManagement>
 </project>
