@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<faqs id="FAQ" title="Frequently Asked Questions">
+  <part id="General">
+    <faq id="needed">
+      <question>Does one need to use the maven-lombok-plugin in order to use lombok in a maven project?</question>
+      <answer>
+        <p>No.  The maven-lombok-plugin provides some goals that may assist lombok users, but it is not required.</p>
+        <p>One can use lombok with maven by adding the following to the <em>pom.xml</em>:</p>
+        <source>
+<dependencies>
+  <dependency>
+    <groupId>org.projectlombok</groupId>
+    <artifactId>lombok</artifactId>
+    <version>0.9.3</version>
+    <scope>provided</scope>
+  </dependency>
+</dependencies>
+<repositories>
+  <repository>
+    <id>projectlombok.org</id>
+    <url>http://projectlombok.org/mavenrepo</url>
+  </repository>
+</repositories>
+        </source>
+        <p>Note that lombok requires Java 6, so an explicit declaration of 1.6 compatibility to the compiler may also be required:</p>
+        <source>
+<build>
+  <plugin>
+    <groupId>org.apache.maven.plugins</groupId>
+    <artifactId>maven-compiler-plugin</artifactId>
+    <configuration>
+      <compilerVersion>1.6</compilerVersion>
+      <source>1.6</source>
+      <target>1.6</target>
+    </configuration>
+  </plugin>
+</build>
+        </source>
+      </answer>
+    </faq>
+  </part>
+</faqs>
