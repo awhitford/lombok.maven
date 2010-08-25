@@ -21,9 +21,6 @@
     <maven.api.version>2.0.9</maven.api.version>
     <lombok.version>0.9.3</lombok.version>
   </properties>
-  <prerequisites>
-    <maven>${maven.api.version}</maven>
-  </prerequisites>
   <modules>
     <module>maven-lombok-plugin</module>
     <module>test-maven-lombok</module>

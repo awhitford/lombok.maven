@@ -10,6 +10,10 @@
   <packaging>maven-plugin</packaging>
   <name>maven-lombok-plugin Maven Mojo</name>
   <description>Maven Plugin for Project Lombok</description>
+  <!-- This needed so that the Plugin Documentation has the correct System Requirements. -->
+  <prerequisites>
+    <maven>${maven.api.version}</maven>
+  </prerequisites>
   <dependencies>
     <dependency>
       <groupId>org.apache.maven</groupId>
