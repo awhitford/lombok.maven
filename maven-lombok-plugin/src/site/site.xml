@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="Maven Lombok Plugin">
+  <bannerLeft>
+    <name>Maven Lombok Plugin</name>
+    <href>http://projectlomborg.org/maven/</href>
+  </bannerLeft>
+  <body>
+    <links>
+      <item name="Project Lombok" href="http://projectlombok.org/" />
+    </links>
+    <menu name="Overview">
+      <item name="Introduction" href="index.html" />
+      <item name="Goals" href="plugin-info.html" />
+    </menu>
+    <menu ref="reports" />
+  </body>
+</project>
