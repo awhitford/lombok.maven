@@ -73,9 +73,7 @@ public class DelombokMojo extends AbstractMojo {
 
         if (this.skip) {
             logger.warn("Skipping delombok.");
-        } else if (!this.sourceDirectory.exists()) {
-            logger.warn("Skipping delombok; no source to process.");
-        } else {
+        } else if (this.sourceDirectory.exists()) {
             final Delombok delombok = new Delombok();
             delombok.setVerbose(this.verbose);
             try {
@@ -97,6 +95,8 @@ public class DelombokMojo extends AbstractMojo {
                 logger.error("Unable to delombok!", e);
                 throw new MojoExecutionException("I/O problem during delombok", e);
             }
+        } else {
+            logger.warn("Skipping delombok; no source to process.");
         }
     }
 }
