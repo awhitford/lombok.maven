@@ -57,6 +57,13 @@
         <artifactId>maven-pmd-plugin</artifactId>
         <configuration>
           <targetJdk>1.6</targetJdk>
+          <rulesets>
+            <ruleset>/rulesets/basic.xml</ruleset>
+            <ruleset>/rulesets/imports.xml</ruleset>
+            <ruleset>/rulesets/optimizations.xml</ruleset>
+            <ruleset>/rulesets/strings.xml</ruleset>
+            <ruleset>/rulesets/unusedcode.xml</ruleset>
+          </rulesets>
         </configuration>
       </plugin>
       <plugin>
