@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <faqs id="FAQ" title="Frequently Asked Questions">
   <part id="General">
+    <title>General</title>
     <faq id="needed">
       <question>Does one need to use the maven-lombok-plugin in order to use lombok in a maven project?</question>
       <answer>
@@ -36,6 +37,38 @@
   </plugin>
 </build>
         </source>
+      </answer>
+    </faq>
+  </part>
+  <part id="Versions">
+    <title>Versions</title>
+    <faq id="version-lombok">
+      <question>What version of lombok.jar is used by the plugin?</question>
+      <answer>
+        <p>Please refer to the <a href="dependencies.html">Project Dependencies</a> page.</p>
+      </answer>
+    </faq>
+    <faq id="version-override">
+      <question>Can the version of lombok.jar be overridden?</question>
+      <answer>
+        <p>Yes.  Maven 2.0.9 introduced the ability to override a dependency used by a plugin.  For example:</p>
+        <source>
+<build>
+  <plugin>
+    <groupId>org.projectlombok</groupId>
+    <artifactId>maven-lombok-plugin</artifactId>
+    <version>0.9.3</version>
+    <dependencies>
+      <dependency>
+        <groupId>org.projectlombok</groupId>
+        <artifactId>lombok</artifactId>
+        <version>0.9.4</version>
+      </dependency>
+    </dependencies>
+  </plugin>
+</build>
+        </source>
+        <p>The above example uses a newer version of the lombok.jar than what is defined for the plugin.</p>
       </answer>
     </faq>
   </part>
