@@ -13,7 +13,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <title>Maven Lombok Plugin - About</title>
+    <title>Maven Lombok Plugin - </title>
     <style type="text/css" media="all">
       @import url("./css/maven-base.css");
       @import url("./css/maven-theme.css");
@@ -23,11 +23,11 @@
           </head>
   <body class="composite">
     <div id="banner">
-                  <a href="../mavenrepo/" id="bannerLeft">
+                    <span id="bannerLeft">
     
             Maven Lombok Plugin
     
-            </a>
+            </span>
                     <div class="clear">
         <hr/>
       </div>
@@ -38,22 +38,30 @@
 
   
     
-  
+            
   
     
             <div class="xleft">
-        Last Published: 2010-09-01
-                      </div>
-            <div class="xright">            <a href="../">Project Lombok</a>
-            
+          
+                <a href="http://projectlombok.org/" class="externalLink">Project Lombok</a>
+                &gt;
+      
+                <a href="../">Maven</a>
+                &gt;
+      
+                <a href="http://awhitford.github.com/lombok.maven/maven-lombok-plugin/" class="externalLink">Plugin</a>
+                  </div>
+            <div class="xright">      
   
 
   
     
-  
+            
   
     
-  </div>
+             Last Published: 2010-09-01
+              &nbsp;| Version: 0.9.3-SNAPSHOT
+            </div>
       <div class="clear">
         <hr/>
       </div>
@@ -65,7 +73,7 @@
 
   
     
-  
+            
   
     
                    <h5>Overview</h5>
@@ -190,15 +198,79 @@
 
   
     
-  
+            
   
     
         </div>
     </div>
     <div id="bodyColumn">
       <div id="contentBox">
-        <a name="About_maven-lombok-plugin_Maven_Mojo"></a><div class="section"><h2>About maven-lombok-plugin Maven Mojo</h2>
-<p>Maven Plugin for Project Lombok</p>
+        <div class="section"><h2>About Maven Lombok Plugin</h2>
+<p>This plugin allows a Maven project to take advantage of <a href="http://projectlombok.org" class="externalLink">Project Lombok</a>.</p>
+<div class="section"><h3>Usage</h3>
+<p>One can use Lombok with Maven by adding the following to the <i>pom.xml</i>:</p>
+<div class="source"><pre>&lt;dependencies&gt;
+  &lt;dependency&gt;
+    &lt;groupId&gt;org.projectlombok&lt;/groupId&gt;
+    &lt;artifactId&gt;lombok&lt;/artifactId&gt;
+    &lt;version&gt;0.9.3&lt;/version&gt;
+    &lt;scope&gt;provided&lt;/scope&gt;
+  &lt;/dependency&gt;
+&lt;/dependencies&gt;
+&lt;repositories&gt;
+  &lt;repository&gt;
+    &lt;id&gt;projectlombok.org&lt;/id&gt;
+    &lt;url&gt;http://projectlombok.org/mavenrepo&lt;/url&gt;
+  &lt;/repository&gt;
+&lt;/repositories&gt;</pre>
+</div>
+<p>Note that Lombok requires Java 6, so an explicit declaration of 1.6 compatibility to the compiler may also be required:</p>
+<div class="source"><pre>&lt;build&gt;
+  &lt;plugins&gt;
+    &lt;plugin&gt;
+      &lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt;
+      &lt;artifactId&gt;maven-compiler-plugin&lt;/artifactId&gt;
+      &lt;configuration&gt;
+        &lt;compilerVersion&gt;1.6&lt;/compilerVersion&gt;
+        &lt;source&gt;1.6&lt;/source&gt;
+        &lt;target&gt;1.6&lt;/target&gt;
+      &lt;/configuration&gt;
+    &lt;/plugin&gt;
+  &lt;/plugins&gt;
+&lt;/build&gt;</pre>
+</div>
+<div class="section"><h4>Delombok</h4>
+<p>Add the following to the <i>pom.xml</i> to activate the <b>delombok</b> goal:</p>
+<div class="source"><pre>&lt;build&gt;
+  &lt;plugins&gt;
+    &lt;plugin&gt;
+      &lt;groupId&gt;org.projectlombok&lt;/groupId&gt;
+      &lt;artifactId&gt;maven-lombok-plugin&lt;/artifactId&gt;
+      &lt;version&gt;0.9.3&lt;/version&gt;
+      &lt;executions&gt;
+        &lt;execution&gt;
+          &lt;phase&gt;generate-sources&lt;/phase&gt;
+          &lt;goals&gt;
+            &lt;goal&gt;delombok&lt;/goal&gt;
+          &lt;/goals&gt;
+        &lt;/execution&gt;
+      &lt;/executions&gt;
+      &lt;dependencies&gt;
+        &lt;dependency&gt;
+          &lt;groupId&gt;sun.jdk&lt;/groupId&gt;
+          &lt;artifactId&gt;tools&lt;/artifactId&gt;
+          &lt;version&gt;1.6&lt;/version&gt;
+          &lt;scope&gt;system&lt;/scope&gt;
+          &lt;systemPath&gt;${java.home}/../lib/tools.jar&lt;/systemPath&gt;
+        &lt;/dependency&gt;
+      &lt;/dependencies&gt;
+    &lt;/plugin&gt;
+  &lt;/plugins&gt;
+&lt;/build&gt;</pre>
+</div>
+<p>Place the java source code with lombok annotations in <tt>src/main/lombok</tt> (instead of <tt>src/main/java</tt>). During the build process, the <tt>src/main/lombok</tt> code will be <a href="http://projectlombok.org/features/delombok.html" class="externalLink">delomboked</a> and the generated java code ends up in <tt>target/generated-sources/delombok</tt>. The delomboked code is compiled and analysed together with the <tt>src/main/java</tt> code.</p>
+</div>
+</div>
 </div>
 
       </div>
@@ -210,12 +282,13 @@
       <div class="xright">&#169;  
           2010
     
+          Anthony Whitford
           
   
 
   
     
-  
+            
   
     
   </div>

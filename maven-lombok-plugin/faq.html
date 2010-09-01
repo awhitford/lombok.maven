@@ -23,11 +23,11 @@
           </head>
   <body class="composite">
     <div id="banner">
-                  <a href="../mavenrepo/" id="bannerLeft">
+                    <span id="bannerLeft">
     
             Maven Lombok Plugin
     
-            </a>
+            </span>
                     <div class="clear">
         <hr/>
       </div>
@@ -38,22 +38,30 @@
 
   
     
-  
+            
   
     
             <div class="xleft">
-        Last Published: 2010-09-01
-                      </div>
-            <div class="xright">            <a href="../">Project Lombok</a>
-            
+          
+                <a href="http://projectlombok.org/" class="externalLink">Project Lombok</a>
+                &gt;
+      
+                <a href="../">Maven</a>
+                &gt;
+      
+                <a href="http://awhitford.github.com/lombok.maven/maven-lombok-plugin/" class="externalLink">Plugin</a>
+                  </div>
+            <div class="xright">      
   
 
   
     
-  
+            
   
     
-  </div>
+             Last Published: 2010-09-01
+              &nbsp;| Version: 0.9.3-SNAPSHOT
+            </div>
       <div class="clear">
         <hr/>
       </div>
@@ -65,7 +73,7 @@
 
   
     
-  
+            
   
     
                    <h5>Overview</h5>
@@ -140,7 +148,7 @@
 
   
     
-  
+            
   
     
         </div>
@@ -182,15 +190,17 @@
         <p>Note that lombok requires Java 6, so an explicit declaration of 1.6 compatibility to the compiler may also be required:</p>
         <div class="source"><pre>
 &lt;build&gt;
-  &lt;plugin&gt;
-    &lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt;
-    &lt;artifactId&gt;maven-compiler-plugin&lt;/artifactId&gt;
-    &lt;configuration&gt;
-      &lt;compilerVersion&gt;1.6&lt;/compilerVersion&gt;
-      &lt;source&gt;1.6&lt;/source&gt;
-      &lt;target&gt;1.6&lt;/target&gt;
-   &lt;/configuration&gt;
- &lt;/plugin&gt;
+  &lt;plugins&gt;
+    &lt;plugin&gt;
+      &lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt;
+      &lt;artifactId&gt;maven-compiler-plugin&lt;/artifactId&gt;
+      &lt;configuration&gt;
+        &lt;compilerVersion&gt;1.6&lt;/compilerVersion&gt;
+        &lt;source&gt;1.6&lt;/source&gt;
+        &lt;target&gt;1.6&lt;/target&gt;
+     &lt;/configuration&gt;
+   &lt;/plugin&gt;
+ &lt;/plugins&gt;
 &lt;/build&gt;
        </pre>
 </div>
@@ -239,12 +249,13 @@
       <div class="xright">&#169;  
           2010
     
+          Anthony Whitford
           
   
 
   
     
-  
+            
   
     
   </div>
