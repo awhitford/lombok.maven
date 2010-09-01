@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project name="Maven Lombok Plugin">
+  <publishDate position="right" format="yyyy-MM-dd"/>
+  <version position="right"/>
   <body>
     <breadcrumbs>
-      <item name="Plugin" href="http://awhitford.github.com/lombok.maven/maven-lombok-plugin/" />
+      <item name="Project Lombok" href="http://projectlombok.org/" />
+      <item name="Maven" href="http://awhitford.github.com/lombok.maven/" />
     </breadcrumbs>
     <menu name="Overview">
       <item name="Introduction" href="index.html" />
-      <item name="Goals" href="plugin-info.html" />
-      <item name="FAQ" href="faq.html" />
     </menu>
+    <menu ref="modules" />
     <menu ref="reports" />
   </body>
 </project>

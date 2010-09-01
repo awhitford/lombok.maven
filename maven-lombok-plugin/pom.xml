@@ -8,7 +8,7 @@
   </parent>
   <artifactId>maven-lombok-plugin</artifactId>
   <packaging>maven-plugin</packaging>
-  <name>maven-lombok-plugin Maven Mojo</name>
+  <name>Maven Lombok Plugin</name>
   <description>Maven Plugin for Project Lombok</description>
   <!-- This needed so that the Plugin Documentation has the correct System Requirements. -->
   <prerequisites>
@@ -59,6 +59,7 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-pmd-plugin</artifactId>
+        <version>2.5</version>
         <configuration>
           <targetJdk>1.6</targetJdk>
           <rulesets>

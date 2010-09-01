@@ -1,0 +1,11 @@
+About Sample Maven Lombok Project
+
+  This project is a simple demonstration of how to use the <maven-lombok-plugin>.
+
+  The following links demonstrate how the <<delombok>> goal may be used so that Java analysis reports look complete:
+
+   * {{{./cobertura/org.projectlombok.test.DataExample.html}Cobertura Test Coverage Report}}
+
+   * {{{./apidocs/org/projectlombok/test/DataExample.html}JavaDocs}}
+
+   * {{{./xref/org/projectlombok/test/DataExample.html}Source Xref}}

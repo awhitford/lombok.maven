@@ -1,0 +1,77 @@
+About Maven Lombok Plugin
+
+  This plugin allows a Maven project to take advantage of {{{http://projectlombok.org}Project Lombok}}.
+
+* Usage
+
+  One can use Lombok with Maven by adding the following to the <pom.xml>:
+
+---
+<dependencies>
+  <dependency>
+    <groupId>org.projectlombok</groupId>
+    <artifactId>lombok</artifactId>
+    <version>0.9.3</version>
+    <scope>provided</scope>
+  </dependency>
+</dependencies>
+<repositories>
+  <repository>
+    <id>projectlombok.org</id>
+    <url>http://projectlombok.org/mavenrepo</url>
+  </repository>
+</repositories>
+---
+
+  Note that Lombok requires Java 6, so an explicit declaration of 1.6 compatibility to the compiler may also be required:
+
+---
+<build>
+  <plugins>
+    <plugin>
+      <groupId>org.apache.maven.plugins</groupId>
+      <artifactId>maven-compiler-plugin</artifactId>
+      <configuration>
+        <compilerVersion>1.6</compilerVersion>
+        <source>1.6</source>
+        <target>1.6</target>
+      </configuration>
+    </plugin>
+  </plugins>
+</build>
+---
+
+** Delombok
+
+  Add the following to the <pom.xml> to activate the <<delombok>> goal:
+
+---
+<build>
+  <plugins>
+    <plugin>
+      <groupId>org.projectlombok</groupId>
+      <artifactId>maven-lombok-plugin</artifactId>
+      <version>0.9.3</version>
+      <executions>
+        <execution>
+          <phase>generate-sources</phase>
+          <goals>
+            <goal>delombok</goal>
+          </goals>
+        </execution>
+      </executions>
+      <dependencies>
+        <dependency>
+          <groupId>sun.jdk</groupId>
+          <artifactId>tools</artifactId>
+          <version>1.6</version>
+          <scope>system</scope>
+          <systemPath>${java.home}/../lib/tools.jar</systemPath>
+        </dependency>
+      </dependencies>
+    </plugin>
+  </plugins>
+</build>
+---
+
+  Place the java source code with lombok annotations in <<<src/main/lombok>>> (instead of <<<src/main/java>>>).  During the build process, the <<<src/main/lombok>>> code will be {{{http://projectlombok.org/features/delombok.html}delomboked}} and the generated java code ends up in <<<target/generated-sources/delombok>>>.  The delomboked code is compiled and analysed together with the <<<src/main/java>>> code.

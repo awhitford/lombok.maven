@@ -6,7 +6,7 @@
   <packaging>pom</packaging>
   <version>0.9.3-SNAPSHOT</version>
   <name>Maven Plugin for Project Lombok</name>
-  <url>http://projectlombok.org</url>
+  <url>http://awhitford.github.com/lombok.maven/</url>
   <inceptionYear>2010</inceptionYear>
   <description>Maven Plugin for Project Lombok</description>
   <licenses>
@@ -16,6 +16,10 @@
       <distribution>repo</distribution>
     </license>
   </licenses>
+  <organization>
+    <name>Anthony Whitford</name>
+    <url>http://github.com/awhitford/</url>
+  </organization>
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.api.version>2.0.9</maven.api.version>
@@ -30,12 +34,12 @@
       <extension>
         <groupId>org.apache.maven.scm</groupId>
         <artifactId>maven-scm-provider-gitexe</artifactId>
-        <version>1.3</version>
+        <version>1.4</version>
       </extension>
       <extension>
         <groupId>org.apache.maven.scm</groupId>
         <artifactId>maven-scm-manager-plexus</artifactId>
-        <version>1.3</version>
+        <version>1.4</version>
       </extension>
       <extension>
         <groupId>org.kathrynhuxtable.maven.wagon</groupId>
