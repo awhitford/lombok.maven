@@ -39,7 +39,7 @@ public class DelombokMojo extends AbstractMojo {
 
     /**
      * Location of the lombok annotated source files.
-     * @parameter expression="${lombok.sourceDirectory}" default-value="${project.build.directory}/../src/main/lombok"
+     * @parameter expression="${lombok.sourceDirectory}" default-value="${project.basedir}/src/main/lombok"
      * @required
      */
     private File sourceDirectory;
