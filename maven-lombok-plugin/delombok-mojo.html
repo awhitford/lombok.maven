@@ -59,8 +59,8 @@
             
   
     
-             Last Published: 2010-09-01
-              &nbsp;| Version: 0.9.3-SNAPSHOT
+             Last Published: 2010-09-05
+              &nbsp;| Version: 0.9.3
             </div>
       <div class="clear">
         <hr/>
@@ -157,7 +157,7 @@
       <div id="contentBox">
         <div class="section"><h2><a name="lombok:delombok"></a>lombok:delombok</h2>
 <p><strong>Full name</strong>:</p>
-<p>org.projectlombok:maven-lombok-plugin:0.9.3-SNAPSHOT:delombok</p>
+<p>org.projectlombok:maven-lombok-plugin:0.9.3:delombok</p>
 <p><strong>Description</strong>:</p>
 <div>Delombok java source with lombok annotations.</div><p><strong>Attributes</strong>:</p>
 <ul><li>Requires a Maven 2.0 project to be executed.</li>
@@ -192,7 +192,7 @@
 <td><code>File</code></td>
 <td><code>-</code></td>
 <td>Location of the lombok annotated source files.<br />
-<strong>Default value is</strong>: <code>${project.build.directory}/../src/main/lombok</code>.</td>
+<strong>Default value is</strong>: <code>${project.basedir}/src/main/lombok</code>.</td>
 </tr>
 <tr class="b"><td><strong><a href="#verbose">verbose</a></strong></td>
 <td><code>boolean</code></td>
@@ -228,7 +228,7 @@
 <div>Location of the lombok annotated source files.</div><ul><li><strong>Type</strong>: <code>java.io.File</code></li>
 <li><strong>Required</strong>: <code>Yes</code></li>
 <li><strong>Expression</strong>: <code>${lombok.sourceDirectory}</code></li>
-<li><strong>Default</strong>: <code>${project.build.directory}/../src/main/lombok</code></li>
+<li><strong>Default</strong>: <code>${project.basedir}/src/main/lombok</code></li>
 </ul>
 <hr />
 <p><strong><a name="verbose">verbose</a>:</strong></p>
