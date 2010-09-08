@@ -12,7 +12,7 @@
   <dependency>
     <groupId>org.projectlombok</groupId>
     <artifactId>lombok</artifactId>
-    <version>0.9.3</version>
+    <version>${LombokVersion}</version>
     <scope>provided</scope>
   </dependency>
 </dependencies>
@@ -59,7 +59,7 @@
   <plugin>
     <groupId>org.projectlombok</groupId>
     <artifactId>maven-lombok-plugin</artifactId>
-    <version>0.9.3</version>
+    <version>${MavenLombokPluginVersion}</version>
     <dependencies>
       <dependency>
         <groupId>org.projectlombok</groupId>

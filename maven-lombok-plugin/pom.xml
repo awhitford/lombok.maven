@@ -13,6 +13,11 @@
   <prerequisites>
     <maven>${maven.api.version}</maven>
   </prerequisites>
+  <properties>
+    <!-- Properties for Site documentation (may not use period). -->
+    <MavenLombokPluginVersion>${project.version}</MavenLombokPluginVersion>
+    <LombokVersion>${lombok.version}</LombokVersion>
+  </properties>
   <dependencies>
     <dependency>
       <groupId>org.apache.maven</groupId>
