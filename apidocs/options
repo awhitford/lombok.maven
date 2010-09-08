@@ -1,0 +1,24 @@
+-classpath
+'C:/workspaces/github/lombok.maven/target/checkout/target/classes;C:/workspaces/github/lombok.maven/target/checkout/maven-lombok-plugin/target/classes;C:/workspaces/github/lombok.maven/target/checkout/test-maven-lombok/target/classes;C:/Users/Anthony Whitford/.m2/repository/org/apache/maven/maven-profile/2.0.9/maven-profile-2.0.9.jar;C:/Users/Anthony Whitford/.m2/repository/org/codehaus/plexus/plexus-container-default/1.0-alpha-9-stable-1/plexus-container-default-1.0-alpha-9-stable-1.jar;C:/Users/Anthony Whitford/.m2/repository/org/apache/maven/maven-repository-metadata/2.0.9/maven-repository-metadata-2.0.9.jar;C:/Users/Anthony Whitford/.m2/repository/org/apache/maven/maven-artifact-manager/2.0.9/maven-artifact-manager-2.0.9.jar;C:/Users/Anthony Whitford/.m2/repository/org/apache/maven/maven-plugin-registry/2.0.9/maven-plugin-registry-2.0.9.jar;C:/Users/Anthony Whitford/.m2/repository/org/apache/maven/maven-project/2.0.9/maven-project-2.0.9.jar;C:/Users/Anthony Whitford/.m2/repository/junit/junit/3.8.1/junit-3.8.1.jar;C:/Users/Anthony Whitford/.m2/repository/org/projectlombok/lombok/0.9.3/lombok-0.9.3.jar;C:/Users/Anthony Whitford/.m2/repository/org/apache/maven/maven-settings/2.0.9/maven-settings-2.0.9.jar;C:/Users/Anthony Whitford/.m2/repository/org/apache/maven/maven-plugin-api/2.0.9/maven-plugin-api-2.0.9.jar;C:/Users/Anthony Whitford/.m2/repository/org/apache/maven/maven-artifact/2.0.9/maven-artifact-2.0.9.jar;C:/Users/Anthony Whitford/.m2/repository/org/apache/maven/wagon/wagon-provider-api/1.0-beta-2/wagon-provider-api-1.0-beta-2.jar;C:/Users/Anthony Whitford/.m2/repository/classworlds/classworlds/1.1-alpha-2/classworlds-1.1-alpha-2.jar;C:/Users/Anthony Whitford/.m2/repository/org/codehaus/plexus/plexus-utils/1.5.1/plexus-utils-1.5.1.jar;C:/Users/Anthony Whitford/.m2/repository/org/apache/maven/maven-model/2.0.9/maven-model-2.0.9.jar'
+-encoding
+'UTF-8'
+-protected
+-sourcepath
+'C:/workspaces/github/lombok.maven/target/checkout/maven-lombok-plugin/src/main/java;C:/workspaces/github/lombok.maven/target/checkout/test-maven-lombok/src/main/java;C:/workspaces/github/lombok.maven/target/checkout/test-maven-lombok/target/generated-sources/delombok'
+-author
+-bottom
+'Copyright &#169; 2010 <a href="http://github.com/awhitford/">Anthony Whitford</a>. All Rights Reserved.'
+-charset
+'UTF-8'
+-d
+'C:/workspaces/github/lombok.maven/target/checkout/target/site/apidocs'
+-docencoding
+'UTF-8'
+-doctitle
+'Maven Plugin for Project Lombok 0.9.3.1 API'
+-link
+'http://java.sun.com/javase/6/docs/api'
+-use
+-version
+-windowtitle
+'Maven Plugin for Project Lombok 0.9.3.1 API'
