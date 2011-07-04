@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.IOException;
 import java.nio.charset.UnsupportedCharsetException;
 
+import org.apache.commons.lang.StringUtils;
 import org.apache.maven.plugin.AbstractMojo;
 import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugin.logging.Log;
@@ -76,11 +77,15 @@ public class DelombokMojo extends AbstractMojo {
         } else if (this.sourceDirectory.exists()) {
             final Delombok delombok = new Delombok();
             delombok.setVerbose(this.verbose);
-            try {
-                delombok.setCharset(this.encoding);
-            } catch (final UnsupportedCharsetException e) {
-                logger.error("The encoding parameter is invalid; Please check!", e);
-                throw new MojoExecutionException("Unknown charset: " + this.encoding, e);
+            if (StringUtils.isNotBlank(this.encoding)) {
+                try {
+                    delombok.setCharset(this.encoding);
+                } catch (final UnsupportedCharsetException e) {
+                    logger.error("The encoding parameter is invalid; Please check!", e);
+                    throw new MojoExecutionException("Unknown charset: " + this.encoding, e);
+                }
+            } else {
+                logger.warn("No encoding specified; using default: " + delombok.setCharset());
             }
 
             try {
