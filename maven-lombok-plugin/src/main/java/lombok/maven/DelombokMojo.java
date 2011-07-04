@@ -2,6 +2,7 @@ package lombok.maven;
 
 import java.io.File;
 import java.io.IOException;
+import java.nio.charset.Charset;
 import java.nio.charset.UnsupportedCharsetException;
 
 import org.apache.commons.lang.StringUtils;
@@ -85,7 +86,7 @@ public class DelombokMojo extends AbstractMojo {
                     throw new MojoExecutionException("Unknown charset: " + this.encoding, e);
                 }
             } else {
-                logger.warn("No encoding specified; using default: " + delombok.setCharset());
+                logger.warn("No encoding specified; using default: " + Charset.defaultCharset());
             }
 
             try {
