@@ -4,8 +4,10 @@ import java.io.File;
 import java.io.IOException;
 import java.nio.charset.Charset;
 import java.nio.charset.UnsupportedCharsetException;
+import java.util.List;
 
 import org.apache.commons.lang.StringUtils;
+import org.apache.maven.artifact.Artifact;
 import org.apache.maven.plugin.AbstractMojo;
 import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugin.logging.Log;
@@ -19,6 +21,7 @@ import lombok.delombok.Delombok;
  *
  * @goal delombok
  * @phase generate-sources
+ * @requiresDependencyResolution runtime
  * @threadSafe
  * @author <a href="mailto:anthony@whitford.com">Anthony Whitford</a>
  * @see <a href="http://projectlombok.org/features/delombok.html">Delombok</a>
@@ -41,10 +44,10 @@ public class DelombokMojo extends AbstractMojo {
 
     /**
      * Location of the lombok annotated source files.
-     * @parameter expression="${lombok.sourceDirectory}" default-value="${project.basedir}/src/main/lombok"
+     * @parameter expression="${lombok.sourcePath}" default-value="${project.basedir}/src/main/lombok"
      * @required
      */
-    private File sourceDirectory;
+    private String sourcePath;
 
     /**
      * Location of the generated source files.
@@ -54,7 +57,14 @@ public class DelombokMojo extends AbstractMojo {
     private File outputDirectory;
 
     /**
-     * Verbose flag.
+     * Quiet flag.  No warnings or errors will be emitted to standard error.
+     * @parameter expression="${lombok.quiet}" default-value="false"
+     * @required
+     */
+    private boolean quiet;
+
+    /**
+     * Verbose flag.  Print the name of each file as it is being delombok-ed.
      * @parameter expression="${lombok.verbose}" default-value="false"
      * @required
      */
@@ -68,6 +78,15 @@ public class DelombokMojo extends AbstractMojo {
      */
     private MavenProject project;
 
+    /**
+     * The plugin dependencies.
+     * 
+     * @parameter expression="${plugin.artifacts}"
+     * @required
+     * @readonly
+     */
+    private List<Artifact> pluginArtifacts;
+
     @Override
     public void execute() throws MojoExecutionException {
         final Log logger = getLog();
@@ -75,8 +94,23 @@ public class DelombokMojo extends AbstractMojo {
 
         if (this.skip) {
             logger.warn("Skipping delombok.");
-        } else if (this.sourceDirectory.exists()) {
+        } else if (true /* this.sourceDirectory.exists()*/) {
             final Delombok delombok = new Delombok();
+
+            // Build a classPath for delombok...
+            final StringBuilder classPathBuilder = new StringBuilder();
+            for (final Object artifact : project.getDependencyArtifacts()) {
+                classPathBuilder.append(((Artifact)artifact).getFile()).append(File.pathSeparatorChar);
+            }
+            for (final Artifact artifact : pluginArtifacts) {
+                classPathBuilder.append(artifact.getFile()).append(File.pathSeparatorChar);
+            }
+            final String classPath = classPathBuilder.toString();
+            logger.debug("Delombok classpath = " + classPath);
+            delombok.setClasspath(classPath);
+logger.error("Delombok classpath = " + classPath);
+
+            //delombok.setQuiet(this.quiet);
             delombok.setVerbose(this.verbose);
             if (StringUtils.isNotBlank(this.encoding)) {
                 try {
@@ -91,7 +125,9 @@ public class DelombokMojo extends AbstractMojo {
 
             try {
                 delombok.setOutput(this.outputDirectory);
-                delombok.delombok(this.sourceDirectory);
+                //delombok.setSourcepath(this.sourcePath);
+                delombok.addDirectory(new File(this.sourcePath));
+                delombok.delombok();
                 logger.info("Delombok complete.");
 
                 // adding generated sources to Maven project
