@@ -3,9 +3,9 @@
   <part id="General">
     <title>General</title>
     <faq id="needed">
-      <question>Does one need to use the maven-lombok-plugin in order to use lombok in a maven project?</question>
+      <question>Does one need to use the lombok-maven-plugin in order to use lombok in a maven project?</question>
       <answer>
-        <p>No.  The maven-lombok-plugin provides some goals that may assist lombok users, but it is not required.</p>
+        <p>No.  The lombok-maven-plugin provides some goals that may assist lombok users, but it is not required.</p>
         <p>One can use lombok with maven by adding the following to the <em>pom.xml</em>:</p>
         <source>
 <dependencies>
@@ -33,6 +33,13 @@
   </plugins>
 </build>
         </source>
+      </answer>
+    </faq>
+    <faq id="legacy-plugin-name">
+      <question>What is the difference between <em>maven-lombok-plugin</em> and <em>lombok-maven-plugin</em>?</question>
+      <answer>
+        <p>The first incarnation of this plugin was labeled <em>maven-lombok-plugin</em>, and was built using 0.9.3 of Project Lombok.</p>
+        <p>When the plugin was revised to support 0.10.0-RC1, the plugin was renamed to follow the Maven Plugin Naming Conventions.  According to the convention, <em>maven-lombok-plugin</em> implies that it has a groupId of <em>org.apache.maven.plugins</em>; since it does not, <em>lombok-maven-plugin</em> is more appropriate.</p>
       </answer>
     </faq>
   </part>
@@ -64,7 +71,7 @@
   </plugin>
 </build>
         </source>
-        <p>The above example uses a newer version of the lombok.jar than what is defined for the plugin.</p>
+        <p>The above example uses a newer version of the lombok.jar than what is defined for the plugin.  But please note that the Delombok interface will need to be consistent; if not, then this will not work.  For example, plugin changes were required to support 0.10.0-RC1 from 0.9.3 because Delombok had changed and was not fully backwards compatible from an interface perspective.</p>
       </answer>
     </faq>
   </part>

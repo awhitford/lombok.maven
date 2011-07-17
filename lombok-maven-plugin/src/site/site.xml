@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project name="Maven Lombok Plugin">
+<project name="Lombok Maven Plugin">
   <body>
     <breadcrumbs>
-      <item name="Plugin" href="http://awhitford.github.com/lombok.maven/maven-lombok-plugin/" />
+      <item name="Plugin" href="http://awhitford.github.com/lombok.maven/lombok-maven-plugin/" />
     </breadcrumbs>
     <menu name="Overview">
       <item name="Introduction" href="index.html" />
