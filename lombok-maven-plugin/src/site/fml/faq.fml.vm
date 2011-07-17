@@ -16,12 +16,6 @@
     <scope>provided</scope>
   </dependency>
 </dependencies>
-<repositories>
-  <repository>
-    <id>projectlombok.org</id>
-    <url>http://projectlombok.org/mavenrepo</url>
-  </repository>
-</repositories>
         </source>
         <p>Note that lombok requires Java 6, so an explicit declaration of 1.6 compatibility to the compiler may also be required:</p>
         <source>
@@ -58,13 +52,13 @@
 <build>
   <plugin>
     <groupId>org.projectlombok</groupId>
-    <artifactId>maven-lombok-plugin</artifactId>
+    <artifactId>lombok-maven-plugin</artifactId>
     <version>${MavenLombokPluginVersion}</version>
     <dependencies>
       <dependency>
         <groupId>org.projectlombok</groupId>
         <artifactId>lombok</artifactId>
-        <version>0.9.4</version>
+        <version>0.99</version>
       </dependency>
     </dependencies>
   </plugin>

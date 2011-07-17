@@ -30,7 +30,7 @@
     <lombok.version>0.10.0-RC1</lombok.version>
   </properties>
   <modules>
-    <module>maven-lombok-plugin</module>
+    <module>lombok-maven-plugin</module>
     <module>test-maven-lombok</module>
   </modules>
   <build>
