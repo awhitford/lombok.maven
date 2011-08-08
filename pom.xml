@@ -8,7 +8,7 @@
   <groupId>org.projectlombok</groupId>
   <artifactId>lombok-maven</artifactId>
   <packaging>pom</packaging>
-  <version>0.10.0.RC1.0-SNAPSHOT</version>
+  <version>0.10.0.RC3.0-SNAPSHOT</version>
   <name>Maven Plugin for Project Lombok</name>
   <url>http://awhitford.github.com/lombok.maven/</url>
   <inceptionYear>2010</inceptionYear>
@@ -27,7 +27,7 @@
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.api.version>2.2.1</maven.api.version>
-    <lombok.version>0.10.0-RC1</lombok.version>
+    <lombok.version>0.10.0-RC3</lombok.version>
   </properties>
   <modules>
     <module>lombok-maven-plugin</module>
@@ -91,7 +91,7 @@
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-release-plugin</artifactId>
-          <version>2.2</version>
+          <version>2.2.1</version>
         </plugin>
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
@@ -101,8 +101,7 @@
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-site-plugin</artifactId>
-          <!-- Note:  Can not use 2.1.x without requiring Maven 2.1.0 or later. -->
-          <version>2.0</version>
+          <version>3.0</version>
         </plugin>
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
@@ -145,8 +144,7 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-project-info-reports-plugin</artifactId>
-        <!-- Note:  Can not use 2.2 without requiring Maven 2.1.0 or later. -->
-        <version>2.1.2</version>
+        <version>2.4</version>
       </plugin>
     </plugins>
   </reporting>
