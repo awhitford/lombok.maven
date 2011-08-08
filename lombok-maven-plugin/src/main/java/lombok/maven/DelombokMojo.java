@@ -125,7 +125,7 @@ logger.error("Delombok classpath = " + classPath);
 
             try {
                 delombok.setOutput(this.outputDirectory);
-                //delombok.setSourcepath(this.sourcePath);
+                delombok.setSourcepath(this.sourcePath);
                 delombok.addDirectory(new File(this.sourcePath));
                 delombok.delombok();
                 logger.info("Delombok complete.");
