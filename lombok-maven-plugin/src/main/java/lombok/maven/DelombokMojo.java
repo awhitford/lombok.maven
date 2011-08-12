@@ -47,7 +47,7 @@ public class DelombokMojo extends AbstractMojo {
      * @parameter expression="${lombok.sourcePath}" default-value="${project.basedir}/src/main/lombok"
      * @required
      */
-    private String sourcePath;
+    private File sourcePath;
 
     /**
      * Location of the generated source files.
@@ -57,11 +57,13 @@ public class DelombokMojo extends AbstractMojo {
     private File outputDirectory;
 
     /**
-     * Quiet flag.  No warnings or errors will be emitted to standard error.
-     * @parameter expression="${lombok.quiet}" default-value="false"
+     * Lombok requires tools.jar so that it can access javac related classes.
+     * If the javac related classes are available, such as for Mac OS X, this value is ignored.
+     * Note that if the file does not exist, then it will not be added to the classpath.
+     * @parameter expression="${lombok.toolsJar}" default-value="${java.home}/../lib/tools.jar"
      * @required
      */
-    private boolean quiet;
+    private File toolsJar;
 
     /**
      * Verbose flag.  Print the name of each file as it is being delombok-ed.
@@ -94,9 +96,7 @@ public class DelombokMojo extends AbstractMojo {
 
         if (this.skip) {
             logger.warn("Skipping delombok.");
-        } else if (true /* this.sourceDirectory.exists()*/) {
-            final Delombok delombok = new Delombok();
-
+        } else if (this.sourcePath.exists()) {
             // Build a classPath for delombok...
             final StringBuilder classPathBuilder = new StringBuilder();
             for (final Object artifact : project.getDependencyArtifacts()) {
@@ -105,13 +105,24 @@ public class DelombokMojo extends AbstractMojo {
             for (final Artifact artifact : pluginArtifacts) {
                 classPathBuilder.append(artifact.getFile()).append(File.pathSeparatorChar);
             }
+            // If the Java Compiler is not available, we may need to add tools.jar to the classpath...
+            try {
+                final Class javaCompilerClass = Class.forName("com.sun.tools.javac.main.JavaCompiler");
+                logger.debug("JavaCompiler class is available.");
+            } catch (final ClassNotFoundException cnf) {
+                if (toolsJar.exists()) {
+                    logger.debug("tools.jar being added to classpath: " + toolsJar);
+                    classPathBuilder.append(toolsJar).append(File.pathSeparatorChar);
+                } else {
+                    logger.error("JavaCompiler class is NOT available.  Please specify a valid tools.jar!");
+                }
+            }
             final String classPath = classPathBuilder.toString();
             logger.debug("Delombok classpath = " + classPath);
-            delombok.setClasspath(classPath);
-logger.error("Delombok classpath = " + classPath);
-
-            //delombok.setQuiet(this.quiet);
+            final Delombok delombok = new Delombok();
             delombok.setVerbose(this.verbose);
+            delombok.setClasspath(classPath);
+
             if (StringUtils.isNotBlank(this.encoding)) {
                 try {
                     delombok.setCharset(this.encoding);
@@ -125,14 +136,13 @@ logger.error("Delombok classpath = " + classPath);
 
             try {
                 delombok.setOutput(this.outputDirectory);
-                delombok.setSourcepath(this.sourcePath);
-                delombok.addDirectory(new File(this.sourcePath));
+                delombok.setSourcepath(this.sourcePath.getCanonicalPath());
+                delombok.addDirectory(this.sourcePath);
                 delombok.delombok();
                 logger.info("Delombok complete.");
 
                 // adding generated sources to Maven project
-                project.addCompileSourceRoot(outputDirectory.getAbsolutePath());
-
+                project.addCompileSourceRoot(outputDirectory.getCanonicalPath());
             } catch (final IOException e) {
                 logger.error("Unable to delombok!", e);
                 throw new MojoExecutionException("I/O problem during delombok", e);

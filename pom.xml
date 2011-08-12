@@ -8,7 +8,7 @@
   <groupId>org.projectlombok</groupId>
   <artifactId>lombok-maven</artifactId>
   <packaging>pom</packaging>
-  <version>0.10.0.RC3.0-SNAPSHOT</version>
+  <version>0.10.0.0-SNAPSHOT</version>
   <name>Maven Plugin for Project Lombok</name>
   <url>http://awhitford.github.com/lombok.maven/</url>
   <inceptionYear>2010</inceptionYear>
@@ -27,7 +27,7 @@
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.api.version>2.2.1</maven.api.version>
-    <lombok.version>0.10.0-RC3</lombok.version>
+    <lombok.version>0.10.0</lombok.version>
   </properties>
   <modules>
     <module>lombok-maven-plugin</module>
@@ -55,13 +55,13 @@
       <plugins>
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
-          <artifactId>maven-compiler-plugin</artifactId>
-          <version>2.3.2</version>
+          <artifactId>maven-clean-plugin</artifactId>
+          <version>2.4.1</version>
         </plugin>
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
-          <artifactId>maven-clean-plugin</artifactId>
-          <version>2.4.1</version>
+          <artifactId>maven-compiler-plugin</artifactId>
+          <version>2.3.2</version>
         </plugin>
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
@@ -77,6 +77,11 @@
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-jar-plugin</artifactId>
           <version>2.3.1</version>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-javadoc-plugin</artifactId>
+          <version>2.8</version>
         </plugin>
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
@@ -96,7 +101,7 @@
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-scm-plugin</artifactId>
-          <version>1.4</version>
+          <version>1.5</version>
         </plugin>
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
@@ -130,7 +135,12 @@
     </developer>
   </developers>
   <reporting>
-    <plugins>
+    <plugins>     
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-checkstyle-plugin</artifactId>
+        <version>2.7</version>
+      </plugin>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-javadoc-plugin</artifactId>

@@ -3,12 +3,12 @@
   <parent>
     <groupId>org.projectlombok</groupId>
     <artifactId>lombok-maven</artifactId>
-    <version>0.10.0.RC3.0-SNAPSHOT</version>
+    <version>0.10.0.0-SNAPSHOT</version>
   </parent>
   <groupId>org.projectlombok.test</groupId>
   <artifactId>test-maven-lombok</artifactId>
   <packaging>jar</packaging>
-  <name>Sample Maven Lombok Project</name>
+  <name>Sample Lombok Maven Project</name>
   <description>This project is a simple demonstration of how to use the maven-lombok-plugin.</description>
   <build>
     <plugins>
@@ -27,17 +27,6 @@
             </configuration>
           </execution>
         </executions>
-<!--
-        <dependencies>
-          <dependency>
-            <groupId>sun.jdk</groupId>
-            <artifactId>tools</artifactId>
-            <version>1.6</version>
-            <scope>system</scope>
-            <systemPath>${java.home}/../lib/tools.jar</systemPath>
-          </dependency>
-        </dependencies>
--->
       </plugin>
     </plugins>
   </build>
