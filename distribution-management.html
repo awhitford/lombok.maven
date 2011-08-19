@@ -3,7 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <title>Reactor Dependency Convergence</title>
+    <title>Project Distribution Management</title>
     <style type="text/css" media="all">
       @import url("./css/maven-base.css");
       @import url("./css/maven-theme.css");
@@ -31,7 +31,7 @@
         &gt;
                           <a href="./" title="Maven">Maven</a>
         &gt;
-    Reactor Dependency Convergence
+    Project Distribution Management
       </div>
             <div class="xright">        
                 
@@ -67,8 +67,8 @@
                           <a href="project-info.html" title="Project Information">Project Information</a>
                     <ul>
                       <li class="none">
-                          <a href="distribution-management.html" title="Distribution Management">Distribution Management</a>
-            </li>
+            <strong>Distribution Management</strong>
+          </li>
                       <li class="none">
                           <a href="index.html" title="About">About</a>
             </li>
@@ -94,8 +94,8 @@
                           <a href="team-list.html" title="Project Team">Project Team</a>
             </li>
                       <li class="none">
-            <strong>Dependency Convergence</strong>
-          </li>
+                          <a href="dependency-convergence.html" title="Dependency Convergence">Dependency Convergence</a>
+            </li>
                       <li class="none">
                           <a href="source-repository.html" title="Source Repository">Source Repository</a>
             </li>
@@ -123,11 +123,7 @@
     </div>
     <div id="bodyColumn">
       <div id="contentBox">
-        <div class="section"><h2>Reactor Dependency Convergence<a name="Reactor_Dependency_Convergence"></a></h2><table border="0" class="bodyTable"><caption>
-  <b>Legend:</b>
-</caption><tr class="a"><td><img alt="success" src="images/icon_success_sml.gif" /></td><td>All projects share one version of the dependency.</td></tr><tr class="b"><td><img alt="error" src="images/icon_error_sml.gif" /></td><td>At least one project has a differing version of the dependency.</td></tr></table><br /><table border="0" class="bodyTable"><caption>
-  <b>Statistics:</b>
-</caption><tr class="a"><th>Number of sub-projects:</th><td>3</td></tr><tr class="b"><th>Number of dependencies (NOD):</th><td>5</td></tr><tr class="a"><th>Number of unique artifacts (NOA):</th><td>5</td></tr><tr class="b"><th>Number of SNAPSHOT artifacts (NOS):</th><td>0</td></tr><tr class="a"><th>Convergence (NOD/NOA):</th><td><img alt="success" src="images/icon_success_sml.gif" />&#160;<b>100%</b></td></tr><tr class="b"><th>Ready for Release (100% Convergence and no SNAPSHOTS):</th><td><img alt="success" src="images/icon_success_sml.gif" />&#160;<b>Success</b></td></tr></table></div><div class="section"><h3>Dependencies used in sub-projects<a name="Dependencies_used_in_sub-projects"></a></h3><div class="section"><h4>junit:junit<a name="junit:junit"></a></h4><table border="0" class="bodyTable"><tr class="a"><td><img alt="success" src="images/icon_success_sml.gif" /></td><td><table border="0" class="bodyTable"><tr class="b"><td width="25%">4.8.1</td><td><ol style="list-style-type: lower-alpha"><li><a class="externalLink" href="http://awhitford.github.com/lombok.maven/test-maven-lombok/">org.projectlombok.test:test-maven-lombok</a></li></ol></td></tr></table></td></tr></table></div><div class="section"><h4>org.apache.commons:commons-lang3<a name="org.apache.commons:commons-lang3"></a></h4><table border="0" class="bodyTable"><tr class="a"><td><img alt="success" src="images/icon_success_sml.gif" /></td><td><table border="0" class="bodyTable"><tr class="b"><td width="25%">3.0</td><td><ol style="list-style-type: lower-alpha"><li><a class="externalLink" href="http://awhitford.github.com/lombok.maven/lombok-maven-plugin/">org.projectlombok:lombok-maven-plugin</a></li></ol></td></tr></table></td></tr></table></div><div class="section"><h4>org.apache.maven:maven-plugin-api<a name="org.apache.maven:maven-plugin-api"></a></h4><table border="0" class="bodyTable"><tr class="a"><td><img alt="success" src="images/icon_success_sml.gif" /></td><td><table border="0" class="bodyTable"><tr class="b"><td width="25%">2.2.1</td><td><ol style="list-style-type: lower-alpha"><li><a class="externalLink" href="http://awhitford.github.com/lombok.maven/lombok-maven-plugin/">org.projectlombok:lombok-maven-plugin</a></li></ol></td></tr></table></td></tr></table></div><div class="section"><h4>org.apache.maven:maven-project<a name="org.apache.maven:maven-project"></a></h4><table border="0" class="bodyTable"><tr class="a"><td><img alt="success" src="images/icon_success_sml.gif" /></td><td><table border="0" class="bodyTable"><tr class="b"><td width="25%">2.2.1</td><td><ol style="list-style-type: lower-alpha"><li><a class="externalLink" href="http://awhitford.github.com/lombok.maven/lombok-maven-plugin/">org.projectlombok:lombok-maven-plugin</a></li></ol></td></tr></table></td></tr></table></div><div class="section"><h4>org.projectlombok:lombok<a name="org.projectlombok:lombok"></a></h4><table border="0" class="bodyTable"><tr class="a"><td><img alt="success" src="images/icon_success_sml.gif" /></td><td><table border="0" class="bodyTable"><tr class="b"><td width="25%">0.10.0</td><td><ol style="list-style-type: lower-alpha"><li><a class="externalLink" href="http://awhitford.github.com/lombok.maven/lombok-maven-plugin/">org.projectlombok:lombok-maven-plugin</a></li></ol></td></tr></table></td></tr></table></div></div>
+        <div class="section"><h2>Overview<a name="Overview"></a></h2><a name="Overview"></a><p>The following is the distribution management information used by this project.</p><div class="section"><h3>Repository - sonatype-nexus-staging<a name="Repository_-_sonatype-nexus-staging"></a></h3><a name="Repository_-_sonatype-nexus-staging"></a><a class="externalLink" href="https://oss.sonatype.org/service/local/staging/deploy/maven2/">https://oss.sonatype.org/service/local/staging/deploy/maven2/</a></div><div class="section"><h3>Snapshot Repository - sonatype-nexus-snapshots<a name="Snapshot_Repository_-_sonatype-nexus-snapshots"></a></h3><a name="Snapshot_Repository_-_sonatype-nexus-snapshots"></a><a class="externalLink" href="https://oss.sonatype.org/content/repositories/snapshots/">https://oss.sonatype.org/content/repositories/snapshots/</a></div><div class="section"><h3>Site - github.lombok.maven<a name="Site_-_github.lombok.maven"></a></h3><a name="Site_-_github.lombok.maven"></a><p>gitsite:git@github.com/awhitford/lombok.maven.git</p></div></div>
       </div>
     </div>
     <div class="clear">
