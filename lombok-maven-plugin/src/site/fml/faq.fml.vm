@@ -7,7 +7,7 @@
       <answer>
         <p>No.  The lombok-maven-plugin provides some goals that may assist lombok users, but it is not required.</p>
         <p>One can use lombok with maven by adding the following to the <em>pom.xml</em>:</p>
-        <source>
+        <source><![CDATA[
 <dependencies>
   <dependency>
     <groupId>org.projectlombok</groupId>
@@ -15,10 +15,10 @@
     <version>${LombokVersion}</version>
     <scope>provided</scope>
   </dependency>
-</dependencies>
+</dependencies>]]>
         </source>
         <p>Note that lombok requires Java 6, so an explicit declaration of 1.6 compatibility to the compiler may also be required:</p>
-        <source>
+        <source><![CDATA[
 <build>
   <plugins>
     <plugin>
@@ -31,7 +31,7 @@
       </configuration>
     </plugin>
   </plugins>
-</build>
+</build>]]>
         </source>
       </answer>
     </faq>
@@ -39,7 +39,7 @@
       <question>What is the difference between <em>maven-lombok-plugin</em> and <em>lombok-maven-plugin</em>?</question>
       <answer>
         <p>The first incarnation of this plugin was labeled <em>maven-lombok-plugin</em>, and was built using 0.9.3 of Project Lombok.</p>
-        <p>When the plugin was revised to support 0.10.0-RC1, the plugin was renamed to follow the Maven Plugin Naming Conventions.  According to the convention, <em>maven-lombok-plugin</em> implies that it has a groupId of <em>org.apache.maven.plugins</em>; since it does not, <em>lombok-maven-plugin</em> is more appropriate.</p>
+        <p>When the plugin was revised to support 0.10.0, the plugin was renamed to follow the Maven Plugin Naming Conventions.  According to the convention, <em>maven-lombok-plugin</em> implies that it has a groupId of <em>org.apache.maven.plugins</em>; since it does not, <em>lombok-maven-plugin</em> is more appropriate.</p>
       </answer>
     </faq>
   </part>
@@ -55,7 +55,7 @@
       <question>Can the version of lombok.jar be overridden?</question>
       <answer>
         <p>Yes.  Maven 2.0.9 introduced the ability to override a dependency used by a plugin.  For example:</p>
-        <source>
+        <source><![CDATA[
 <build>
   <plugin>
     <groupId>org.projectlombok</groupId>
@@ -69,7 +69,7 @@
       </dependency>
     </dependencies>
   </plugin>
-</build>
+</build>]]>
         </source>
         <p>The above example uses a newer version of the lombok.jar than what is defined for the plugin.  But please note that the Delombok interface will need to be consistent; if not, then this will not work.  For example, plugin changes were required to support 0.10.0-RC1 from 0.9.3 because Delombok had changed and was not fully backwards compatible from an interface perspective.</p>
       </answer>
