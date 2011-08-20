@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<pmd version="4.2.5" timestamp="2011-08-18T22:16:51.968">
+<pmd version="4.2.5" timestamp="2011-08-18T23:32:00.312">
 <file name="/Users/anthony/Documents/lombok.maven/lombok-maven-plugin/src/main/java/lombok/maven/DelombokMojo.java">
 <violation beginline="29" endline="154" begincolumn="8" endcolumn="1" rule="CyclomaticComplexity" ruleset="Code Size Rules" package="lombok.maven" externalInfoUrl="http://pmd.sourceforge.net/rules/codesize.html#CyclomaticComplexity" priority="3">
 The class 'DelombokMojo' has a Cyclomatic Complexity of 11 (Highest = 10).
