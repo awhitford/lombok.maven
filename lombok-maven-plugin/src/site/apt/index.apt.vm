@@ -44,6 +44,36 @@ About Lombok Maven Plugin
     </plugin>
   </plugins>
 </build>
+<profiles>
+  <profile>
+    <id>lombok-needs-tools-jar</id>
+    <activation>
+      <file>
+        <exists>${java.home}/../lib/tools.jar</exists>
+      </file>
+    </activation>
+    <build>
+      <plugins>
+        <plugin>
+          <groupId>org.projectlombok</groupId>
+          <artifactId>lombok-maven-plugin</artifactId>
+          <version>${MavenLombokPluginVersion}</version>
+          <dependencies>
+            <dependency>
+              <groupId>sun.jdk</groupId>
+              <artifactId>tools</artifactId>
+              <version>1.6</version>
+              <scope>system</scope>
+              <systemPath>${java.home}/../lib/tools.jar</systemPath>
+            </dependency>
+          </dependencies>        
+        </plugin>
+      </plugins>
+    </build>
+  </profile>
+</profiles>
 ---
+
+  Note that placing the <<<tools.jar>>> dependency within a profile is a clever strategy to support building on a Mac where it does not have a <<<tools.jar>>>, and does not need it since the required classes are already in the classpath.
 
   Place the java source code with lombok annotations in <<<src/main/lombok>>> (instead of <<<src/main/java>>>).  During the build process, the <<<src/main/lombok>>> code will be {{{http://projectlombok.org/features/delombok.html}delomboked}} and the generated java code ends up in <<<target/generated-sources/delombok>>>.  The delomboked code is compiled and analysed together with the <<<src/main/java>>> code.
