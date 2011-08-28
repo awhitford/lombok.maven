@@ -21,7 +21,7 @@ import lombok.delombok.Delombok;
  *
  * @goal delombok
  * @phase generate-sources
- * @requiresDependencyResolution runtime
+ * @requiresDependencyResolution compile
  * @threadSafe
  * @author <a href="mailto:anthony@whitford.com">Anthony Whitford</a>
  * @see <a href="http://projectlombok.org/features/delombok.html">Delombok</a>
@@ -55,15 +55,6 @@ public class DelombokMojo extends AbstractMojo {
      * @required
      */
     private File outputDirectory;
-
-    /**
-     * Lombok requires tools.jar so that it can access javac related classes.
-     * If the javac related classes are available, such as for Mac OS X, this value is ignored.
-     * Note that if the file does not exist, then it will not be added to the classpath.
-     * @parameter expression="${lombok.toolsJar}" default-value="${java.home}/../lib/tools.jar"
-     * @required
-     */
-    private File toolsJar;
 
     /**
      * Verbose flag.  Print the name of each file as it is being delombok-ed.
@@ -104,18 +95,6 @@ public class DelombokMojo extends AbstractMojo {
             }
             for (final Artifact artifact : pluginArtifacts) {
                 classPathBuilder.append(artifact.getFile()).append(File.pathSeparatorChar);
-            }
-            // If the Java Compiler is not available, we may need to add tools.jar to the classpath...
-            try {
-                final Class javaCompilerClass = Class.forName("com.sun.tools.javac.main.JavaCompiler");
-                logger.debug("JavaCompiler class is available.");
-            } catch (final ClassNotFoundException cnf) {
-                if (toolsJar.exists()) {
-                    logger.debug("tools.jar being added to classpath: " + toolsJar);
-                    classPathBuilder.append(toolsJar).append(File.pathSeparatorChar);
-                } else {
-                    logger.error("JavaCompiler class is NOT available.  Please specify a valid tools.jar!");
-                }
             }
             final String classPath = classPathBuilder.toString();
             logger.debug("Delombok classpath = " + classPath);
