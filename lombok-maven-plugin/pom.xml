@@ -62,6 +62,9 @@
             </goals>
           </execution>
         </executions>
+        <configuration>
+          <useJava5>true</useJava5>
+        </configuration>
       </plugin>
     </plugins>
   </build>
