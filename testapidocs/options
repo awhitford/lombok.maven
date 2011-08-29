@@ -1,24 +1,26 @@
 -classpath
-'C:/workspaces/github/lombok.maven/target/checkout/target/classes;C:/workspaces/github/lombok.maven/target/checkout/target/test-classes;C:/workspaces/github/lombok.maven/target/checkout/maven-lombok-plugin/target/classes;C:/workspaces/github/lombok.maven/target/checkout/maven-lombok-plugin/target/test-classes;C:/workspaces/github/lombok.maven/target/checkout/test-maven-lombok/target/classes;C:/workspaces/github/lombok.maven/target/checkout/test-maven-lombok/target/test-classes;C:/Users/Anthony Whitford/.m2/repository/org/apache/maven/maven-profile/2.0.9/maven-profile-2.0.9.jar;C:/Users/Anthony Whitford/.m2/repository/org/codehaus/plexus/plexus-container-default/1.0-alpha-9-stable-1/plexus-container-default-1.0-alpha-9-stable-1.jar;C:/Users/Anthony Whitford/.m2/repository/org/apache/maven/maven-repository-metadata/2.0.9/maven-repository-metadata-2.0.9.jar;C:/Users/Anthony Whitford/.m2/repository/org/apache/maven/maven-artifact-manager/2.0.9/maven-artifact-manager-2.0.9.jar;C:/Users/Anthony Whitford/.m2/repository/org/apache/maven/maven-plugin-registry/2.0.9/maven-plugin-registry-2.0.9.jar;C:/Users/Anthony Whitford/.m2/repository/org/apache/maven/maven-project/2.0.9/maven-project-2.0.9.jar;C:/Users/Anthony Whitford/.m2/repository/junit/junit/4.8.1/junit-4.8.1.jar;C:/Users/Anthony Whitford/.m2/repository/org/projectlombok/lombok/0.9.3/lombok-0.9.3.jar;C:/Users/Anthony Whitford/.m2/repository/org/apache/maven/maven-settings/2.0.9/maven-settings-2.0.9.jar;C:/Users/Anthony Whitford/.m2/repository/org/apache/maven/maven-plugin-api/2.0.9/maven-plugin-api-2.0.9.jar;C:/Users/Anthony Whitford/.m2/repository/org/apache/maven/maven-artifact/2.0.9/maven-artifact-2.0.9.jar;C:/Users/Anthony Whitford/.m2/repository/org/apache/maven/wagon/wagon-provider-api/1.0-beta-2/wagon-provider-api-1.0-beta-2.jar;C:/Users/Anthony Whitford/.m2/repository/classworlds/classworlds/1.1-alpha-2/classworlds-1.1-alpha-2.jar;C:/Users/Anthony Whitford/.m2/repository/org/codehaus/plexus/plexus-utils/1.5.1/plexus-utils-1.5.1.jar;C:/Users/Anthony Whitford/.m2/repository/org/apache/maven/maven-model/2.0.9/maven-model-2.0.9.jar'
+'/Users/anthony/Documents/lombok.maven/target/checkout/target/classes:/Users/anthony/Documents/lombok.maven/target/checkout/target/test-classes:/Users/anthony/Documents/lombok.maven/target/checkout/lombok-maven-plugin/target/classes:/Users/anthony/Documents/lombok.maven/target/checkout/lombok-maven-plugin/target/test-classes:/Users/anthony/Documents/lombok.maven/target/checkout/test-maven-lombok/target/classes:/Users/anthony/Documents/lombok.maven/target/checkout/test-maven-lombok/target/test-classes:/Users/anthony/.m2/repository/org/apache/maven/maven-profile/2.2.1/maven-profile-2.2.1.jar:/Users/anthony/.m2/repository/org/codehaus/plexus/plexus-container-default/1.0-alpha-9-stable-1/plexus-container-default-1.0-alpha-9-stable-1.jar:/Users/anthony/.m2/repository/org/apache/commons/commons-lang3/3.0.1/commons-lang3-3.0.1.jar:/Users/anthony/.m2/repository/org/apache/maven/maven-repository-metadata/2.2.1/maven-repository-metadata-2.2.1.jar:/Users/anthony/.m2/repository/org/apache/maven/maven-artifact-manager/2.2.1/maven-artifact-manager-2.2.1.jar:/Users/anthony/.m2/repository/org/apache/maven/maven-plugin-registry/2.2.1/maven-plugin-registry-2.2.1.jar:/Users/anthony/.m2/repository/org/codehaus/plexus/plexus-interpolation/1.11/plexus-interpolation-1.11.jar:/Users/anthony/.m2/repository/backport-util-concurrent/backport-util-concurrent/3.1/backport-util-concurrent-3.1.jar:/Users/anthony/.m2/repository/org/apache/maven/maven-project/2.2.1/maven-project-2.2.1.jar:/Users/anthony/.m2/repository/junit/junit/4.8.1/junit-4.8.1.jar:/Users/anthony/.m2/repository/org/projectlombok/lombok/0.10.0/lombok-0.10.0.jar:/Users/anthony/.m2/repository/org/apache/maven/maven-settings/2.2.1/maven-settings-2.2.1.jar:/Users/anthony/.m2/repository/org/apache/maven/maven-artifact/2.2.1/maven-artifact-2.2.1.jar:/Users/anthony/.m2/repository/org/apache/maven/maven-plugin-api/2.2.1/maven-plugin-api-2.2.1.jar:/Users/anthony/.m2/repository/org/apache/maven/wagon/wagon-provider-api/1.0-beta-6/wagon-provider-api-1.0-beta-6.jar:/Users/anthony/.m2/repository/classworlds/classworlds/1.1-alpha-2/classworlds-1.1-alpha-2.jar:/Users/anthony/.m2/repository/org/codehaus/plexus/plexus-utils/1.5.15/plexus-utils-1.5.15.jar:/Users/anthony/.m2/repository/org/apache/maven/maven-model/2.2.1/maven-model-2.2.1.jar'
 -encoding
 'UTF-8'
 -protected
 -sourcepath
-'C:/workspaces/github/lombok.maven/target/checkout/test-maven-lombok/src/test/java'
+'/Users/anthony/Documents/lombok.maven/target/checkout/test-maven-lombok/src/test/java'
 -author
 -bottom
-'Copyright &#169; 2010 <a href="http://github.com/awhitford/">Anthony Whitford</a>. All Rights Reserved.'
+'Copyright &#169; 2010-2011 <a href="http://github.com/awhitford/">Anthony Whitford</a>. All Rights Reserved.'
 -charset
 'UTF-8'
 -d
-'C:/workspaces/github/lombok.maven/target/checkout/target/site/testapidocs'
+'/Users/anthony/Documents/lombok.maven/target/checkout/target/site/testapidocs'
 -docencoding
 'UTF-8'
 -doctitle
-'Maven Plugin for Project Lombok 0.9.3.1 Test API'
+'Maven Plugin for Project Lombok 0.10.0.0 Test API'
 -link
-'http://java.sun.com/javase/6/docs/api'
+'../apidocs'
+-linkoffline
+'http://download.oracle.com/javase/6/docs/api' '/Users/anthony/Documents/lombok.maven/target/checkout/target/javadoc-bundle-options'
 -use
 -version
 -windowtitle
-'Maven Plugin for Project Lombok 0.9.3.1 Test API'
+'Maven Plugin for Project Lombok 0.10.0.0 Test API'
