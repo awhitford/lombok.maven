@@ -4,7 +4,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <title>
-    lombok:delombok</title>
+    lombok:help</title>
     <style type="text/css" media="all">
       @import url("./css/maven-base.css");
       @import url("./css/maven-theme.css");
@@ -35,7 +35,7 @@
                           <a href="./" title="Plugin">Plugin</a>
         &gt;
     
-    lombok:delombok
+    lombok:help
       </div>
             <div class="xright">        
                 
@@ -82,19 +82,22 @@
       <div id="contentBox">
         
   
-    <div class="section"><h2>lombok:delombok<a name="lombok:delombok"></a></h2>
+    <div class="section"><h2>lombok:help<a name="lombok:help"></a></h2>
       <p><b>Full name</b>:</p>
-      <p>org.projectlombok:lombok-maven-plugin:0.10.0.0:delombok</p>
+      <p>org.projectlombok:lombok-maven-plugin:0.10.0.0:help</p>
       <p><b>Description</b>:</p>
-      <div>Delombok java source with lombok annotations.</div>
+      <div>Display help information on lombok-maven-plugin.<br />
+ Call 
+<div><pre>
+  mvn lombok:help -Ddetail=true -Dgoal=&lt;goal-name&gt;
+</pre></div>
+
+to display parameter details.</div>
       <p><b>Attributes</b>:</p>
       <ul>
-        <li>Requires a Maven project to be executed.</li>
-        <li>Requires dependency resolution of artifacts in scope: <tt>compile</tt>.</li>
         <li>The goal is thread-safe and supports parallel builds.</li>
-        <li>Binds by default to the lifecycle phase: <tt>generate-sources</tt>.</li>
       </ul>
-      <div class="section"><h3>Required Parameters<a name="Required_Parameters"></a></h3>
+      <div class="section"><h3>Optional Parameters<a name="Optional_Parameters"></a></h3>
         <table class="bodyTable" border="0">
           <tr class="a">
             <th>Name</th>
@@ -103,75 +106,63 @@
             <th>Description</th>
           </tr>
           <tr class="b">
-            <td><b><a href="#encoding">encoding</a></b></td>
+            <td><b><a href="#detail">detail</a></b></td>
+            <td><tt>boolean</tt></td>
+            <td><tt>-</tt></td>
+            <td>If <tt>true</tt>, display all settable properties for each
+goal.<br /><b>Default value is</b>: <tt>false</tt>.</td>
+          </tr>
+          <tr class="a">
+            <td><b><a href="#goal">goal</a></b></td>
             <td><tt>String</tt></td>
             <td><tt>-</tt></td>
-            <td>Encoding.<br /><b>Default value is</b>: <tt>${project.build.sourceEncoding}</tt>.</td>
-          </tr>
-          <tr class="a">
-            <td><b><a href="#outputDirectory">outputDirectory</a></b></td>
-            <td><tt>File</tt></td>
-            <td><tt>-</tt></td>
-            <td>Location of the generated source files.<br /><b>Default value is</b>: <tt>${project.build.directory}/generated-sources/delombok</tt>.</td>
+            <td>The name of the goal for which to show help. If unspecified, all
+goals will be displayed.<br /></td>
           </tr>
           <tr class="b">
-            <td><b><a href="#skip">skip</a></b></td>
-            <td><tt>boolean</tt></td>
+            <td><b><a href="#indentSize">indentSize</a></b></td>
+            <td><tt>int</tt></td>
             <td><tt>-</tt></td>
-            <td>Specifies whether the delombok generation should be skipped.<br /><b>Default value is</b>: <tt>false</tt>.</td>
+            <td>The number of spaces per indentation level, should be positive.<br /><b>Default value is</b>: <tt>2</tt>.</td>
           </tr>
           <tr class="a">
-            <td><b><a href="#sourcePath">sourcePath</a></b></td>
-            <td><tt>File</tt></td>
+            <td><b><a href="#lineLength">lineLength</a></b></td>
+            <td><tt>int</tt></td>
             <td><tt>-</tt></td>
-            <td>Location of the lombok annotated source files.<br /><b>Default value is</b>: <tt>${project.basedir}/src/main/lombok</tt>.</td>
-          </tr>
-          <tr class="b">
-            <td><b><a href="#verbose">verbose</a></b></td>
-            <td><tt>boolean</tt></td>
-            <td><tt>-</tt></td>
-            <td>Verbose flag. Print the name of each file as it is being
-delombok-ed.<br /><b>Default value is</b>: <tt>false</tt>.</td>
+            <td>The maximum length of a display line, should be positive.<br /><b>Default value is</b>: <tt>80</tt>.</td>
           </tr>
         </table>
       </div>
       <div class="section"><h3>Parameter Details<a name="Parameter_Details"></a></h3>
-        <p><b><a name="encoding">encoding</a>:</b></p>
-        <div>Encoding.</div>
+        <p><b><a name="detail">detail</a>:</b></p>
+        <div>If <tt>true</tt>, display all settable properties for each
+goal.</div>
+        <ul>
+          <li><b>Type</b>: <tt>boolean</tt></li>
+          <li><b>Required</b>: <tt>No</tt></li>
+          <li><b>Expression</b>: <tt>${detail}</tt></li>
+          <li><b>Default</b>: <tt>false</tt></li>
+        </ul><hr /><p><b><a name="goal">goal</a>:</b></p>
+        <div>The name of the goal for which to show help. If unspecified, all
+goals will be displayed.</div>
         <ul>
           <li><b>Type</b>: <tt>java.lang.String</tt></li>
-          <li><b>Required</b>: <tt>Yes</tt></li>
-          <li><b>Expression</b>: <tt>${lombok.encoding}</tt></li>
-          <li><b>Default</b>: <tt>${project.build.sourceEncoding}</tt></li>
-        </ul><hr /><p><b><a name="outputDirectory">outputDirectory</a>:</b></p>
-        <div>Location of the generated source files.</div>
+          <li><b>Required</b>: <tt>No</tt></li>
+          <li><b>Expression</b>: <tt>${goal}</tt></li>
+        </ul><hr /><p><b><a name="indentSize">indentSize</a>:</b></p>
+        <div>The number of spaces per indentation level, should be positive.</div>
         <ul>
-          <li><b>Type</b>: <tt>java.io.File</tt></li>
-          <li><b>Required</b>: <tt>Yes</tt></li>
-          <li><b>Expression</b>: <tt>${lombok.outputDirectory}</tt></li>
-          <li><b>Default</b>: <tt>${project.build.directory}/generated-sources/delombok</tt></li>
-        </ul><hr /><p><b><a name="skip">skip</a>:</b></p>
-        <div>Specifies whether the delombok generation should be skipped.</div>
+          <li><b>Type</b>: <tt>int</tt></li>
+          <li><b>Required</b>: <tt>No</tt></li>
+          <li><b>Expression</b>: <tt>${indentSize}</tt></li>
+          <li><b>Default</b>: <tt>2</tt></li>
+        </ul><hr /><p><b><a name="lineLength">lineLength</a>:</b></p>
+        <div>The maximum length of a display line, should be positive.</div>
         <ul>
-          <li><b>Type</b>: <tt>boolean</tt></li>
-          <li><b>Required</b>: <tt>Yes</tt></li>
-          <li><b>Expression</b>: <tt>${lombok.delombok.skip}</tt></li>
-          <li><b>Default</b>: <tt>false</tt></li>
-        </ul><hr /><p><b><a name="sourcePath">sourcePath</a>:</b></p>
-        <div>Location of the lombok annotated source files.</div>
-        <ul>
-          <li><b>Type</b>: <tt>java.io.File</tt></li>
-          <li><b>Required</b>: <tt>Yes</tt></li>
-          <li><b>Expression</b>: <tt>${lombok.sourcePath}</tt></li>
-          <li><b>Default</b>: <tt>${project.basedir}/src/main/lombok</tt></li>
-        </ul><hr /><p><b><a name="verbose">verbose</a>:</b></p>
-        <div>Verbose flag. Print the name of each file as it is being
-delombok-ed.</div>
-        <ul>
-          <li><b>Type</b>: <tt>boolean</tt></li>
-          <li><b>Required</b>: <tt>Yes</tt></li>
-          <li><b>Expression</b>: <tt>${lombok.verbose}</tt></li>
-          <li><b>Default</b>: <tt>false</tt></li>
+          <li><b>Type</b>: <tt>int</tt></li>
+          <li><b>Required</b>: <tt>No</tt></li>
+          <li><b>Expression</b>: <tt>${lineLength}</tt></li>
+          <li><b>Default</b>: <tt>80</tt></li>
         </ul>
       </div>
     </div>

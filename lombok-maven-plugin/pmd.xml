@@ -1,20 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<pmd version="4.2.5" timestamp="2011-08-21T10:34:22.106">
+<pmd version="4.2.5" timestamp="2011-08-28T22:46:59.869">
 <file name="/Users/anthony/Documents/lombok.maven/lombok-maven-plugin/src/main/java/lombok/maven/DelombokMojo.java">
-<violation beginline="29" endline="154" begincolumn="8" endcolumn="1" rule="CyclomaticComplexity" ruleset="Code Size Rules" package="lombok.maven" externalInfoUrl="http://pmd.sourceforge.net/rules/codesize.html#CyclomaticComplexity" priority="3">
-The class 'DelombokMojo' has a Cyclomatic Complexity of 11 (Highest = 10).
-</violation>
-<violation beginline="93" endline="93" begincolumn="12" endcolumn="5" rule="DataflowAnomalyAnalysis" ruleset="Controversial Rules" package="lombok.maven" class="DelombokMojo" variable="logger" externalInfoUrl="http://pmd.sourceforge.net/rules/controversial.html#DataflowAnomalyAnalysis" priority="5">
-Found 'UR'-anomaly for variable 'logger' (lines '93'-'93').
-</violation>
-<violation beginline="93" endline="153" begincolumn="12" endcolumn="5" rule="CyclomaticComplexity" ruleset="Code Size Rules" package="lombok.maven" class="DelombokMojo" externalInfoUrl="http://pmd.sourceforge.net/rules/codesize.html#CyclomaticComplexity" priority="3">
-The method 'execute' has a Cyclomatic Complexity of 10.
-</violation>
-<violation beginline="110" endline="110" begincolumn="29" endcolumn="45" rule="UnusedLocalVariable" ruleset="Unused Code Rules" package="lombok.maven" class="DelombokMojo" method="execute" variable="javaCompilerClass" externalInfoUrl="http://pmd.sourceforge.net/rules/unusedcode.html#UnusedLocalVariable" priority="3">
-Avoid unused local variables such as 'javaCompilerClass'.
-</violation>
-<violation beginline="110" endline="153" begincolumn="29" endcolumn="102" rule="DataflowAnomalyAnalysis" ruleset="Controversial Rules" package="lombok.maven" class="DelombokMojo" method="execute" variable="javaCompilerClass" externalInfoUrl="http://pmd.sourceforge.net/rules/controversial.html#DataflowAnomalyAnalysis" priority="5">
-Found 'DU'-anomaly for variable 'javaCompilerClass' (lines '110'-'153').
+<violation beginline="84" endline="84" begincolumn="12" endcolumn="5" rule="DataflowAnomalyAnalysis" ruleset="Controversial Rules" package="lombok.maven" class="DelombokMojo" variable="logger" externalInfoUrl="http://pmd.sourceforge.net/rules/controversial.html#DataflowAnomalyAnalysis" priority="5">
+Found 'UR'-anomaly for variable 'logger' (lines '84'-'84').
 </violation>
 </file>
 </pmd>
