@@ -1,0 +1,26 @@
+-classpath
+'/Users/anthony/Documents/lombok.maven/target/checkout/test-maven-lombok/target/classes:/Users/anthony/Documents/lombok.maven/target/checkout/test-maven-lombok/target/test-classes:/Users/anthony/.m2/repository/junit/junit/4.8.1/junit-4.8.1.jar'
+-encoding
+'UTF-8'
+-protected
+-sourcepath
+'/Users/anthony/Documents/lombok.maven/target/checkout/test-maven-lombok/src/test/java'
+-author
+-bottom
+'Copyright &#169; 2010-2011 <a href="http://github.com/awhitford/">Anthony Whitford</a>. All Rights Reserved.'
+-charset
+'UTF-8'
+-d
+'/Users/anthony/Documents/lombok.maven/target/checkout/test-maven-lombok/target/site/testapidocs'
+-docencoding
+'UTF-8'
+-doctitle
+'Sample Lombok Maven Project 0.10.0.0 Test API'
+-link
+'../apidocs'
+-linkoffline
+'http://download.oracle.com/javase/6/docs/api' '/Users/anthony/Documents/lombok.maven/target/checkout/test-maven-lombok/target/javadoc-bundle-options'
+-use
+-version
+-windowtitle
+'Sample Lombok Maven Project 0.10.0.0 Test API'
