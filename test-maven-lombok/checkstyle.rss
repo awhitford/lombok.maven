@@ -8,8 +8,8 @@
     <language>en-us</language>
     <copyright>&#169;2010 - 2011 Anthony Whitford</copyright>
     <item>
-      <title>File: 1,
-             Errors: 4,
+      <title>File: 2,
+             Errors: 7,
              Warnings: 0,
              Infos: 0
       </title>
@@ -39,6 +39,20 @@
                 </td>
                 <td>
                   4
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://awhitford.github.com/lombok.maven/test-maven-lombok//checkstyle.html#org.projectlombok.test.Useful.java">org/projectlombok/test/Useful.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  3
                 </td>
               </tr>
                       </tbody>
