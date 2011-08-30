@@ -26,6 +26,7 @@
   </organization>
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     <maven.api.version>2.2.1</maven.api.version>
     <lombok.version>0.10.0</lombok.version>
   </properties>
