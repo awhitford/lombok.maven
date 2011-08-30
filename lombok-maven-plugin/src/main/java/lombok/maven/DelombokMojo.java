@@ -94,7 +94,7 @@ public class DelombokMojo extends AbstractMojo {
 
         if (this.skip) {
             logger.warn("Skipping delombok.");
-        } else if (this.sourcePath.exists()) {
+        } else if (this.sourceDirectory.exists()) {
             // Build a classPath for delombok...
             final StringBuilder classPathBuilder = new StringBuilder();
             for (final Object artifact : project.getArtifacts()) {
