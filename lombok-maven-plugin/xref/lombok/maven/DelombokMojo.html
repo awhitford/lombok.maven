@@ -104,7 +104,7 @@
 <a class="jxr_linenumber" name="94" href="#94">94</a>  
 <a class="jxr_linenumber" name="95" href="#95">95</a>          <strong class="jxr_keyword">if</strong> (<strong class="jxr_keyword">this</strong>.skip) {
 <a class="jxr_linenumber" name="96" href="#96">96</a>              logger.warn(<span class="jxr_string">"Skipping delombok."</span>);
-<a class="jxr_linenumber" name="97" href="#97">97</a>          } <strong class="jxr_keyword">else</strong> <strong class="jxr_keyword">if</strong> (<strong class="jxr_keyword">this</strong>.sourcePath.exists()) {
+<a class="jxr_linenumber" name="97" href="#97">97</a>          } <strong class="jxr_keyword">else</strong> <strong class="jxr_keyword">if</strong> (<strong class="jxr_keyword">this</strong>.sourceDirectory.exists()) {
 <a class="jxr_linenumber" name="98" href="#98">98</a>              <em class="jxr_comment">// Build a classPath for delombok...</em>
 <a class="jxr_linenumber" name="99" href="#99">99</a>              <strong class="jxr_keyword">final</strong> StringBuilder classPathBuilder = <strong class="jxr_keyword">new</strong> StringBuilder();
 <a class="jxr_linenumber" name="100" href="#100">100</a>             <strong class="jxr_keyword">for</strong> (<strong class="jxr_keyword">final</strong> Object artifact : project.getArtifacts()) {
