@@ -90,7 +90,7 @@ public class DelombokMojo extends AbstractMojo {
         } else if (this.sourcePath.exists()) {
             // Build a classPath for delombok...
             final StringBuilder classPathBuilder = new StringBuilder();
-            for (final Object artifact : project.getDependencyArtifacts()) {
+            for (final Object artifact : project.getArtifacts()) {
                 classPathBuilder.append(((Artifact)artifact).getFile()).append(File.pathSeparatorChar);
             }
             for (final Artifact artifact : pluginArtifacts) {

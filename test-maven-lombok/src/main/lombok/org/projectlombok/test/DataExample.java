@@ -5,7 +5,12 @@ import lombok.Data;
 import lombok.Setter;
 import lombok.ToString;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 @Data public class DataExample {
+    private static final Logger LOGGER = LoggerFactory.getLogger(DataExample.class);
+
     private final String name;
     @Setter(AccessLevel.PACKAGE) private int age;
     private double score;

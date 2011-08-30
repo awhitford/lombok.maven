@@ -59,6 +59,12 @@
     </profile>
   </profiles>
   <dependencies>
+    <!-- Note that this includes transitive dependencies (for testing)... -->
+    <dependency>
+      <groupId>ch.qos.logback</groupId>
+      <artifactId>logback-classic</artifactId>
+      <version>0.9.29</version>
+    </dependency>
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
