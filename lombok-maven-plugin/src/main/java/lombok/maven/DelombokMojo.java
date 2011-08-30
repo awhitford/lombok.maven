@@ -44,7 +44,14 @@ public class DelombokMojo extends AbstractMojo {
 
     /**
      * Location of the lombok annotated source files.
-     * @parameter expression="${lombok.sourcePath}" default-value="${project.basedir}/src/main/lombok"
+     * @parameter expression="${lombok.sourceDirectory}" default-value="${project.basedir}/src/main/lombok"
+     * @required
+     */
+    private File sourceDirectory;
+
+    /**
+     * Location of the java source files.
+     * @parameter expression="${lombok.sourcePath}" default-value="${project.basedir}/src/main/java"
      * @required
      */
     private File sourcePath;
@@ -116,7 +123,7 @@ public class DelombokMojo extends AbstractMojo {
             try {
                 delombok.setOutput(this.outputDirectory);
                 delombok.setSourcepath(this.sourcePath.getCanonicalPath());
-                delombok.addDirectory(this.sourcePath);
+                delombok.addDirectory(this.sourceDirectory);
                 delombok.delombok();
                 logger.info("Delombok complete.");
 
