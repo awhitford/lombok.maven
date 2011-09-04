@@ -50,13 +50,6 @@ public class DelombokMojo extends AbstractMojo {
     private File sourceDirectory;
 
     /**
-     * Location of the java source files.
-     * @parameter expression="${lombok.sourcePath}" default-value="${project.basedir}/src/main/java"
-     * @required
-     */
-    private File sourcePath;
-
-    /**
      * Location of the generated source files.
      * @parameter expression="${lombok.outputDirectory}" default-value="${project.build.directory}/generated-sources/delombok"
      * @required
@@ -86,6 +79,12 @@ public class DelombokMojo extends AbstractMojo {
      * @readonly
      */
     private List<Artifact> pluginArtifacts;
+
+    protected String getSourcePath() {
+        final String sourcePath = StringUtils.join(project.getCompileSourceRoots(), File.pathSeparatorChar);
+        getLog().debug("sourcePath = " + sourcePath);
+        return sourcePath;
+    }
 
     @Override
     public void execute() throws MojoExecutionException {
@@ -122,7 +121,7 @@ public class DelombokMojo extends AbstractMojo {
 
             try {
                 delombok.setOutput(this.outputDirectory);
-                delombok.setSourcepath(this.sourcePath.getCanonicalPath());
+                delombok.setSourcepath(getSourcePath());
                 delombok.addDirectory(this.sourceDirectory);
                 delombok.delombok();
                 logger.info("Delombok complete.");
