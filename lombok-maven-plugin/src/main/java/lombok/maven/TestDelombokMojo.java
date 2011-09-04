@@ -7,33 +7,33 @@ import org.apache.maven.project.MavenProject;
 
 
 /**
- * Delombok java source with lombok annotations.
+ * Delombok java test source with lombok annotations.
  *
- * @goal delombok
- * @phase generate-sources
- * @requiresDependencyResolution compile
+ * @goal testDelombok
+ * @phase generate-test-sources
+ * @requiresDependencyResolution test
  * @author <a href="mailto:anthony@whitford.com">Anthony Whitford</a>
  * @see <a href="http://projectlombok.org/features/delombok.html">Delombok</a>
  */
-public class DelombokMojo extends AbstractDelombokMojo {
+public class TestDelombokMojo extends AbstractDelombokMojo {
 
     /**
      * Location of the lombok annotated source files.
-     * @parameter expression="${lombok.sourceDirectory}" default-value="${project.basedir}/src/main/lombok"
+     * @parameter expression="${lombok.testSourceDirectory}" default-value="${project.basedir}/src/test/lombok"
      * @required
      */
     private File sourceDirectory;
 
     /**
      * Location of the generated source files.
-     * @parameter expression="${lombok.outputDirectory}" default-value="${project.build.directory}/generated-sources/delombok"
+     * @parameter expression="${lombok.testOutputDirectory}" default-value="${project.build.directory}/generated-test-sources/delombok"
      * @required
      */
     private File outputDirectory;
 
     @Override
     protected String getGoalDescription() {
-        return "Delombok";
+        return "Test Delombok";
     }
 
     @Override
@@ -48,11 +48,11 @@ public class DelombokMojo extends AbstractDelombokMojo {
 
     @Override
     protected String getSourcePath() {
-        return StringUtils.join(this.project.getCompileSourceRoots(), File.pathSeparatorChar);
+        return StringUtils.join(this.project.getTestCompileSourceRoots(), File.pathSeparatorChar);
     }
 
     @Override
     protected void addSourceRoot(final String path) {
-        project.addCompileSourceRoot(path);
+        project.addTestCompileSourceRoot(path);
     }
 }
