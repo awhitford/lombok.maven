@@ -59,6 +59,11 @@
     </profile>
   </profiles>
   <dependencies>
+    <dependency>
+      <groupId>javax.validation</groupId>
+      <artifactId>validation-api</artifactId>
+      <version>1.0.0.GA</version>
+    </dependency>
     <!-- Note that this includes transitive dependencies (for testing)... -->
     <dependency>
       <groupId>ch.qos.logback</groupId>

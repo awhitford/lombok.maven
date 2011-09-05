@@ -4,6 +4,8 @@ import lombok.Data;
 // http://code.google.com/p/projectlombok/issues/detail?id=146
 //import lombok.NonNull;
 
+// http://code.google.com/p/projectlombok/issues/detail?id=271
+import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlEnum;
 import javax.xml.bind.annotation.XmlEnumValue;
 import javax.xml.bind.annotation.XmlType;
@@ -18,7 +20,7 @@ public class AnotherDataExample implements Useful {
     //@NonNull
     private final DataExample dataExample;
 
-    //@NonNull
+    @NotNull
     private final String moreInformation;
 
     public void doSomething() {
