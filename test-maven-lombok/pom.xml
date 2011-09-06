@@ -18,9 +18,20 @@
         <version>${project.version}</version>
         <executions>
           <execution>
+            <id>delombok</id>
             <phase>generate-sources</phase>
             <goals>
               <goal>delombok</goal>
+            </goals>
+            <configuration>
+              <verbose>true</verbose>
+            </configuration>
+          </execution>
+          <execution>
+            <id>test-delombok</id>
+            <phase>generate-test-sources</phase>
+            <goals>
+              <goal>testDelombok</goal>
             </goals>
             <configuration>
               <verbose>true</verbose>
