@@ -3,7 +3,6 @@ package lombok.maven;
 import java.io.File;
 
 import org.apache.commons.lang3.StringUtils;
-import org.apache.maven.project.MavenProject;
 
 
 /**
