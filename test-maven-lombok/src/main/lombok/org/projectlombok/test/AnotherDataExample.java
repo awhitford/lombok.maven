@@ -4,7 +4,6 @@ import lombok.Data;
 // http://code.google.com/p/projectlombok/issues/detail?id=146
 //import lombok.NonNull;
 
-// http://code.google.com/p/projectlombok/issues/detail?id=271
 import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlEnum;
 import javax.xml.bind.annotation.XmlEnumValue;
