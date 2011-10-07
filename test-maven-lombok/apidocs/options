@@ -15,10 +15,10 @@
 -docencoding
 'UTF-8'
 -doctitle
-'Sample Lombok Maven Project 0.10.0.2 API'
+'Sample Lombok Maven Project 0.10.1.0 API'
 -linkoffline
 'http://download.oracle.com/javase/6/docs/api' '/Users/anthony/Documents/lombok.maven/target/checkout/test-maven-lombok/target/javadoc-bundle-options'
 -use
 -version
 -windowtitle
-'Sample Lombok Maven Project 0.10.0.2 API'
+'Sample Lombok Maven Project 0.10.1.0 API'
