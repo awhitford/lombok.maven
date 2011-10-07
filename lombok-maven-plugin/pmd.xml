@@ -1,18 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<pmd version="4.2.5" timestamp="2011-09-05T17:37:41.756">
+<pmd version="4.2.5" timestamp="2011-10-06T19:26:10.828">
 <file name="/Users/anthony/Documents/lombok.maven/target/checkout/lombok-maven-plugin/src/main/java/lombok/maven/AbstractDelombokMojo.java">
 <violation beginline="77" endline="77" begincolumn="12" endcolumn="5" rule="DataflowAnomalyAnalysis" ruleset="Controversial Rules" package="lombok.maven" class="AbstractDelombokMojo" variable="logger" externalInfoUrl="http://pmd.sourceforge.net/rules/controversial.html#DataflowAnomalyAnalysis" priority="5">
 Found 'UR'-anomaly for variable 'logger' (lines '77'-'77').
-</violation>
-</file>
-<file name="/Users/anthony/Documents/lombok.maven/target/checkout/lombok-maven-plugin/src/main/java/lombok/maven/DelombokMojo.java">
-<violation beginline="6" endline="6" begincolumn="1" endcolumn="45" rule="UnusedImports" ruleset="Import Statement Rules" package="lombok.maven" externalInfoUrl="http://pmd.sourceforge.net/rules/imports.html#UnusedImports" priority="4">
-Avoid unused imports such as 'org.apache.maven.project.MavenProject'
-</violation>
-</file>
-<file name="/Users/anthony/Documents/lombok.maven/target/checkout/lombok-maven-plugin/src/main/java/lombok/maven/TestDelombokMojo.java">
-<violation beginline="6" endline="6" begincolumn="1" endcolumn="45" rule="UnusedImports" ruleset="Import Statement Rules" package="lombok.maven" externalInfoUrl="http://pmd.sourceforge.net/rules/imports.html#UnusedImports" priority="4">
-Avoid unused imports such as 'org.apache.maven.project.MavenProject'
 </violation>
 </file>
 <suppressedviolation filename="/Users/anthony/Documents/lombok.maven/target/checkout/lombok-maven-plugin/target/generated-sources/plugin/lombok/maven/HelpMojo.java" suppressiontype="annotation" msg="The method execute() has an NPath complexity of 3000" usermsg=""/>
