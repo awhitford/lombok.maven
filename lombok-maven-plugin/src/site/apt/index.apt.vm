@@ -6,7 +6,7 @@ About Lombok Maven Plugin
 
   Note that Lombok requires Java 6, so an explicit declaration of 1.6 compatibility to the compiler may also be required:
 
----
++--
 <build>
   <plugins>
     <plugin>
@@ -20,13 +20,13 @@ About Lombok Maven Plugin
     </plugin>
   </plugins>
 </build>
----
++--
 
 ** Delombok
 
   Add the following to the <pom.xml> to activate the <<delombok>> goal:
 
----
++--
 <build>
   <plugins>
     <plugin>
@@ -72,7 +72,7 @@ About Lombok Maven Plugin
     </build>
   </profile>
 </profiles>
----
++--
 
   Note that placing the <<<tools.jar>>> dependency within a profile is a clever strategy to support building on a Mac where it does not have a <<<tools.jar>>>, and does not need it since the required classes are already in the classpath.
 
