@@ -15,7 +15,7 @@
 -docencoding
 'UTF-8'
 -doctitle
-'Sample Lombok Maven Project 0.10.2.0 Test API'
+'Sample Lombok Maven Project 0.10.4.0 Test API'
 -link
 '../apidocs'
 -linkoffline
@@ -24,4 +24,4 @@
 -use
 -version
 -windowtitle
-'Sample Lombok Maven Project 0.10.2.0 Test API'
+'Sample Lombok Maven Project 0.10.4.0 Test API'
