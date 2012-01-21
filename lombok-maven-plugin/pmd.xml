@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<pmd version="4.2.5" timestamp="2011-12-30T22:27:36.605">
+<pmd version="4.2.5" timestamp="2012-01-21T13:44:31.751">
 <file name="/Users/anthony/Documents/lombok.maven/target/checkout/lombok-maven-plugin/src/main/java/lombok/maven/AbstractDelombokMojo.java">
 <violation beginline="77" endline="77" begincolumn="12" endcolumn="5" rule="DataflowAnomalyAnalysis" ruleset="Controversial Rules" package="lombok.maven" class="AbstractDelombokMojo" variable="logger" externalInfoUrl="http://pmd.sourceforge.net/rules/controversial.html#DataflowAnomalyAnalysis" priority="5">
 Found 'UR'-anomaly for variable 'logger' (lines '77'-'77').
