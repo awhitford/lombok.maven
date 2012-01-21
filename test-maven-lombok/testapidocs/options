@@ -7,7 +7,7 @@
 '/Users/anthony/Documents/lombok.maven/target/checkout/test-maven-lombok/src/test/java:/Users/anthony/Documents/lombok.maven/target/checkout/test-maven-lombok/target/generated-test-sources/delombok'
 -author
 -bottom
-'Copyright &#169; 2010-2011 <a href="http://github.com/awhitford/">Anthony Whitford</a>. All Rights Reserved.'
+'Copyright &#169; 2010-2012 <a href="http://github.com/awhitford/">Anthony Whitford</a>. All Rights Reserved.'
 -charset
 'UTF-8'
 -d
@@ -15,7 +15,7 @@
 -docencoding
 'UTF-8'
 -doctitle
-'Sample Lombok Maven Project 0.10.6.0 Test API'
+'Sample Lombok Maven Project 0.10.8.0 Test API'
 -link
 '../apidocs'
 -linkoffline
@@ -24,4 +24,4 @@
 -use
 -version
 -windowtitle
-'Sample Lombok Maven Project 0.10.6.0 Test API'
+'Sample Lombok Maven Project 0.10.8.0 Test API'
