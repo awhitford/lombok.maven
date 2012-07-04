@@ -51,7 +51,7 @@ public abstract class AbstractDelombokMojo extends AbstractMojo {
      * @parameter expression="${lombok.addOutputDirectory}" default-value="true"
      * @required
      */
-    protected boolean addOutputDirectory = true;
+    protected boolean addOutputDirectory;
 
     /**
      * The Maven project to act upon.
