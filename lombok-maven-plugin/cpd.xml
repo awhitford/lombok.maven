@@ -1,3 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <pmd-cpd>
+<duplication lines="20" tokens="116">
+<file line="85" path="/Users/anthony/Documents/lombok.maven/target/checkout/lombok-maven-plugin/target/generated-sources/plugin/lombok/maven/HelpMojo.java"/>
+<file line="165" path="/Users/anthony/Documents/lombok.maven/target/checkout/lombok-maven-plugin/target/generated-sources/plugin/lombok/maven/HelpMojo.java"/>
+<codefragment>
+<![CDATA[
+            append( sb, "Delombok java source with lombok annotations.", 1 );
+            append( sb, "", 0 );
+            if ( detail )
+            {
+                append( sb, "Available parameters:", 1 );
+                append( sb, "", 0 );
+
+                append( sb, "addOutputDirectory (Default: true)", 2 );
+                append( sb, "Add output directory flag. Adds the output directory to the Maven build path.", 3 );
+                append( sb, "Required: Yes", 3 );
+                append( sb, "Expression: ${lombok.addOutputDirectory}", 3 );
+                append( sb, "", 0 );
+
+                append( sb, "encoding (Default: ${project.build.sourceEncoding})", 2 );
+                append( sb, "Encoding.", 3 );
+                append( sb, "Required: Yes", 3 );
+                append( sb, "Expression: ${lombok.encoding}", 3 );
+                append( sb, "", 0 );
+
+                append( sb, "outputDirectory (Default: ${project.build.directory}/generated-sources/delombok)", 2 );
+]]>
+</codefragment>
+</duplication>
 </pmd-cpd>

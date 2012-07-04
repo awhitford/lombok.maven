@@ -28,7 +28,7 @@
             prettyPrint();
         }
     </script>
-        <meta name="Date-Revision-yyyymmdd" content="20120506" />
+        <meta name="Date-Revision-yyyymmdd" content="20120704" />
       </head>
   <body>
     <div id="wrapper">
@@ -69,8 +69,8 @@
             
   
     
-             <span id="publishDate">Last Published: 2012-05-06</span>
-              &nbsp;| <span id="projectVersion">Version: 0.11.0.0</span>
+             <span id="publishDate">Last Published: 2012-07-04</span>
+              &nbsp;| <span id="projectVersion">Version: 0.11.2.0</span>
             </div>
           <div class="clear">
             <hr/>
@@ -196,7 +196,26 @@
         </div>
         <div id="bodyColumn">
           <div id="contentBox">
-            <div class="section"><h2>CPD Results<a name="CPD_Results"></a></h2><p>The following document contains the results of PMD's  <a class="externalLink" href="http://pmd.sourceforge.net/cpd.html">CPD</a> 4.3.</p></div><div class="section"><h2>Duplications<a name="Duplications"></a></h2><p>CPD found no problems in your source code.</p></div>
+            <div class="section"><h2>CPD Results<a name="CPD_Results"></a></h2><p>The following document contains the results of PMD's  <a class="externalLink" href="http://pmd.sourceforge.net/cpd.html">CPD</a> 4.3.</p></div><div class="section"><h2>Duplications<a name="Duplications"></a></h2><table border="0" class="bodyTable"><tr class="a"><th>File</th><th>Line</th></tr><tr class="b"><td>lombok/maven/HelpMojo.java</td><td><a href="./xref/lombok/maven/HelpMojo.html#85">85</a></td></tr><tr class="a"><td>lombok/maven/HelpMojo.java</td><td><a href="./xref/lombok/maven/HelpMojo.html#165">165</a></td></tr><tr class="b"><td colspan='2'><div><pre>            append( sb, &quot;Delombok java source with lombok annotations.&quot;, 1 );
+            append( sb, &quot;&quot;, 0 );
+            if ( detail )
+            {
+                append( sb, &quot;Available parameters:&quot;, 1 );
+                append( sb, &quot;&quot;, 0 );
+
+                append( sb, &quot;addOutputDirectory (Default: true)&quot;, 2 );
+                append( sb, &quot;Add output directory flag. Adds the output directory to the Maven build path.&quot;, 3 );
+                append( sb, &quot;Required: Yes&quot;, 3 );
+                append( sb, &quot;Expression: ${lombok.addOutputDirectory}&quot;, 3 );
+                append( sb, &quot;&quot;, 0 );
+
+                append( sb, &quot;encoding (Default: ${project.build.sourceEncoding})&quot;, 2 );
+                append( sb, &quot;Encoding.&quot;, 3 );
+                append( sb, &quot;Required: Yes&quot;, 3 );
+                append( sb, &quot;Expression: ${lombok.encoding}&quot;, 3 );
+                append( sb, &quot;&quot;, 0 );
+
+                append( sb, &quot;outputDirectory (Default: ${project.build.directory}/generated-sources/delombok)&quot;, 2 );</pre></div></td></tr></table></div>
           </div>
         </div>
         <div class="clear">
