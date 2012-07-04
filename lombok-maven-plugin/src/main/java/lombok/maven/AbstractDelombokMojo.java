@@ -45,6 +45,13 @@ public abstract class AbstractDelombokMojo extends AbstractMojo {
      * @required
      */
     protected boolean verbose;
+    
+    /**
+     * Add output directory flag.  Adds the output directory to the Maven build path.
+     * @parameter expression="${lombok.addOutputDirectory}" default-value="true"
+     * @required
+     */
+    protected boolean addOutputDirectory = true;
 
     /**
      * The Maven project to act upon.
@@ -121,9 +128,11 @@ public abstract class AbstractDelombokMojo extends AbstractMojo {
                 delombok.addDirectory(sourceDirectory);
                 delombok.delombok();
                 logger.info(goal + " complete.");
-
-                // adding generated sources to Maven project
-                addSourceRoot(outputDirectory.getCanonicalPath());
+                
+                if (this.addOutputDirectory) {
+                    // adding generated sources to Maven project
+                    addSourceRoot(outputDirectory.getCanonicalPath());
+                }
             } catch (final IOException e) {
                 logger.error("Unable to delombok!", e);
                 throw new MojoExecutionException("I/O problem during delombok", e);
