@@ -1,6 +1,6 @@
 This project contains two sub projects:
 1.  lombok-maven-plugin
-    - This is a maven plugin for Project Lombok.
+    - This is the maven plugin for Project Lombok.
 2.  test-maven-lombok
     - This is a sample project that demonstrates using the maven plugin.
 
