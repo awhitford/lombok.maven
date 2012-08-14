@@ -7,7 +7,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Lombok Maven Plugin - Project Mailing Lists</title>
+    <title>Lombok Maven Plugin - Dependency Information</title>
     <link rel="stylesheet" href="./css/apache-maven-fluido.min.css" />
     <link rel="stylesheet" href="./css/site.css" />
     <link rel="stylesheet" href="./css/print.css" media="print" />
@@ -51,7 +51,7 @@
                     <a href="./" title="Plugin">Plugin</a>
         </li>
       <li class="divider ">/</li>
-        <li class="">Project Mailing Lists</li>
+        <li class="">Dependency Information</li>
         
                 
                     
@@ -93,8 +93,8 @@
                           <a href="distribution-management.html" title="Distribution Management">Distribution Management</a>
             </li>
                       <li class="none">
-                          <a href="dependency-info.html" title="Dependency Information">Dependency Information</a>
-            </li>
+            <strong>Dependency Information</strong>
+          </li>
                       <li class="none">
                           <a href="dependency-convergence.html" title="Dependency Convergence">Dependency Convergence</a>
             </li>
@@ -102,8 +102,8 @@
                           <a href="source-repository.html" title="Source Repository">Source Repository</a>
             </li>
                       <li class="none">
-            <strong>Mailing Lists</strong>
-          </li>
+                          <a href="mail-lists.html" title="Mailing Lists">Mailing Lists</a>
+            </li>
                       <li class="none">
                           <a href="issue-tracking.html" title="Issue Tracking">Issue Tracking</a>
             </li>
@@ -164,7 +164,16 @@
         
         <div id="bodyColumn"  class="span10" >
                                   
-            <div class="section"><h2>Project Mailing Lists<a name="Project_Mailing_Lists"></a></h2><a name="Project_Mailing_Lists"></a><p>There are no mailing lists currently associated with this project.</p></div>
+            <div class="section"><h2>Dependency Information<a name="Dependency_Information"></a></h2><a name="Dependency_Information"></a><div class="section"><h3>Apache Maven<a name="Apache_Maven"></a></h3><a name="Apache_Maven"></a><div class="source"><pre class="prettyprint">&lt;dependency&gt;
+  &lt;groupId&gt;org.projectlombok&lt;/groupId&gt;
+  &lt;artifactId&gt;lombok-maven-plugin&lt;/artifactId&gt;
+  &lt;version&gt;0.11.4.0&lt;/version&gt;
+  &lt;type&gt;${project.packaging&lt;/type&gt;
+&lt;/dependency&gt;</pre></div></div><div class="section"><h3>Apache Buildr<a name="Apache_Buildr"></a></h3><a name="Apache_Buildr"></a><div class="source"><pre class="prettyprint">'org.projectlombok:lombok-maven-plugin:${project.packaging:0.11.4.0'</pre></div></div><div class="section"><h3>Apache Ant<a name="Apache_Ant"></a></h3><a name="Apache_Ant"></a><div class="source"><pre class="prettyprint">&lt;dependency org=&quot;org.projectlombok&quot; name=&quot;lombok-maven-plugin&quot; rev=&quot;0.11.4.0&quot;&gt;
+  &lt;artifact name=&quot;lombok-maven-plugin&quot; type=&quot;${project.packaging&quot; /&gt;
+&lt;/dependency&gt;</pre></div></div><div class="section"><h3>Groovy Grape<a name="Groovy_Grape"></a></h3><a name="Groovy_Grape"></a><div class="source"><pre class="prettyprint">@Grapes(
+@Grab(group='org.projectlombok', module='lombok-maven-plugin', version='0.11.4.0')
+)</pre></div></div><div class="section"><h3>Grails<a name="Grails"></a></h3><a name="Grails"></a><div class="source"><pre class="prettyprint">compile 'org.projectlombok:lombok-maven-plugin:0.11.4.0'</pre></div></div><div class="section"><h3>Leiningen<a name="Leiningen"></a></h3><a name="Leiningen"></a><div class="source"><pre class="prettyprint">[org.projectlombok/lombok-maven-plugin &quot;0.11.4.0&quot;]</pre></div></div><div class="section"><h3>SBT<a name="SBT"></a></h3><a name="SBT"></a><div class="source"><pre class="prettyprint">libraryDependencies += &quot;org.projectlombok&quot; %% &quot;lombok-maven-plugin&quot; % &quot;0.11.4.0&quot;</pre></div></div></div>
                   </div>
             </div>
       
