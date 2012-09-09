@@ -3,24 +3,25 @@ package lombok.maven;
 import java.io.File;
 
 import org.apache.commons.lang3.StringUtils;
+import org.apache.maven.plugins.annotations.LifecyclePhase;
+import org.apache.maven.plugins.annotations.Mojo;
+import org.apache.maven.plugins.annotations.Parameter;
+import org.apache.maven.plugins.annotations.ResolutionScope;
 
 
 /**
  * Delombok java source with lombok annotations.
  *
- * @goal delombok
- * @phase generate-sources
- * @requiresDependencyResolution compile
  * @author <a href="mailto:anthony@whitford.com">Anthony Whitford</a>
  * @see <a href="http://projectlombok.org/features/delombok.html">Delombok</a>
  */
+@Mojo(name="delombok", defaultPhase=LifecyclePhase.GENERATE_SOURCES, requiresDependencyResolution=ResolutionScope.COMPILE, threadSafe=true)
 public class DelombokMojo extends AbstractDelombokMojo {
 
     /**
      * Location of the lombok annotated source files.
-     * @parameter expression="${lombok.sourceDirectory}" default-value="${project.basedir}/src/main/lombok"
-     * @required
      */
+    @Parameter(property="lombok.sourceDirectory", defaultValue="${project.basedir}/src/main/lombok", required=true)
     private File sourceDirectory;
 
     /**
@@ -28,6 +29,7 @@ public class DelombokMojo extends AbstractDelombokMojo {
      * @parameter expression="${lombok.outputDirectory}" default-value="${project.build.directory}/generated-sources/delombok"
      * @required
      */
+    @Parameter(property="lombok.outputDirectory", defaultValue="${project.build.directory}/generated-sources/delombok", required=true)
     private File outputDirectory;
 
     @Override

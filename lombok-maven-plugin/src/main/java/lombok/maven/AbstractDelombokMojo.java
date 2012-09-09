@@ -11,6 +11,8 @@ import org.apache.maven.artifact.Artifact;
 import org.apache.maven.plugin.AbstractMojo;
 import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugin.logging.Log;
+import org.apache.maven.plugins.annotations.Component;
+import org.apache.maven.plugins.annotations.Parameter;
 import org.apache.maven.project.MavenProject;
 
 import lombok.delombok.Delombok;
@@ -19,7 +21,6 @@ import lombok.delombok.Delombok;
 /**
  * Abstract mojo to Delombok java source with lombok annotations.
  *
- * @threadSafe
  * @author <a href="mailto:anthony@whitford.com">Anthony Whitford</a>
  * @see <a href="http://projectlombok.org/features/delombok.html">Delombok</a>
  */
@@ -27,48 +28,39 @@ public abstract class AbstractDelombokMojo extends AbstractMojo {
 
     /**
      * Specifies whether the delombok generation should be skipped.
-     * @parameter expression="${lombok.delombok.skip}" default-value="false"
-     * @required
      */
+    @Parameter(property="lombok.delombok.skip", defaultValue="false", required=true)
     protected boolean skip;
 
     /**
      * Encoding.
-     * @parameter expression="${lombok.encoding}" default-value="${project.build.sourceEncoding}"
-     * @required
      */
+    @Parameter(property="lombok.encoding", defaultValue="${project.build.sourceEncoding}", required=true)
     protected String encoding;
 
     /**
      * Verbose flag.  Print the name of each file as it is being delombok-ed.
-     * @parameter expression="${lombok.verbose}" default-value="false"
-     * @required
      */
+    @Parameter(property="lombok.verbose", defaultValue="false", required=true)
     protected boolean verbose;
-    
+ 
     /**
      * Add output directory flag.  Adds the output directory to the Maven build path.
-     * @parameter expression="${lombok.addOutputDirectory}" default-value="true"
-     * @required
      */
+    @Parameter(property="lombok.addOutputDirectory", defaultValue="true", required=true)
     protected boolean addOutputDirectory;
 
     /**
      * The Maven project to act upon.
-     * @parameter expression="${project}"
-     * @required
-     * @readonly
      */
+    @Component
     protected MavenProject project;
 
     /**
      * The plugin dependencies.
-     * 
-     * @parameter expression="${plugin.artifacts}"
-     * @required
-     * @readonly
      */
-    protected List<Artifact> pluginArtifacts;
+    @Parameter(property="plugin.artifacts", required=true, readonly=true)
+    private List<Artifact> pluginArtifacts;
 
     protected abstract String getGoalDescription ();
 
