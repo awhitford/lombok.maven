@@ -1,0 +1,12 @@
+About Lombok Maven Plugin
+
+  This plugin allows a Maven project to take advantage of {{{http://projectlombok.org}Project Lombok}}.
+
+* Usage
+
+  Please refer to the {{{./usage.html}Usage}} page for details on how to use the plugin.
+
+* Example
+
+  Please refer to the {{{./example.html}Example}} page for details on seeing the plugin in action.
+

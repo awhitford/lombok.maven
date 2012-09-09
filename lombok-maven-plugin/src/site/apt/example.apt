@@ -1,0 +1,4 @@
+Example
+
+  For a detailed example of how this plugin can be leveraged, please see the {{{../test-maven-lombok/index.html}sample project}} that demonstrates using the <lombok-maven-plugin>.
+
