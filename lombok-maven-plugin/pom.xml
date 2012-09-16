@@ -73,6 +73,7 @@
             </goals>
           </execution>
         </executions>
+        <!-- Vote for http://jira.codehaus.org/browse/MPLUGIN-223 for full Java 5 annotation support. -->
         <configuration>
           <skipErrorNoDescriptorsFound>true</skipErrorNoDescriptorsFound>
           <useJava5>true</useJava5>
