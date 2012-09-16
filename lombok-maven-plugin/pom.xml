@@ -79,6 +79,7 @@
         </configuration>
       </plugin>
       <plugin>
+        <!-- Vote for http://jira.codehaus.org/browse/MDOCCK-26 to suppress warning. -->
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-docck-plugin</artifactId>
         <version>1.0</version>
