@@ -42,6 +42,52 @@
         <p>When the plugin was revised to support 0.10.0, the plugin was renamed to follow the Maven Plugin Naming Conventions.  According to the convention, <em>maven-lombok-plugin</em> implies that it has a groupId of <em>org.apache.maven.plugins</em>; since it does not, <em>lombok-maven-plugin</em> is more appropriate.</p>
       </answer>
     </faq>
+    <faq id="alt-src-setup">
+      <question>Rather than placing source code in <em>src/main/lombok</em>, is there a way to delombok <em>src/main/java</em> code?</question>
+      <answer>
+        <p>This is a common request, and yes there is a way to configure Maven to achieve this desired behavior.
+        Please be advised that this strategy may have some negative consequences.</p>
+        <p>Delombok still operates as a code generator, but the <em>src/main/java</em> code is your delombok
+        source (rather than <em>src/main/lombok</em>) and you need to override Maven's source directory to be
+        <em>target/generated-sources/delombok</em> (rather than <em>src/main/java</em>).</p>
+        <source><![CDATA[
+<build>
+  <sourceDirectory>target/generated-sources/delombok</sourceDirectory>
+  <testSourceDirectory>target/generated-test-sources/delombok</testSourceDirectory>
+  <plugin>
+    <groupId>org.projectlombok</groupId>
+    <artifactId>lombok-maven-plugin</artifactId>
+    <version>${MavenLombokPluginVersion}</version>
+    <executions>
+      <execution>
+        <id>delombok</id>
+        <phase>generate-sources</phase>
+        <goals>
+          <goal>delombok</goal>
+        </goals>
+        <configuration>
+          <addOutputDirectory>false</addOutputDirectory>
+          <sourceDirectory>src/main/java</sourceDirectory>
+        </configuration>
+      </execution>
+      <execution>
+        <id>test-delombok</id>
+        <phase>generate-test-sources</phase>
+        <goals>
+          <goal>testDelombok</goal>
+        </goals>
+        <configuration>
+          <addOutputDirectory>false</addOutputDirectory>
+          <sourceDirectory>src/test/java</sourceDirectory>
+        </configuration>
+      </execution>
+    </executions>
+  </plugin>
+</build>]]>
+        </source>
+        <p>The discussion on <a href="http://stackoverflow.com/questions/11329965/how-to-ignore-the-java-source-directory-during-maven-compilation">Stack Overflow</a> may be helpful.</p>
+      </answer>
+    </faq>
   </part>
   <part id="Versions">
     <title>Versions</title>
