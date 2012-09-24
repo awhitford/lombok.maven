@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<pmd version="4.3" timestamp="2012-09-24T00:12:23.360">
+<pmd version="4.3" timestamp="2012-09-24T00:48:15.708">
 <file name="/Users/anthony/Documents/lombok.maven/lombok-maven-plugin/src/main/java/lombok/maven/AbstractDelombokMojo.java">
 <violation beginline="51" endline="51" begincolumn="23" endcolumn="40" rule="LongVariable" ruleset="Naming Rules" package="lombok.maven" class="AbstractDelombokMojo" variable="addOutputDirectory" externalInfoUrl="http://pmd.sourceforge.net/rules/naming.html#LongVariable" priority="3">
 Avoid excessively long variable names like addOutputDirectory
