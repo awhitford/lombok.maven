@@ -6,58 +6,60 @@
 <FONT color="green">003</FONT>    import java.io.File;<a name="line.3"></a>
 <FONT color="green">004</FONT>    <a name="line.4"></a>
 <FONT color="green">005</FONT>    import org.apache.commons.lang3.StringUtils;<a name="line.5"></a>
-<FONT color="green">006</FONT>    <a name="line.6"></a>
-<FONT color="green">007</FONT>    <a name="line.7"></a>
-<FONT color="green">008</FONT>    /**<a name="line.8"></a>
-<FONT color="green">009</FONT>     * Delombok java source with lombok annotations.<a name="line.9"></a>
-<FONT color="green">010</FONT>     *<a name="line.10"></a>
-<FONT color="green">011</FONT>     * @goal delombok<a name="line.11"></a>
-<FONT color="green">012</FONT>     * @phase generate-sources<a name="line.12"></a>
-<FONT color="green">013</FONT>     * @requiresDependencyResolution compile<a name="line.13"></a>
-<FONT color="green">014</FONT>     * @author &lt;a href="mailto:anthony@whitford.com"&gt;Anthony Whitford&lt;/a&gt;<a name="line.14"></a>
-<FONT color="green">015</FONT>     * @see &lt;a href="http://projectlombok.org/features/delombok.html"&gt;Delombok&lt;/a&gt;<a name="line.15"></a>
-<FONT color="green">016</FONT>     */<a name="line.16"></a>
-<FONT color="green">017</FONT>    public class DelombokMojo extends AbstractDelombokMojo {<a name="line.17"></a>
-<FONT color="green">018</FONT>    <a name="line.18"></a>
-<FONT color="green">019</FONT>        /**<a name="line.19"></a>
-<FONT color="green">020</FONT>         * Location of the lombok annotated source files.<a name="line.20"></a>
-<FONT color="green">021</FONT>         * @parameter expression="${lombok.sourceDirectory}" default-value="${project.basedir}/src/main/lombok"<a name="line.21"></a>
-<FONT color="green">022</FONT>         * @required<a name="line.22"></a>
+<FONT color="green">006</FONT>    import org.apache.maven.plugins.annotations.LifecyclePhase;<a name="line.6"></a>
+<FONT color="green">007</FONT>    import org.apache.maven.plugins.annotations.Mojo;<a name="line.7"></a>
+<FONT color="green">008</FONT>    import org.apache.maven.plugins.annotations.Parameter;<a name="line.8"></a>
+<FONT color="green">009</FONT>    import org.apache.maven.plugins.annotations.ResolutionScope;<a name="line.9"></a>
+<FONT color="green">010</FONT>    <a name="line.10"></a>
+<FONT color="green">011</FONT>    <a name="line.11"></a>
+<FONT color="green">012</FONT>    /**<a name="line.12"></a>
+<FONT color="green">013</FONT>     * Delombok java source with lombok annotations.<a name="line.13"></a>
+<FONT color="green">014</FONT>     *<a name="line.14"></a>
+<FONT color="green">015</FONT>     * @author &lt;a href="mailto:anthony@whitford.com"&gt;Anthony Whitford&lt;/a&gt;<a name="line.15"></a>
+<FONT color="green">016</FONT>     * @see &lt;a href="http://projectlombok.org/features/delombok.html"&gt;Delombok&lt;/a&gt;<a name="line.16"></a>
+<FONT color="green">017</FONT>     */<a name="line.17"></a>
+<FONT color="green">018</FONT>    @Mojo(name="delombok", defaultPhase=LifecyclePhase.GENERATE_SOURCES, requiresDependencyResolution=ResolutionScope.COMPILE, threadSafe=true)<a name="line.18"></a>
+<FONT color="green">019</FONT>    public class DelombokMojo extends AbstractDelombokMojo {<a name="line.19"></a>
+<FONT color="green">020</FONT>    <a name="line.20"></a>
+<FONT color="green">021</FONT>        /**<a name="line.21"></a>
+<FONT color="green">022</FONT>         * Location of the lombok annotated source files.<a name="line.22"></a>
 <FONT color="green">023</FONT>         */<a name="line.23"></a>
-<FONT color="green">024</FONT>        private File sourceDirectory;<a name="line.24"></a>
-<FONT color="green">025</FONT>    <a name="line.25"></a>
-<FONT color="green">026</FONT>        /**<a name="line.26"></a>
-<FONT color="green">027</FONT>         * Location of the generated source files.<a name="line.27"></a>
-<FONT color="green">028</FONT>         * @parameter expression="${lombok.outputDirectory}" default-value="${project.build.directory}/generated-sources/delombok"<a name="line.28"></a>
-<FONT color="green">029</FONT>         * @required<a name="line.29"></a>
-<FONT color="green">030</FONT>         */<a name="line.30"></a>
-<FONT color="green">031</FONT>        private File outputDirectory;<a name="line.31"></a>
-<FONT color="green">032</FONT>    <a name="line.32"></a>
-<FONT color="green">033</FONT>        @Override<a name="line.33"></a>
-<FONT color="green">034</FONT>        protected String getGoalDescription() {<a name="line.34"></a>
-<FONT color="green">035</FONT>            return "Delombok";<a name="line.35"></a>
-<FONT color="green">036</FONT>        }<a name="line.36"></a>
-<FONT color="green">037</FONT>    <a name="line.37"></a>
-<FONT color="green">038</FONT>        @Override<a name="line.38"></a>
-<FONT color="green">039</FONT>        protected File getOutputDirectory() {<a name="line.39"></a>
-<FONT color="green">040</FONT>            return outputDirectory;<a name="line.40"></a>
-<FONT color="green">041</FONT>        }<a name="line.41"></a>
-<FONT color="green">042</FONT>    <a name="line.42"></a>
-<FONT color="green">043</FONT>        @Override<a name="line.43"></a>
-<FONT color="green">044</FONT>        protected File getSourceDirectory() {<a name="line.44"></a>
-<FONT color="green">045</FONT>            return sourceDirectory;<a name="line.45"></a>
-<FONT color="green">046</FONT>        }<a name="line.46"></a>
-<FONT color="green">047</FONT>    <a name="line.47"></a>
-<FONT color="green">048</FONT>        @Override<a name="line.48"></a>
-<FONT color="green">049</FONT>        protected String getSourcePath() {<a name="line.49"></a>
-<FONT color="green">050</FONT>            return StringUtils.join(this.project.getCompileSourceRoots(), File.pathSeparatorChar);<a name="line.50"></a>
-<FONT color="green">051</FONT>        }<a name="line.51"></a>
-<FONT color="green">052</FONT>    <a name="line.52"></a>
-<FONT color="green">053</FONT>        @Override<a name="line.53"></a>
-<FONT color="green">054</FONT>        protected void addSourceRoot(final String path) {<a name="line.54"></a>
-<FONT color="green">055</FONT>            project.addCompileSourceRoot(path);<a name="line.55"></a>
-<FONT color="green">056</FONT>        }<a name="line.56"></a>
-<FONT color="green">057</FONT>    }<a name="line.57"></a>
+<FONT color="green">024</FONT>        @Parameter(property="lombok.sourceDirectory", defaultValue="${project.basedir}/src/main/lombok", required=true)<a name="line.24"></a>
+<FONT color="green">025</FONT>        private File sourceDirectory;<a name="line.25"></a>
+<FONT color="green">026</FONT>    <a name="line.26"></a>
+<FONT color="green">027</FONT>        /**<a name="line.27"></a>
+<FONT color="green">028</FONT>         * Location of the generated source files.<a name="line.28"></a>
+<FONT color="green">029</FONT>         * @parameter expression="${lombok.outputDirectory}" default-value="${project.build.directory}/generated-sources/delombok"<a name="line.29"></a>
+<FONT color="green">030</FONT>         * @required<a name="line.30"></a>
+<FONT color="green">031</FONT>         */<a name="line.31"></a>
+<FONT color="green">032</FONT>        @Parameter(property="lombok.outputDirectory", defaultValue="${project.build.directory}/generated-sources/delombok", required=true)<a name="line.32"></a>
+<FONT color="green">033</FONT>        private File outputDirectory;<a name="line.33"></a>
+<FONT color="green">034</FONT>    <a name="line.34"></a>
+<FONT color="green">035</FONT>        @Override<a name="line.35"></a>
+<FONT color="green">036</FONT>        protected String getGoalDescription() {<a name="line.36"></a>
+<FONT color="green">037</FONT>            return "Delombok";<a name="line.37"></a>
+<FONT color="green">038</FONT>        }<a name="line.38"></a>
+<FONT color="green">039</FONT>    <a name="line.39"></a>
+<FONT color="green">040</FONT>        @Override<a name="line.40"></a>
+<FONT color="green">041</FONT>        protected File getOutputDirectory() {<a name="line.41"></a>
+<FONT color="green">042</FONT>            return outputDirectory;<a name="line.42"></a>
+<FONT color="green">043</FONT>        }<a name="line.43"></a>
+<FONT color="green">044</FONT>    <a name="line.44"></a>
+<FONT color="green">045</FONT>        @Override<a name="line.45"></a>
+<FONT color="green">046</FONT>        protected File getSourceDirectory() {<a name="line.46"></a>
+<FONT color="green">047</FONT>            return sourceDirectory;<a name="line.47"></a>
+<FONT color="green">048</FONT>        }<a name="line.48"></a>
+<FONT color="green">049</FONT>    <a name="line.49"></a>
+<FONT color="green">050</FONT>        @Override<a name="line.50"></a>
+<FONT color="green">051</FONT>        protected String getSourcePath() {<a name="line.51"></a>
+<FONT color="green">052</FONT>            return StringUtils.join(this.project.getCompileSourceRoots(), File.pathSeparatorChar);<a name="line.52"></a>
+<FONT color="green">053</FONT>        }<a name="line.53"></a>
+<FONT color="green">054</FONT>    <a name="line.54"></a>
+<FONT color="green">055</FONT>        @Override<a name="line.55"></a>
+<FONT color="green">056</FONT>        protected void addSourceRoot(final String path) {<a name="line.56"></a>
+<FONT color="green">057</FONT>            project.addCompileSourceRoot(path);<a name="line.57"></a>
+<FONT color="green">058</FONT>        }<a name="line.58"></a>
+<FONT color="green">059</FONT>    }<a name="line.59"></a>
 
 
 
