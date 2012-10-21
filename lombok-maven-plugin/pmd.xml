@@ -1,11 +1,250 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<pmd version="4.3" timestamp="2012-09-24T00:48:15.708">
+<pmd version="4.3" timestamp="2012-10-20T21:23:33.544">
 <file name="/Users/anthony/Documents/lombok.maven/lombok-maven-plugin/src/main/java/lombok/maven/AbstractDelombokMojo.java">
 <violation beginline="51" endline="51" begincolumn="23" endcolumn="40" rule="LongVariable" ruleset="Naming Rules" package="lombok.maven" class="AbstractDelombokMojo" variable="addOutputDirectory" externalInfoUrl="http://pmd.sourceforge.net/rules/naming.html#LongVariable" priority="3">
 Avoid excessively long variable names like addOutputDirectory
 </violation>
 <violation beginline="76" endline="76" begincolumn="12" endcolumn="5" rule="DataflowAnomalyAnalysis" ruleset="Controversial Rules" package="lombok.maven" class="AbstractDelombokMojo" variable="logger" externalInfoUrl="http://pmd.sourceforge.net/rules/controversial.html#DataflowAnomalyAnalysis" priority="5">
 Found 'UR'-anomaly for variable 'logger' (lines '76'-'76').
+</violation>
+</file>
+<file name="/Users/anthony/Documents/lombok.maven/lombok-maven-plugin/target/generated-sources/plugin/HelpMojo.java">
+<violation beginline="13" endline="13" begincolumn="1" endcolumn="26" rule="UnusedImports" ruleset="Import Statement Rules" externalInfoUrl="http://pmd.sourceforge.net/rules/imports.html#UnusedImports" priority="4">
+Avoid unused imports such as 'java.util.Iterator'
+</violation>
+<violation beginline="25" endline="360" begincolumn="8" endcolumn="1" rule="NoPackage" ruleset="Naming Rules" externalInfoUrl="http://pmd.sourceforge.net/rules/naming.html#NoPackage" priority="3">
+All classes and interfaces must belong to a named package
+</violation>
+<violation beginline="25" endline="360" begincolumn="8" endcolumn="1" rule="CyclomaticComplexity" ruleset="Code Size Rules" externalInfoUrl="http://pmd.sourceforge.net/rules/codesize.html#CyclomaticComplexity" priority="3">
+The class 'HelpMojo' has a Cyclomatic Complexity of 5 (Highest = 11).
+</violation>
+<violation beginline="67" endline="67" begincolumn="21" endcolumn="22" rule="ShortVariable" ruleset="Naming Rules" class="HelpMojo" method="build" variable="is" externalInfoUrl="http://pmd.sourceforge.net/rules/naming.html#ShortVariable" priority="3">
+Avoid variables with short names like is
+</violation>
+<violation beginline="67" endline="67" begincolumn="9" endcolumn="75" rule="LocalVariableCouldBeFinal" ruleset="Optimization Rules" class="HelpMojo" method="build" variable="is" externalInfoUrl="http://pmd.sourceforge.net/rules/optimizations.html#LocalVariableCouldBeFinal" priority="3">
+Local variable 'is' could be declared final
+</violation>
+<violation beginline="85" endline="144" begincolumn="12" endcolumn="5" rule="CyclomaticComplexity" ruleset="Code Size Rules" class="HelpMojo" externalInfoUrl="http://pmd.sourceforge.net/rules/codesize.html#CyclomaticComplexity" priority="3">
+The method 'execute' has a Cyclomatic Complexity of 11.
+</violation>
+<violation beginline="85" endline="144" begincolumn="12" endcolumn="5" rule="NPathComplexity" ruleset="Code Size Rules" class="HelpMojo" externalInfoUrl="http://pmd.sourceforge.net/rules/codesize.html#NPathComplexity" priority="3">
+The method execute() has an NPath complexity of 448
+</violation>
+<violation beginline="88" endline="88" begincolumn="28" endcolumn="28" rule="AvoidLiteralsInIfCondition" ruleset="Controversial Rules" class="HelpMojo" method="execute" externalInfoUrl="http://pmd.sourceforge.net/rules/controversial.html#AvoidLiteralsInIfCondition" priority="3">
+Avoid using Literals in Conditional Statements
+</violation>
+<violation beginline="93" endline="93" begincolumn="28" endcolumn="28" rule="AvoidLiteralsInIfCondition" ruleset="Controversial Rules" class="HelpMojo" method="execute" externalInfoUrl="http://pmd.sourceforge.net/rules/controversial.html#AvoidLiteralsInIfCondition" priority="3">
+Avoid using Literals in Conditional Statements
+</violation>
+<violation beginline="99" endline="99" begincolumn="9" endcolumn="39" rule="LocalVariableCouldBeFinal" ruleset="Optimization Rules" class="HelpMojo" method="execute" variable="pluginElement" externalInfoUrl="http://pmd.sourceforge.net/rules/optimizations.html#LocalVariableCouldBeFinal" priority="3">
+Local variable 'pluginElement' could be declared final
+</violation>
+<violation beginline="101" endline="101" begincolumn="23" endcolumn="24" rule="ShortVariable" ruleset="Naming Rules" class="HelpMojo" method="execute" variable="sb" externalInfoUrl="http://pmd.sourceforge.net/rules/naming.html#ShortVariable" priority="3">
+Avoid variables with short names like sb
+</violation>
+<violation beginline="101" endline="101" begincolumn="9" endcolumn="46" rule="LocalVariableCouldBeFinal" ruleset="Optimization Rules" class="HelpMojo" method="execute" variable="sb" externalInfoUrl="http://pmd.sourceforge.net/rules/optimizations.html#LocalVariableCouldBeFinal" priority="3">
+Local variable 'sb' could be declared final
+</violation>
+<violation beginline="102" endline="102" begincolumn="9" endcolumn="65" rule="LocalVariableCouldBeFinal" ruleset="Optimization Rules" class="HelpMojo" method="execute" variable="name" externalInfoUrl="http://pmd.sourceforge.net/rules/optimizations.html#LocalVariableCouldBeFinal" priority="3">
+Local variable 'name' could be declared final
+</violation>
+<violation beginline="103" endline="103" begincolumn="9" endcolumn="71" rule="LocalVariableCouldBeFinal" ruleset="Optimization Rules" class="HelpMojo" method="execute" variable="version" externalInfoUrl="http://pmd.sourceforge.net/rules/optimizations.html#LocalVariableCouldBeFinal" priority="3">
+Local variable 'version' could be declared final
+</violation>
+<violation beginline="104" endline="104" begincolumn="16" endcolumn="17" rule="ShortVariable" ruleset="Naming Rules" class="HelpMojo" method="execute" variable="id" externalInfoUrl="http://pmd.sourceforge.net/rules/naming.html#ShortVariable" priority="3">
+Avoid variables with short names like id
+</violation>
+<violation beginline="104" endline="105" begincolumn="9" endcolumn="35" rule="LocalVariableCouldBeFinal" ruleset="Optimization Rules" class="HelpMojo" method="execute" variable="id" externalInfoUrl="http://pmd.sourceforge.net/rules/optimizations.html#LocalVariableCouldBeFinal" priority="3">
+Local variable 'id' could be declared final
+</violation>
+<violation beginline="121" endline="121" begincolumn="45" endcolumn="57" rule="AvoidDuplicateLiterals" ruleset="String and StringBuffer Rules" class="HelpMojo" method="execute" externalInfoUrl="http://pmd.sourceforge.net/rules/strings.html#AvoidDuplicateLiterals" priority="3">
+The String literal &quot;description&quot; appears 4 times in this file; the first occurrence is on line 121
+</violation>
+<violation beginline="125" endline="144" begincolumn="16" endcolumn="77" rule="DataflowAnomalyAnalysis" ruleset="Controversial Rules" class="HelpMojo" method="execute" variable="goalPrefix" externalInfoUrl="http://pmd.sourceforge.net/rules/controversial.html#DataflowAnomalyAnalysis" priority="5">
+Found 'DU'-anomaly for variable 'goalPrefix' (lines '125'-'144').
+</violation>
+<violation beginline="125" endline="125" begincolumn="9" endcolumn="77" rule="LocalVariableCouldBeFinal" ruleset="Optimization Rules" class="HelpMojo" method="execute" variable="goalPrefix" externalInfoUrl="http://pmd.sourceforge.net/rules/optimizations.html#LocalVariableCouldBeFinal" priority="3">
+Local variable 'goalPrefix' could be declared final
+</violation>
+<violation beginline="127" endline="127" begincolumn="9" endcolumn="81" rule="LocalVariableCouldBeFinal" ruleset="Optimization Rules" class="HelpMojo" method="execute" variable="mojos" externalInfoUrl="http://pmd.sourceforge.net/rules/optimizations.html#LocalVariableCouldBeFinal" priority="3">
+Local variable 'mojos' could be declared final
+</violation>
+<violation beginline="146" endline="146" begincolumn="44" endcolumn="55" rule="MethodArgumentCouldBeFinal" ruleset="Optimization Rules" class="HelpMojo" method="getValue" externalInfoUrl="http://pmd.sourceforge.net/rules/optimizations.html#MethodArgumentCouldBeFinal" priority="3">
+Parameter 'child' is not assigned and could be declared final
+</violation>
+<violation beginline="146" endline="146" begincolumn="30" endcolumn="41" rule="MethodArgumentCouldBeFinal" ruleset="Optimization Rules" class="HelpMojo" method="getValue" externalInfoUrl="http://pmd.sourceforge.net/rules/optimizations.html#MethodArgumentCouldBeFinal" priority="3">
+Parameter 'mojo' is not assigned and could be declared final
+</violation>
+<violation beginline="148" endline="148" begincolumn="9" endcolumn="44" rule="LocalVariableCouldBeFinal" ruleset="Optimization Rules" class="HelpMojo" method="getValue" variable="elt" externalInfoUrl="http://pmd.sourceforge.net/rules/optimizations.html#LocalVariableCouldBeFinal" priority="3">
+Local variable 'elt' could be declared final
+</violation>
+<violation beginline="152" endline="152" begincolumn="43" endcolumn="44" rule="ShortVariable" ruleset="Naming Rules" class="HelpMojo" method="writeGoal" variable="sb" externalInfoUrl="http://pmd.sourceforge.net/rules/naming.html#ShortVariable" priority="3">
+Avoid variables with short names like sb
+</violation>
+<violation beginline="152" endline="152" begincolumn="47" endcolumn="63" rule="MethodArgumentCouldBeFinal" ruleset="Optimization Rules" class="HelpMojo" method="writeGoal" externalInfoUrl="http://pmd.sourceforge.net/rules/optimizations.html#MethodArgumentCouldBeFinal" priority="3">
+Parameter 'goalPrefix' is not assigned and could be declared final
+</violation>
+<violation beginline="152" endline="152" begincolumn="66" endcolumn="77" rule="MethodArgumentCouldBeFinal" ruleset="Optimization Rules" class="HelpMojo" method="writeGoal" externalInfoUrl="http://pmd.sourceforge.net/rules/optimizations.html#MethodArgumentCouldBeFinal" priority="3">
+Parameter 'mojo' is not assigned and could be declared final
+</violation>
+<violation beginline="152" endline="152" begincolumn="29" endcolumn="44" rule="MethodArgumentCouldBeFinal" ruleset="Optimization Rules" class="HelpMojo" method="writeGoal" externalInfoUrl="http://pmd.sourceforge.net/rules/optimizations.html#MethodArgumentCouldBeFinal" priority="3">
+Parameter 'sb' is not assigned and could be declared final
+</violation>
+<violation beginline="154" endline="154" begincolumn="9" endcolumn="60" rule="LocalVariableCouldBeFinal" ruleset="Optimization Rules" class="HelpMojo" method="writeGoal" variable="mojoGoal" externalInfoUrl="http://pmd.sourceforge.net/rules/optimizations.html#LocalVariableCouldBeFinal" priority="3">
+Local variable 'mojoGoal' could be declared final
+</violation>
+<violation beginline="155" endline="155" begincolumn="17" endcolumn="36" rule="LongVariable" ruleset="Naming Rules" class="HelpMojo" method="writeGoal" variable="configurationElement" externalInfoUrl="http://pmd.sourceforge.net/rules/naming.html#LongVariable" priority="3">
+Avoid excessively long variable names like configurationElement
+</violation>
+<violation beginline="155" endline="188" begincolumn="17" endcolumn="71" rule="DataflowAnomalyAnalysis" ruleset="Controversial Rules" class="HelpMojo" method="writeGoal" variable="configurationElement" externalInfoUrl="http://pmd.sourceforge.net/rules/controversial.html#DataflowAnomalyAnalysis" priority="5">
+Found 'DU'-anomaly for variable 'configurationElement' (lines '155'-'188').
+</violation>
+<violation beginline="155" endline="155" begincolumn="9" endcolumn="71" rule="LocalVariableCouldBeFinal" ruleset="Optimization Rules" class="HelpMojo" method="writeGoal" variable="configurationElement" externalInfoUrl="http://pmd.sourceforge.net/rules/optimizations.html#LocalVariableCouldBeFinal" priority="3">
+Local variable 'configurationElement' could be declared final
+</violation>
+<violation beginline="160" endline="160" begincolumn="13" endcolumn="62" rule="LocalVariableCouldBeFinal" ruleset="Optimization Rules" class="HelpMojo" method="writeGoal" variable="deprecated" externalInfoUrl="http://pmd.sourceforge.net/rules/optimizations.html#LocalVariableCouldBeFinal" priority="3">
+Local variable 'deprecated' could be declared final
+</violation>
+<violation beginline="178" endline="178" begincolumn="17" endcolumn="95" rule="LocalVariableCouldBeFinal" ruleset="Optimization Rules" class="HelpMojo" method="writeGoal" variable="parameters" externalInfoUrl="http://pmd.sourceforge.net/rules/optimizations.html#LocalVariableCouldBeFinal" priority="3">
+Local variable 'parameters' could be declared final
+</violation>
+<violation beginline="190" endline="190" begincolumn="79" endcolumn="98" rule="LongVariable" ruleset="Naming Rules" class="HelpMojo" method="writeParameter" variable="configurationElement" externalInfoUrl="http://pmd.sourceforge.net/rules/naming.html#LongVariable" priority="3">
+Avoid excessively long variable names like configurationElement
+</violation>
+<violation beginline="190" endline="190" begincolumn="48" endcolumn="49" rule="ShortVariable" ruleset="Naming Rules" class="HelpMojo" method="writeParameter" variable="sb" externalInfoUrl="http://pmd.sourceforge.net/rules/naming.html#ShortVariable" priority="3">
+Avoid variables with short names like sb
+</violation>
+<violation beginline="190" endline="190" begincolumn="71" endcolumn="98" rule="MethodArgumentCouldBeFinal" ruleset="Optimization Rules" class="HelpMojo" method="writeParameter" externalInfoUrl="http://pmd.sourceforge.net/rules/optimizations.html#MethodArgumentCouldBeFinal" priority="3">
+Parameter 'configurationElement' is not assigned and could be declared final
+</violation>
+<violation beginline="190" endline="190" begincolumn="52" endcolumn="68" rule="MethodArgumentCouldBeFinal" ruleset="Optimization Rules" class="HelpMojo" method="writeParameter" externalInfoUrl="http://pmd.sourceforge.net/rules/optimizations.html#MethodArgumentCouldBeFinal" priority="3">
+Parameter 'parameter' is not assigned and could be declared final
+</violation>
+<violation beginline="190" endline="190" begincolumn="34" endcolumn="49" rule="MethodArgumentCouldBeFinal" ruleset="Optimization Rules" class="HelpMojo" method="writeParameter" externalInfoUrl="http://pmd.sourceforge.net/rules/optimizations.html#MethodArgumentCouldBeFinal" priority="3">
+Parameter 'sb' is not assigned and could be declared final
+</violation>
+<violation beginline="192" endline="192" begincolumn="9" endcolumn="70" rule="LocalVariableCouldBeFinal" ruleset="Optimization Rules" class="HelpMojo" method="writeParameter" variable="parameterName" externalInfoUrl="http://pmd.sourceforge.net/rules/optimizations.html#LocalVariableCouldBeFinal" priority="3">
+Local variable 'parameterName' could be declared final
+</violation>
+<violation beginline="193" endline="193" begincolumn="16" endcolumn="35" rule="LongVariable" ruleset="Naming Rules" class="HelpMojo" method="writeParameter" variable="parameterDescription" externalInfoUrl="http://pmd.sourceforge.net/rules/naming.html#LongVariable" priority="3">
+Avoid excessively long variable names like parameterDescription
+</violation>
+<violation beginline="193" endline="193" begincolumn="9" endcolumn="84" rule="LocalVariableCouldBeFinal" ruleset="Optimization Rules" class="HelpMojo" method="writeParameter" variable="parameterDescription" externalInfoUrl="http://pmd.sourceforge.net/rules/optimizations.html#LocalVariableCouldBeFinal" priority="3">
+Local variable 'parameterDescription' could be declared final
+</violation>
+<violation beginline="195" endline="195" begincolumn="17" endcolumn="41" rule="LongVariable" ruleset="Naming Rules" class="HelpMojo" method="writeParameter" variable="fieldConfigurationElement" externalInfoUrl="http://pmd.sourceforge.net/rules/naming.html#LongVariable" priority="3">
+Avoid excessively long variable names like fieldConfigurationElement
+</violation>
+<violation beginline="195" endline="195" begincolumn="9" endcolumn="90" rule="LocalVariableCouldBeFinal" ruleset="Optimization Rules" class="HelpMojo" method="writeParameter" variable="fieldConfigurationElement" externalInfoUrl="http://pmd.sourceforge.net/rules/optimizations.html#LocalVariableCouldBeFinal" priority="3">
+Local variable 'fieldConfigurationElement' could be declared final
+</violation>
+<violation beginline="197" endline="197" begincolumn="16" endcolumn="36" rule="LongVariable" ruleset="Naming Rules" class="HelpMojo" method="writeParameter" variable="parameterDefaultValue" externalInfoUrl="http://pmd.sourceforge.net/rules/naming.html#LongVariable" priority="3">
+Avoid excessively long variable names like parameterDefaultValue
+</violation>
+<violation beginline="197" endline="200" begincolumn="13" endcolumn="115" rule="DataflowAnomalyAnalysis" ruleset="Controversial Rules" class="HelpMojo" method="writeParameter" variable="parameterDefaultValue" externalInfoUrl="http://pmd.sourceforge.net/rules/controversial.html#DataflowAnomalyAnalysis" priority="5">
+Found 'DD'-anomaly for variable 'parameterDefaultValue' (lines '197'-'200').
+</violation>
+<violation beginline="203" endline="203" begincolumn="9" endcolumn="63" rule="LocalVariableCouldBeFinal" ruleset="Optimization Rules" class="HelpMojo" method="writeParameter" variable="deprecated" externalInfoUrl="http://pmd.sourceforge.net/rules/optimizations.html#LocalVariableCouldBeFinal" priority="3">
+Local variable 'deprecated' could be declared final
+</violation>
+<violation beginline="214" endline="214" begincolumn="9" endcolumn="63" rule="LocalVariableCouldBeFinal" ruleset="Optimization Rules" class="HelpMojo" method="writeParameter" variable="expression" externalInfoUrl="http://pmd.sourceforge.net/rules/optimizations.html#LocalVariableCouldBeFinal" priority="3">
+Local variable 'expression' could be declared final
+</violation>
+<violation beginline="232" endline="232" begincolumn="47" endcolumn="56" rule="MethodArgumentCouldBeFinal" ruleset="Optimization Rules" class="HelpMojo" method="repeat" externalInfoUrl="http://pmd.sourceforge.net/rules/optimizations.html#MethodArgumentCouldBeFinal" priority="3">
+Parameter 'repeat' is not assigned and could be declared final
+</violation>
+<violation beginline="232" endline="232" begincolumn="35" endcolumn="44" rule="MethodArgumentCouldBeFinal" ruleset="Optimization Rules" class="HelpMojo" method="repeat" externalInfoUrl="http://pmd.sourceforge.net/rules/optimizations.html#MethodArgumentCouldBeFinal" priority="3">
+Parameter 'str' is not assigned and could be declared final
+</violation>
+<violation beginline="234" endline="234" begincolumn="9" endcolumn="73" rule="LocalVariableCouldBeFinal" ruleset="Optimization Rules" class="HelpMojo" method="repeat" variable="buffer" externalInfoUrl="http://pmd.sourceforge.net/rules/optimizations.html#LocalVariableCouldBeFinal" priority="3">
+Local variable 'buffer' could be declared final
+</violation>
+<violation beginline="252" endline="252" begincolumn="40" endcolumn="41" rule="ShortVariable" ruleset="Naming Rules" class="HelpMojo" method="append" variable="sb" externalInfoUrl="http://pmd.sourceforge.net/rules/naming.html#ShortVariable" priority="3">
+Avoid variables with short names like sb
+</violation>
+<violation beginline="252" endline="252" begincolumn="44" endcolumn="61" rule="MethodArgumentCouldBeFinal" ruleset="Optimization Rules" class="HelpMojo" method="append" externalInfoUrl="http://pmd.sourceforge.net/rules/optimizations.html#MethodArgumentCouldBeFinal" priority="3">
+Parameter 'description' is not assigned and could be declared final
+</violation>
+<violation beginline="252" endline="252" begincolumn="64" endcolumn="73" rule="MethodArgumentCouldBeFinal" ruleset="Optimization Rules" class="HelpMojo" method="append" externalInfoUrl="http://pmd.sourceforge.net/rules/optimizations.html#MethodArgumentCouldBeFinal" priority="3">
+Parameter 'indent' is not assigned and could be declared final
+</violation>
+<violation beginline="252" endline="252" begincolumn="26" endcolumn="41" rule="MethodArgumentCouldBeFinal" ruleset="Optimization Rules" class="HelpMojo" method="append" externalInfoUrl="http://pmd.sourceforge.net/rules/optimizations.html#MethodArgumentCouldBeFinal" priority="3">
+Parameter 'sb' is not assigned and could be declared final
+</violation>
+<violation beginline="270" endline="270" begincolumn="55" endcolumn="64" rule="MethodArgumentCouldBeFinal" ruleset="Optimization Rules" class="HelpMojo" method="toLines" externalInfoUrl="http://pmd.sourceforge.net/rules/optimizations.html#MethodArgumentCouldBeFinal" priority="3">
+Parameter 'indent' is not assigned and could be declared final
+</violation>
+<violation beginline="270" endline="270" begincolumn="67" endcolumn="80" rule="MethodArgumentCouldBeFinal" ruleset="Optimization Rules" class="HelpMojo" method="toLines" externalInfoUrl="http://pmd.sourceforge.net/rules/optimizations.html#MethodArgumentCouldBeFinal" priority="3">
+Parameter 'indentSize' is not assigned and could be declared final
+</violation>
+<violation beginline="270" endline="270" begincolumn="83" endcolumn="96" rule="MethodArgumentCouldBeFinal" ruleset="Optimization Rules" class="HelpMojo" method="toLines" externalInfoUrl="http://pmd.sourceforge.net/rules/optimizations.html#MethodArgumentCouldBeFinal" priority="3">
+Parameter 'lineLength' is not assigned and could be declared final
+</violation>
+<violation beginline="270" endline="270" begincolumn="42" endcolumn="52" rule="MethodArgumentCouldBeFinal" ruleset="Optimization Rules" class="HelpMojo" method="toLines" externalInfoUrl="http://pmd.sourceforge.net/rules/optimizations.html#MethodArgumentCouldBeFinal" priority="3">
+Parameter 'text' is not assigned and could be declared final
+</violation>
+<violation beginline="272" endline="272" begincolumn="9" endcolumn="52" rule="LocalVariableCouldBeFinal" ruleset="Optimization Rules" class="HelpMojo" method="toLines" variable="lines" externalInfoUrl="http://pmd.sourceforge.net/rules/optimizations.html#LocalVariableCouldBeFinal" priority="3">
+Local variable 'lines' could be declared final
+</violation>
+<violation beginline="274" endline="284" begincolumn="16" endcolumn="43" rule="DataflowAnomalyAnalysis" ruleset="Controversial Rules" class="HelpMojo" method="toLines" variable="ind" externalInfoUrl="http://pmd.sourceforge.net/rules/controversial.html#DataflowAnomalyAnalysis" priority="5">
+Found 'DU'-anomaly for variable 'ind' (lines '274'-'284').
+</violation>
+<violation beginline="274" endline="274" begincolumn="9" endcolumn="43" rule="LocalVariableCouldBeFinal" ruleset="Optimization Rules" class="HelpMojo" method="toLines" variable="ind" externalInfoUrl="http://pmd.sourceforge.net/rules/optimizations.html#LocalVariableCouldBeFinal" priority="3">
+Local variable 'ind' could be declared final
+</violation>
+<violation beginline="276" endline="276" begincolumn="9" endcolumn="62" rule="LocalVariableCouldBeFinal" ruleset="Optimization Rules" class="HelpMojo" method="toLines" variable="plainLines" externalInfoUrl="http://pmd.sourceforge.net/rules/optimizations.html#LocalVariableCouldBeFinal" priority="3">
+Local variable 'plainLines' could be declared final
+</violation>
+<violation beginline="294" endline="294" begincolumn="67" endcolumn="80" rule="MethodArgumentCouldBeFinal" ruleset="Optimization Rules" class="HelpMojo" method="toLines" externalInfoUrl="http://pmd.sourceforge.net/rules/optimizations.html#MethodArgumentCouldBeFinal" priority="3">
+Parameter 'indentSize' is not assigned and could be declared final
+</violation>
+<violation beginline="294" endline="294" begincolumn="54" endcolumn="64" rule="MethodArgumentCouldBeFinal" ruleset="Optimization Rules" class="HelpMojo" method="toLines" externalInfoUrl="http://pmd.sourceforge.net/rules/optimizations.html#MethodArgumentCouldBeFinal" priority="3">
+Parameter 'line' is not assigned and could be declared final
+</violation>
+<violation beginline="294" endline="294" begincolumn="83" endcolumn="96" rule="MethodArgumentCouldBeFinal" ruleset="Optimization Rules" class="HelpMojo" method="toLines" externalInfoUrl="http://pmd.sourceforge.net/rules/optimizations.html#MethodArgumentCouldBeFinal" priority="3">
+Parameter 'lineLength' is not assigned and could be declared final
+</violation>
+<violation beginline="294" endline="294" begincolumn="34" endcolumn="51" rule="MethodArgumentCouldBeFinal" ruleset="Optimization Rules" class="HelpMojo" method="toLines" externalInfoUrl="http://pmd.sourceforge.net/rules/optimizations.html#MethodArgumentCouldBeFinal" priority="3">
+Parameter 'lines' is not assigned and could be declared final
+</violation>
+<violation beginline="296" endline="335" begincolumn="13" endcolumn="47" rule="DataflowAnomalyAnalysis" ruleset="Controversial Rules" class="HelpMojo" method="toLines" variable="lineIndent" externalInfoUrl="http://pmd.sourceforge.net/rules/controversial.html#DataflowAnomalyAnalysis" priority="5">
+Found 'DU'-anomaly for variable 'lineIndent' (lines '296'-'335').
+</violation>
+<violation beginline="296" endline="296" begincolumn="9" endcolumn="47" rule="LocalVariableCouldBeFinal" ruleset="Optimization Rules" class="HelpMojo" method="toLines" variable="lineIndent" externalInfoUrl="http://pmd.sourceforge.net/rules/optimizations.html#LocalVariableCouldBeFinal" priority="3">
+Local variable 'lineIndent' could be declared final
+</violation>
+<violation beginline="297" endline="297" begincolumn="9" endcolumn="52" rule="LocalVariableCouldBeFinal" ruleset="Optimization Rules" class="HelpMojo" method="toLines" variable="buf" externalInfoUrl="http://pmd.sourceforge.net/rules/optimizations.html#LocalVariableCouldBeFinal" priority="3">
+Local variable 'buf' could be declared final
+</violation>
+<violation beginline="299" endline="299" begincolumn="9" endcolumn="44" rule="LocalVariableCouldBeFinal" ruleset="Optimization Rules" class="HelpMojo" method="toLines" variable="tokens" externalInfoUrl="http://pmd.sourceforge.net/rules/optimizations.html#LocalVariableCouldBeFinal" priority="3">
+Local variable 'tokens' could be declared final
+</violation>
+<violation beginline="303" endline="303" begincolumn="33" endcolumn="33" rule="AvoidLiteralsInIfCondition" ruleset="Controversial Rules" class="HelpMojo" method="toLines" externalInfoUrl="http://pmd.sourceforge.net/rules/controversial.html#AvoidLiteralsInIfCondition" priority="3">
+Avoid using Literals in Conditional Statements
+</violation>
+<violation beginline="319" endline="319" begincolumn="22" endcolumn="22" rule="ShortVariable" ruleset="Naming Rules" class="HelpMojo" method="toLines" variable="c" externalInfoUrl="http://pmd.sourceforge.net/rules/naming.html#ShortVariable" priority="3">
+Avoid variables with short names like c
+</violation>
+<violation beginline="319" endline="319" begincolumn="17" endcolumn="42" rule="LocalVariableCouldBeFinal" ruleset="Optimization Rules" class="HelpMojo" method="toLines" variable="c" externalInfoUrl="http://pmd.sourceforge.net/rules/optimizations.html#LocalVariableCouldBeFinal" priority="3">
+Local variable 'c' could be declared final
+</violation>
+<violation beginline="320" endline="320" begincolumn="27" endcolumn="30" rule="AvoidLiteralsInIfCondition" ruleset="Controversial Rules" class="HelpMojo" method="toLines" externalInfoUrl="http://pmd.sourceforge.net/rules/controversial.html#AvoidLiteralsInIfCondition" priority="3">
+Avoid using Literals in Conditional Statements
+</violation>
+<violation beginline="324" endline="324" begincolumn="32" endcolumn="39" rule="AvoidLiteralsInIfCondition" ruleset="Controversial Rules" class="HelpMojo" method="toLines" externalInfoUrl="http://pmd.sourceforge.net/rules/controversial.html#AvoidLiteralsInIfCondition" priority="3">
+Avoid using Literals in Conditional Statements
+</violation>
+<violation beginline="343" endline="343" begincolumn="40" endcolumn="50" rule="MethodArgumentCouldBeFinal" ruleset="Optimization Rules" class="HelpMojo" method="getIndentLevel" externalInfoUrl="http://pmd.sourceforge.net/rules/optimizations.html#MethodArgumentCouldBeFinal" priority="3">
+Parameter 'line' is not assigned and could be declared final
+</violation>
+<violation beginline="345" endline="348" begincolumn="13" endcolumn="19" rule="DataflowAnomalyAnalysis" ruleset="Controversial Rules" class="HelpMojo" method="getIndentLevel" variable="level" externalInfoUrl="http://pmd.sourceforge.net/rules/controversial.html#DataflowAnomalyAnalysis" priority="5">
+Found 'DD'-anomaly for variable 'level' (lines '345'-'348').
+</violation>
+<violation beginline="348" endline="348" begincolumn="13" endcolumn="19" rule="DataflowAnomalyAnalysis" ruleset="Controversial Rules" class="HelpMojo" method="getIndentLevel" variable="level" externalInfoUrl="http://pmd.sourceforge.net/rules/controversial.html#DataflowAnomalyAnalysis" priority="5">
+Found 'DD'-anomaly for variable 'level' (lines '348'-'348').
+</violation>
+<violation beginline="352" endline="352" begincolumn="38" endcolumn="41" rule="AvoidLiteralsInIfCondition" ruleset="Controversial Rules" class="HelpMojo" method="getIndentLevel" externalInfoUrl="http://pmd.sourceforge.net/rules/controversial.html#AvoidLiteralsInIfCondition" priority="3">
+Avoid using Literals in Conditional Statements
 </violation>
 </file>
 </pmd>
