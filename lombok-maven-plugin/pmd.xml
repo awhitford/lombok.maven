@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<pmd version="4.3" timestamp="2012-10-20T21:23:33.544">
-<file name="/Users/anthony/Documents/lombok.maven/lombok-maven-plugin/src/main/java/lombok/maven/AbstractDelombokMojo.java">
+<pmd version="4.3" timestamp="2012-10-30T22:41:14.903">
+<file name="/Users/anthony/Documents/lombok.maven/target/checkout/lombok-maven-plugin/src/main/java/lombok/maven/AbstractDelombokMojo.java">
 <violation beginline="51" endline="51" begincolumn="23" endcolumn="40" rule="LongVariable" ruleset="Naming Rules" package="lombok.maven" class="AbstractDelombokMojo" variable="addOutputDirectory" externalInfoUrl="http://pmd.sourceforge.net/rules/naming.html#LongVariable" priority="3">
 Avoid excessively long variable names like addOutputDirectory
 </violation>
@@ -8,7 +8,7 @@ Avoid excessively long variable names like addOutputDirectory
 Found 'UR'-anomaly for variable 'logger' (lines '76'-'76').
 </violation>
 </file>
-<file name="/Users/anthony/Documents/lombok.maven/lombok-maven-plugin/target/generated-sources/plugin/HelpMojo.java">
+<file name="/Users/anthony/Documents/lombok.maven/target/checkout/lombok-maven-plugin/target/generated-sources/plugin/HelpMojo.java">
 <violation beginline="13" endline="13" begincolumn="1" endcolumn="26" rule="UnusedImports" ruleset="Import Statement Rules" externalInfoUrl="http://pmd.sourceforge.net/rules/imports.html#UnusedImports" priority="4">
 Avoid unused imports such as 'java.util.Iterator'
 </violation>
