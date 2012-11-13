@@ -114,18 +114,6 @@
             <link>http://maven.apache.org/ref/3.0.4/maven-core/apidocs/</link>
           </links>
           <linksource>true</linksource>
-          <tagletArtifacts>
-            <tagletArtifact>
-              <groupId>org.apache.maven.plugin-tools</groupId>
-              <artifactId>maven-plugin-tools-javadoc</artifactId>
-              <version>3.2</version>
-            </tagletArtifact>
-            <tagletArtifact>
-              <groupId>org.codehaus.plexus</groupId>
-              <artifactId>plexus-component-javadoc</artifactId>
-              <version>1.5.5</version>
-            </tagletArtifact>
-          </tagletArtifacts>
         </configuration>
       </plugin>
       <plugin>
