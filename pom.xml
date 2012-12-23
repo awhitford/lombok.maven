@@ -70,7 +70,7 @@
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-enforcer-plugin</artifactId>
-          <version>1.1.1</version>
+          <version>1.2</version>
         </plugin>
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
@@ -105,7 +105,7 @@
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-release-plugin</artifactId>
-          <version>2.3.2</version>
+          <version>2.4</version>
         </plugin>
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
