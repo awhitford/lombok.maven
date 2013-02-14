@@ -16,6 +16,13 @@
         <groupId>org.projectlombok</groupId>
         <artifactId>lombok-maven-plugin</artifactId>
         <version>${project.version}</version>
+        <dependencies>
+          <dependency>
+            <groupId>com.github.peichhorn</groupId>
+            <artifactId>lombok-pg</artifactId>
+            <version>0.11.3</version>
+          </dependency>
+        </dependencies>
         <executions>
           <execution>
             <id>delombok</id>
