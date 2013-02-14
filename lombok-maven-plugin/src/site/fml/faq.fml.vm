@@ -88,6 +88,28 @@
         <p>The discussion on <a href="http://stackoverflow.com/questions/11329965/how-to-ignore-the-java-source-directory-during-maven-compilation">Stack Overflow</a> may be helpful.</p>
       </answer>
     </faq>
+    <faq id="lombok-pg">
+      <question>Can one use <em>lombok-pg</em> extensions?</question>
+      <answer>
+        <p>Yes.  Simply add the <a href="https://github.com/peichhorn/lombok-pg">lombok-pg</a> artifact as a dependency to the plugin declaration.  For example:</p>
+        <source><![CDATA[
+<build>
+  <plugin>
+    <groupId>org.projectlombok</groupId>
+    <artifactId>lombok-maven-plugin</artifactId>
+    <version>${MavenLombokPluginVersion}</version>
+    <dependencies>
+      <dependency>
+        <groupId>com.github.peichhorn</groupId>
+        <artifactId>lombok-pg</artifactId>
+        <version>0.11.3</version>
+      </dependency>
+    </dependencies>
+  </plugin>
+</build>]]>
+        </source>
+      </answer>
+    </faq>
   </part>
   <part id="Versions">
     <title>Versions</title>
