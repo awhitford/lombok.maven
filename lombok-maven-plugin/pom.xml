@@ -118,24 +118,24 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-pmd-plugin</artifactId>
-        <version>2.7.1</version>
+        <version>3.0.1</version>
         <configuration>
           <targetJdk>1.6</targetJdk>
           <rulesets>
-            <ruleset>/rulesets/basic.xml</ruleset>
-            <ruleset>/rulesets/braces.xml</ruleset>
-            <ruleset>/rulesets/codesize.xml</ruleset>
-            <ruleset>/rulesets/controversial.xml</ruleset>
-            <ruleset>/rulesets/coupling.xml</ruleset>
-            <ruleset>/rulesets/design.xml</ruleset>
-            <ruleset>/rulesets/imports.xml</ruleset>
-            <ruleset>/rulesets/migrating.xml</ruleset>
-            <ruleset>/rulesets/naming.xml</ruleset>
-            <ruleset>/rulesets/optimizations.xml</ruleset>
-            <ruleset>/rulesets/strictexception.xml</ruleset>
-            <ruleset>/rulesets/strings.xml</ruleset>
-            <ruleset>/rulesets/sunsecure.xml</ruleset>
-            <ruleset>/rulesets/unusedcode.xml</ruleset>
+            <ruleset>/rulesets/java/basic.xml</ruleset>
+            <ruleset>/rulesets/java/braces.xml</ruleset>
+            <ruleset>/rulesets/java/codesize.xml</ruleset>
+            <ruleset>/rulesets/java/controversial.xml</ruleset>
+            <ruleset>/rulesets/java/coupling.xml</ruleset>
+            <ruleset>/rulesets/java/design.xml</ruleset>
+            <ruleset>/rulesets/java/imports.xml</ruleset>
+            <ruleset>/rulesets/java/migrating.xml</ruleset>
+            <ruleset>/rulesets/java/naming.xml</ruleset>
+            <ruleset>/rulesets/java/optimizations.xml</ruleset>
+            <ruleset>/rulesets/java/strictexception.xml</ruleset>
+            <ruleset>/rulesets/java/strings.xml</ruleset>
+            <ruleset>/rulesets/java/sunsecure.xml</ruleset>
+            <ruleset>/rulesets/java/unusedcode.xml</ruleset>
           </rulesets>
         </configuration>
       </plugin>
