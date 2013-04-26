@@ -6,7 +6,7 @@
     <link>http://awhitford.github.com/lombok.maven/</link>
     <description>Maven Plugin for Project Lombok - Checkstyle report</description>
     <language>en-us</language>
-    <copyright>&#169;2010 - 2012 Anthony Whitford</copyright>
+    <copyright>&#169;2010 - 2013 Anthony Whitford</copyright>
     <item>
       <title>File: 5,
              Errors: 123,
