@@ -276,8 +276,8 @@
 <td><a class="externalLink" href="http://www.apache.org/licenses/LICENSE-2.0.txt">The Apache Software License, Version 2.0</a></td></tr>
 <tr class="a">
 <td>org.apache.maven</td>
-<td><a class="externalLink" href="http://maven.apache.org/maven-plugin-api">maven-plugin-api</a></td>
-<td>2.2.1</td>
+<td>maven-plugin-api</td>
+<td>3.0.4</td>
 <td>jar</td>
 <td><a class="externalLink" href="http://www.apache.org/licenses/LICENSE-2.0.txt">The Apache Software License, Version 2.0</a></td></tr>
 <tr class="b">
@@ -298,8 +298,8 @@
 <th>License</th></tr>
 <tr class="b">
 <td>org.apache.maven</td>
-<td><a class="externalLink" href="http://maven.apache.org/maven-project">maven-project</a></td>
-<td>2.2.1</td>
+<td>maven-core</td>
+<td>3.0.4</td>
 <td>jar</td>
 <td><a class="externalLink" href="http://www.apache.org/licenses/LICENSE-2.0.txt">The Apache Software License, Version 2.0</a></td></tr>
 <tr class="a">
@@ -310,7 +310,81 @@
 <td><a class="externalLink" href="http://www.apache.org/licenses/LICENSE-2.0.txt">The Apache Software License, Version 2.0</a></td></tr></table></div></div><a name="Project_Transitive_Dependencies"></a>
 <div class="section">
 <h2>Project Transitive Dependencies<a name="Project_Transitive_Dependencies"></a></h2>
-<p>The following is a list of transitive dependencies for this project. Transitive dependencies are the dependencies of the project dependencies.</p><a name="Project_Transitive_Dependencies_provided"></a>
+<p>The following is a list of transitive dependencies for this project. Transitive dependencies are the dependencies of the project dependencies.</p><a name="Project_Transitive_Dependencies_compile"></a>
+<div class="section">
+<h3>compile<a name="compile"></a></h3>
+<p>The following is a list of compile dependencies for this project. These dependencies are required to compile and run the application:</p>
+<table border="0" class="table table-striped">
+<tr class="a">
+<th>GroupId</th>
+<th>ArtifactId</th>
+<th>Version</th>
+<th>Classifier</th>
+<th>Type</th>
+<th>License</th></tr>
+<tr class="b">
+<td>org.apache.maven</td>
+<td>maven-artifact</td>
+<td>3.0.4</td>
+<td>-</td>
+<td>jar</td>
+<td><a class="externalLink" href="http://www.apache.org/licenses/LICENSE-2.0.txt">The Apache Software License, Version 2.0</a></td></tr>
+<tr class="a">
+<td>org.apache.maven</td>
+<td>maven-model</td>
+<td>3.0.4</td>
+<td>-</td>
+<td>jar</td>
+<td><a class="externalLink" href="http://www.apache.org/licenses/LICENSE-2.0.txt">The Apache Software License, Version 2.0</a></td></tr>
+<tr class="b">
+<td>org.codehaus.plexus</td>
+<td><a class="externalLink" href="http://plexus.codehaus.org/plexus-classworlds/">plexus-classworlds</a></td>
+<td>2.4</td>
+<td>-</td>
+<td>jar</td>
+<td><a class="externalLink" href="http://www.apache.org/licenses/LICENSE-2.0.txt">The Apache Software License, Version 2.0</a></td></tr>
+<tr class="a">
+<td>org.codehaus.plexus</td>
+<td><a class="externalLink" href="http://plexus.codehaus.org/plexus-containers/plexus-component-annotations/">plexus-component-annotations</a></td>
+<td>1.5.5</td>
+<td>-</td>
+<td>jar</td>
+<td><a class="externalLink" href="http://www.apache.org/licenses/LICENSE-2.0.txt">The Apache Software License, Version 2.0</a></td></tr>
+<tr class="b">
+<td>org.codehaus.plexus</td>
+<td><a class="externalLink" href="http://plexus.codehaus.org/plexus-utils">plexus-utils</a></td>
+<td>2.0.6</td>
+<td>-</td>
+<td>jar</td>
+<td><a class="externalLink" href="http://www.apache.org/licenses/LICENSE-2.0.txt">The Apache Software License, Version 2.0</a></td></tr>
+<tr class="a">
+<td>org.sonatype.sisu</td>
+<td><a class="externalLink" href="http://code.google.com/p/guava-libraries/sisu-guava/">sisu-guava</a></td>
+<td>0.9.9</td>
+<td>-</td>
+<td>jar</td>
+<td><a class="externalLink" href="http://www.apache.org/licenses/LICENSE-2.0.txt">The Apache Software License, Version 2.0</a></td></tr>
+<tr class="b">
+<td>org.sonatype.sisu</td>
+<td><a class="externalLink" href="http://code.google.com/p/google-guice/sisu-guice/">sisu-guice</a></td>
+<td>3.1.0</td>
+<td>no_aop</td>
+<td>jar</td>
+<td><a class="externalLink" href="http://www.apache.org/licenses/LICENSE-2.0.txt">The Apache Software License, Version 2.0</a></td></tr>
+<tr class="a">
+<td>org.sonatype.sisu</td>
+<td><a class="externalLink" href="http://sisu.sonatype.org/sisu-inject/containers/guice-bean/sisu-inject-bean/">sisu-inject-bean</a></td>
+<td>2.3.0</td>
+<td>-</td>
+<td>jar</td>
+<td><a class="externalLink" href="http://www.apache.org/licenses/LICENSE-2.0.txt">The Apache Software License, Version 2.0</a>-<a class="externalLink" href="http://www.eclipse.org/legal/epl-v10.html">Eclipse Public License, Version 1.0</a></td></tr>
+<tr class="b">
+<td>org.sonatype.sisu</td>
+<td><a class="externalLink" href="http://sisu.sonatype.org/sisu-inject/containers/guice-bean/guice-plexus/sisu-inject-plexus/">sisu-inject-plexus</a></td>
+<td>2.3.0</td>
+<td>-</td>
+<td>jar</td>
+<td><a class="externalLink" href="http://www.eclipse.org/legal/epl-v10.html">Eclipse Public License, Version 1.0</a></td></tr></table></div><a name="Project_Transitive_Dependencies_provided"></a>
 <div class="section">
 <h3>provided<a name="provided"></a></h3>
 <p>The following is a list of provided dependencies for this project. These dependencies are required to compile the application, but should be provided by default when using the library:</p>
@@ -322,89 +396,77 @@
 <th>Type</th>
 <th>License</th></tr>
 <tr class="b">
-<td>backport-util-concurrent</td>
-<td><a class="externalLink" href="http://backport-jsr166.sourceforge.net/">backport-util-concurrent</a></td>
-<td>3.1</td>
-<td>jar</td>
-<td><a class="externalLink" href="http://creativecommons.org/licenses/publicdomain">Public Domain</a></td></tr>
-<tr class="a">
-<td>classworlds</td>
-<td><a class="externalLink" href="http://classworlds.codehaus.org/">classworlds</a></td>
-<td>1.1-alpha-2</td>
-<td>jar</td>
-<td>-</td></tr>
-<tr class="b">
-<td>junit</td>
-<td><a class="externalLink" href="http://junit.org">junit</a></td>
-<td>3.8.1</td>
-<td>jar</td>
-<td><a class="externalLink" href="http://www.opensource.org/licenses/cpl1.0.txt">Common Public License Version 1.0</a></td></tr>
-<tr class="a">
 <td>org.apache.maven</td>
-<td><a class="externalLink" href="http://maven.apache.org/maven-artifact/">maven-artifact</a></td>
-<td>3.0</td>
-<td>jar</td>
-<td><a class="externalLink" href="http://www.apache.org/licenses/LICENSE-2.0.txt">The Apache Software License, Version 2.0</a></td></tr>
-<tr class="b">
-<td>org.apache.maven</td>
-<td><a class="externalLink" href="http://maven.apache.org/maven-artifact-manager">maven-artifact-manager</a></td>
-<td>2.2.1</td>
+<td>maven-aether-provider</td>
+<td>3.0.4</td>
 <td>jar</td>
 <td><a class="externalLink" href="http://www.apache.org/licenses/LICENSE-2.0.txt">The Apache Software License, Version 2.0</a></td></tr>
 <tr class="a">
 <td>org.apache.maven</td>
-<td><a class="externalLink" href="http://maven.apache.org/maven-model">maven-model</a></td>
-<td>2.2.1</td>
+<td>maven-model-builder</td>
+<td>3.0.4</td>
 <td>jar</td>
 <td><a class="externalLink" href="http://www.apache.org/licenses/LICENSE-2.0.txt">The Apache Software License, Version 2.0</a></td></tr>
 <tr class="b">
 <td>org.apache.maven</td>
-<td><a class="externalLink" href="http://maven.apache.org/maven-plugin-registry">maven-plugin-registry</a></td>
-<td>2.2.1</td>
+<td>maven-repository-metadata</td>
+<td>3.0.4</td>
 <td>jar</td>
 <td><a class="externalLink" href="http://www.apache.org/licenses/LICENSE-2.0.txt">The Apache Software License, Version 2.0</a></td></tr>
 <tr class="a">
 <td>org.apache.maven</td>
-<td><a class="externalLink" href="http://maven.apache.org/maven-profile">maven-profile</a></td>
-<td>2.2.1</td>
+<td>maven-settings</td>
+<td>3.0.4</td>
 <td>jar</td>
 <td><a class="externalLink" href="http://www.apache.org/licenses/LICENSE-2.0.txt">The Apache Software License, Version 2.0</a></td></tr>
 <tr class="b">
 <td>org.apache.maven</td>
-<td><a class="externalLink" href="http://maven.apache.org/maven-repository-metadata">maven-repository-metadata</a></td>
-<td>2.2.1</td>
-<td>jar</td>
-<td><a class="externalLink" href="http://www.apache.org/licenses/LICENSE-2.0.txt">The Apache Software License, Version 2.0</a></td></tr>
-<tr class="a">
-<td>org.apache.maven</td>
-<td><a class="externalLink" href="http://maven.apache.org/maven-settings">maven-settings</a></td>
-<td>2.2.1</td>
-<td>jar</td>
-<td><a class="externalLink" href="http://www.apache.org/licenses/LICENSE-2.0.txt">The Apache Software License, Version 2.0</a></td></tr>
-<tr class="b">
-<td>org.apache.maven.wagon</td>
-<td><a class="externalLink" href="http://maven.apache.org/wagon/wagon-provider-api">wagon-provider-api</a></td>
-<td>1.0-beta-6</td>
-<td>jar</td>
-<td><a class="externalLink" href="http://www.apache.org/licenses/LICENSE-2.0.txt">The Apache Software License, Version 2.0</a></td></tr>
-<tr class="a">
-<td>org.codehaus.plexus</td>
-<td>plexus-container-default</td>
-<td>1.0-alpha-9-stable-1</td>
-<td>jar</td>
-<td>-</td></tr>
-<tr class="b">
-<td>org.codehaus.plexus</td>
-<td><a class="externalLink" href="http://plexus.codehaus.org/plexus-components/plexus-interpolation">plexus-interpolation</a></td>
-<td>1.11</td>
+<td>maven-settings-builder</td>
+<td>3.0.4</td>
 <td>jar</td>
 <td><a class="externalLink" href="http://www.apache.org/licenses/LICENSE-2.0.txt">The Apache Software License, Version 2.0</a></td></tr>
 <tr class="a">
 <td>org.codehaus.plexus</td>
-<td><a class="externalLink" href="http://plexus.codehaus.org/plexus-utils">plexus-utils</a></td>
-<td>1.5.15</td>
+<td><a class="externalLink" href="http://plexus.codehaus.org/plexus-components/plexus-interpolation">plexus-interpolation</a></td>
+<td>1.14</td>
 <td>jar</td>
-<td><a class="externalLink" href="http://www.apache.org/licenses/LICENSE-2.0.txt">The Apache Software License, Version 2.0</a></td></tr></table></div></div><a name="Project_Dependency_Graph"></a>
+<td><a class="externalLink" href="http://www.apache.org/licenses/LICENSE-2.0.txt">The Apache Software License, Version 2.0</a></td></tr>
+<tr class="b">
+<td>org.sonatype.aether</td>
+<td><a class="externalLink" href="http://aether.sonatype.org/aether-api/">aether-api</a></td>
+<td>1.13.1</td>
+<td>jar</td>
+<td><a class="externalLink" href="http://www.eclipse.org/legal/epl-v10.html">Eclipse Public License, Version 1.0</a></td></tr>
+<tr class="a">
+<td>org.sonatype.aether</td>
+<td><a class="externalLink" href="http://aether.sonatype.org/aether-impl/">aether-impl</a></td>
+<td>1.13.1</td>
+<td>jar</td>
+<td><a class="externalLink" href="http://www.eclipse.org/legal/epl-v10.html">Eclipse Public License, Version 1.0</a></td></tr>
+<tr class="b">
+<td>org.sonatype.aether</td>
+<td><a class="externalLink" href="http://aether.sonatype.org/aether-spi/">aether-spi</a></td>
+<td>1.13.1</td>
+<td>jar</td>
+<td><a class="externalLink" href="http://www.eclipse.org/legal/epl-v10.html">Eclipse Public License, Version 1.0</a></td></tr>
+<tr class="a">
+<td>org.sonatype.aether</td>
+<td><a class="externalLink" href="http://aether.sonatype.org/aether-util/">aether-util</a></td>
+<td>1.13.1</td>
+<td>jar</td>
+<td><a class="externalLink" href="http://www.eclipse.org/legal/epl-v10.html">Eclipse Public License, Version 1.0</a></td></tr>
+<tr class="b">
+<td>org.sonatype.plexus</td>
+<td><a class="externalLink" href="http://spice.sonatype.org/plexus-cipher">plexus-cipher</a></td>
+<td>1.4</td>
+<td>jar</td>
+<td><a class="externalLink" href="http://www.apache.org/licenses/LICENSE-2.0">Apache Public License 2.0</a></td></tr>
+<tr class="a">
+<td>org.sonatype.plexus</td>
+<td><a class="externalLink" href="http://spice.sonatype.org/plexus-sec-dispatcher">plexus-sec-dispatcher</a></td>
+<td>1.3</td>
+<td>jar</td>
+<td><a class="externalLink" href="http://www.apache.org/licenses/LICENSE-2.0">Apache Public License 2.0</a></td></tr></table></div></div><a name="Project_Dependency_Graph"></a>
 <div class="section">
 <h2>Project Dependency Graph<a name="Project_Dependency_Graph"></a></h2><script language="javascript" type="text/javascript">
       function toggleDependencyDetail( divId, imgId )
@@ -448,26 +510,26 @@
   standard as to justify existence in java.lang.</p>
 <p><b>URL: </b><a class="externalLink" href="http://commons.apache.org/lang/">http://commons.apache.org/lang/</a></p>
 <p><b>Project License: </b><a class="externalLink" href="http://www.apache.org/licenses/LICENSE-2.0.txt">The Apache Software License, Version 2.0</a></p></td></tr></table></div></li>
-<li>org.apache.maven:maven-plugin-api:jar:2.2.1 (compile) <img id="_img5" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_dep4', '_img5' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_dep4" style="display:none">
+<li>org.apache.maven:maven-plugin-api:jar:3.0.4 (compile) <img id="_img5" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_dep4', '_img5' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_dep4" style="display:none">
 <table border="0" class="table table-striped">
 <tr class="a">
 <th>Maven Plugin API</th></tr>
 <tr class="b">
 <td>
-<p><b>Description: </b>Maven is a project development management and comprehension tool. Based on the concept of a project object model: builds, dependency management, documentation creation, site publication, and distribution publication are all controlled from the declarative file. Maven can be extended by plugins to utilise a number of other development tools for reporting or the build process.</p>
-<p><b>URL: </b><a class="externalLink" href="http://maven.apache.org/maven-plugin-api">http://maven.apache.org/maven-plugin-api</a></p>
-<p><b>Project License: </b><a class="externalLink" href="http://www.apache.org/licenses/LICENSE-2.0.txt">The Apache Software License, Version 2.0</a></p></td></tr></table></div></li>
-<li>org.apache.maven.plugin-tools:maven-plugin-annotations:jar:3.2 (provided) <img id="_img7" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_dep6', '_img7' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_dep6" style="display:none">
-<table border="0" class="table table-striped">
-<tr class="a">
-<th>Maven Plugin Java 5 Annotations</th></tr>
-<tr class="b">
-<td>
-<p><b>Description: </b>Java 5 annotations to use in Mojos.</p>
-<p><b>URL: </b><a class="externalLink" href="http://maven.apache.org/plugin-tools/maven-plugin-annotations/">http://maven.apache.org/plugin-tools/maven-plugin-annotations/</a></p>
+<p><b>Description: </b>The API for plugins - Mojos - development.</p>
+<p><b>URL: </b>http://maven.apache.org/ref/3.0.4//maven-plugin-api</p>
 <p><b>Project License: </b><a class="externalLink" href="http://www.apache.org/licenses/LICENSE-2.0.txt">The Apache Software License, Version 2.0</a></p></td></tr></table></div>
 <ul>
-<li>org.apache.maven:maven-artifact:jar:3.0 (provided) <img id="_img9" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_dep8', '_img9' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_dep8" style="display:none">
+<li>org.apache.maven:maven-model:jar:3.0.4 (compile) <img id="_img7" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_dep6', '_img7' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_dep6" style="display:none">
+<table border="0" class="table table-striped">
+<tr class="a">
+<th>Maven Model</th></tr>
+<tr class="b">
+<td>
+<p><b>Description: </b>Model for Maven POM (Project Object Model)</p>
+<p><b>URL: </b>http://maven.apache.org/ref/3.0.4//maven-model</p>
+<p><b>Project License: </b><a class="externalLink" href="http://www.apache.org/licenses/LICENSE-2.0.txt">The Apache Software License, Version 2.0</a></p></td></tr></table></div></li>
+<li>org.apache.maven:maven-artifact:jar:3.0.4 (compile) <img id="_img9" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_dep8', '_img9' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_dep8" style="display:none">
 <table border="0" class="table table-striped">
 <tr class="a">
 <th>Maven Artifact</th></tr>
@@ -480,102 +542,159 @@
     the declarative file. Maven can be extended by plugins to utilise a
     number of other development tools for reporting or the build
     process.</p>
-<p><b>URL: </b><a class="externalLink" href="http://maven.apache.org/maven-artifact/">http://maven.apache.org/maven-artifact/</a></p>
-<p><b>Project License: </b><a class="externalLink" href="http://www.apache.org/licenses/LICENSE-2.0.txt">The Apache Software License, Version 2.0</a></p></td></tr></table></div></li></ul></li>
-<li>org.apache.maven:maven-project:jar:2.2.1 (provided) <img id="_img11" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_dep10', '_img11' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_dep10" style="display:none">
+<p><b>URL: </b>http://maven.apache.org/ref/3.0.4//maven-artifact</p>
+<p><b>Project License: </b><a class="externalLink" href="http://www.apache.org/licenses/LICENSE-2.0.txt">The Apache Software License, Version 2.0</a></p></td></tr></table></div></li>
+<li>org.sonatype.sisu:sisu-inject-plexus:jar:2.3.0 (compile) <img id="_img11" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_dep10', '_img11' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_dep10" style="display:none">
 <table border="0" class="table table-striped">
 <tr class="a">
-<th>Maven Project Builder</th></tr>
+<th>Sisu-Inject-Plexus : Aggregate OSGi bundle</th></tr>
 <tr class="b">
 <td>
-<p><b>Description: </b>This library is used to not only read Maven project object model files, but to assemble inheritence
-    and to retrieve remote models as required.</p>
-<p><b>URL: </b><a class="externalLink" href="http://maven.apache.org/maven-project">http://maven.apache.org/maven-project</a></p>
+<p><b>Description: </b>There is currently no description associated with this project.</p>
+<p><b>URL: </b><a class="externalLink" href="http://sisu.sonatype.org/sisu-inject/containers/guice-bean/guice-plexus/sisu-inject-plexus/">http://sisu.sonatype.org/sisu-inject/containers/guice-bean/guice-plexus/sisu-inject-plexus/</a></p>
+<p><b>Project License: </b><a class="externalLink" href="http://www.eclipse.org/legal/epl-v10.html">Eclipse Public License, Version 1.0</a></p></td></tr></table></div>
+<ul>
+<li>org.sonatype.sisu:sisu-inject-bean:jar:2.3.0 (compile) <img id="_img13" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_dep12', '_img13' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_dep12" style="display:none">
+<table border="0" class="table table-striped">
+<tr class="a">
+<th>Sisu-Inject-Bean : Aggregate OSGi bundle</th></tr>
+<tr class="b">
+<td>
+<p><b>Description: </b>There is currently no description associated with this project.</p>
+<p><b>URL: </b><a class="externalLink" href="http://sisu.sonatype.org/sisu-inject/containers/guice-bean/sisu-inject-bean/">http://sisu.sonatype.org/sisu-inject/containers/guice-bean/sisu-inject-bean/</a></p>
+<p><b>Project License: </b><a class="externalLink" href="http://www.apache.org/licenses/LICENSE-2.0.txt">The Apache Software License, Version 2.0</a><a class="externalLink" href="http://www.eclipse.org/legal/epl-v10.html">Eclipse Public License, Version 1.0</a></p></td></tr></table></div>
+<ul>
+<li>org.sonatype.sisu:sisu-guice:jar:no_aop:3.1.0 (compile) <img id="_img15" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_dep14', '_img15' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_dep14" style="display:none">
+<table border="0" class="table table-striped">
+<tr class="a">
+<th>Sisu Guice - Core Library</th></tr>
+<tr class="b">
+<td>
+<p><b>Description: </b>Patched build of Guice: a lightweight dependency injection framework for Java 5 and above</p>
+<p><b>URL: </b><a class="externalLink" href="http://code.google.com/p/google-guice/sisu-guice/">http://code.google.com/p/google-guice/sisu-guice/</a></p>
 <p><b>Project License: </b><a class="externalLink" href="http://www.apache.org/licenses/LICENSE-2.0.txt">The Apache Software License, Version 2.0</a></p></td></tr></table></div>
 <ul>
-<li>org.apache.maven:maven-settings:jar:2.2.1 (provided) <img id="_img13" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_dep12', '_img13' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_dep12" style="display:none">
+<li>org.sonatype.sisu:sisu-guava:jar:0.9.9 (compile) <img id="_img17" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_dep16', '_img17' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_dep16" style="display:none">
 <table border="0" class="table table-striped">
 <tr class="a">
-<th>Maven Local Settings Model</th></tr>
+<th>Sisu Guava - Core Library</th></tr>
 <tr class="b">
 <td>
-<p><b>Description: </b>Maven is a project development management and comprehension tool. Based on the concept of a project object model: builds, dependency management, documentation creation, site publication, and distribution publication are all controlled from the declarative file. Maven can be extended by plugins to utilise a number of other development tools for reporting or the build process.</p>
-<p><b>URL: </b><a class="externalLink" href="http://maven.apache.org/maven-settings">http://maven.apache.org/maven-settings</a></p>
+<p><b>Description: </b>Patched build of Guava: Google Core Libraries for Java 1.5+</p>
+<p><b>URL: </b><a class="externalLink" href="http://code.google.com/p/guava-libraries/sisu-guava/">http://code.google.com/p/guava-libraries/sisu-guava/</a></p>
+<p><b>Project License: </b><a class="externalLink" href="http://www.apache.org/licenses/LICENSE-2.0.txt">The Apache Software License, Version 2.0</a></p></td></tr></table></div></li></ul></li></ul></li></ul></li></ul></li>
+<li>org.apache.maven.plugin-tools:maven-plugin-annotations:jar:3.2 (provided) <img id="_img19" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_dep18', '_img19' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_dep18" style="display:none">
+<table border="0" class="table table-striped">
+<tr class="a">
+<th>Maven Plugin Java 5 Annotations</th></tr>
+<tr class="b">
+<td>
+<p><b>Description: </b>Java 5 annotations to use in Mojos.</p>
+<p><b>URL: </b><a class="externalLink" href="http://maven.apache.org/plugin-tools/maven-plugin-annotations/">http://maven.apache.org/plugin-tools/maven-plugin-annotations/</a></p>
 <p><b>Project License: </b><a class="externalLink" href="http://www.apache.org/licenses/LICENSE-2.0.txt">The Apache Software License, Version 2.0</a></p></td></tr></table></div></li>
-<li>org.apache.maven:maven-profile:jar:2.2.1 (provided) <img id="_img15" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_dep14', '_img15' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_dep14" style="display:none">
+<li>org.apache.maven:maven-core:jar:3.0.4 (provided) <img id="_img21" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_dep20', '_img21' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_dep20" style="display:none">
 <table border="0" class="table table-striped">
 <tr class="a">
-<th>Maven Profile Model</th></tr>
+<th>Maven Core</th></tr>
 <tr class="b">
 <td>
-<p><b>Description: </b>Maven is a project development management and comprehension tool. Based on the concept of a project object model: builds, dependency management, documentation creation, site publication, and distribution publication are all controlled from the declarative file. Maven can be extended by plugins to utilise a number of other development tools for reporting or the build process.</p>
-<p><b>URL: </b><a class="externalLink" href="http://maven.apache.org/maven-profile">http://maven.apache.org/maven-profile</a></p>
-<p><b>Project License: </b><a class="externalLink" href="http://www.apache.org/licenses/LICENSE-2.0.txt">The Apache Software License, Version 2.0</a></p></td></tr></table></div></li>
-<li>org.apache.maven:maven-model:jar:2.2.1 (provided) <img id="_img17" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_dep16', '_img17' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_dep16" style="display:none">
-<table border="0" class="table table-striped">
-<tr class="a">
-<th>Maven Model</th></tr>
-<tr class="b">
-<td>
-<p><b>Description: </b>Maven Model</p>
-<p><b>URL: </b><a class="externalLink" href="http://maven.apache.org/maven-model">http://maven.apache.org/maven-model</a></p>
-<p><b>Project License: </b><a class="externalLink" href="http://www.apache.org/licenses/LICENSE-2.0.txt">The Apache Software License, Version 2.0</a></p></td></tr></table></div></li>
-<li>org.apache.maven:maven-artifact-manager:jar:2.2.1 (provided) <img id="_img19" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_dep18', '_img19' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_dep18" style="display:none">
-<table border="0" class="table table-striped">
-<tr class="a">
-<th>Maven Artifact Manager</th></tr>
-<tr class="b">
-<td>
-<p><b>Description: </b>Maven is a project development management and comprehension tool. Based on the concept of a project object model: builds, dependency management, documentation creation, site publication, and distribution publication are all controlled from the declarative file. Maven can be extended by plugins to utilise a number of other development tools for reporting or the build process.</p>
-<p><b>URL: </b><a class="externalLink" href="http://maven.apache.org/maven-artifact-manager">http://maven.apache.org/maven-artifact-manager</a></p>
+<p><b>Description: </b>Maven Core classes.</p>
+<p><b>URL: </b>http://maven.apache.org/ref/3.0.4//maven-core</p>
 <p><b>Project License: </b><a class="externalLink" href="http://www.apache.org/licenses/LICENSE-2.0.txt">The Apache Software License, Version 2.0</a></p></td></tr></table></div>
 <ul>
-<li>org.apache.maven:maven-repository-metadata:jar:2.2.1 (provided) <img id="_img21" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_dep20', '_img21' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_dep20" style="display:none">
+<li>org.apache.maven:maven-settings:jar:3.0.4 (provided) <img id="_img23" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_dep22', '_img23' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_dep22" style="display:none">
+<table border="0" class="table table-striped">
+<tr class="a">
+<th>Maven Settings</th></tr>
+<tr class="b">
+<td>
+<p><b>Description: </b>Maven Settings model.</p>
+<p><b>URL: </b>http://maven.apache.org/ref/3.0.4//maven-settings</p>
+<p><b>Project License: </b><a class="externalLink" href="http://www.apache.org/licenses/LICENSE-2.0.txt">The Apache Software License, Version 2.0</a></p></td></tr></table></div></li>
+<li>org.apache.maven:maven-settings-builder:jar:3.0.4 (provided) <img id="_img25" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_dep24', '_img25' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_dep24" style="display:none">
+<table border="0" class="table table-striped">
+<tr class="a">
+<th>Maven Settings Builder</th></tr>
+<tr class="b">
+<td>
+<p><b>Description: </b>The effective settings builder, with inheritance and password decryption.</p>
+<p><b>URL: </b>http://maven.apache.org/ref/3.0.4//maven-settings-builder</p>
+<p><b>Project License: </b><a class="externalLink" href="http://www.apache.org/licenses/LICENSE-2.0.txt">The Apache Software License, Version 2.0</a></p></td></tr></table></div></li>
+<li>org.apache.maven:maven-repository-metadata:jar:3.0.4 (provided) <img id="_img27" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_dep26', '_img27' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_dep26" style="display:none">
 <table border="0" class="table table-striped">
 <tr class="a">
 <th>Maven Repository Metadata Model</th></tr>
 <tr class="b">
 <td>
-<p><b>Description: </b>Per-directory repository metadata.</p>
-<p><b>URL: </b><a class="externalLink" href="http://maven.apache.org/maven-repository-metadata">http://maven.apache.org/maven-repository-metadata</a></p>
+<p><b>Description: </b>Per-directory local and remote repository metadata.</p>
+<p><b>URL: </b>http://maven.apache.org/ref/3.0.4//maven-repository-metadata</p>
 <p><b>Project License: </b><a class="externalLink" href="http://www.apache.org/licenses/LICENSE-2.0.txt">The Apache Software License, Version 2.0</a></p></td></tr></table></div></li>
-<li>org.apache.maven.wagon:wagon-provider-api:jar:1.0-beta-6 (provided) <img id="_img23" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_dep22', '_img23' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_dep22" style="display:none">
+<li>org.apache.maven:maven-model-builder:jar:3.0.4 (provided) <img id="_img29" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_dep28', '_img29' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_dep28" style="display:none">
 <table border="0" class="table table-striped">
 <tr class="a">
-<th>Maven Wagon API</th></tr>
+<th>Maven Model Builder</th></tr>
 <tr class="b">
 <td>
-<p><b>Description: </b>Maven Wagon API that defines the contract between different Wagon implementations</p>
-<p><b>URL: </b><a class="externalLink" href="http://maven.apache.org/wagon/wagon-provider-api">http://maven.apache.org/wagon/wagon-provider-api</a></p>
+<p><b>Description: </b>The effective model builder, with inheritance, profile activation, interpolation, ...</p>
+<p><b>URL: </b>http://maven.apache.org/ref/3.0.4//maven-model-builder</p>
 <p><b>Project License: </b><a class="externalLink" href="http://www.apache.org/licenses/LICENSE-2.0.txt">The Apache Software License, Version 2.0</a></p></td></tr></table></div></li>
-<li>backport-util-concurrent:backport-util-concurrent:jar:3.1 (provided) <img id="_img25" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_dep24', '_img25' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_dep24" style="display:none">
+<li>org.apache.maven:maven-aether-provider:jar:3.0.4 (provided) <img id="_img31" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_dep30', '_img31' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_dep30" style="display:none">
 <table border="0" class="table table-striped">
 <tr class="a">
-<th>Backport of JSR 166</th></tr>
+<th>Maven Aether Provider</th></tr>
 <tr class="b">
 <td>
-<p><b>Description: </b>Dawid Kurzyniec's backport of JSR 166</p>
-<p><b>URL: </b><a class="externalLink" href="http://backport-jsr166.sourceforge.net/">http://backport-jsr166.sourceforge.net/</a></p>
-<p><b>Project License: </b><a class="externalLink" href="http://creativecommons.org/licenses/publicdomain">Public Domain</a></p></td></tr></table></div></li></ul></li>
-<li>org.apache.maven:maven-plugin-registry:jar:2.2.1 (provided) <img id="_img27" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_dep26', '_img27' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_dep26" style="display:none">
+<p><b>Description: </b>This module provides extensions to Aether for utilizing the Maven POM and Maven repository metadata for artifacts resolution
+    and download.</p>
+<p><b>URL: </b>http://maven.apache.org/ref/3.0.4//maven-aether-provider</p>
+<p><b>Project License: </b><a class="externalLink" href="http://www.apache.org/licenses/LICENSE-2.0.txt">The Apache Software License, Version 2.0</a></p></td></tr></table></div>
+<ul>
+<li>org.sonatype.aether:aether-spi:jar:1.13.1 (provided) <img id="_img33" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_dep32', '_img33' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_dep32" style="display:none">
 <table border="0" class="table table-striped">
 <tr class="a">
-<th>Maven Plugin Registry Model</th></tr>
+<th>Aether :: SPI</th></tr>
 <tr class="b">
 <td>
-<p><b>Description: </b>Maven is a project development management and comprehension tool. Based on the concept of a project object model: builds, dependency management, documentation creation, site publication, and distribution publication are all controlled from the declarative file. Maven can be extended by plugins to utilise a number of other development tools for reporting or the build process.</p>
-<p><b>URL: </b><a class="externalLink" href="http://maven.apache.org/maven-plugin-registry">http://maven.apache.org/maven-plugin-registry</a></p>
-<p><b>Project License: </b><a class="externalLink" href="http://www.apache.org/licenses/LICENSE-2.0.txt">The Apache Software License, Version 2.0</a></p></td></tr></table></div></li>
-<li>org.codehaus.plexus:plexus-interpolation:jar:1.11 (provided) <img id="_img29" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_dep28', '_img29' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_dep28" style="display:none">
+<p><b>Description: </b>The service provider interface for repository system implementations and repository connectors.</p>
+<p><b>URL: </b><a class="externalLink" href="http://aether.sonatype.org/aether-spi/">http://aether.sonatype.org/aether-spi/</a></p>
+<p><b>Project License: </b><a class="externalLink" href="http://www.eclipse.org/legal/epl-v10.html">Eclipse Public License, Version 1.0</a></p></td></tr></table></div></li></ul></li>
+<li>org.sonatype.aether:aether-impl:jar:1.13.1 (provided) <img id="_img35" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_dep34', '_img35' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_dep34" style="display:none">
+<table border="0" class="table table-striped">
+<tr class="a">
+<th>Aether :: Implementation</th></tr>
+<tr class="b">
+<td>
+<p><b>Description: </b>An implementation of the repository system.</p>
+<p><b>URL: </b><a class="externalLink" href="http://aether.sonatype.org/aether-impl/">http://aether.sonatype.org/aether-impl/</a></p>
+<p><b>Project License: </b><a class="externalLink" href="http://www.eclipse.org/legal/epl-v10.html">Eclipse Public License, Version 1.0</a></p></td></tr></table></div></li>
+<li>org.sonatype.aether:aether-api:jar:1.13.1 (provided) <img id="_img37" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_dep36', '_img37' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_dep36" style="display:none">
+<table border="0" class="table table-striped">
+<tr class="a">
+<th>Aether :: API</th></tr>
+<tr class="b">
+<td>
+<p><b>Description: </b>The application programming interface for the repository system.</p>
+<p><b>URL: </b><a class="externalLink" href="http://aether.sonatype.org/aether-api/">http://aether.sonatype.org/aether-api/</a></p>
+<p><b>Project License: </b><a class="externalLink" href="http://www.eclipse.org/legal/epl-v10.html">Eclipse Public License, Version 1.0</a></p></td></tr></table></div></li>
+<li>org.sonatype.aether:aether-util:jar:1.13.1 (provided) <img id="_img39" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_dep38', '_img39' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_dep38" style="display:none">
+<table border="0" class="table table-striped">
+<tr class="a">
+<th>Aether :: Utilities</th></tr>
+<tr class="b">
+<td>
+<p><b>Description: </b>A collection of utility classes to ease usage of the repository system.</p>
+<p><b>URL: </b><a class="externalLink" href="http://aether.sonatype.org/aether-util/">http://aether.sonatype.org/aether-util/</a></p>
+<p><b>Project License: </b><a class="externalLink" href="http://www.eclipse.org/legal/epl-v10.html">Eclipse Public License, Version 1.0</a></p></td></tr></table></div></li>
+<li>org.codehaus.plexus:plexus-interpolation:jar:1.14 (provided) <img id="_img41" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_dep40', '_img41' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_dep40" style="display:none">
 <table border="0" class="table table-striped">
 <tr class="a">
 <th>Plexus Interpolation API</th></tr>
 <tr class="b">
 <td>
-<p><b>Description: </b>There is currently no description associated with this project.</p>
+<p><b>Description: </b>The Plexus project provides a full software stack for creating and executing software projects.</p>
 <p><b>URL: </b><a class="externalLink" href="http://plexus.codehaus.org/plexus-components/plexus-interpolation">http://plexus.codehaus.org/plexus-components/plexus-interpolation</a></p>
 <p><b>Project License: </b><a class="externalLink" href="http://www.apache.org/licenses/LICENSE-2.0.txt">The Apache Software License, Version 2.0</a></p></td></tr></table></div></li>
-<li>org.codehaus.plexus:plexus-utils:jar:1.5.15 (provided) <img id="_img31" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_dep30', '_img31' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_dep30" style="display:none">
+<li>org.codehaus.plexus:plexus-utils:jar:2.0.6 (compile) <img id="_img43" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_dep42', '_img43' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_dep42" style="display:none">
 <table border="0" class="table table-striped">
 <tr class="a">
 <th>Plexus Common Utilities</th></tr>
@@ -584,34 +703,45 @@
 <p><b>Description: </b>A collection of various utility classes to ease working with strings, files, command lines, XML and more.</p>
 <p><b>URL: </b><a class="externalLink" href="http://plexus.codehaus.org/plexus-utils">http://plexus.codehaus.org/plexus-utils</a></p>
 <p><b>Project License: </b><a class="externalLink" href="http://www.apache.org/licenses/LICENSE-2.0.txt">The Apache Software License, Version 2.0</a></p></td></tr></table></div></li>
-<li>org.codehaus.plexus:plexus-container-default:jar:1.0-alpha-9-stable-1 (provided) <img id="_img33" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_dep32', '_img33' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_dep32" style="display:none">
+<li>org.codehaus.plexus:plexus-classworlds:jar:2.4 (compile) <img id="_img45" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_dep44', '_img45' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_dep44" style="display:none">
 <table border="0" class="table table-striped">
 <tr class="a">
-<th>Default Plexus Container</th></tr>
+<th>Plexus Classworlds</th></tr>
+<tr class="b">
+<td>
+<p><b>Description: </b>A class loader framework</p>
+<p><b>URL: </b><a class="externalLink" href="http://plexus.codehaus.org/plexus-classworlds/">http://plexus.codehaus.org/plexus-classworlds/</a></p>
+<p><b>Project License: </b><a class="externalLink" href="http://www.apache.org/licenses/LICENSE-2.0.txt">The Apache Software License, Version 2.0</a></p></td></tr></table></div></li>
+<li>org.codehaus.plexus:plexus-component-annotations:jar:1.5.5 (compile) <img id="_img47" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_dep46', '_img47' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_dep46" style="display:none">
+<table border="0" class="table table-striped">
+<tr class="a">
+<th>Plexus :: Component Annotations</th></tr>
+<tr class="b">
+<td>
+<p><b>Description: </b>Plexus Component &quot;Java 5&quot; Annotations, to describe plexus components properties in java sources with
+    standard annotations instead of javadoc annotations.</p>
+<p><b>URL: </b><a class="externalLink" href="http://plexus.codehaus.org/plexus-containers/plexus-component-annotations/">http://plexus.codehaus.org/plexus-containers/plexus-component-annotations/</a></p>
+<p><b>Project License: </b><a class="externalLink" href="http://www.apache.org/licenses/LICENSE-2.0.txt">The Apache Software License, Version 2.0</a></p></td></tr></table></div></li>
+<li>org.sonatype.plexus:plexus-sec-dispatcher:jar:1.3 (provided) <img id="_img49" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_dep48', '_img49' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_dep48" style="display:none">
+<table border="0" class="table table-striped">
+<tr class="a">
+<th>Plexus Security Dispatcher Component</th></tr>
 <tr class="b">
 <td>
 <p><b>Description: </b>There is currently no description associated with this project.</p>
-<p><b>Project License: </b>No license is defined for this project.</p></td></tr></table></div>
+<p><b>URL: </b><a class="externalLink" href="http://spice.sonatype.org/plexus-sec-dispatcher">http://spice.sonatype.org/plexus-sec-dispatcher</a></p>
+<p><b>Project License: </b><a class="externalLink" href="http://www.apache.org/licenses/LICENSE-2.0">Apache Public License 2.0</a></p></td></tr></table></div>
 <ul>
-<li>junit:junit:jar:3.8.1 (provided) <img id="_img35" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_dep34', '_img35' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_dep34" style="display:none">
+<li>org.sonatype.plexus:plexus-cipher:jar:1.4 (provided) <img id="_img51" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_dep50', '_img51' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_dep50" style="display:none">
 <table border="0" class="table table-striped">
 <tr class="a">
-<th>JUnit</th></tr>
-<tr class="b">
-<td>
-<p><b>Description: </b>JUnit is a regression testing framework written by Erich Gamma and Kent Beck. It is used by the developer who implements unit tests in Java.</p>
-<p><b>URL: </b><a class="externalLink" href="http://junit.org">http://junit.org</a></p>
-<p><b>Project License: </b><a class="externalLink" href="http://www.opensource.org/licenses/cpl1.0.txt">Common Public License Version 1.0</a></p></td></tr></table></div></li>
-<li>classworlds:classworlds:jar:1.1-alpha-2 (provided) <img id="_img37" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_dep36', '_img37' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_dep36" style="display:none">
-<table border="0" class="table table-striped">
-<tr class="a">
-<th>classworlds</th></tr>
+<th>Plexus Cipher: encryption/decryption Component</th></tr>
 <tr class="b">
 <td>
 <p><b>Description: </b>There is currently no description associated with this project.</p>
-<p><b>URL: </b><a class="externalLink" href="http://classworlds.codehaus.org/">http://classworlds.codehaus.org/</a></p>
-<p><b>Project License: </b>No license is defined for this project.</p></td></tr></table></div></li></ul></li></ul></li>
-<li>org.projectlombok:lombok:jar:0.12.0 (compile) <img id="_img39" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_dep38', '_img39' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_dep38" style="display:none">
+<p><b>URL: </b><a class="externalLink" href="http://spice.sonatype.org/plexus-cipher">http://spice.sonatype.org/plexus-cipher</a></p>
+<p><b>Project License: </b><a class="externalLink" href="http://www.apache.org/licenses/LICENSE-2.0">Apache Public License 2.0</a></p></td></tr></table></div></li></ul></li></ul></li>
+<li>org.projectlombok:lombok:jar:0.12.0 (compile) <img id="_img53" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_dep52', '_img53' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_dep52" style="display:none">
 <table border="0" class="table table-striped">
 <tr class="a">
 <th>Project Lombok</th></tr>
@@ -622,10 +752,9 @@
 <p><b>Project License: </b><a class="externalLink" href="http://projectlombok.org/LICENSE">The MIT License</a></p></td></tr></table></div></li></ul></li></ul></div></div><a name="Licenses"></a>
 <div class="section">
 <h2>Licenses<a name="Licenses"></a></h2>
-<p><b>Public Domain: </b>Backport of JSR 166</p>
-<p><b>Unknown: </b>Default Plexus Container, classworlds</p>
-<p><b>Common Public License Version 1.0: </b>JUnit</p>
-<p><b>The Apache Software License, Version 2.0: </b>Commons Lang, Maven Artifact, Maven Artifact Manager, Maven Local Settings Model, Maven Model, Maven Plugin API, Maven Plugin Java 5 Annotations, Maven Plugin Registry Model, Maven Profile Model, Maven Project Builder, Maven Repository Metadata Model, Maven Wagon API, Plexus Common Utilities, Plexus Interpolation API</p>
+<p><b>Apache Public License 2.0: </b>Plexus Cipher: encryption/decryption Component, Plexus Security Dispatcher Component</p>
+<p><b>Eclipse Public License, Version 1.0: </b>Aether :: API, Aether :: Implementation, Aether :: SPI, Aether :: Utilities, Sisu-Inject-Bean : Aggregate OSGi bundle, Sisu-Inject-Plexus : Aggregate OSGi bundle</p>
+<p><b>The Apache Software License, Version 2.0: </b>Commons Lang, Maven Aether Provider, Maven Artifact, Maven Core, Maven Model, Maven Model Builder, Maven Plugin API, Maven Plugin Java 5 Annotations, Maven Repository Metadata Model, Maven Settings, Maven Settings Builder, Plexus :: Component Annotations, Plexus Classworlds, Plexus Common Utilities, Plexus Interpolation API, Sisu Guava - Core Library, Sisu Guice - Core Library, Sisu-Inject-Bean : Aggregate OSGi bundle</p>
 <p><b>The MIT License: </b>Lombok Maven Plugin, Project Lombok</p></div><a name="Dependency_File_Details"></a>
 <div class="section">
 <h2>Dependency File Details<a name="Dependency_File_Details"></a></h2>
@@ -639,30 +768,6 @@
 <th>JDK Rev</th>
 <th>Debug</th></tr>
 <tr class="b">
-<td>backport-util-concurrent-3.1.jar</td>
-<td>323.94 kB</td>
-<td>251</td>
-<td>239</td>
-<td>5</td>
-<td>1.4</td>
-<td>debug</td></tr>
-<tr class="a">
-<td>classworlds-1.1-alpha-2.jar</td>
-<td>36.64 kB</td>
-<td>32</td>
-<td>22</td>
-<td>3</td>
-<td>1.1</td>
-<td>debug</td></tr>
-<tr class="b">
-<td>junit-3.8.1.jar</td>
-<td>118.23 kB</td>
-<td>119</td>
-<td>100</td>
-<td>6</td>
-<td>1.1</td>
-<td>debug</td></tr>
-<tr class="a">
 <td>commons-lang3-3.1.jar</td>
 <td>308.40 kB</td>
 <td>179</td>
@@ -670,79 +775,79 @@
 <td>12</td>
 <td>1.5</td>
 <td>debug</td></tr>
+<tr class="a">
+<td>maven-aether-provider-3.0.4.jar</td>
+<td>55.17 kB</td>
+<td>40</td>
+<td>23</td>
+<td>1</td>
+<td>1.5</td>
+<td>debug</td></tr>
 <tr class="b">
-<td>maven-artifact-3.0.jar</td>
-<td>50.69 kB</td>
+<td>maven-artifact-3.0.4.jar</td>
+<td>50.87 kB</td>
 <td>57</td>
 <td>32</td>
 <td>11</td>
 <td>1.5</td>
 <td>debug</td></tr>
 <tr class="a">
-<td>maven-artifact-manager-2.2.1.jar</td>
-<td>65.99 kB</td>
-<td>52</td>
-<td>29</td>
-<td>7</td>
+<td>maven-core-3.0.4.jar</td>
+<td>545.94 kB</td>
+<td>428</td>
+<td>350</td>
+<td>43</td>
 <td>1.5</td>
 <td>debug</td></tr>
 <tr class="b">
-<td>maven-model-2.2.1.jar</td>
-<td>85.54 kB</td>
-<td>61</td>
-<td>45</td>
-<td>2</td>
+<td>maven-model-3.0.4.jar</td>
+<td>159.72 kB</td>
+<td>67</td>
+<td>50</td>
+<td>3</td>
 <td>1.5</td>
 <td>debug</td></tr>
 <tr class="a">
-<td>maven-plugin-api-2.2.1.jar</td>
-<td>12.08 kB</td>
-<td>23</td>
-<td>8</td>
-<td>2</td>
+<td>maven-model-builder-3.0.4.jar</td>
+<td>147.06 kB</td>
+<td>142</td>
+<td>109</td>
+<td>16</td>
 <td>1.5</td>
 <td>debug</td></tr>
 <tr class="b">
-<td>maven-plugin-registry-2.2.1.jar</td>
-<td>29.01 kB</td>
-<td>28</td>
-<td>9</td>
-<td>2</td>
-<td>1.5</td>
-<td>debug</td></tr>
-<tr class="a">
-<td>maven-profile-2.2.1.jar</td>
-<td>34.53 kB</td>
-<td>33</td>
-<td>15</td>
-<td>2</td>
-<td>1.5</td>
-<td>debug</td></tr>
-<tr class="b">
-<td>maven-project-2.2.1.jar</td>
-<td>152.62 kB</td>
-<td>98</td>
-<td>72</td>
-<td>10</td>
-<td>1.5</td>
-<td>debug</td></tr>
-<tr class="a">
-<td>maven-repository-metadata-2.2.1.jar</td>
-<td>25.05 kB</td>
-<td>24</td>
+<td>maven-plugin-api-3.0.4.jar</td>
+<td>48.16 kB</td>
+<td>46</td>
+<td>25</td>
 <td>6</td>
+<td>1.5</td>
+<td>debug</td></tr>
+<tr class="a">
+<td>maven-repository-metadata-3.0.4.jar</td>
+<td>29.37 kB</td>
+<td>25</td>
+<td>7</td>
 <td>2</td>
 <td>1.5</td>
 <td>debug</td></tr>
 <tr class="b">
-<td>maven-settings-2.2.1.jar</td>
-<td>47.89 kB</td>
-<td>38</td>
-<td>20</td>
+<td>maven-settings-3.0.4.jar</td>
+<td>45.57 kB</td>
+<td>33</td>
+<td>17</td>
 <td>2</td>
 <td>1.5</td>
 <td>debug</td></tr>
 <tr class="a">
+<td>maven-settings-builder-3.0.4.jar</td>
+<td>40.41 kB</td>
+<td>53</td>
+<td>32</td>
+<td>5</td>
+<td>1.5</td>
+<td>debug</td></tr>
+<tr class="b">
 <td>maven-plugin-annotations-3.2.jar</td>
 <td>14.73 kB</td>
 <td>23</td>
@@ -750,39 +855,39 @@
 <td>1</td>
 <td>1.5</td>
 <td>debug</td></tr>
-<tr class="b">
-<td>wagon-provider-api-1.0-beta-6.jar</td>
-<td>51.94 kB</td>
-<td>62</td>
-<td>41</td>
-<td>8</td>
-<td>1.4</td>
-<td>debug</td></tr>
 <tr class="a">
-<td>plexus-container-default-1.0-alpha-9-stable-1.jar</td>
-<td>189.63 kB</td>
-<td>215</td>
-<td>175</td>
-<td>28</td>
-<td>1.1</td>
-<td>debug</td></tr>
-<tr class="b">
-<td>plexus-interpolation-1.11.jar</td>
-<td>49.74 kB</td>
-<td>55</td>
-<td>40</td>
+<td>plexus-classworlds-2.4.jar</td>
+<td>45.96 kB</td>
+<td>52</td>
+<td>37</td>
 <td>5</td>
 <td>1.4</td>
 <td>debug</td></tr>
+<tr class="b">
+<td>plexus-component-annotations-1.5.5.jar</td>
+<td>4.11 kB</td>
+<td>15</td>
+<td>3</td>
+<td>1</td>
+<td>1.5</td>
+<td>release</td></tr>
 <tr class="a">
-<td>plexus-utils-1.5.15.jar</td>
-<td>222.76 kB</td>
-<td>129</td>
-<td>103</td>
-<td>10</td>
-<td>1.3</td>
+<td>plexus-interpolation-1.14.jar</td>
+<td>59.64 kB</td>
+<td>60</td>
+<td>44</td>
+<td>6</td>
+<td>1.4</td>
 <td>debug</td></tr>
 <tr class="b">
+<td>plexus-utils-2.0.6.jar</td>
+<td>218.19 kB</td>
+<td>120</td>
+<td>95</td>
+<td>9</td>
+<td>1.4</td>
+<td>debug</td></tr>
+<tr class="a">
 <td>lombok-0.12.0.jar</td>
 <td>1.81 MB</td>
 <td>750</td>
@@ -790,7 +895,87 @@
 <td>36</td>
 <td>1.6</td>
 <td>debug</td></tr>
+<tr class="b">
+<td>aether-api-1.13.1.jar</td>
+<td>87.56 kB</td>
+<td>116</td>
+<td>96</td>
+<td>11</td>
+<td>1.5</td>
+<td>debug</td></tr>
 <tr class="a">
+<td>aether-impl-1.13.1.jar</td>
+<td>127.10 kB</td>
+<td>87</td>
+<td>73</td>
+<td>2</td>
+<td>1.5</td>
+<td>debug</td></tr>
+<tr class="b">
+<td>aether-spi-1.13.1.jar</td>
+<td>15.07 kB</td>
+<td>33</td>
+<td>17</td>
+<td>5</td>
+<td>1.5</td>
+<td>debug</td></tr>
+<tr class="a">
+<td>aether-util-1.13.1.jar</td>
+<td>126.98 kB</td>
+<td>116</td>
+<td>92</td>
+<td>14</td>
+<td>1.5</td>
+<td>debug</td></tr>
+<tr class="b">
+<td>plexus-cipher-1.4.jar</td>
+<td>13.18 kB</td>
+<td>20</td>
+<td>6</td>
+<td>1</td>
+<td>1.4</td>
+<td>debug</td></tr>
+<tr class="a">
+<td>plexus-sec-dispatcher-1.3.jar</td>
+<td>27.89 kB</td>
+<td>31</td>
+<td>13</td>
+<td>3</td>
+<td>1.4</td>
+<td>debug</td></tr>
+<tr class="b">
+<td>sisu-guava-0.9.9.jar</td>
+<td>1.44 MB</td>
+<td>1,183</td>
+<td>1,163</td>
+<td>10</td>
+<td>1.5</td>
+<td>debug</td></tr>
+<tr class="a">
+<td>sisu-guice-3.1.0-no_aop.jar</td>
+<td>349.05 kB</td>
+<td>310</td>
+<td>295</td>
+<td>8</td>
+<td>1.5</td>
+<td>debug</td></tr>
+<tr class="b">
+<td>sisu-inject-bean-2.3.0.jar</td>
+<td>282.29 kB</td>
+<td>256</td>
+<td>224</td>
+<td>15</td>
+<td>1.5</td>
+<td>debug</td></tr>
+<tr class="a">
+<td>sisu-inject-plexus-2.3.0.jar</td>
+<td>199.64 kB</td>
+<td>207</td>
+<td>163</td>
+<td>27</td>
+<td>1.5</td>
+<td>debug</td></tr>
+<tr class="b">
 <th>Total</th>
 <th>Size</th>
 <th>Entries</th>
@@ -798,30 +983,30 @@
 <th>Packages</th>
 <th>JDK Rev</th>
 <th>Debug</th></tr>
-<tr class="b">
-<td>19</td>
-<td>3.59 MB</td>
-<td>2,229</td>
-<td>1,764</td>
-<td>154</td>
-<td>1.6</td>
-<td>19</td></tr>
 <tr class="a">
-<td>compile: 3</td>
-<td>compile: 2.12 MB</td>
-<td>compile: 952</td>
-<td>compile: 808</td>
-<td>compile: 50</td>
-<td>-</td>
-<td>compile: 3</td></tr>
+<td>26</td>
+<td>6.18 MB</td>
+<td>4,449</td>
+<td>3,774</td>
+<td>255</td>
+<td>1.6</td>
+<td>25</td></tr>
 <tr class="b">
-<td>provided: 16</td>
-<td>provided: 1.46 MB</td>
-<td>provided: 1,277</td>
-<td>provided: 956</td>
-<td>provided: 104</td>
+<td>compile: 12</td>
+<td>compile: 4.88 MB</td>
+<td>compile: 3,242</td>
+<td>compile: 2,887</td>
+<td>compile: 143</td>
 <td>-</td>
-<td>provided: 16</td></tr></table></div><a name="Dependency_Repository_Locations"></a>
+<td>compile: 11</td></tr>
+<tr class="a">
+<td>provided: 14</td>
+<td>provided: 1.30 MB</td>
+<td>provided: 1,207</td>
+<td>provided: 887</td>
+<td>provided: 112</td>
+<td>-</td>
+<td>provided: 14</td></tr></table></div><a name="Dependency_Repository_Locations"></a>
 <div class="section">
 <h2>Dependency Repository Locations<a name="Dependency_Repository_Locations"></a></h2>
 <table border="0" class="table table-striped">
@@ -829,31 +1014,21 @@
 <th>Repo ID</th>
 <th>URL</th>
 <th>Release</th>
-<th>Snapshot</th>
-<th>Blacklisted</th></tr>
+<th>Snapshot</th></tr>
 <tr class="b">
 <td>apache.snapshots</td>
 <td><a class="externalLink" href="http://repository.apache.org/snapshots">http://repository.apache.org/snapshots</a></td>
 <td>-</td>
-<td>Yes</td>
-<td>-</td></tr>
+<td>Yes</td></tr>
 <tr class="a">
 <td>sonatype-nexus-snapshots</td>
 <td><a class="externalLink" href="https://oss.sonatype.org/content/repositories/snapshots">https://oss.sonatype.org/content/repositories/snapshots</a></td>
 <td>-</td>
-<td>Yes</td>
-<td>-</td></tr>
-<tr class="b">
-<td>snapshots</td>
-<td><a class="externalLink" href="http://snapshots.maven.codehaus.org/maven2">http://snapshots.maven.codehaus.org/maven2</a></td>
-<td>-</td>
-<td>Yes</td>
 <td>Yes</td></tr>
-<tr class="a">
+<tr class="b">
 <td>central</td>
 <td><a class="externalLink" href="http://repo.maven.apache.org/maven2">http://repo.maven.apache.org/maven2</a></td>
 <td>Yes</td>
-<td>-</td>
 <td>-</td></tr></table>
 <p>Repository locations for each of the Dependencies.</p>
 <table border="0" class="table table-striped">
@@ -863,110 +1038,145 @@
 <th>sonatype-nexus-snapshots</th>
 <th>central</th></tr>
 <tr class="b">
-<td>backport-util-concurrent:backport-util-concurrent:jar:3.1</td>
-<td>-</td>
-<td>-</td>
-<td><a class="externalLink" href="http://repo.maven.apache.org/maven2/backport-util-concurrent/backport-util-concurrent/3.1/backport-util-concurrent-3.1.jar"><img alt="Found at http://repo.maven.apache.org/maven2" src="images/icon_success_sml.gif" /></a></td></tr>
-<tr class="a">
-<td>classworlds:classworlds:jar:1.1-alpha-2</td>
-<td>-</td>
-<td>-</td>
-<td><a class="externalLink" href="http://repo.maven.apache.org/maven2/classworlds/classworlds/1.1-alpha-2/classworlds-1.1-alpha-2.jar"><img alt="Found at http://repo.maven.apache.org/maven2" src="images/icon_success_sml.gif" /></a></td></tr>
-<tr class="b">
-<td>junit:junit:jar:3.8.1</td>
-<td>-</td>
-<td>-</td>
-<td><a class="externalLink" href="http://repo.maven.apache.org/maven2/junit/junit/3.8.1/junit-3.8.1.jar"><img alt="Found at http://repo.maven.apache.org/maven2" src="images/icon_success_sml.gif" /></a></td></tr>
-<tr class="a">
 <td>org.apache.commons:commons-lang3:jar:3.1</td>
 <td>-</td>
 <td>-</td>
 <td><a class="externalLink" href="http://repo.maven.apache.org/maven2/org/apache/commons/commons-lang3/3.1/commons-lang3-3.1.jar"><img alt="Found at http://repo.maven.apache.org/maven2" src="images/icon_success_sml.gif" /></a></td></tr>
-<tr class="b">
-<td>org.apache.maven:maven-artifact:jar:3.0</td>
-<td>-</td>
-<td>-</td>
-<td><a class="externalLink" href="http://repo.maven.apache.org/maven2/org/apache/maven/maven-artifact/3.0/maven-artifact-3.0.jar"><img alt="Found at http://repo.maven.apache.org/maven2" src="images/icon_success_sml.gif" /></a></td></tr>
 <tr class="a">
-<td>org.apache.maven:maven-artifact-manager:jar:2.2.1</td>
+<td>org.apache.maven:maven-aether-provider:jar:3.0.4</td>
 <td>-</td>
 <td>-</td>
-<td><a class="externalLink" href="http://repo.maven.apache.org/maven2/org/apache/maven/maven-artifact-manager/2.2.1/maven-artifact-manager-2.2.1.jar"><img alt="Found at http://repo.maven.apache.org/maven2" src="images/icon_success_sml.gif" /></a></td></tr>
+<td><a class="externalLink" href="http://repo.maven.apache.org/maven2/org/apache/maven/maven-aether-provider/3.0.4/maven-aether-provider-3.0.4.jar"><img alt="Found at http://repo.maven.apache.org/maven2" src="images/icon_success_sml.gif" /></a></td></tr>
 <tr class="b">
-<td>org.apache.maven:maven-model:jar:2.2.1</td>
+<td>org.apache.maven:maven-artifact:jar:3.0.4</td>
 <td>-</td>
 <td>-</td>
-<td><a class="externalLink" href="http://repo.maven.apache.org/maven2/org/apache/maven/maven-model/2.2.1/maven-model-2.2.1.jar"><img alt="Found at http://repo.maven.apache.org/maven2" src="images/icon_success_sml.gif" /></a></td></tr>
+<td><a class="externalLink" href="http://repo.maven.apache.org/maven2/org/apache/maven/maven-artifact/3.0.4/maven-artifact-3.0.4.jar"><img alt="Found at http://repo.maven.apache.org/maven2" src="images/icon_success_sml.gif" /></a></td></tr>
 <tr class="a">
-<td>org.apache.maven:maven-plugin-api:jar:2.2.1</td>
+<td>org.apache.maven:maven-core:jar:3.0.4</td>
 <td>-</td>
 <td>-</td>
-<td><a class="externalLink" href="http://repo.maven.apache.org/maven2/org/apache/maven/maven-plugin-api/2.2.1/maven-plugin-api-2.2.1.jar"><img alt="Found at http://repo.maven.apache.org/maven2" src="images/icon_success_sml.gif" /></a></td></tr>
+<td><a class="externalLink" href="http://repo.maven.apache.org/maven2/org/apache/maven/maven-core/3.0.4/maven-core-3.0.4.jar"><img alt="Found at http://repo.maven.apache.org/maven2" src="images/icon_success_sml.gif" /></a></td></tr>
 <tr class="b">
-<td>org.apache.maven:maven-plugin-registry:jar:2.2.1</td>
+<td>org.apache.maven:maven-model:jar:3.0.4</td>
 <td>-</td>
 <td>-</td>
-<td><a class="externalLink" href="http://repo.maven.apache.org/maven2/org/apache/maven/maven-plugin-registry/2.2.1/maven-plugin-registry-2.2.1.jar"><img alt="Found at http://repo.maven.apache.org/maven2" src="images/icon_success_sml.gif" /></a></td></tr>
+<td><a class="externalLink" href="http://repo.maven.apache.org/maven2/org/apache/maven/maven-model/3.0.4/maven-model-3.0.4.jar"><img alt="Found at http://repo.maven.apache.org/maven2" src="images/icon_success_sml.gif" /></a></td></tr>
 <tr class="a">
-<td>org.apache.maven:maven-profile:jar:2.2.1</td>
+<td>org.apache.maven:maven-model-builder:jar:3.0.4</td>
 <td>-</td>
 <td>-</td>
-<td><a class="externalLink" href="http://repo.maven.apache.org/maven2/org/apache/maven/maven-profile/2.2.1/maven-profile-2.2.1.jar"><img alt="Found at http://repo.maven.apache.org/maven2" src="images/icon_success_sml.gif" /></a></td></tr>
+<td><a class="externalLink" href="http://repo.maven.apache.org/maven2/org/apache/maven/maven-model-builder/3.0.4/maven-model-builder-3.0.4.jar"><img alt="Found at http://repo.maven.apache.org/maven2" src="images/icon_success_sml.gif" /></a></td></tr>
 <tr class="b">
-<td>org.apache.maven:maven-project:jar:2.2.1</td>
+<td>org.apache.maven:maven-plugin-api:jar:3.0.4</td>
 <td>-</td>
 <td>-</td>
-<td><a class="externalLink" href="http://repo.maven.apache.org/maven2/org/apache/maven/maven-project/2.2.1/maven-project-2.2.1.jar"><img alt="Found at http://repo.maven.apache.org/maven2" src="images/icon_success_sml.gif" /></a></td></tr>
+<td><a class="externalLink" href="http://repo.maven.apache.org/maven2/org/apache/maven/maven-plugin-api/3.0.4/maven-plugin-api-3.0.4.jar"><img alt="Found at http://repo.maven.apache.org/maven2" src="images/icon_success_sml.gif" /></a></td></tr>
 <tr class="a">
-<td>org.apache.maven:maven-repository-metadata:jar:2.2.1</td>
+<td>org.apache.maven:maven-repository-metadata:jar:3.0.4</td>
 <td>-</td>
 <td>-</td>
-<td><a class="externalLink" href="http://repo.maven.apache.org/maven2/org/apache/maven/maven-repository-metadata/2.2.1/maven-repository-metadata-2.2.1.jar"><img alt="Found at http://repo.maven.apache.org/maven2" src="images/icon_success_sml.gif" /></a></td></tr>
+<td><a class="externalLink" href="http://repo.maven.apache.org/maven2/org/apache/maven/maven-repository-metadata/3.0.4/maven-repository-metadata-3.0.4.jar"><img alt="Found at http://repo.maven.apache.org/maven2" src="images/icon_success_sml.gif" /></a></td></tr>
 <tr class="b">
-<td>org.apache.maven:maven-settings:jar:2.2.1</td>
+<td>org.apache.maven:maven-settings:jar:3.0.4</td>
 <td>-</td>
 <td>-</td>
-<td><a class="externalLink" href="http://repo.maven.apache.org/maven2/org/apache/maven/maven-settings/2.2.1/maven-settings-2.2.1.jar"><img alt="Found at http://repo.maven.apache.org/maven2" src="images/icon_success_sml.gif" /></a></td></tr>
+<td><a class="externalLink" href="http://repo.maven.apache.org/maven2/org/apache/maven/maven-settings/3.0.4/maven-settings-3.0.4.jar"><img alt="Found at http://repo.maven.apache.org/maven2" src="images/icon_success_sml.gif" /></a></td></tr>
 <tr class="a">
+<td>org.apache.maven:maven-settings-builder:jar:3.0.4</td>
+<td>-</td>
+<td>-</td>
+<td><a class="externalLink" href="http://repo.maven.apache.org/maven2/org/apache/maven/maven-settings-builder/3.0.4/maven-settings-builder-3.0.4.jar"><img alt="Found at http://repo.maven.apache.org/maven2" src="images/icon_success_sml.gif" /></a></td></tr>
+<tr class="b">
 <td>org.apache.maven.plugin-tools:maven-plugin-annotations:jar:3.2</td>
 <td>-</td>
 <td>-</td>
 <td><a class="externalLink" href="http://repo.maven.apache.org/maven2/org/apache/maven/plugin-tools/maven-plugin-annotations/3.2/maven-plugin-annotations-3.2.jar"><img alt="Found at http://repo.maven.apache.org/maven2" src="images/icon_success_sml.gif" /></a></td></tr>
-<tr class="b">
-<td>org.apache.maven.wagon:wagon-provider-api:jar:1.0-beta-6</td>
-<td>-</td>
-<td>-</td>
-<td><a class="externalLink" href="http://repo.maven.apache.org/maven2/org/apache/maven/wagon/wagon-provider-api/1.0-beta-6/wagon-provider-api-1.0-beta-6.jar"><img alt="Found at http://repo.maven.apache.org/maven2" src="images/icon_success_sml.gif" /></a></td></tr>
 <tr class="a">
-<td>org.codehaus.plexus:plexus-container-default:jar:1.0-alpha-9-stable-1</td>
+<td>org.codehaus.plexus:plexus-classworlds:jar:2.4</td>
 <td>-</td>
 <td>-</td>
-<td><a class="externalLink" href="http://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-container-default/1.0-alpha-9-stable-1/plexus-container-default-1.0-alpha-9-stable-1.jar"><img alt="Found at http://repo.maven.apache.org/maven2" src="images/icon_success_sml.gif" /></a></td></tr>
+<td><a class="externalLink" href="http://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-classworlds/2.4/plexus-classworlds-2.4.jar"><img alt="Found at http://repo.maven.apache.org/maven2" src="images/icon_success_sml.gif" /></a></td></tr>
 <tr class="b">
-<td>org.codehaus.plexus:plexus-interpolation:jar:1.11</td>
+<td>org.codehaus.plexus:plexus-component-annotations:jar:1.5.5</td>
 <td>-</td>
 <td>-</td>
-<td><a class="externalLink" href="http://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-interpolation/1.11/plexus-interpolation-1.11.jar"><img alt="Found at http://repo.maven.apache.org/maven2" src="images/icon_success_sml.gif" /></a></td></tr>
+<td><a class="externalLink" href="http://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-component-annotations/1.5.5/plexus-component-annotations-1.5.5.jar"><img alt="Found at http://repo.maven.apache.org/maven2" src="images/icon_success_sml.gif" /></a></td></tr>
 <tr class="a">
-<td>org.codehaus.plexus:plexus-utils:jar:1.5.15</td>
+<td>org.codehaus.plexus:plexus-interpolation:jar:1.14</td>
 <td>-</td>
 <td>-</td>
-<td><a class="externalLink" href="http://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-utils/1.5.15/plexus-utils-1.5.15.jar"><img alt="Found at http://repo.maven.apache.org/maven2" src="images/icon_success_sml.gif" /></a></td></tr>
+<td><a class="externalLink" href="http://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-interpolation/1.14/plexus-interpolation-1.14.jar"><img alt="Found at http://repo.maven.apache.org/maven2" src="images/icon_success_sml.gif" /></a></td></tr>
 <tr class="b">
+<td>org.codehaus.plexus:plexus-utils:jar:2.0.6</td>
+<td>-</td>
+<td>-</td>
+<td><a class="externalLink" href="http://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-utils/2.0.6/plexus-utils-2.0.6.jar"><img alt="Found at http://repo.maven.apache.org/maven2" src="images/icon_success_sml.gif" /></a></td></tr>
+<tr class="a">
 <td>org.projectlombok:lombok:jar:0.12.0</td>
 <td>-</td>
 <td>-</td>
 <td><a class="externalLink" href="http://repo.maven.apache.org/maven2/org/projectlombok/lombok/0.12.0/lombok-0.12.0.jar"><img alt="Found at http://repo.maven.apache.org/maven2" src="images/icon_success_sml.gif" /></a></td></tr>
+<tr class="b">
+<td>org.sonatype.aether:aether-api:jar:1.13.1</td>
+<td>-</td>
+<td>-</td>
+<td><a class="externalLink" href="http://repo.maven.apache.org/maven2/org/sonatype/aether/aether-api/1.13.1/aether-api-1.13.1.jar"><img alt="Found at http://repo.maven.apache.org/maven2" src="images/icon_success_sml.gif" /></a></td></tr>
 <tr class="a">
+<td>org.sonatype.aether:aether-impl:jar:1.13.1</td>
+<td>-</td>
+<td>-</td>
+<td><a class="externalLink" href="http://repo.maven.apache.org/maven2/org/sonatype/aether/aether-impl/1.13.1/aether-impl-1.13.1.jar"><img alt="Found at http://repo.maven.apache.org/maven2" src="images/icon_success_sml.gif" /></a></td></tr>
+<tr class="b">
+<td>org.sonatype.aether:aether-spi:jar:1.13.1</td>
+<td>-</td>
+<td>-</td>
+<td><a class="externalLink" href="http://repo.maven.apache.org/maven2/org/sonatype/aether/aether-spi/1.13.1/aether-spi-1.13.1.jar"><img alt="Found at http://repo.maven.apache.org/maven2" src="images/icon_success_sml.gif" /></a></td></tr>
+<tr class="a">
+<td>org.sonatype.aether:aether-util:jar:1.13.1</td>
+<td>-</td>
+<td>-</td>
+<td><a class="externalLink" href="http://repo.maven.apache.org/maven2/org/sonatype/aether/aether-util/1.13.1/aether-util-1.13.1.jar"><img alt="Found at http://repo.maven.apache.org/maven2" src="images/icon_success_sml.gif" /></a></td></tr>
+<tr class="b">
+<td>org.sonatype.plexus:plexus-cipher:jar:1.4</td>
+<td>-</td>
+<td>-</td>
+<td><a class="externalLink" href="http://repo.maven.apache.org/maven2/org/sonatype/plexus/plexus-cipher/1.4/plexus-cipher-1.4.jar"><img alt="Found at http://repo.maven.apache.org/maven2" src="images/icon_success_sml.gif" /></a></td></tr>
+<tr class="a">
+<td>org.sonatype.plexus:plexus-sec-dispatcher:jar:1.3</td>
+<td>-</td>
+<td>-</td>
+<td><a class="externalLink" href="http://repo.maven.apache.org/maven2/org/sonatype/plexus/plexus-sec-dispatcher/1.3/plexus-sec-dispatcher-1.3.jar"><img alt="Found at http://repo.maven.apache.org/maven2" src="images/icon_success_sml.gif" /></a></td></tr>
+<tr class="b">
+<td>org.sonatype.sisu:sisu-guava:jar:0.9.9</td>
+<td>-</td>
+<td>-</td>
+<td><a class="externalLink" href="http://repo.maven.apache.org/maven2/org/sonatype/sisu/sisu-guava/0.9.9/sisu-guava-0.9.9.jar"><img alt="Found at http://repo.maven.apache.org/maven2" src="images/icon_success_sml.gif" /></a></td></tr>
+<tr class="a">
+<td>org.sonatype.sisu:sisu-guice:jar:no_aop:3.1.0</td>
+<td>-</td>
+<td>-</td>
+<td><a class="externalLink" href="http://repo.maven.apache.org/maven2/org/sonatype/sisu/sisu-guice/3.1.0/sisu-guice-3.1.0-no_aop.jar"><img alt="Found at http://repo.maven.apache.org/maven2" src="images/icon_success_sml.gif" /></a></td></tr>
+<tr class="b">
+<td>org.sonatype.sisu:sisu-inject-bean:jar:2.3.0</td>
+<td>-</td>
+<td>-</td>
+<td><a class="externalLink" href="http://repo.maven.apache.org/maven2/org/sonatype/sisu/sisu-inject-bean/2.3.0/sisu-inject-bean-2.3.0.jar"><img alt="Found at http://repo.maven.apache.org/maven2" src="images/icon_success_sml.gif" /></a></td></tr>
+<tr class="a">
+<td>org.sonatype.sisu:sisu-inject-plexus:jar:2.3.0</td>
+<td>-</td>
+<td>-</td>
+<td><a class="externalLink" href="http://repo.maven.apache.org/maven2/org/sonatype/sisu/sisu-inject-plexus/2.3.0/sisu-inject-plexus-2.3.0.jar"><img alt="Found at http://repo.maven.apache.org/maven2" src="images/icon_success_sml.gif" /></a></td></tr>
+<tr class="b">
 <th>Total</th>
 <th>apache.snapshots</th>
 <th>sonatype-nexus-snapshots</th>
 <th>central</th></tr>
-<tr class="b">
-<td>19 (compile: 3, provided: 16)</td>
+<tr class="a">
+<td>26 (compile: 12, provided: 14)</td>
 <td>0</td>
 <td>0</td>
-<td>19</td></tr></table></div>
+<td>26</td></tr></table></div>
                   </div>
             </div>
           </div>
