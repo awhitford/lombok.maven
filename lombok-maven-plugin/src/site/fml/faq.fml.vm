@@ -110,6 +110,14 @@
         </source>
       </answer>
     </faq>
+    <faq id="pmd-suppression">
+      <question>Can one suppress PMD for generated methods?</question>
+      <answer>
+        <p>Yes.  With PMD 5, one can disable a rule using the <a href="http://pmd.sourceforge.net/pmd-5.0.5/suppressing.html#Violation_Suppress_XPath">Violation Suppress XPath</a> mechanism.
+        This is demonstrated by the <a href="../test-maven-lombok/">Sample project</a>.
+        And you can read more about it <a href="http://anthonywhitford.blogspot.com/2013/09/suppressing-pmd-alerts-for-lombok.html">here</a>.</p>
+      </answer>
+    </faq>    
   </part>
   <part id="Versions">
     <title>Versions</title>
