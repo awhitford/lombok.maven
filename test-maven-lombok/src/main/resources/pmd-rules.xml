@@ -67,6 +67,10 @@
   (Name/@Image='java.lang.SuppressWarnings') and (MemberValue/PrimaryExpression/PrimaryPrefix/Literal/@Image='&quot;all&quot;')]]" />
         </properties>
     </rule>
+    <rule ref="rulesets/java/coupling.xml" >
+        <exclude name="LoosePackageCoupling" />
+        <exclude name="LawOfDemeter" />
+    </rule>
     <rule ref="rulesets/java/design.xml/UncommentedEmptyConstructor">
         <properties>
             <!-- Lombok; Skip for methods annotated with @java.lang.SuppressWarnings("all") -->
