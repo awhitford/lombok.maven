@@ -7,3 +7,6 @@ This project contains two sub projects:
     - This is a sample project that demonstrates using the maven plugin.
 
 See:  http://awhitford.github.com/lombok.maven/
+
+[![Build Status](https://travis-ci.org/awhitford/lombok.maven.png)](https://travis-ci.org/awhitford/lombok.maven)
+
