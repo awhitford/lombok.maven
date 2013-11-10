@@ -1,142 +1,147 @@
-<HTML>
-<BODY BGCOLOR="white">
-<PRE>
-<FONT color="green">001</FONT>    package lombok.maven;<a name="line.1"></a>
-<FONT color="green">002</FONT>    <a name="line.2"></a>
-<FONT color="green">003</FONT>    import java.io.File;<a name="line.3"></a>
-<FONT color="green">004</FONT>    import java.io.IOException;<a name="line.4"></a>
-<FONT color="green">005</FONT>    import java.nio.charset.Charset;<a name="line.5"></a>
-<FONT color="green">006</FONT>    import java.nio.charset.UnsupportedCharsetException;<a name="line.6"></a>
-<FONT color="green">007</FONT>    import java.util.List;<a name="line.7"></a>
-<FONT color="green">008</FONT>    <a name="line.8"></a>
-<FONT color="green">009</FONT>    import org.apache.commons.lang3.StringUtils;<a name="line.9"></a>
-<FONT color="green">010</FONT>    import org.apache.maven.artifact.Artifact;<a name="line.10"></a>
-<FONT color="green">011</FONT>    import org.apache.maven.plugin.AbstractMojo;<a name="line.11"></a>
-<FONT color="green">012</FONT>    import org.apache.maven.plugin.MojoExecutionException;<a name="line.12"></a>
-<FONT color="green">013</FONT>    import org.apache.maven.plugin.logging.Log;<a name="line.13"></a>
-<FONT color="green">014</FONT>    import org.apache.maven.plugins.annotations.Component;<a name="line.14"></a>
-<FONT color="green">015</FONT>    import org.apache.maven.plugins.annotations.Parameter;<a name="line.15"></a>
-<FONT color="green">016</FONT>    import org.apache.maven.project.MavenProject;<a name="line.16"></a>
-<FONT color="green">017</FONT>    <a name="line.17"></a>
-<FONT color="green">018</FONT>    import lombok.delombok.Delombok;<a name="line.18"></a>
-<FONT color="green">019</FONT>    <a name="line.19"></a>
-<FONT color="green">020</FONT>    <a name="line.20"></a>
-<FONT color="green">021</FONT>    /**<a name="line.21"></a>
-<FONT color="green">022</FONT>     * Abstract mojo to Delombok java source with lombok annotations.<a name="line.22"></a>
-<FONT color="green">023</FONT>     *<a name="line.23"></a>
-<FONT color="green">024</FONT>     * @author &lt;a href="mailto:anthony@whitford.com"&gt;Anthony Whitford&lt;/a&gt;<a name="line.24"></a>
-<FONT color="green">025</FONT>     * @see &lt;a href="http://projectlombok.org/features/delombok.html"&gt;Delombok&lt;/a&gt;<a name="line.25"></a>
-<FONT color="green">026</FONT>     */<a name="line.26"></a>
-<FONT color="green">027</FONT>    public abstract class AbstractDelombokMojo extends AbstractMojo {<a name="line.27"></a>
-<FONT color="green">028</FONT>    <a name="line.28"></a>
-<FONT color="green">029</FONT>        /**<a name="line.29"></a>
-<FONT color="green">030</FONT>         * Specifies whether the delombok generation should be skipped.<a name="line.30"></a>
-<FONT color="green">031</FONT>         */<a name="line.31"></a>
-<FONT color="green">032</FONT>        @Parameter(property="lombok.delombok.skip", defaultValue="false", required=true)<a name="line.32"></a>
-<FONT color="green">033</FONT>        protected boolean skip;<a name="line.33"></a>
-<FONT color="green">034</FONT>    <a name="line.34"></a>
-<FONT color="green">035</FONT>        /**<a name="line.35"></a>
-<FONT color="green">036</FONT>         * Encoding.<a name="line.36"></a>
-<FONT color="green">037</FONT>         */<a name="line.37"></a>
-<FONT color="green">038</FONT>        @Parameter(property="lombok.encoding", defaultValue="${project.build.sourceEncoding}", required=true)<a name="line.38"></a>
-<FONT color="green">039</FONT>        protected String encoding;<a name="line.39"></a>
-<FONT color="green">040</FONT>    <a name="line.40"></a>
-<FONT color="green">041</FONT>        /**<a name="line.41"></a>
-<FONT color="green">042</FONT>         * Verbose flag.  Print the name of each file as it is being delombok-ed.<a name="line.42"></a>
-<FONT color="green">043</FONT>         */<a name="line.43"></a>
-<FONT color="green">044</FONT>        @Parameter(property="lombok.verbose", defaultValue="false", required=true)<a name="line.44"></a>
-<FONT color="green">045</FONT>        protected boolean verbose;<a name="line.45"></a>
-<FONT color="green">046</FONT>     <a name="line.46"></a>
-<FONT color="green">047</FONT>        /**<a name="line.47"></a>
-<FONT color="green">048</FONT>         * Add output directory flag.  Adds the output directory to the Maven build path.<a name="line.48"></a>
-<FONT color="green">049</FONT>         */<a name="line.49"></a>
-<FONT color="green">050</FONT>        @Parameter(property="lombok.addOutputDirectory", defaultValue="true", required=true)<a name="line.50"></a>
-<FONT color="green">051</FONT>        protected boolean addOutputDirectory;<a name="line.51"></a>
-<FONT color="green">052</FONT>    <a name="line.52"></a>
-<FONT color="green">053</FONT>        /**<a name="line.53"></a>
-<FONT color="green">054</FONT>         * The Maven project to act upon.<a name="line.54"></a>
-<FONT color="green">055</FONT>         */<a name="line.55"></a>
-<FONT color="green">056</FONT>        @Component<a name="line.56"></a>
-<FONT color="green">057</FONT>        protected MavenProject project;<a name="line.57"></a>
-<FONT color="green">058</FONT>    <a name="line.58"></a>
-<FONT color="green">059</FONT>        /**<a name="line.59"></a>
-<FONT color="green">060</FONT>         * The plugin dependencies.<a name="line.60"></a>
-<FONT color="green">061</FONT>         */<a name="line.61"></a>
-<FONT color="green">062</FONT>        @Parameter(property="plugin.artifacts", required=true, readonly=true)<a name="line.62"></a>
-<FONT color="green">063</FONT>        private List&lt;Artifact&gt; pluginArtifacts;<a name="line.63"></a>
-<FONT color="green">064</FONT>    <a name="line.64"></a>
-<FONT color="green">065</FONT>        protected abstract String getGoalDescription ();<a name="line.65"></a>
-<FONT color="green">066</FONT>    <a name="line.66"></a>
-<FONT color="green">067</FONT>        protected abstract File getOutputDirectory();<a name="line.67"></a>
-<FONT color="green">068</FONT>    <a name="line.68"></a>
-<FONT color="green">069</FONT>        protected abstract File getSourceDirectory();<a name="line.69"></a>
-<FONT color="green">070</FONT>    <a name="line.70"></a>
-<FONT color="green">071</FONT>        protected abstract String getSourcePath();<a name="line.71"></a>
-<FONT color="green">072</FONT>    <a name="line.72"></a>
-<FONT color="green">073</FONT>        protected abstract void addSourceRoot(String path);<a name="line.73"></a>
-<FONT color="green">074</FONT>    <a name="line.74"></a>
-<FONT color="green">075</FONT>        @Override<a name="line.75"></a>
-<FONT color="green">076</FONT>        public void execute() throws MojoExecutionException {<a name="line.76"></a>
-<FONT color="green">077</FONT>            final Log logger = getLog();<a name="line.77"></a>
-<FONT color="green">078</FONT>            assert null != logger;<a name="line.78"></a>
-<FONT color="green">079</FONT>    <a name="line.79"></a>
-<FONT color="green">080</FONT>            final String goal = getGoalDescription();<a name="line.80"></a>
-<FONT color="green">081</FONT>            logger.debug("Starting " + goal);<a name="line.81"></a>
-<FONT color="green">082</FONT>            final File outputDirectory = getOutputDirectory();<a name="line.82"></a>
-<FONT color="green">083</FONT>            logger.debug("outputDirectory: " + outputDirectory);<a name="line.83"></a>
-<FONT color="green">084</FONT>            final File sourceDirectory = getSourceDirectory();<a name="line.84"></a>
-<FONT color="green">085</FONT>            logger.debug("sourceDirectory: " + sourceDirectory);<a name="line.85"></a>
-<FONT color="green">086</FONT>            final String sourcePath = getSourcePath();<a name="line.86"></a>
-<FONT color="green">087</FONT>            logger.debug("sourcePath: " + sourcePath);<a name="line.87"></a>
-<FONT color="green">088</FONT>    <a name="line.88"></a>
-<FONT color="green">089</FONT>            if (this.skip) {<a name="line.89"></a>
-<FONT color="green">090</FONT>                logger.warn("Skipping " + goal);<a name="line.90"></a>
-<FONT color="green">091</FONT>            } else if (sourceDirectory.exists()) {<a name="line.91"></a>
-<FONT color="green">092</FONT>                // Build a classPath for delombok...<a name="line.92"></a>
-<FONT color="green">093</FONT>                final StringBuilder classPathBuilder = new StringBuilder();<a name="line.93"></a>
-<FONT color="green">094</FONT>                for (final Object artifact : project.getArtifacts()) {<a name="line.94"></a>
-<FONT color="green">095</FONT>                    classPathBuilder.append(((Artifact)artifact).getFile()).append(File.pathSeparatorChar);<a name="line.95"></a>
-<FONT color="green">096</FONT>                }<a name="line.96"></a>
-<FONT color="green">097</FONT>                for (final Artifact artifact : pluginArtifacts) {<a name="line.97"></a>
-<FONT color="green">098</FONT>                    classPathBuilder.append(artifact.getFile()).append(File.pathSeparatorChar);<a name="line.98"></a>
-<FONT color="green">099</FONT>                }<a name="line.99"></a>
-<FONT color="green">100</FONT>                final String classPath = classPathBuilder.toString();<a name="line.100"></a>
-<FONT color="green">101</FONT>                logger.debug("classpath: " + classPath);<a name="line.101"></a>
-<FONT color="green">102</FONT>                final Delombok delombok = new Delombok();<a name="line.102"></a>
-<FONT color="green">103</FONT>                delombok.setVerbose(this.verbose);<a name="line.103"></a>
-<FONT color="green">104</FONT>                delombok.setClasspath(classPath);<a name="line.104"></a>
-<FONT color="green">105</FONT>    <a name="line.105"></a>
-<FONT color="green">106</FONT>                if (StringUtils.isNotBlank(this.encoding)) {<a name="line.106"></a>
-<FONT color="green">107</FONT>                    try {<a name="line.107"></a>
-<FONT color="green">108</FONT>                        delombok.setCharset(this.encoding);<a name="line.108"></a>
-<FONT color="green">109</FONT>                    } catch (final UnsupportedCharsetException e) {<a name="line.109"></a>
-<FONT color="green">110</FONT>                        logger.error("The encoding parameter is invalid; Please check!", e);<a name="line.110"></a>
-<FONT color="green">111</FONT>                        throw new MojoExecutionException("Unknown charset: " + this.encoding, e);<a name="line.111"></a>
-<FONT color="green">112</FONT>                    }<a name="line.112"></a>
-<FONT color="green">113</FONT>                } else {<a name="line.113"></a>
-<FONT color="green">114</FONT>                    logger.warn("No encoding specified; using default: " + Charset.defaultCharset());<a name="line.114"></a>
-<FONT color="green">115</FONT>                }<a name="line.115"></a>
-<FONT color="green">116</FONT>    <a name="line.116"></a>
-<FONT color="green">117</FONT>                try {<a name="line.117"></a>
-<FONT color="green">118</FONT>                    delombok.setOutput(outputDirectory);<a name="line.118"></a>
-<FONT color="green">119</FONT>                    delombok.setSourcepath(getSourcePath());<a name="line.119"></a>
-<FONT color="green">120</FONT>                    delombok.addDirectory(sourceDirectory);<a name="line.120"></a>
-<FONT color="green">121</FONT>                    delombok.delombok();<a name="line.121"></a>
-<FONT color="green">122</FONT>                    logger.info(goal + " complete.");<a name="line.122"></a>
-<FONT color="green">123</FONT>                    <a name="line.123"></a>
-<FONT color="green">124</FONT>                    if (this.addOutputDirectory) {<a name="line.124"></a>
-<FONT color="green">125</FONT>                        // adding generated sources to Maven project<a name="line.125"></a>
-<FONT color="green">126</FONT>                        addSourceRoot(outputDirectory.getCanonicalPath());<a name="line.126"></a>
-<FONT color="green">127</FONT>                    }<a name="line.127"></a>
-<FONT color="green">128</FONT>                } catch (final IOException e) {<a name="line.128"></a>
-<FONT color="green">129</FONT>                    logger.error("Unable to delombok!", e);<a name="line.129"></a>
-<FONT color="green">130</FONT>                    throw new MojoExecutionException("I/O problem during delombok", e);<a name="line.130"></a>
-<FONT color="green">131</FONT>                }<a name="line.131"></a>
-<FONT color="green">132</FONT>            } else {<a name="line.132"></a>
-<FONT color="green">133</FONT>                logger.warn("Skipping " + goal + "; no source to process.");<a name="line.133"></a>
-<FONT color="green">134</FONT>            }<a name="line.134"></a>
-<FONT color="green">135</FONT>        }<a name="line.135"></a>
-<FONT color="green">136</FONT>    }<a name="line.136"></a>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en">
+<head>
+<title>Source code</title>
+<link rel="stylesheet" type="text/css" href="../../../stylesheet.css" title="Style">
+</head>
+<body>
+<div class="sourceContainer">
+<pre><span class="sourceLineNo">001</span>package lombok.maven;<a name="line.1"></a>
+<span class="sourceLineNo">002</span><a name="line.2"></a>
+<span class="sourceLineNo">003</span>import java.io.File;<a name="line.3"></a>
+<span class="sourceLineNo">004</span>import java.io.IOException;<a name="line.4"></a>
+<span class="sourceLineNo">005</span>import java.nio.charset.Charset;<a name="line.5"></a>
+<span class="sourceLineNo">006</span>import java.nio.charset.UnsupportedCharsetException;<a name="line.6"></a>
+<span class="sourceLineNo">007</span>import java.util.List;<a name="line.7"></a>
+<span class="sourceLineNo">008</span><a name="line.8"></a>
+<span class="sourceLineNo">009</span>import org.apache.commons.lang3.StringUtils;<a name="line.9"></a>
+<span class="sourceLineNo">010</span>import org.apache.maven.artifact.Artifact;<a name="line.10"></a>
+<span class="sourceLineNo">011</span>import org.apache.maven.plugin.AbstractMojo;<a name="line.11"></a>
+<span class="sourceLineNo">012</span>import org.apache.maven.plugin.MojoExecutionException;<a name="line.12"></a>
+<span class="sourceLineNo">013</span>import org.apache.maven.plugin.logging.Log;<a name="line.13"></a>
+<span class="sourceLineNo">014</span>import org.apache.maven.plugins.annotations.Component;<a name="line.14"></a>
+<span class="sourceLineNo">015</span>import org.apache.maven.plugins.annotations.Parameter;<a name="line.15"></a>
+<span class="sourceLineNo">016</span>import org.apache.maven.project.MavenProject;<a name="line.16"></a>
+<span class="sourceLineNo">017</span><a name="line.17"></a>
+<span class="sourceLineNo">018</span>import lombok.delombok.Delombok;<a name="line.18"></a>
+<span class="sourceLineNo">019</span><a name="line.19"></a>
+<span class="sourceLineNo">020</span><a name="line.20"></a>
+<span class="sourceLineNo">021</span>/**<a name="line.21"></a>
+<span class="sourceLineNo">022</span> * Abstract mojo to Delombok java source with lombok annotations.<a name="line.22"></a>
+<span class="sourceLineNo">023</span> *<a name="line.23"></a>
+<span class="sourceLineNo">024</span> * @author &lt;a href="mailto:anthony@whitford.com"&gt;Anthony Whitford&lt;/a&gt;<a name="line.24"></a>
+<span class="sourceLineNo">025</span> * @see &lt;a href="http://projectlombok.org/features/delombok.html"&gt;Delombok&lt;/a&gt;<a name="line.25"></a>
+<span class="sourceLineNo">026</span> */<a name="line.26"></a>
+<span class="sourceLineNo">027</span>public abstract class AbstractDelombokMojo extends AbstractMojo {<a name="line.27"></a>
+<span class="sourceLineNo">028</span><a name="line.28"></a>
+<span class="sourceLineNo">029</span>    /**<a name="line.29"></a>
+<span class="sourceLineNo">030</span>     * Specifies whether the delombok generation should be skipped.<a name="line.30"></a>
+<span class="sourceLineNo">031</span>     */<a name="line.31"></a>
+<span class="sourceLineNo">032</span>    @Parameter(property="lombok.delombok.skip", defaultValue="false", required=true)<a name="line.32"></a>
+<span class="sourceLineNo">033</span>    protected boolean skip;<a name="line.33"></a>
+<span class="sourceLineNo">034</span><a name="line.34"></a>
+<span class="sourceLineNo">035</span>    /**<a name="line.35"></a>
+<span class="sourceLineNo">036</span>     * Encoding.<a name="line.36"></a>
+<span class="sourceLineNo">037</span>     */<a name="line.37"></a>
+<span class="sourceLineNo">038</span>    @Parameter(property="lombok.encoding", defaultValue="${project.build.sourceEncoding}", required=true)<a name="line.38"></a>
+<span class="sourceLineNo">039</span>    protected String encoding;<a name="line.39"></a>
+<span class="sourceLineNo">040</span><a name="line.40"></a>
+<span class="sourceLineNo">041</span>    /**<a name="line.41"></a>
+<span class="sourceLineNo">042</span>     * Verbose flag.  Print the name of each file as it is being delombok-ed.<a name="line.42"></a>
+<span class="sourceLineNo">043</span>     */<a name="line.43"></a>
+<span class="sourceLineNo">044</span>    @Parameter(property="lombok.verbose", defaultValue="false", required=true)<a name="line.44"></a>
+<span class="sourceLineNo">045</span>    protected boolean verbose;<a name="line.45"></a>
+<span class="sourceLineNo">046</span> <a name="line.46"></a>
+<span class="sourceLineNo">047</span>    /**<a name="line.47"></a>
+<span class="sourceLineNo">048</span>     * Add output directory flag.  Adds the output directory to the Maven build path.<a name="line.48"></a>
+<span class="sourceLineNo">049</span>     */<a name="line.49"></a>
+<span class="sourceLineNo">050</span>    @Parameter(property="lombok.addOutputDirectory", defaultValue="true", required=true)<a name="line.50"></a>
+<span class="sourceLineNo">051</span>    protected boolean addOutputDirectory;<a name="line.51"></a>
+<span class="sourceLineNo">052</span><a name="line.52"></a>
+<span class="sourceLineNo">053</span>    /**<a name="line.53"></a>
+<span class="sourceLineNo">054</span>     * The Maven project to act upon.<a name="line.54"></a>
+<span class="sourceLineNo">055</span>     */<a name="line.55"></a>
+<span class="sourceLineNo">056</span>    @Component<a name="line.56"></a>
+<span class="sourceLineNo">057</span>    protected MavenProject project;<a name="line.57"></a>
+<span class="sourceLineNo">058</span><a name="line.58"></a>
+<span class="sourceLineNo">059</span>    /**<a name="line.59"></a>
+<span class="sourceLineNo">060</span>     * The plugin dependencies.<a name="line.60"></a>
+<span class="sourceLineNo">061</span>     */<a name="line.61"></a>
+<span class="sourceLineNo">062</span>    @Parameter(property="plugin.artifacts", required=true, readonly=true)<a name="line.62"></a>
+<span class="sourceLineNo">063</span>    private List&lt;Artifact&gt; pluginArtifacts;<a name="line.63"></a>
+<span class="sourceLineNo">064</span><a name="line.64"></a>
+<span class="sourceLineNo">065</span>    protected abstract String getGoalDescription ();<a name="line.65"></a>
+<span class="sourceLineNo">066</span><a name="line.66"></a>
+<span class="sourceLineNo">067</span>    protected abstract File getOutputDirectory();<a name="line.67"></a>
+<span class="sourceLineNo">068</span><a name="line.68"></a>
+<span class="sourceLineNo">069</span>    protected abstract File getSourceDirectory();<a name="line.69"></a>
+<span class="sourceLineNo">070</span><a name="line.70"></a>
+<span class="sourceLineNo">071</span>    protected abstract String getSourcePath();<a name="line.71"></a>
+<span class="sourceLineNo">072</span><a name="line.72"></a>
+<span class="sourceLineNo">073</span>    protected abstract void addSourceRoot(String path);<a name="line.73"></a>
+<span class="sourceLineNo">074</span><a name="line.74"></a>
+<span class="sourceLineNo">075</span>    @Override<a name="line.75"></a>
+<span class="sourceLineNo">076</span>    public void execute() throws MojoExecutionException {<a name="line.76"></a>
+<span class="sourceLineNo">077</span>        final Log logger = getLog();<a name="line.77"></a>
+<span class="sourceLineNo">078</span>        assert null != logger;<a name="line.78"></a>
+<span class="sourceLineNo">079</span><a name="line.79"></a>
+<span class="sourceLineNo">080</span>        final String goal = getGoalDescription();<a name="line.80"></a>
+<span class="sourceLineNo">081</span>        logger.debug("Starting " + goal);<a name="line.81"></a>
+<span class="sourceLineNo">082</span>        final File outputDirectory = getOutputDirectory();<a name="line.82"></a>
+<span class="sourceLineNo">083</span>        logger.debug("outputDirectory: " + outputDirectory);<a name="line.83"></a>
+<span class="sourceLineNo">084</span>        final File sourceDirectory = getSourceDirectory();<a name="line.84"></a>
+<span class="sourceLineNo">085</span>        logger.debug("sourceDirectory: " + sourceDirectory);<a name="line.85"></a>
+<span class="sourceLineNo">086</span>        final String sourcePath = getSourcePath();<a name="line.86"></a>
+<span class="sourceLineNo">087</span>        logger.debug("sourcePath: " + sourcePath);<a name="line.87"></a>
+<span class="sourceLineNo">088</span><a name="line.88"></a>
+<span class="sourceLineNo">089</span>        if (this.skip) {<a name="line.89"></a>
+<span class="sourceLineNo">090</span>            logger.warn("Skipping " + goal);<a name="line.90"></a>
+<span class="sourceLineNo">091</span>        } else if (sourceDirectory.exists()) {<a name="line.91"></a>
+<span class="sourceLineNo">092</span>            // Build a classPath for delombok...<a name="line.92"></a>
+<span class="sourceLineNo">093</span>            final StringBuilder classPathBuilder = new StringBuilder();<a name="line.93"></a>
+<span class="sourceLineNo">094</span>            for (final Object artifact : project.getArtifacts()) {<a name="line.94"></a>
+<span class="sourceLineNo">095</span>                classPathBuilder.append(((Artifact)artifact).getFile()).append(File.pathSeparatorChar);<a name="line.95"></a>
+<span class="sourceLineNo">096</span>            }<a name="line.96"></a>
+<span class="sourceLineNo">097</span>            for (final Artifact artifact : pluginArtifacts) {<a name="line.97"></a>
+<span class="sourceLineNo">098</span>                classPathBuilder.append(artifact.getFile()).append(File.pathSeparatorChar);<a name="line.98"></a>
+<span class="sourceLineNo">099</span>            }<a name="line.99"></a>
+<span class="sourceLineNo">100</span>            final String classPath = classPathBuilder.toString();<a name="line.100"></a>
+<span class="sourceLineNo">101</span>            logger.debug("classpath: " + classPath);<a name="line.101"></a>
+<span class="sourceLineNo">102</span>            final Delombok delombok = new Delombok();<a name="line.102"></a>
+<span class="sourceLineNo">103</span>            delombok.setVerbose(this.verbose);<a name="line.103"></a>
+<span class="sourceLineNo">104</span>            delombok.setClasspath(classPath);<a name="line.104"></a>
+<span class="sourceLineNo">105</span><a name="line.105"></a>
+<span class="sourceLineNo">106</span>            if (StringUtils.isNotBlank(this.encoding)) {<a name="line.106"></a>
+<span class="sourceLineNo">107</span>                try {<a name="line.107"></a>
+<span class="sourceLineNo">108</span>                    delombok.setCharset(this.encoding);<a name="line.108"></a>
+<span class="sourceLineNo">109</span>                } catch (final UnsupportedCharsetException e) {<a name="line.109"></a>
+<span class="sourceLineNo">110</span>                    logger.error("The encoding parameter is invalid; Please check!", e);<a name="line.110"></a>
+<span class="sourceLineNo">111</span>                    throw new MojoExecutionException("Unknown charset: " + this.encoding, e);<a name="line.111"></a>
+<span class="sourceLineNo">112</span>                }<a name="line.112"></a>
+<span class="sourceLineNo">113</span>            } else {<a name="line.113"></a>
+<span class="sourceLineNo">114</span>                logger.warn("No encoding specified; using default: " + Charset.defaultCharset());<a name="line.114"></a>
+<span class="sourceLineNo">115</span>            }<a name="line.115"></a>
+<span class="sourceLineNo">116</span><a name="line.116"></a>
+<span class="sourceLineNo">117</span>            try {<a name="line.117"></a>
+<span class="sourceLineNo">118</span>                delombok.setOutput(outputDirectory);<a name="line.118"></a>
+<span class="sourceLineNo">119</span>                delombok.setSourcepath(getSourcePath());<a name="line.119"></a>
+<span class="sourceLineNo">120</span>                delombok.addDirectory(sourceDirectory);<a name="line.120"></a>
+<span class="sourceLineNo">121</span>                delombok.delombok();<a name="line.121"></a>
+<span class="sourceLineNo">122</span>                logger.info(goal + " complete.");<a name="line.122"></a>
+<span class="sourceLineNo">123</span>                <a name="line.123"></a>
+<span class="sourceLineNo">124</span>                if (this.addOutputDirectory) {<a name="line.124"></a>
+<span class="sourceLineNo">125</span>                    // adding generated sources to Maven project<a name="line.125"></a>
+<span class="sourceLineNo">126</span>                    addSourceRoot(outputDirectory.getCanonicalPath());<a name="line.126"></a>
+<span class="sourceLineNo">127</span>                }<a name="line.127"></a>
+<span class="sourceLineNo">128</span>            } catch (final IOException e) {<a name="line.128"></a>
+<span class="sourceLineNo">129</span>                logger.error("Unable to delombok!", e);<a name="line.129"></a>
+<span class="sourceLineNo">130</span>                throw new MojoExecutionException("I/O problem during delombok", e);<a name="line.130"></a>
+<span class="sourceLineNo">131</span>            }<a name="line.131"></a>
+<span class="sourceLineNo">132</span>        } else {<a name="line.132"></a>
+<span class="sourceLineNo">133</span>            logger.warn("Skipping " + goal + "; no source to process.");<a name="line.133"></a>
+<span class="sourceLineNo">134</span>        }<a name="line.134"></a>
+<span class="sourceLineNo">135</span>    }<a name="line.135"></a>
+<span class="sourceLineNo">136</span>}<a name="line.136"></a>
 
 
 
@@ -197,6 +202,7 @@
 
 
 
-</PRE>
-</BODY>
-</HTML>
+</pre>
+</div>
+</body>
+</html>
