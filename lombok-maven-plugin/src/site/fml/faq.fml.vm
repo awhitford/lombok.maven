@@ -91,7 +91,7 @@
     <faq id="lombok-pg">
       <question>Can one use <em>lombok-pg</em> extensions?</question>
       <answer>
-        <p>Yes.  Simply add the <a href="https://github.com/peichhorn/lombok-pg">lombok-pg</a> artifact as a dependency to the plugin declaration.  For example:</p>
+        <p>Yes -- as long as you are not using Java 7 (<a href="https://github.com/peichhorn/lombok-pg/issues/143">see lombok-pg issue 143</a>).  Simply add the <a href="https://github.com/peichhorn/lombok-pg">lombok-pg</a> artifact as a dependency to the plugin declaration.  For example:</p>
         <source><![CDATA[
 <build>
   <plugin>
@@ -108,6 +108,7 @@
   </plugin>
 </build>]]>
         </source>
+        <p>Based on the lack of recent activity in the <em>lombok-pg</em> project, using those extensions is not recommended as you may run into future compatibility issues.</p> 
       </answer>
     </faq>
     <faq id="pmd-suppression">
