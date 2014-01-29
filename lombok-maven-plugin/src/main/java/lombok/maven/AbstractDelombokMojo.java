@@ -4,7 +4,11 @@ import java.io.File;
 import java.io.IOException;
 import java.nio.charset.Charset;
 import java.nio.charset.UnsupportedCharsetException;
+import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 import org.apache.commons.lang3.StringUtils;
 import org.apache.maven.artifact.Artifact;
@@ -16,6 +20,7 @@ import org.apache.maven.plugins.annotations.Parameter;
 import org.apache.maven.project.MavenProject;
 
 import lombok.delombok.Delombok;
+import lombok.delombok.FormatPreferences;
 
 
 /**
@@ -51,6 +56,12 @@ public abstract class AbstractDelombokMojo extends AbstractMojo {
     protected boolean addOutputDirectory;
 
     /**
+     * Formatting preferences.
+     */
+    @Parameter
+    protected Map<String, String> formatPreferences;
+
+    /**
      * The Maven project to act upon.
      */
     @Component
@@ -71,6 +82,23 @@ public abstract class AbstractDelombokMojo extends AbstractMojo {
     protected abstract String getSourcePath();
 
     protected abstract void addSourceRoot(String path);
+
+    private static Map<String, String> validateFormatPreferences (final Map<String, String> formatPreferences, final Log logger) {
+        final Set<String> validRawKeys = FormatPreferences.getKeysAndDescriptions().keySet();
+        final Set<String> validLowerCaseKeys = new HashSet<String>(validRawKeys.size());
+        for (final String rawKey : validRawKeys) {
+            validLowerCaseKeys.add(rawKey.toLowerCase());
+        }
+        final Map<String, String> validFormatPreferences = new HashMap<String, String>(formatPreferences.size());
+        for (final Map.Entry<String, String> entry : formatPreferences.entrySet()) {
+            final String lowerCaseKey = entry.getKey().toLowerCase();
+            if (!validLowerCaseKeys.contains(lowerCaseKey)) {
+                logger.warn("Unknown Format Preference: " + entry.getKey());
+            }
+            validFormatPreferences.put(lowerCaseKey, entry.getValue());
+        }
+        return validFormatPreferences;
+    }
 
     @Override
     public void execute() throws MojoExecutionException {
@@ -112,6 +140,10 @@ public abstract class AbstractDelombokMojo extends AbstractMojo {
                 }
             } else {
                 logger.warn("No encoding specified; using default: " + Charset.defaultCharset());
+            }
+
+            if (null != formatPreferences && !formatPreferences.isEmpty()) {
+                delombok.setFormatPreferences(validateFormatPreferences(formatPreferences, logger));
             }
 
             try {
