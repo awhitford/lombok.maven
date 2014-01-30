@@ -4,11 +4,9 @@ import java.io.File;
 import java.io.IOException;
 import java.nio.charset.Charset;
 import java.nio.charset.UnsupportedCharsetException;
-import java.util.HashMap;
-import java.util.HashSet;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 
 import org.apache.commons.lang3.StringUtils;
 import org.apache.maven.artifact.Artifact;
@@ -20,7 +18,7 @@ import org.apache.maven.plugins.annotations.Parameter;
 import org.apache.maven.project.MavenProject;
 
 import lombok.delombok.Delombok;
-import lombok.delombok.FormatPreferences;
+import lombok.delombok.Delombok.InvalidFormatOptionException;
 
 
 /**
@@ -83,23 +81,6 @@ public abstract class AbstractDelombokMojo extends AbstractMojo {
 
     protected abstract void addSourceRoot(String path);
 
-    private static Map<String, String> validateFormatPreferences (final Map<String, String> formatPreferences, final Log logger) {
-        final Set<String> validRawKeys = FormatPreferences.getKeysAndDescriptions().keySet();
-        final Set<String> validLowerCaseKeys = new HashSet<String>(validRawKeys.size());
-        for (final String rawKey : validRawKeys) {
-            validLowerCaseKeys.add(rawKey.toLowerCase());
-        }
-        final Map<String, String> validFormatPreferences = new HashMap<String, String>(formatPreferences.size());
-        for (final Map.Entry<String, String> entry : formatPreferences.entrySet()) {
-            final String lowerCaseKey = entry.getKey().toLowerCase();
-            if (!validLowerCaseKeys.contains(lowerCaseKey)) {
-                logger.warn("Unknown Format Preference: " + entry.getKey());
-            }
-            validFormatPreferences.put(lowerCaseKey, entry.getValue());
-        }
-        return validFormatPreferences;
-    }
-
     @Override
     public void execute() throws MojoExecutionException {
         final Log logger = getLog();
@@ -143,7 +124,19 @@ public abstract class AbstractDelombokMojo extends AbstractMojo {
             }
 
             if (null != formatPreferences && !formatPreferences.isEmpty()) {
-                delombok.setFormatPreferences(validateFormatPreferences(formatPreferences, logger));
+                try {
+                    // Construct a list array just like the command-line option...
+                    final List<String> formatOptions = new ArrayList(formatPreferences.size());
+                    for (final Map.Entry<String, String> entry : formatPreferences.entrySet()) {
+                        final String key = entry.getKey();
+                        // "pretty" is an exception -- it has no value...
+                        formatOptions.add( "pretty".equalsIgnoreCase(key) ? key : (key + ':' + entry.getValue()) );
+                    }
+                    delombok.setFormatPreferences(delombok.formatOptionsToMap(formatOptions));
+                } catch (final InvalidFormatOptionException e) {
+                    logger.error("The formatPreferences parameter is invalid; Please check!", e);
+                    throw new MojoExecutionException("Invalid formatPreferences: " + this.formatPreferences, e);
+                }
             }
 
             try {
