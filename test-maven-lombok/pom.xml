@@ -24,6 +24,9 @@
               <goal>delombok</goal>
             </goals>
             <configuration>
+              <formatPreferences>
+                <javaLangAsFQN>skip</javaLangAsFQN>
+              </formatPreferences>
               <verbose>true</verbose>
             </configuration>
           </execution>
