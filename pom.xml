@@ -120,12 +120,19 @@
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-scm-publish-plugin</artifactId>
-          <version>1.0-beta-2</version>
+          <version>1.0</version>
+          <configuration>
+            <scmBranch>gh-pages</scmBranch>
+          </configuration>
         </plugin>
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-site-plugin</artifactId>
           <version>3.3</version>
+          <configuration>
+            <!-- We are deploying site using scm-publish, not site-deploy... -->
+            <skipDeploy>true</skipDeploy>
+          </configuration>
         </plugin>
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
@@ -148,17 +155,6 @@
           <source>1.6</source>
           <target>1.6</target>
         </configuration>
-      </plugin>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-site-plugin</artifactId>
-        <dependencies>
-          <dependency>
-            <groupId>org.kathrynhuxtable.maven.wagon</groupId>
-            <artifactId>wagon-gitsite</artifactId>
-            <version>0.4</version>
-          </dependency>
-        </dependencies>
       </plugin>
     </plugins>
   </build>
@@ -223,7 +219,7 @@
   <distributionManagement>
     <site>
       <id>github.lombok.maven</id>
-      <url>gitsite:git@github.com/awhitford/lombok.maven.git</url>
+      <url>scm:git:git@github.com:awhitford/lombok.maven.git</url>
     </site>
   </distributionManagement>
 </project>
