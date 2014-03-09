@@ -8,9 +8,9 @@
   <groupId>org.projectlombok</groupId>
   <artifactId>lombok-maven</artifactId>
   <packaging>pom</packaging>
-  <version>1.12.4.1-SNAPSHOT</version>
+  <version>1.12.6.0-SNAPSHOT</version>
   <name>Maven Plugin for Project Lombok</name>
-  <url>http://awhitford.github.com/lombok.maven/</url>
+  <url>https://awhitford.github.com/lombok.maven/</url>
   <inceptionYear>2010</inceptionYear>
   <description>Maven Plugin for Project Lombok</description>
   <licenses>
@@ -28,7 +28,7 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     <maven.api.version>3.0.4</maven.api.version>
-    <lombok.version>1.12.4</lombok.version>
+    <lombok.version>1.12.6</lombok.version>
   </properties>
   <modules>
     <module>lombok-maven-plugin</module>
@@ -209,12 +209,12 @@
   <scm>
     <connection>scm:git:git://github.com/awhitford/lombok.maven.git</connection>
     <developerConnection>scm:git:git@github.com:awhitford/lombok.maven.git</developerConnection>
-    <url>http://github.com/awhitford/lombok.maven/tree/master/</url>
+    <url>https://github.com/awhitford/lombok.maven/tree/master/</url>
     <tag>HEAD</tag>
   </scm>
   <issueManagement>
     <system>github</system>
-    <url>http://github.com/awhitford/lombok.maven/issues</url>
+    <url>https://github.com/awhitford/lombok.maven/issues</url>
   </issueManagement>
   <distributionManagement>
     <site>
