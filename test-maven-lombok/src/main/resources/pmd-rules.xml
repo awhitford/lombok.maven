@@ -5,78 +5,17 @@
     </description>
 
     <rule ref="rulesets/java/basic.xml" />
-    <rule ref="rulesets/java/braces.xml" >
-        <!-- Lombok; Skip for methods annotated with @java.lang.SuppressWarnings("all") -->
-        <exclude name="IfStmtsMustUseBraces" />
-    </rule>
-    <rule ref="rulesets/java/braces.xml/IfStmtsMustUseBraces">
-        <properties>
-            <property name="violationSuppressXPath" value="//MethodDeclaration[../Annotation/SingleMemberAnnotation[
-  (Name/@Image='java.lang.SuppressWarnings') and (MemberValue/PrimaryExpression/PrimaryPrefix/Literal/@Image='&quot;all&quot;')]]" />
-        </properties>
-    </rule>
-    <rule ref="rulesets/java/codesize.xml" >
-        <!-- Lombok; Skip for methods annotated with @java.lang.SuppressWarnings("all") -->
-        <exclude name="ExcessiveMethodLength" />
-        <exclude name="NcssMethodCount" />
-        <exclude name="NPathComplexity" />
-        <exclude name="CyclomaticComplexity" />
-    </rule>
-    <rule ref="rulesets/java/codesize.xml/ExcessiveMethodLength">
-        <properties>
-            <property name="violationSuppressXPath" value="//MethodDeclaration[../Annotation/SingleMemberAnnotation[
-  (Name/@Image='java.lang.SuppressWarnings') and (MemberValue/PrimaryExpression/PrimaryPrefix/Literal/@Image='&quot;all&quot;')]]" />
-        </properties>
-    </rule>
-    <rule ref="rulesets/java/codesize.xml/NcssMethodCount">
-        <properties>
-            <property name="violationSuppressXPath" value="//MethodDeclaration[../Annotation/SingleMemberAnnotation[
-  (Name/@Image='java.lang.SuppressWarnings') and (MemberValue/PrimaryExpression/PrimaryPrefix/Literal/@Image='&quot;all&quot;')]]" />
-        </properties>
-    </rule>
-    <rule ref="rulesets/java/codesize.xml/NPathComplexity">
-        <properties>
-            <property name="violationSuppressXPath" value="//MethodDeclaration[../Annotation/SingleMemberAnnotation[
-  (Name/@Image='java.lang.SuppressWarnings') and (MemberValue/PrimaryExpression/PrimaryPrefix/Literal/@Image='&quot;all&quot;')]]" />
-        </properties>
-    </rule>
-    <rule ref="rulesets/java/codesize.xml/CyclomaticComplexity">
-        <properties>
-            <property name="violationSuppressXPath" value="//MethodDeclaration[../Annotation/SingleMemberAnnotation[
-  (Name/@Image='java.lang.SuppressWarnings') and (MemberValue/PrimaryExpression/PrimaryPrefix/Literal/@Image='&quot;all&quot;')]]" />
-        </properties>
-    </rule>
+    <rule ref="rulesets/java/braces.xml" />
+    <rule ref="rulesets/java/codesize.xml" />
     <rule ref="rulesets/java/controversial.xml" >
         <exclude name="NullAssignment" />
         <exclude name="DataflowAnomalyAnalysis" />
         <exclude name="AvoidFinalLocalVariable" />
         <exclude name="AvoidLiteralsInIfCondition" />
-        <!-- Lombok; Skip for methods annotated with @java.lang.SuppressWarnings("all") -->
-        <exclude name="OnlyOneReturn" />
-        <exclude name="UnnecessaryConstructor" />
-    </rule>
-    <rule ref="rulesets/java/controversial.xml/OnlyOneReturn">
-        <properties>
-            <property name="violationSuppressXPath" value="//MethodDeclaration[../Annotation/SingleMemberAnnotation[
-  (Name/@Image='java.lang.SuppressWarnings') and (MemberValue/PrimaryExpression/PrimaryPrefix/Literal/@Image='&quot;all&quot;')]]" />
-        </properties>
-    </rule>
-    <rule ref="rulesets/java/controversial.xml/UnnecessaryConstructor">
-        <properties>
-            <property name="violationSuppressXPath" value="//MethodDeclaration[../Annotation/SingleMemberAnnotation[
-  (Name/@Image='java.lang.SuppressWarnings') and (MemberValue/PrimaryExpression/PrimaryPrefix/Literal/@Image='&quot;all&quot;')]]" />
-        </properties>
     </rule>
     <rule ref="rulesets/java/coupling.xml" >
         <exclude name="LoosePackageCoupling" />
         <exclude name="LawOfDemeter" />
-    </rule>
-    <rule ref="rulesets/java/design.xml/UncommentedEmptyConstructor">
-        <properties>
-            <!-- Lombok; Skip for methods annotated with @java.lang.SuppressWarnings("all") -->
-            <property name="violationSuppressXPath" value="//MethodDeclaration[../Annotation/SingleMemberAnnotation[
-  (Name/@Image='java.lang.SuppressWarnings') and (MemberValue/PrimaryExpression/PrimaryPrefix/Literal/@Image='&quot;all&quot;')]]" />
-        </properties>
     </rule>
     <rule ref="rulesets/java/empty.xml" />
     <rule ref="rulesets/java/finalizers.xml" />
@@ -93,8 +32,6 @@
     <rule ref="rulesets/java/naming.xml/LongVariable">
         <properties>
             <property name="minimum" value="36" />
-            <property name="violationSuppressXPath" value="//MethodDeclaration[../Annotation/SingleMemberAnnotation[
-  (Name/@Image='java.lang.SuppressWarnings') and (MemberValue/PrimaryExpression/PrimaryPrefix/Literal/@Image='&quot;all&quot;')]]" />
         </properties>
     </rule>
     <rule ref="rulesets/java/optimizations.xml" />
