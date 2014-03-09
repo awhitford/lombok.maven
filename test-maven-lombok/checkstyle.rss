@@ -3,7 +3,7 @@
 <rss version="0.91">
   <channel>
     <title>Sample Lombok Maven Project - Checkstyle report</title>
-    <link>http://awhitford.github.com/lombok.maven/test-maven-lombok/</link>
+    <link>https://awhitford.github.com/lombok.maven/test-maven-lombok/</link>
     <description>Sample Lombok Maven Project - Checkstyle report</description>
     <language>en-us</language>
     <copyright>&#169;2010 - 2014 Anthony Whitford</copyright>
@@ -13,9 +13,9 @@
              Warnings: 0,
              Infos: 0
       </title>
-            <link>http://awhitford.github.com/lombok.maven/test-maven-lombok//checkstyle.html</link>
+            <link>https://awhitford.github.com/lombok.maven/test-maven-lombok//checkstyle.html</link>
       <description>
-        <p>Click <a href="http://awhitford.github.com/lombok.maven/test-maven-lombok//checkstyle.html">here</a> for the full Checkstyle report.</p>
+        <p>Click <a href="https://awhitford.github.com/lombok.maven/test-maven-lombok//checkstyle.html">here</a> for the full Checkstyle report.</p>
 
         <table summary="Files" boder="1">
           <thead>
@@ -29,7 +29,7 @@
           <tbody>
                           <tr>
                 <td>
-                  <a href="http://awhitford.github.com/lombok.maven/test-maven-lombok//checkstyle.html#org.projectlombok.test.App.java">org/projectlombok/test/App.java</a>
+                  <a href="https://awhitford.github.com/lombok.maven/test-maven-lombok//checkstyle.html#org.projectlombok.test.App.java">org/projectlombok/test/App.java</a>
                 </td>
                 <td>
                   0
@@ -43,7 +43,7 @@
               </tr>
                           <tr>
                 <td>
-                  <a href="http://awhitford.github.com/lombok.maven/test-maven-lombok//checkstyle.html#org.projectlombok.test.Useful.java">org/projectlombok/test/Useful.java</a>
+                  <a href="https://awhitford.github.com/lombok.maven/test-maven-lombok//checkstyle.html#org.projectlombok.test.Useful.java">org/projectlombok/test/Useful.java</a>
                 </td>
                 <td>
                   0

@@ -3,7 +3,7 @@
 <rss version="0.91">
   <channel>
     <title>Maven Plugin for Project Lombok - Checkstyle report</title>
-    <link>http://awhitford.github.com/lombok.maven/</link>
+    <link>https://awhitford.github.com/lombok.maven/</link>
     <description>Maven Plugin for Project Lombok - Checkstyle report</description>
     <language>en-us</language>
     <copyright>&#169;2010 - 2014 Anthony Whitford</copyright>
@@ -13,9 +13,9 @@
              Warnings: 0,
              Infos: 0
       </title>
-            <link>http://awhitford.github.com/lombok.maven//checkstyle.html</link>
+            <link>https://awhitford.github.com/lombok.maven//checkstyle.html</link>
       <description>
-        <p>Click <a href="http://awhitford.github.com/lombok.maven//checkstyle.html">here</a> for the full Checkstyle report.</p>
+        <p>Click <a href="https://awhitford.github.com/lombok.maven//checkstyle.html">here</a> for the full Checkstyle report.</p>
 
         <table summary="Files" boder="1">
           <thead>
@@ -29,7 +29,7 @@
           <tbody>
                           <tr>
                 <td>
-                  <a href="http://awhitford.github.com/lombok.maven//checkstyle.html#lombok.maven.TestDelombokMojo.java">lombok/maven/TestDelombokMojo.java</a>
+                  <a href="https://awhitford.github.com/lombok.maven//checkstyle.html#lombok.maven.TestDelombokMojo.java">lombok/maven/TestDelombokMojo.java</a>
                 </td>
                 <td>
                   0
@@ -43,7 +43,7 @@
               </tr>
                           <tr>
                 <td>
-                  <a href="http://awhitford.github.com/lombok.maven//checkstyle.html#lombok.maven.DelombokMojo.java">lombok/maven/DelombokMojo.java</a>
+                  <a href="https://awhitford.github.com/lombok.maven//checkstyle.html#lombok.maven.DelombokMojo.java">lombok/maven/DelombokMojo.java</a>
                 </td>
                 <td>
                   0
@@ -57,7 +57,7 @@
               </tr>
                           <tr>
                 <td>
-                  <a href="http://awhitford.github.com/lombok.maven//checkstyle.html#lombok.maven.AbstractDelombokMojo.java">lombok/maven/AbstractDelombokMojo.java</a>
+                  <a href="https://awhitford.github.com/lombok.maven//checkstyle.html#lombok.maven.AbstractDelombokMojo.java">lombok/maven/AbstractDelombokMojo.java</a>
                 </td>
                 <td>
                   0
@@ -71,7 +71,7 @@
               </tr>
                           <tr>
                 <td>
-                  <a href="http://awhitford.github.com/lombok.maven//checkstyle.html#org.projectlombok.test.App.java">org/projectlombok/test/App.java</a>
+                  <a href="https://awhitford.github.com/lombok.maven//checkstyle.html#org.projectlombok.test.App.java">org/projectlombok/test/App.java</a>
                 </td>
                 <td>
                   0
@@ -85,7 +85,7 @@
               </tr>
                           <tr>
                 <td>
-                  <a href="http://awhitford.github.com/lombok.maven//checkstyle.html#org.projectlombok.test.Useful.java">org/projectlombok/test/Useful.java</a>
+                  <a href="https://awhitford.github.com/lombok.maven//checkstyle.html#org.projectlombok.test.Useful.java">org/projectlombok/test/Useful.java</a>
                 </td>
                 <td>
                   0
