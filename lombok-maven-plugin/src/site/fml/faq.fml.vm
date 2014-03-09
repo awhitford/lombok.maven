@@ -114,9 +114,31 @@
     <faq id="pmd-suppression">
       <question>Can one suppress PMD for generated methods?</question>
       <answer>
-        <p>Yes.  With PMD 5, one can disable a rule using the <a href="http://pmd.sourceforge.net/pmd-5.0.5/suppressing.html#Violation_Suppress_XPath">Violation Suppress XPath</a> mechanism.
-        This is demonstrated by the <a href="../test-maven-lombok/">Sample project</a>.
-        And you can read more about it <a href="http://anthonywhitford.blogspot.com/2013/09/suppressing-pmd-alerts-for-lombok.html">here</a>.</p>
+        <p>PMD is supposed to be skipping elements that are annotated with <code>@SuppressWarnings("all")</code>.  If <em>delombok</em> fully qualifies the annotation as <code>@java.lang.SupressWarnings("all")</code>, then PMD may fail to skip it.  PMD 5.1 fixed this <a href="http://sourceforge.net/p/pmd/bugs/1164/">bug</a>.</p>
+        <p>The easiest way to get PMD to behave properly is to configure <em>delombok</em> to not fully qualify <code>java.lang</code> references.  For example:</p>
+        <source><![CDATA[
+<build>
+  <plugin>
+    <groupId>org.projectlombok</groupId>
+    <artifactId>lombok-maven-plugin</artifactId>
+    <version>${MavenLombokPluginVersion}</version>
+    <executions>
+      <execution>
+        <id>delombok</id>
+        <phase>generate-sources</phase>
+        <goals>
+          <goal>delombok</goal>
+        </goals>
+        <configuration>
+          <formatPreferences>
+            <javaLangAsFQN>skip</javaLangAsFQN>
+          </formatPreferences>
+        </configuration>
+    </executions>
+  </plugin>
+</build>]]>
+        </source>
+        <p>Another strategy with PMD 5, is that one can disable a rule using the <a href="http://pmd.sourceforge.net/pmd-5.0.5/suppressing.html#Violation_Suppress_XPath">Violation Suppress XPath</a> mechanism.  This used to be demonstrated by the <a href="../test-maven-lombok/">Sample project</a>, but it has since been removed because it is no longer necessary.  You can read more about this strategy <a href="http://anthonywhitford.blogspot.com/2013/09/suppressing-pmd-alerts-for-lombok.html">here</a>.</p>
       </answer>
     </faq>    
   </part>
