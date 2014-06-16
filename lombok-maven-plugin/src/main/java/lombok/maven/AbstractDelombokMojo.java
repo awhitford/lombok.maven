@@ -62,7 +62,7 @@ public abstract class AbstractDelombokMojo extends AbstractMojo {
     /**
      * The Maven project to act upon.
      */
-    @Component
+    @Parameter(property="project", required=true, readonly=true)
     protected MavenProject project;
 
     /**
@@ -126,7 +126,7 @@ public abstract class AbstractDelombokMojo extends AbstractMojo {
             if (null != formatPreferences && !formatPreferences.isEmpty()) {
                 try {
                     // Construct a list array just like the command-line option...
-                    final List<String> formatOptions = new ArrayList(formatPreferences.size());
+                    final List<String> formatOptions = new ArrayList<String>(formatPreferences.size());
                     for (final Map.Entry<String, String> entry : formatPreferences.entrySet()) {
                         final String key = entry.getKey();
                         // "pretty" is an exception -- it has no value...
