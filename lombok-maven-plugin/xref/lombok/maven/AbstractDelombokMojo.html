@@ -70,7 +70,7 @@
 <a class="jxr_linenumber" name="L62" href="#L62">62</a>      <em class="jxr_javadoccomment">/**</em>
 <a class="jxr_linenumber" name="L63" href="#L63">63</a>  <em class="jxr_javadoccomment">     * The Maven project to act upon.</em>
 <a class="jxr_linenumber" name="L64" href="#L64">64</a>  <em class="jxr_javadoccomment">     */</em>
-<a class="jxr_linenumber" name="L65" href="#L65">65</a>      @Component
+<a class="jxr_linenumber" name="L65" href="#L65">65</a>      @Parameter(property=<span class="jxr_string">"project"</span>, required=<strong class="jxr_keyword">true</strong>, readonly=<strong class="jxr_keyword">true</strong>)
 <a class="jxr_linenumber" name="L66" href="#L66">66</a>      <strong class="jxr_keyword">protected</strong> MavenProject project;
 <a class="jxr_linenumber" name="L67" href="#L67">67</a>  
 <a class="jxr_linenumber" name="L68" href="#L68">68</a>      <em class="jxr_javadoccomment">/**</em>
@@ -134,7 +134,7 @@
 <a class="jxr_linenumber" name="L126" href="#L126">126</a>             <strong class="jxr_keyword">if</strong> (<strong class="jxr_keyword">null</strong> != formatPreferences &amp;&amp; !formatPreferences.isEmpty()) {
 <a class="jxr_linenumber" name="L127" href="#L127">127</a>                 <strong class="jxr_keyword">try</strong> {
 <a class="jxr_linenumber" name="L128" href="#L128">128</a>                     <em class="jxr_comment">// Construct a list array just like the command-line option...</em>
-<a class="jxr_linenumber" name="L129" href="#L129">129</a>                     <strong class="jxr_keyword">final</strong> List&lt;String&gt; formatOptions = <strong class="jxr_keyword">new</strong> ArrayList(formatPreferences.size());
+<a class="jxr_linenumber" name="L129" href="#L129">129</a>                     <strong class="jxr_keyword">final</strong> List&lt;String&gt; formatOptions = <strong class="jxr_keyword">new</strong> ArrayList&lt;String&gt;(formatPreferences.size());
 <a class="jxr_linenumber" name="L130" href="#L130">130</a>                     <strong class="jxr_keyword">for</strong> (<strong class="jxr_keyword">final</strong> Map.Entry&lt;String, String&gt; entry : formatPreferences.entrySet()) {
 <a class="jxr_linenumber" name="L131" href="#L131">131</a>                         <strong class="jxr_keyword">final</strong> String key = entry.getKey();
 <a class="jxr_linenumber" name="L132" href="#L132">132</a>                         <em class="jxr_comment">// "pretty" is an exception -- it has no value...</em>
