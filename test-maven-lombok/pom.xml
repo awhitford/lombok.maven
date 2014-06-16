@@ -3,7 +3,7 @@
   <parent>
     <groupId>org.projectlombok</groupId>
     <artifactId>lombok-maven</artifactId>
-    <version>1.14.0.0-SNAPSHOT</version>
+    <version>1.14.2.0-SNAPSHOT</version>
   </parent>
   <groupId>org.projectlombok.test</groupId>
   <artifactId>test-maven-lombok</artifactId>
