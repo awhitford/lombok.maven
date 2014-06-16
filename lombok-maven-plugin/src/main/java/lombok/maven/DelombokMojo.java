@@ -26,8 +26,6 @@ public class DelombokMojo extends AbstractDelombokMojo {
 
     /**
      * Location of the generated source files.
-     * @parameter expression="${lombok.outputDirectory}" default-value="${project.build.directory}/generated-sources/delombok"
-     * @required
      */
     @Parameter(property="lombok.outputDirectory", defaultValue="${project.build.directory}/generated-sources/delombok", required=true)
     private File outputDirectory;
