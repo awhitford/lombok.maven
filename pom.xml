@@ -221,6 +221,10 @@
     <system>github</system>
     <url>https://github.com/awhitford/lombok.maven/issues</url>
   </issueManagement>
+  <ciManagement>
+    <system>Travis CI</system>
+    <url>https://travis-ci.org/awhitford/lombok.maven</url>
+  </ciManagement>
   <distributionManagement>
     <site>
       <id>github.lombok.maven</id>
