@@ -61,13 +61,13 @@
         <artifactId>maven-plugin-plugin</artifactId>
         <executions>
           <execution>
-            <id>generate-lombok-mojo-descriptors</id>
+            <id>default-descriptor</id>
             <goals>
               <goal>descriptor</goal>
             </goals>
           </execution>
           <execution>
-            <id>generate-lombok-help-mojo</id>
+            <id>help-descriptor</id>
             <goals>
               <goal>helpmojo</goal>
             </goals>
