@@ -8,7 +8,7 @@
   <groupId>org.projectlombok</groupId>
   <artifactId>lombok-maven</artifactId>
   <packaging>pom</packaging>
-  <version>1.14.6.0-SNAPSHOT</version>
+  <version>1.14.6.0</version>
   <name>Maven Plugin for Project Lombok</name>
   <url>https://awhitford.github.com/lombok.maven/</url>
   <inceptionYear>2010</inceptionYear>
@@ -232,7 +232,7 @@
     <connection>scm:git:git://github.com/awhitford/lombok.maven.git</connection>
     <developerConnection>scm:git:git@github.com:awhitford/lombok.maven.git</developerConnection>
     <url>https://github.com/awhitford/lombok.maven/tree/master/</url>
-    <tag>HEAD</tag>
+    <tag>lombok-maven-1.14.6.0</tag>
   </scm>
   <issueManagement>
     <system>github</system>
