@@ -170,7 +170,7 @@
   </plugin>
 </build>]]>
         </source>
-        <p>The above example uses a newer version of the lombok.jar than what is defined for the plugin.  But please note that the Delombok interface will need to be consistent; if not, then this will not work.  For example, plugin changes were required to support 0.10.0-RC1 from 0.9.3 because Delombok had changed and was not fully backwards compatible from an interface perspective.</p>
+        <p>The above example uses a newer version of the lombok.jar than what is defined for the plugin.  But please note that the Delombok interface will need to be consistent; if not, then this will not work.  For example, plugin changes were required to support 0.10.0-RC1 from 0.9.3 because Delombok had changed and was not fully backwards compatible from an interface perspective.  Another incompatibility was introduced (<em>shadow class loading</em>) with version 1.16.0.</p>
       </answer>
     </faq>
   </part>
