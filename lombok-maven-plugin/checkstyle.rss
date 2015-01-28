@@ -23,10 +23,10 @@ under the License.
     <link>https://awhitford.github.com/lombok.maven/lombok-maven-plugin/</link>
     <description>Lombok Maven Plugin - Checkstyle report</description>
     <language>en-us</language>
-    <copyright>&#169;2010 - 2014 Anthony Whitford</copyright>
+    <copyright>&#169;2010 - 2015 Anthony Whitford</copyright>
     <item>
-      <title>File: 3,
-             Errors: 131,
+      <title>File: 4,
+             Errors: 193,
              Warnings: 0,
              Infos: 0
       </title>
@@ -56,6 +56,20 @@ under the License.
                 </td>
                 <td>
                   29
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="https://awhitford.github.com/lombok.maven/lombok-maven-plugin//checkstyle.html#lombok.launch.Delombok.java">lombok/launch/Delombok.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  62
                 </td>
               </tr>
                           <tr>
