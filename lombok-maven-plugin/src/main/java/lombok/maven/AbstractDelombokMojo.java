@@ -2,6 +2,7 @@ package lombok.maven;
 
 import java.io.File;
 import java.io.IOException;
+import java.lang.reflect.InvocationTargetException;
 import java.nio.charset.Charset;
 import java.nio.charset.UnsupportedCharsetException;
 import java.util.ArrayList;
@@ -16,9 +17,7 @@ import org.apache.maven.plugin.logging.Log;
 import org.apache.maven.plugins.annotations.Parameter;
 import org.apache.maven.project.MavenProject;
 
-import lombok.delombok.Delombok;
-import lombok.delombok.Delombok.InvalidFormatOptionException;
-
+import lombok.launch.Delombok;
 
 /**
  * Abstract mojo to Delombok java source with lombok annotations.
@@ -107,51 +106,63 @@ public abstract class AbstractDelombokMojo extends AbstractMojo {
             }
             final String classPath = classPathBuilder.toString();
             logger.debug("classpath: " + classPath);
-            final Delombok delombok = new Delombok();
-            delombok.setVerbose(this.verbose);
-            delombok.setClasspath(classPath);
-
-            if (StringUtils.isNotBlank(this.encoding)) {
-                try {
-                    delombok.setCharset(this.encoding);
-                } catch (final UnsupportedCharsetException e) {
-                    logger.error("The encoding parameter is invalid; Please check!", e);
-                    throw new MojoExecutionException("Unknown charset: " + this.encoding, e);
-                }
-            } else {
-                logger.warn("No encoding specified; using default: " + Charset.defaultCharset());
-            }
-
-            if (null != formatPreferences && !formatPreferences.isEmpty()) {
-                try {
-                    // Construct a list array just like the command-line option...
-                    final List<String> formatOptions = new ArrayList<String>(formatPreferences.size());
-                    for (final Map.Entry<String, String> entry : formatPreferences.entrySet()) {
-                        final String key = entry.getKey();
-                        // "pretty" is an exception -- it has no value...
-                        formatOptions.add( "pretty".equalsIgnoreCase(key) ? key : (key + ':' + entry.getValue()) );
-                    }
-                    delombok.setFormatPreferences(delombok.formatOptionsToMap(formatOptions));
-                } catch (final InvalidFormatOptionException e) {
-                    logger.error("The formatPreferences parameter is invalid; Please check!", e);
-                    throw new MojoExecutionException("Invalid formatPreferences: " + this.formatPreferences, e);
-                }
-            }
-
             try {
-                delombok.setOutput(outputDirectory);
-                delombok.setSourcepath(getSourcePath());
-                delombok.addDirectory(sourceDirectory);
-                delombok.delombok();
-                logger.info(goal + " complete.");
-                
-                if (this.addOutputDirectory) {
-                    // adding generated sources to Maven project
-                    addSourceRoot(outputDirectory.getCanonicalPath());
+                final Delombok delombok = new Delombok();
+                delombok.setVerbose(this.verbose);
+                delombok.setClasspath(classPath);
+
+                if (StringUtils.isNotBlank(this.encoding)) {
+                    try {
+                        delombok.setCharset(this.encoding);
+                    } catch (final UnsupportedCharsetException e) {
+                        logger.error("The encoding parameter is invalid; Please check!", e);
+                        throw new MojoExecutionException("Unknown charset: " + this.encoding, e);
+                    }
+                } else {
+                    logger.warn("No encoding specified; using default: " + Charset.defaultCharset());
                 }
-            } catch (final IOException e) {
-                logger.error("Unable to delombok!", e);
-                throw new MojoExecutionException("I/O problem during delombok", e);
+
+                if (null != formatPreferences && !formatPreferences.isEmpty()) {
+                    try {
+                        // Construct a list array just like the command-line option...
+                        final List<String> formatOptions = new ArrayList<String>(formatPreferences.size());
+                        for (final Map.Entry<String, String> entry : formatPreferences.entrySet()) {
+                            final String key = entry.getKey();
+                            // "pretty" is an exception -- it has no value...
+                            formatOptions.add( "pretty".equalsIgnoreCase(key) ? key : (key + ':' + entry.getValue()) );
+                        }
+                        delombok.setFormatPreferences(delombok.formatOptionsToMap(formatOptions));
+                    } catch (final Exception e) {
+                        logger.error("The formatPreferences parameter is invalid; Please check!", e);
+                        throw new MojoExecutionException("Invalid formatPreferences: " + this.formatPreferences, e);
+                    }
+                }
+
+                try {
+                    delombok.setOutput(outputDirectory);
+                    delombok.setSourcepath(getSourcePath());
+                    delombok.addDirectory(sourceDirectory);
+                    delombok.delombok();
+                    logger.info(goal + " complete.");
+                    
+                    if (this.addOutputDirectory) {
+                        // adding generated sources to Maven project
+                        addSourceRoot(outputDirectory.getCanonicalPath());
+                    }
+                } catch (final IOException e) {
+                    logger.error("Unable to delombok!", e);
+                    throw new MojoExecutionException("I/O problem during delombok", e);
+                }
+            } catch (final ClassNotFoundException e) {
+                throw new MojoExecutionException("Unable to delombok", e);
+            } catch (final IllegalAccessException e) {
+                throw new MojoExecutionException("Unable to delombok", e);
+            } catch (final InvocationTargetException e) {
+                throw new MojoExecutionException("Unable to delombok", e);
+            } catch (final InstantiationException e) {
+                throw new MojoExecutionException("Unable to delombok", e);
+            } catch (final NoSuchMethodException e) {
+                throw new MojoExecutionException("Unable to delombok", e);
             }
         } else {
             logger.warn("Skipping " + goal + "; no source to process.");
