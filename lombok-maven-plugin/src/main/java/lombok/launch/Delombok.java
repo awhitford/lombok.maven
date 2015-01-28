@@ -14,12 +14,10 @@ import java.util.Map;
  */
 public class Delombok {
 
-    private static final ClassLoader SHADOW_CLASS_LOADER = Main.createShadowClassLoader();
-    private final Class<?> delombokClass;
-    private final Object delombok;
+    private final Object delombokInstance;
 
     private final Method addDirectory;
-    private final Method delombokMethod;
+    private final Method delombok;
     private final Method formatOptionsToMap;
     private final Method setVerbose;
     private final Method setCharset;
@@ -29,11 +27,12 @@ public class Delombok {
     private final Method setSourcepath;
 
     public Delombok () throws ClassNotFoundException, IllegalAccessException, InstantiationException, NoSuchMethodException {
-        this.delombokClass = SHADOW_CLASS_LOADER.loadClass("lombok.delombok.Delombok");
-        this.delombok = delombokClass.newInstance();
+        final ClassLoader shadowClassLoader = Main.createShadowClassLoader();
+        final Class<?> delombokClass = shadowClassLoader.loadClass("lombok.delombok.Delombok");
+        this.delombokInstance = delombokClass.newInstance();
         // Get method handles...
         this.addDirectory = delombokClass.getMethod("addDirectory", File.class);
-        this.delombokMethod = delombokClass.getMethod("delombok");
+        this.delombok = delombokClass.getMethod("delombok");
         this.formatOptionsToMap = delombokClass.getMethod("formatOptionsToMap", List.class);
         this.setVerbose = delombokClass.getMethod("setVerbose", boolean.class);
         this.setCharset = delombokClass.getMethod("setCharset", String.class);
@@ -44,11 +43,11 @@ public class Delombok {
     }
 
     public void addDirectory (final File base) throws IllegalAccessException, IOException, InvocationTargetException {
-        addDirectory.invoke(delombok, base);
+        addDirectory.invoke(delombokInstance, base);
     }
 
     public boolean delombok () throws IllegalAccessException, IOException, InvocationTargetException {
-        return Boolean.parseBoolean( delombokMethod.invoke(delombok).toString() );
+        return Boolean.parseBoolean( delombok.invoke(delombokInstance).toString() );
     }
 
     @SuppressWarnings("unchecked")
@@ -57,27 +56,26 @@ public class Delombok {
     }
 
     public void setVerbose (final boolean verbose) throws IllegalAccessException, InvocationTargetException {
-        setVerbose.invoke(delombok, verbose);
+        setVerbose.invoke(delombokInstance, verbose);
     }
 
     public void setCharset (final String charset) throws IllegalAccessException, InvocationTargetException {
-        setCharset.invoke(delombok, charset);
+        setCharset.invoke(delombokInstance, charset);
     }
 
     public void setClasspath (final String classpath) throws IllegalAccessException, InvocationTargetException {
-        setClasspath.invoke(delombok, classpath);
+        setClasspath.invoke(delombokInstance, classpath);
     }
 
     public void setFormatPreferences (final Map<String, String> prefs) throws IllegalAccessException, InvocationTargetException {
-        setFormatPreferences.invoke(delombok, prefs);
+        setFormatPreferences.invoke(delombokInstance, prefs);
     }
 
     public void setOutput (final File dir) throws IllegalAccessException, InvocationTargetException {
-        setOutput.invoke(delombok, dir);
+        setOutput.invoke(delombokInstance, dir);
     }
 
     public void setSourcepath (final String sourcepath) throws IllegalAccessException, InvocationTargetException {
-        setSourcepath.invoke(delombok, sourcepath);
+        setSourcepath.invoke(delombokInstance, sourcepath);
     }
 }
-
