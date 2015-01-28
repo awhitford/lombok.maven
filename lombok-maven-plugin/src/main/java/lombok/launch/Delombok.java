@@ -10,7 +10,7 @@ import java.util.Map;
 /**
  * Since the Shadow Class Loader hides Lombok's internal Delombok, we need to access it via reflection.
  *
- * @see lombok.delombok.Delombok
+ * @see <a href="https://github.com/rzwitserloot/lombok/blob/master/src/delombok/lombok/delombok/Delombok.java">lombok.delombok.Delombok</a>
  */
 public class Delombok {
 
