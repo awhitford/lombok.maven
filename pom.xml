@@ -217,9 +217,9 @@
     </plugins>
   </reporting>
   <scm>
-    <connection>scm:git:git://github.com/awhitford/lombok.maven.git</connection>
+    <connection>scm:git:git:@github.com:awhitford/lombok.maven.git</connection>
     <developerConnection>scm:git:git@github.com:awhitford/lombok.maven.git</developerConnection>
-    <url>https://github.com/awhitford/lombok.maven/tree/master/</url>
+    <url>git@github.com:awhitford/lombok.maven.git</url>
     <tag>HEAD</tag>
   </scm>
   <issueManagement>

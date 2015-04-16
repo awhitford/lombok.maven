@@ -73,20 +73,6 @@
           </extractors>
         </configuration>
       </plugin>
-      <plugin>
-        <!-- Vote for https://issues.apache.org/jira/browse/MDOCCK-26 to suppress warning. -->
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-docck-plugin</artifactId>
-        <!-- Note that version 1.1 breaks the build; need MDOCCK-26 resolved! -->
-        <version>1.0</version>
-        <executions>
-          <execution>
-            <goals>
-              <goal>check</goal>
-            </goals>
-          </execution>
-        </executions>
-      </plugin>
     </plugins>
   </build>
   <reporting>
