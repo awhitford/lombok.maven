@@ -40,6 +40,9 @@ public class AnotherDataExample implements Useful {
         Coin (final int cents) {
             this.cents = cents;
         }
+        
+        public int getCents () {
+        	return cents;
+        }
     }
 }
-

@@ -53,6 +53,11 @@
       <artifactId>lombok</artifactId>
       <version>${lombok.version}</version>
     </dependency>
+    <dependency>
+      <groupId>org.sonatype.plexus</groupId>
+      <artifactId>plexus-build-api</artifactId>
+      <version>0.0.7</version>
+    </dependency>
   </dependencies>
   <build>
     <plugins>

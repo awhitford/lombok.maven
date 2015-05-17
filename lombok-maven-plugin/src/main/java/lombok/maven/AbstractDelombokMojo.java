@@ -14,8 +14,10 @@ import org.apache.maven.artifact.Artifact;
 import org.apache.maven.plugin.AbstractMojo;
 import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugin.logging.Log;
+import org.apache.maven.plugins.annotations.Component;
 import org.apache.maven.plugins.annotations.Parameter;
 import org.apache.maven.project.MavenProject;
+import org.sonatype.plexus.build.incremental.BuildContext;
 
 import lombok.launch.Delombok;
 
@@ -68,6 +70,12 @@ public abstract class AbstractDelombokMojo extends AbstractMojo {
      */
     @Parameter(property="plugin.artifacts", required=true, readonly=true)
     private List<Artifact> pluginArtifacts;
+
+    /**
+     * Build Context for improved Maven-Eclipse integration.
+     */
+    @Component
+    private BuildContext buildContext;
 
     protected abstract String getGoalDescription ();
 
@@ -142,12 +150,18 @@ public abstract class AbstractDelombokMojo extends AbstractMojo {
                     delombok.setOutput(outputDirectory);
                     delombok.setSourcepath(getSourcePath());
                     delombok.addDirectory(sourceDirectory);
-                    delombok.delombok();
-                    logger.info(goal + " complete.");
+                    if (buildContext.hasDelta(sourceDirectory)) {
+                        delombok.delombok();
+                        logger.info(goal + " complete.");
                     
-                    if (this.addOutputDirectory) {
-                        // adding generated sources to Maven project
-                        addSourceRoot(outputDirectory.getCanonicalPath());
+                        if (this.addOutputDirectory) {
+                            // adding generated sources to Maven project
+                            addSourceRoot(outputDirectory.getCanonicalPath());
+                            // Notify build context about a file created, updated or deleted...
+                            buildContext.refresh(outputDirectory);
+                        }
+                    } else {
+                        logger.info(goal + " skipped; No deltas detected.");
                     }
                 } catch (final IOException e) {
                     logger.error("Unable to delombok!", e);
