@@ -153,6 +153,11 @@
           <groupId>org.owasp</groupId>
           <artifactId>dependency-check-maven</artifactId>
           <version>1.3.0</version>
+          <configuration>
+            <nuspecAnalyzerEnabled>false</nuspecAnalyzerEnabled>
+            <assemblyAnalyzerEnabled>false</assemblyAnalyzerEnabled>
+            <skipProvidedScope>true</skipProvidedScope>
+          </configuration>
         </plugin>
       </plugins>
     </pluginManagement>
