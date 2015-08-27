@@ -8,7 +8,7 @@
   <groupId>org.projectlombok</groupId>
   <artifactId>lombok-maven</artifactId>
   <packaging>pom</packaging>
-  <version>1.16.4.2-SNAPSHOT</version>
+  <version>1.16.6.0-SNAPSHOT</version>
   <name>Maven Plugin for Project Lombok</name>
   <url>https://awhitford.github.com/lombok.maven/</url>
   <inceptionYear>2010</inceptionYear>
@@ -28,7 +28,7 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     <maven.api.version>3.0.4</maven.api.version>
-    <lombok.version>1.16.4</lombok.version>
+    <lombok.version>1.16.6</lombok.version>
   </properties>
   <modules>
     <module>lombok-maven-plugin</module>
