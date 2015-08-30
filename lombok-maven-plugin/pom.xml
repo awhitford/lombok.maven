@@ -88,8 +88,8 @@
         <version>${version.javadoc-plugin}</version>
         <configuration>
           <links>
-            <link>http://maven.apache.org/ref/3.0.4/maven-plugin-api/apidocs/</link>
-            <link>http://maven.apache.org/ref/3.0.4/maven-core/apidocs/</link>
+            <link>http://maven.apache.org/ref/${maven.api.version}/maven-plugin-api/apidocs/</link>
+            <link>http://maven.apache.org/ref/${maven.api.version}/maven-core/apidocs/</link>
           </links>
           <linksource>true</linksource>
         </configuration>
@@ -104,7 +104,7 @@
         <artifactId>maven-pmd-plugin</artifactId>
         <version>${version.pmd-plugin}</version>
         <configuration>
-          <targetJdk>1.6</targetJdk>
+          <targetJdk>${version.java}</targetJdk>
           <rulesets>
             <ruleset>/rulesets/java/basic.xml</ruleset>
             <ruleset>/rulesets/java/braces.xml</ruleset>
