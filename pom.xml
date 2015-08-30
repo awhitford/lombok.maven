@@ -24,6 +24,7 @@
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     <maven.api.version>3.0.4</maven.api.version>
     <lombok.version>1.16.6</lombok.version>
+    <releaseProfiles>sonatype-oss-release</releaseProfiles>
     <version.dependency-check>1.3.0</version.dependency-check>
     <version.dependency-plugin>2.10</version.dependency-plugin>
     <version.java>1.6</version.java>
@@ -213,7 +214,7 @@
   <profiles>
     <profile>
       <!-- Central release requirements: http://central.sonatype.org/pages/requirements.html -->
-      <id>release-profile</id>
+      <id>sonatype-oss-release</id>
       <build>
         <plugins>
           <plugin>
