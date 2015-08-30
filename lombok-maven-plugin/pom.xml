@@ -102,7 +102,7 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-pmd-plugin</artifactId>
-        <version>3.4</version>
+        <version>${version.pmd-plugin}</version>
         <configuration>
           <targetJdk>1.6</targetJdk>
           <rulesets>

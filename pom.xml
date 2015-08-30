@@ -29,6 +29,7 @@
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     <maven.api.version>3.0.4</maven.api.version>
     <lombok.version>1.16.6</lombok.version>
+    <version.pmd-plugin>3.5</version.pmd-plugin>
   </properties>
   <modules>
     <module>lombok-maven-plugin</module>
@@ -105,7 +106,7 @@
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-pmd-plugin</artifactId>
-          <version>3.4</version>
+          <version>${version.pmd-plugin}</version>
         </plugin>
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
