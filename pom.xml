@@ -212,7 +212,8 @@
   </build>
   <profiles>
     <profile>
-      <id>release</id>
+      <!-- Central release requirements: http://central.sonatype.org/pages/requirements.html -->
+      <id>release-profile</id>
       <build>
         <plugins>
           <plugin>
