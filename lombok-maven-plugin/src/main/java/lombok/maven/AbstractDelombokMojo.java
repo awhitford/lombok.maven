@@ -14,6 +14,7 @@ import org.apache.maven.artifact.Artifact;
 import org.apache.maven.plugin.AbstractMojo;
 import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugin.logging.Log;
+import org.apache.maven.plugin.descriptor.PluginDescriptor;
 import org.apache.maven.plugins.annotations.Component;
 import org.apache.maven.plugins.annotations.Parameter;
 import org.apache.maven.project.MavenProject;
@@ -71,6 +72,9 @@ public abstract class AbstractDelombokMojo extends AbstractMojo {
     @Parameter(property="plugin.artifacts", required=true, readonly=true)
     private List<Artifact> pluginArtifacts;
 
+    @Parameter(property="plugin", required=true, readonly=true)
+    protected PluginDescriptor pluginDescriptor;
+
     /**
      * Build Context for improved Maven-Eclipse integration.
      */
@@ -111,6 +115,19 @@ public abstract class AbstractDelombokMojo extends AbstractMojo {
             }
             for (final Artifact artifact : pluginArtifacts) {
                 classPathBuilder.append(artifact.getFile()).append(File.pathSeparatorChar);
+            }
+            // delombok needs tools.jar...
+            final String javaHome = System.getProperty("java.home");
+            final File toolsJar = new File (javaHome,
+                ".." + File.separatorChar + "lib" + File.separatorChar + "tools.jar");
+            if (toolsJar.exists()) {
+                try {
+                    pluginDescriptor.getClassRealm().addURL(toolsJar.toURI().toURL());
+                } catch (final IOException e) {
+                    logger.warn("Unable to add tools.jar; " + toolsJar);
+                }
+            } else {
+                logger.warn("Unable to detect tools.jar; java.home is " + javaHome);
             }
             final String classPath = classPathBuilder.toString();
             logger.debug("classpath: " + classPath);

@@ -44,34 +44,6 @@
       </plugin>
     </plugins>
   </build>
-  <profiles>
-    <profile>
-      <id>lombok-needs-tools-jar</id>
-      <activation>
-        <file>
-          <exists>${java.home}/../lib/tools.jar</exists>
-        </file>
-      </activation>
-      <build>
-        <plugins>
-          <plugin>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok-maven-plugin</artifactId>
-            <version>${project.version}</version>
-            <dependencies>
-              <dependency>
-                <groupId>sun.jdk</groupId>
-                <artifactId>tools</artifactId>
-                <version>${version.java}</version>
-                <scope>system</scope>
-                <systemPath>${java.home}/../lib/tools.jar</systemPath>
-              </dependency>
-            </dependencies>        
-          </plugin>
-        </plugins>
-      </build>
-    </profile>
-  </profiles>
   <dependencies>
     <dependency>
       <groupId>javax.validation</groupId>
