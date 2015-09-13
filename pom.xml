@@ -1,13 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
+
   <groupId>org.projectlombok</groupId>
   <artifactId>lombok-maven</artifactId>
-  <packaging>pom</packaging>
   <version>1.16.6.2-SNAPSHOT</version>
+  <packaging>pom</packaging>
+
   <name>Maven Plugin for Project Lombok</name>
+  <description>Maven Plugin for Project Lombok</description>
   <url>https://awhitford.github.com/lombok.maven/</url>
   <inceptionYear>2010</inceptionYear>
-  <description>Maven Plugin for Project Lombok</description>
+  <organization>
+    <name>Anthony Whitford</name>
+    <url>https://github.com/awhitford/</url>
+  </organization>
   <licenses>
     <license>
       <name>The MIT License</name>
@@ -15,10 +22,45 @@
       <distribution>repo</distribution>
     </license>
   </licenses>
-  <organization>
-    <name>Anthony Whitford</name>
-    <url>https://github.com/awhitford/</url>
-  </organization>
+
+  <developers>
+    <developer>
+      <id>awhitford</id>
+      <name>Anthony Whitford</name>
+      <email>anthony at whitford.com</email>
+    </developer>
+  </developers>
+
+  <modules>
+    <module>lombok-maven-plugin</module>
+    <module>test-maven-lombok</module>
+  </modules>
+
+  <scm>
+    <connection>scm:git:git@github.com:awhitford/lombok.maven.git</connection>
+    <developerConnection>scm:git:git@github.com:awhitford/lombok.maven.git</developerConnection>
+    <url>git@github.com:awhitford/lombok.maven.git</url>
+  </scm>
+  <issueManagement>
+    <system>github</system>
+    <url>https://github.com/awhitford/lombok.maven/issues</url>
+  </issueManagement>
+  <ciManagement>
+    <system>Travis CI</system>
+    <url>https://travis-ci.org/awhitford/lombok.maven</url>
+  </ciManagement>
+  <distributionManagement>
+    <repository>
+      <id>sonatype-nexus-staging</id>
+      <name>Nexus Release Repository</name>
+      <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+    </repository>
+    <site>
+      <id>github.lombok.maven</id>
+      <url>scm:git:git@github.com:awhitford/lombok.maven.git</url>
+    </site>
+  </distributionManagement>
+
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
@@ -31,10 +73,7 @@
     <version.javadoc-plugin>2.10.3</version.javadoc-plugin>
     <version.pmd-plugin>3.5</version.pmd-plugin>
   </properties>
-  <modules>
-    <module>lombok-maven-plugin</module>
-    <module>test-maven-lombok</module>
-  </modules>
+
   <build>
     <pluginManagement>
       <plugins>
@@ -211,60 +250,7 @@
       </plugin>
     </plugins>
   </build>
-  <profiles>
-    <profile>
-      <!-- Central release requirements: http://central.sonatype.org/pages/requirements.html -->
-      <id>sonatype-oss-release</id>
-      <build>
-        <plugins>
-          <plugin>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-gpg-plugin</artifactId>
-            <executions>
-              <execution>
-                <id>sign-artifacts</id>
-                <phase>verify</phase>
-                <goals>
-                  <goal>sign</goal>
-                </goals>
-              </execution>
-            </executions>
-          </plugin>
-          <plugin>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-javadoc-plugin</artifactId>
-            <executions>
-              <execution>
-                <id>attach-javadocs</id>
-                <goals>
-                  <goal>jar</goal>
-                </goals>
-              </execution>
-            </executions>
-          </plugin>
-          <plugin>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-source-plugin</artifactId>
-            <executions>
-              <execution>
-                <id>attach-sources</id>
-                <goals>
-                  <goal>jar-no-fork</goal>
-                </goals>
-              </execution>
-            </executions>
-          </plugin>
-        </plugins>
-      </build>
-    </profile>
-  </profiles>
-  <developers>
-    <developer>
-      <id>awhitford</id>
-      <name>Anthony Whitford</name>
-      <email>anthony at whitford.com</email>
-    </developer>
-  </developers>
+
   <reporting>
     <plugins>
       <plugin>
@@ -323,28 +309,52 @@
       </plugin>
     </plugins>
   </reporting>
-  <scm>
-    <connection>scm:git:git@github.com:awhitford/lombok.maven.git</connection>
-    <developerConnection>scm:git:git@github.com:awhitford/lombok.maven.git</developerConnection>
-    <url>git@github.com:awhitford/lombok.maven.git</url>
-  </scm>
-  <issueManagement>
-    <system>github</system>
-    <url>https://github.com/awhitford/lombok.maven/issues</url>
-  </issueManagement>
-  <ciManagement>
-    <system>Travis CI</system>
-    <url>https://travis-ci.org/awhitford/lombok.maven</url>
-  </ciManagement>
-  <distributionManagement>
-    <repository>
-      <id>sonatype-nexus-staging</id>
-      <name>Nexus Release Repository</name>
-      <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
-    </repository>
-    <site>
-      <id>github.lombok.maven</id>
-      <url>scm:git:git@github.com:awhitford/lombok.maven.git</url>
-    </site>
-  </distributionManagement>
+
+  <profiles>
+    <profile>
+      <!-- Central release requirements: http://central.sonatype.org/pages/requirements.html -->
+      <id>sonatype-oss-release</id>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-gpg-plugin</artifactId>
+            <executions>
+              <execution>
+                <id>sign-artifacts</id>
+                <phase>verify</phase>
+                <goals>
+                  <goal>sign</goal>
+                </goals>
+              </execution>
+            </executions>
+          </plugin>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-javadoc-plugin</artifactId>
+            <executions>
+              <execution>
+                <id>attach-javadocs</id>
+                <goals>
+                  <goal>jar</goal>
+                </goals>
+              </execution>
+            </executions>
+          </plugin>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-source-plugin</artifactId>
+            <executions>
+              <execution>
+                <id>attach-sources</id>
+                <goals>
+                  <goal>jar-no-fork</goal>
+                </goals>
+              </execution>
+            </executions>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+  </profiles>
 </project>

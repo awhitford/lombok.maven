@@ -1,18 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
+
   <parent>
     <groupId>org.projectlombok</groupId>
     <artifactId>lombok-maven</artifactId>
     <version>1.16.6.2-SNAPSHOT</version>
   </parent>
+
   <artifactId>lombok-maven-plugin</artifactId>
   <packaging>maven-plugin</packaging>
+
   <name>Lombok Maven Plugin</name>
   <description>Maven Plugin for Project Lombok</description>
+
   <!-- This needed so that the Plugin Documentation has the correct System Requirements. -->
   <prerequisites>
     <maven>${maven.api.version}</maven>
   </prerequisites>
+
   <properties>
     <!-- Skip generated code from Checkstyle analysis... -->
     <checkstyle.excludes>**/HelpMojo.java</checkstyle.excludes>
@@ -20,6 +26,7 @@
     <MavenLombokPluginVersion>${project.version}</MavenLombokPluginVersion>
     <LombokVersion>${lombok.version}</LombokVersion>
   </properties>
+
   <dependencies>
     <dependency>
       <groupId>org.apache.commons</groupId>
@@ -62,6 +69,7 @@
       <version>0.0.7</version>
     </dependency>
   </dependencies>
+
   <build>
     <plugins>
       <plugin>
@@ -83,6 +91,7 @@
       </plugin>
     </plugins>
   </build>
+
   <reporting>
     <plugins>
       <plugin>
