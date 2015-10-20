@@ -31,6 +31,10 @@
     </developer>
   </developers>
 
+  <prerequisites>
+    <maven>${maven.api.version}</maven>
+  </prerequisites>
+
   <modules>
     <module>lombok-maven-plugin</module>
     <module>test-maven-lombok</module>
