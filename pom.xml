@@ -75,7 +75,7 @@
     <version.dependency-plugin>2.10</version.dependency-plugin>
     <version.java>1.6</version.java>
     <version.javadoc-plugin>2.10.3</version.javadoc-plugin>
-    <version.pmd-plugin>3.5</version.pmd-plugin>
+    <version.pmd-plugin>3.6</version.pmd-plugin>
   </properties>
 
   <build>
