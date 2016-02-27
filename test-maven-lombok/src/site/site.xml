@@ -1,18 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project name="Maven Lombok Plugin">
-  <skin>
-    <groupId>org.apache.maven.skins</groupId>
-    <artifactId>maven-fluido-skin</artifactId>
-    <version>1.5</version>
-  </skin>
-  <custom>
-    <fluidoSkin>
-      <googlePlusOne/>
-      <ohloh>
-        <projectId>lombok_maven</projectId>
-      </ohloh>
-    </fluidoSkin>
-  </custom>
   <body>
     <breadcrumbs>
       <item name="Sample" href="http://awhitford.github.com/lombok.maven/test-maven-lombok/" />
