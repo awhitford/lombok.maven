@@ -32,7 +32,7 @@
   </developers>
 
   <prerequisites>
-    <maven>3.0.4</maven>
+    <maven>${maven.api.minimum}</maven>
   </prerequisites>
 
   <modules>
@@ -69,6 +69,7 @@
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+    <maven.api.minimum>3.0.4</maven.api.minimum>
     <maven.api.version>3.3.9</maven.api.version>
     <lombok.version>1.16.8</lombok.version>
     <releaseProfiles>sonatype-oss-release</releaseProfiles>
@@ -232,8 +233,8 @@
                   <version>${version.java}</version>
                 </requireJavaVersion>
                 <requireMavenVersion>
-                  <version>${maven.api.version}</version>
-                  <message>Maven ${maven.api.version} or newer is required.</message>
+                  <version>${maven.api.minimum}</version>
+                  <message>Maven ${maven.api.minimum} or newer is required.</message>
                 </requireMavenVersion>
               </rules>
             </configuration>

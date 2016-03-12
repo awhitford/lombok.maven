@@ -16,7 +16,7 @@
 
   <!-- This is needed so that the Plugin Documentation has the correct System Requirements. -->
   <prerequisites>
-    <maven>3.0.4</maven>
+    <maven>${minimum.api.minimum}</maven>
   </prerequisites>
 
   <properties>
