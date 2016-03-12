@@ -4,7 +4,7 @@
 
   <groupId>org.projectlombok</groupId>
   <artifactId>lombok-maven</artifactId>
-  <version>1.16.6.2-SNAPSHOT</version>
+  <version>1.16.8.0-SNAPSHOT</version>
   <packaging>pom</packaging>
 
   <name>Maven Plugin for Project Lombok</name>
@@ -69,7 +69,7 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     <maven.api.version>3.0.4</maven.api.version>
-    <lombok.version>1.16.6</lombok.version>
+    <lombok.version>1.16.8</lombok.version>
     <releaseProfiles>sonatype-oss-release</releaseProfiles>
     <version.dependency-check>1.3.5.1</version.dependency-check>
     <version.dependency-plugin>2.10</version.dependency-plugin>
