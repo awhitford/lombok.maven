@@ -73,7 +73,7 @@
     <maven.api.version>3.3.9</maven.api.version>
     <lombok.version>1.16.10</lombok.version>
     <releaseProfiles>sonatype-oss-release</releaseProfiles>
-    <version.dependency-check>1.4.2</version.dependency-check>
+    <version.dependency-check>1.4.3</version.dependency-check>
     <version.dependency-plugin>2.10</version.dependency-plugin>
     <version.java>1.6</version.java>
     <version.javadoc-plugin>2.10.4</version.javadoc-plugin>
@@ -146,7 +146,7 @@
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-plugin-plugin</artifactId>
-          <version>3.4</version>
+          <version>3.5</version>
         </plugin>
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
@@ -166,7 +166,7 @@
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-scm-plugin</artifactId>
-          <version>1.9.4</version>
+          <version>1.9.5</version>
         </plugin>
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
