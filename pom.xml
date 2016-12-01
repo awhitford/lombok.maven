@@ -77,7 +77,7 @@
     <version.dependency-plugin>2.10</version.dependency-plugin>
     <version.java>1.6</version.java>
     <version.javadoc-plugin>2.10.4</version.javadoc-plugin>
-    <version.pmd-plugin>3.6</version.pmd-plugin>
+    <version.pmd-plugin>3.7</version.pmd-plugin>
   </properties>
 
   <build>
@@ -91,7 +91,7 @@
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-assembly-plugin</artifactId>
-          <version>2.6</version>
+          <version>3.0.0</version>
         </plugin>
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
@@ -101,7 +101,7 @@
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-compiler-plugin</artifactId>
-          <version>3.5.1</version>
+          <version>3.6.0</version>
           <configuration>
             <compilerArgs>
               <arg>-Xlint</arg>
@@ -179,7 +179,7 @@
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-site-plugin</artifactId>
-          <version>3.5.1</version>
+          <version>3.6</version>
           <configuration>
             <!-- We are deploying site using scm-publish, not site-deploy... -->
             <skipDeploy>true</skipDeploy>
