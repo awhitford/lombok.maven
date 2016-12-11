@@ -64,16 +64,68 @@
                     xml += $("#modal-text").text().replace(/\n/g,'\n   ');
                     xml += '\n</suppressions>';
                     $('#modal-text').text(xml).focus().select();
+                    $('#modal-add-header').toggleClass('active');
                 });
             });
-            function copyText(name, sha1, type, val) {
+            function suppressSwitchTo(switchTo) {
+                $('#modal-suppress-change-to-sha1').toggleClass('active');
+                $('#modal-suppress-change-to-gav').toggleClass('active');
+                setCopyText($('#suppress-name').val(),
+                            switchTo,
+                            $('#suppress-'+switchTo).val(), 
+                            $('#suppress-type').val(), 
+                            $('#suppress-val').val());
+            }
+            function copyText(name, sha1, gav, type, val) {
+                $('#suppress-name').val(name);
+                $('#suppress-type').val(type);
+                $('#suppress-val').val(val);
+                $('#suppress-sha1').val(sha1);
+                $('#suppress-gav').val(gav);
+                if (gav=='') {
+                    if ($('#modal-suppress-change-to-gav').hasClass('active')) {
+                        $('#modal-suppress-change-to-gav').toggleClass('active');
+                    }
+                    if ($('#modal-suppress-change-to-sha1').hasClass('active')) {
+                        $('#modal-suppress-change-to-sha1').toggleClass('active');
+                    }
+                    setCopyText(name, 'sha1', sha1, type, val);
+                } else {
+                    if ($('#modal-suppress-change-to-gav').hasClass('active')) {
+                        $('#modal-suppress-change-to-gav').toggleClass('active');
+                    }
+                    if (!$('#modal-suppress-change-to-sha1').hasClass('active')) {
+                        $('#modal-suppress-change-to-sha1').toggleClass('active');
+                    }
+                    setCopyText(name, 'gav', gav, type, val);
+                }
+            }
+            function setCopyText(name, matchType, matchValue, suppressType, suppressVal) {
                 xml =  '<suppress>\n';
                 xml += '   <notes><!'+'[CDATA[\n   file name: ' + name + '\n   ]]'+'></notes>\n';
-                xml += '   <sha1>' + sha1 + '</sha1>\n';
-                xml += '   <'+type+'>' + val + '</'+type+'>\n';
+                if (matchType=='gav') {
+                    v = matchValue.match(/^[^:]+:[^:]+:/);
+                    if (v && v[0]) {
+                        xml += '   <'+matchType+' regex="true">^' + v[0].replace(/\./g,'\\.') + '.*$</'+matchType+'>\n';
+                    } else {
+                        xml += '   <'+matchType+'>' + matchValue + '</'+matchType+'>\n';
+                    }
+                } else {
+                    xml += '   <'+matchType+'>' + matchValue + '</'+matchType+'>\n';
+                }
+                if (suppressType=='cpe') {
+                    v = suppressVal.match(/^cpe:\/a:[^:]+:[^:]+/);
+                    if (v && v[0]) {
+                        xml += '   <'+suppressType+'>' + v[0] + '</'+suppressType+'>\n';
+                    } else {
+                        xml += '   <'+suppressType+'>' + suppressVal + '</'+suppressType+'>\n';
+                    }
+                } else {
+                    xml += '   <'+suppressType+'>' + suppressVal + '</'+suppressType+'>\n';
+                }
                 xml += '</suppress>';
                 $('#modal-text').text(xml);
-                $('#modal-content,#modal-background').toggleClass('active');
+                $('#modal-content,#modal-background').addClass('active');
                 $('#modal-text').focus();
                 $('#modal-text').select();
             }
@@ -131,6 +183,12 @@
             #modal-text:focus {
                 outline: none;
             }
+            .suppresstype {
+                display: none;
+            }
+            .suppresstype.active {
+                display: block;
+            }  
             .suppressedLabel {
                 cursor: default;
                 padding:1px;
@@ -485,6 +543,11 @@
         <div id="modal-background"></div>
         <div id="modal-content">
             <div>Press CTR-C to copy XML&nbsp;<a href="http://jeremylong.github.io/DependencyCheck/general/suppression.html" class="infolink" target="_blank" title="Help with suppressing false positives">[help]</a></div>
+                <button onclick="suppressSwitchTo('gav')" id="modal-suppress-change-to-gav" class="modal-button suppresstype" title="Supress by Maven Group Artifact Version">Suppress By GAV</button>
+                <button onclick="suppressSwitchTo('sha1')" id="modal-suppress-change-to-sha1" class="modal-button suppresstype" title="Supress by SHA1 hash">Suppress By SHA1</button><br/>
+                <input type="hidden" id="suppress-name"/>
+                <input type="hidden" id="suppress-type"/><input type="hidden" id="suppress-val"/>
+                <input type="hidden" id="suppress-sha1"/><input type="hidden" id="suppress-gav"/>
                 <textarea id="modal-text" cols="50" rows="10" readonly></textarea><br/>
                 <button id="modal-add-header" title="Add the parent XML nodes to create the complete XML file that can be used to suppress this finding" class="modal-button">Complete XML Doc</button><button id="modal-close" class="modal-button-right">Close</button>
         </div>
@@ -496,38 +559,41 @@ the reporting provided constitutes acceptance for use in an AS IS condition, and
 implied or otherwise, with regard to the analysis or its use. Any use of the tool and the reporting provided
 is at the user’s risk. In no event shall the copyright holder or OWASP be held liable for any damages whatsoever
 arising out of or in connection with the use of this tool, the analysis performed, or the resulting report.</p>
+<h3><a href="http://jeremylong.github.io/DependencyCheck/general/thereport.html" target="_bank">How&nbsp;to&nbsp;read&nbsp;the&nbsp;report</a> | 
+<a href="http://jeremylong.github.io/DependencyCheck/general/suppression.html" target="_bank">Suppressing false positives</a> |
+Getting Help: <a href="https://groups.google.com/forum/#!forum/dependency-check" target="_blank">google group</a> | 
+<a href="https://github.com/jeremylong/DependencyCheck/issues" target="_blank">github issues</a></h3>
 
             <h2 class="">Project:&nbsp;Sample Lombok Maven Project</h2>
             <div class="">
                 
                                                                                                                                                                                                                                                                                                                                                 Scan Information (<a href="#" title="Click to toggle display" onclick="return toggleDisplay(this, '.scaninfo', 'show all', 'show less');  return false;">show all</a>):<br/>
                     <ul class="indent">
-                        <li><i>dependency-check version</i>: 1.4.0</li>
-                        <li><i>Report Generated On</i>: Jul 22, 2016 at 00:25:25 PDT</li>
-                        <li><i>Dependencies Scanned</i>:&nbsp;4</li>
+                        <li><i>dependency-check version</i>: 1.4.4</li>
+                        <li><i>Report Generated On</i>: Dec 10, 2016 at 20:12:46 PST</li>
+                        <li><i>Dependencies Scanned</i>:&nbsp;4 (4 unique)</li>
                         <li><i>Vulnerable Dependencies</i>:&nbsp;0</li>
                         <li><i>Vulnerabilities Found</i>:&nbsp;0</li>
                         <li><i>Vulnerabilities Suppressed</i>:&nbsp;0</li>
                         <li class="scaninfo">...</li>
-                                                <li class="scaninfo hidden"><i>CurrentEngineRelease</i>: </li>
-                                                <li class="scaninfo hidden"><i>NVD CVE 2002</i>: 08/06/2016 10:57:34</li>
-                                                <li class="scaninfo hidden"><i>NVD CVE 2003</i>: 17/06/2016 02:32:42</li>
-                                                <li class="scaninfo hidden"><i>NVD CVE 2004</i>: 17/06/2016 02:29:04</li>
-                                                <li class="scaninfo hidden"><i>NVD CVE 2005</i>: 08/06/2016 10:30:22</li>
-                                                <li class="scaninfo hidden"><i>NVD CVE 2006</i>: 21/07/2016 01:20:42</li>
-                                                <li class="scaninfo hidden"><i>NVD CVE 2007</i>: 21/07/2016 01:08:48</li>
-                                                <li class="scaninfo hidden"><i>NVD CVE 2008</i>: 16/06/2016 02:06:06</li>
-                                                <li class="scaninfo hidden"><i>NVD CVE 2009</i>: 25/06/2016 01:48:45</li>
-                                                <li class="scaninfo hidden"><i>NVD CVE 2010</i>: 01/07/2016 01:49:32</li>
-                                                <li class="scaninfo hidden"><i>NVD CVE 2011</i>: 01/07/2016 01:31:53</li>
-                                                <li class="scaninfo hidden"><i>NVD CVE 2012</i>: 16/07/2016 01:37:02</li>
-                                                <li class="scaninfo hidden"><i>NVD CVE 2013</i>: 21/07/2016 00:56:50</li>
-                                                <li class="scaninfo hidden"><i>NVD CVE 2014</i>: 21/07/2016 00:41:33</li>
-                                                <li class="scaninfo hidden"><i>NVD CVE 2015</i>: 21/07/2016 00:25:38</li>
-                                                <li class="scaninfo hidden"><i>NVD CVE 2016</i>: 21/07/2016 00:09:13</li>
-                                                <li class="scaninfo hidden"><i>NVD CVE Checked</i>: 21/07/2016 23:45:15</li>
-                                                <li class="scaninfo hidden"><i>NVD CVE Modified</i>: 21/07/2016 22:04:02</li>
-                                                <li class="scaninfo hidden"><i>VersionCheckOn</i>: 1469170390172</li>
+                                                <li class="scaninfo hidden"><i>NVD CVE 2002</i>: 10/12/2016 00:12:21</li>
+                                                <li class="scaninfo hidden"><i>NVD CVE 2003</i>: 08/12/2016 00:31:14</li>
+                                                <li class="scaninfo hidden"><i>NVD CVE 2004</i>: 08/12/2016 00:30:41</li>
+                                                <li class="scaninfo hidden"><i>NVD CVE 2005</i>: 08/12/2016 00:29:40</li>
+                                                <li class="scaninfo hidden"><i>NVD CVE 2006</i>: 08/12/2016 00:28:00</li>
+                                                <li class="scaninfo hidden"><i>NVD CVE 2007</i>: 08/12/2016 00:25:19</li>
+                                                <li class="scaninfo hidden"><i>NVD CVE 2008</i>: 08/12/2016 00:22:59</li>
+                                                <li class="scaninfo hidden"><i>NVD CVE 2009</i>: 08/12/2016 00:20:38</li>
+                                                <li class="scaninfo hidden"><i>NVD CVE 2010</i>: 08/12/2016 00:18:30</li>
+                                                <li class="scaninfo hidden"><i>NVD CVE 2011</i>: 08/12/2016 00:15:43</li>
+                                                <li class="scaninfo hidden"><i>NVD CVE 2012</i>: 08/12/2016 00:12:24</li>
+                                                <li class="scaninfo hidden"><i>NVD CVE 2013</i>: 10/12/2016 00:10:11</li>
+                                                <li class="scaninfo hidden"><i>NVD CVE 2014</i>: 10/12/2016 00:07:30</li>
+                                                <li class="scaninfo hidden"><i>NVD CVE 2015</i>: 10/12/2016 00:04:38</li>
+                                                <li class="scaninfo hidden"><i>NVD CVE 2016</i>: 10/12/2016 00:02:10</li>
+                                                <li class="scaninfo hidden"><i>NVD CVE Checked</i>: 10/12/2016 15:58:20</li>
+                                                <li class="scaninfo hidden"><i>NVD CVE Modified</i>: 10/12/2016 15:04:31</li>
+                                                <li class="scaninfo hidden"><i>VersionCheckOn</i>: 1480576208703</li>
                                             </ul><br/>
                 Display:&nbsp;<a href="#" title="Click to toggle display" onclick="return toggleDisplay(this, '.notvulnerable', 'Showing Vulnerable Dependencies (click to show all)', 'Showing All Dependencies (click to show less)'); return false;">Showing Vulnerable Dependencies (click to show all)</a><br/><br/>
                                 <table id="summaryTable" class="lined">
@@ -541,10 +607,10 @@ arising out of or in connection with the use of this tool, the analysis performe
                         <th class="sortable" data-sort="int" title="The count of evidence collected to identify the CPE">Evidence Count</th>
                     </tr></thead>
                                         <tr class="notvulnerable">
-                        <td data-sort-value="logback-classic-1.1.7.jar"><a href="#l1_9865cf6994f9ff13fce0bf93f2054ef6c65bb462">logback-classic-1.1.7.jar</a></td>
+                        <td data-sort-value="logback-classic-1.1.8.jar"><a href="#l1_e54f49a227611976642f81cf2106b81c1ece8bf5">logback-classic-1.1.8.jar</a></td>
                                                                                                                             <td data-sort-value="">
                                                                                                                                                                                                                         </td>
-                                                <td data-sort-value="ch.qos.logback:logback-classic:1.1.7">                                                        <a href="http://search.maven.org/#search|ga|1|1%3A%229865cf6994f9ff13fce0bf93f2054ef6c65bb462%22" target="_blank">ch.qos.logback:logback-classic:1.1.7</a>
+                                                <td data-sort-value="ch.qos.logback:logback-classic:1.1.8">                                                        <a href="http://search.maven.org/#search|ga|1|1%3A%22e54f49a227611976642f81cf2106b81c1ece8bf5%22" target="_blank">ch.qos.logback:logback-classic:1.1.8</a>
                                                 </td>
                                                                         <td data-sort-value="-10">
                                                     &nbsp;
@@ -554,10 +620,10 @@ arising out of or in connection with the use of this tool, the analysis performe
                         <td>19</td>
                     </tr>
                                         <tr class="notvulnerable">
-                        <td data-sort-value="logback-core-1.1.7.jar"><a href="#l2_7873092d39ef741575ca91378a6a21c388363ac8">logback-core-1.1.7.jar</a></td>
+                        <td data-sort-value="logback-core-1.1.8.jar"><a href="#l2_0b4d1c3dea91727faf8b3d19cf4b9b972d6c0b89">logback-core-1.1.8.jar</a></td>
                                                                                                                             <td data-sort-value="">
                                                                                                                                                                                                                         </td>
-                                                <td data-sort-value="ch.qos.logback:logback-core:1.1.7">                                                        <a href="http://search.maven.org/#search|ga|1|1%3A%227873092d39ef741575ca91378a6a21c388363ac8%22" target="_blank">ch.qos.logback:logback-core:1.1.7</a>
+                                                <td data-sort-value="ch.qos.logback:logback-core:1.1.8">                                                        <a href="http://search.maven.org/#search|ga|1|1%3A%220b4d1c3dea91727faf8b3d19cf4b9b972d6c0b89%22" target="_blank">ch.qos.logback:logback-core:1.1.8</a>
                                                 </td>
                                                                         <td data-sort-value="-10">
                                                     &nbsp;
@@ -594,16 +660,16 @@ arising out of or in connection with the use of this tool, the analysis performe
                     </tr>
                                     </table>
                 <h2>Dependencies</h2>
-                                                     <h3 class="subsectionheader standardsubsection notvulnerable"><a name="l1_9865cf6994f9ff13fce0bf93f2054ef6c65bb462"></a>logback-classic-1.1.7.jar</h3>
+                                                     <h3 class="subsectionheader standardsubsection notvulnerable"><a name="l1_e54f49a227611976642f81cf2106b81c1ece8bf5"></a>logback-classic-1.1.8.jar</h3>
                     <div class="subsectioncontent notvulnerable">
                                                     <p><b>Description:</b>&nbsp;logback-classic module<br/></p>
                                                 <p>
                                                                                 <b>License:</b><pre class="indent"><a href="http://www.eclipse.org/legal/epl-v10.html, http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html">http://www.eclipse.org/legal/epl-v10.html, http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html</a></pre>
-                                                                                <b>File&nbsp;Path:</b>&nbsp;/Users/anthony/.m2/repository/ch/qos/logback/logback-classic/1.1.7/logback-classic-1.1.7.jar<br/>
-                            <b>MD5:</b>&nbsp;7373c8ad1bfa162332d7d13c4596c2a1<br/>
-                            <b>SHA1:</b>&nbsp;9865cf6994f9ff13fce0bf93f2054ef6c65bb462
-                                                            <br/><b>Referenced In Project:</b>
-                                                                    Sample Lombok Maven Project
+                                                                                <b>File&nbsp;Path:</b>&nbsp;/Users/anthony/.m2/repository/ch/qos/logback/logback-classic/1.1.8/logback-classic-1.1.8.jar<br/>
+                            <b>MD5:</b>&nbsp;9b139c5d4395699ffac467cef4c77537<br/>
+                            <b>SHA1:</b>&nbsp;e54f49a227611976642f81cf2106b81c1ece8bf5
+                                                            <br/><b>Referenced In Project/Scope:</b>
+                                                                    Sample Lombok Maven Project:runtime
                                                                                                                 </p>
                                                 <h4 id="header1" class="subsectionheader expandable expandablesubsection white">Evidence</h4>
                         <div id="content1" class="subsectioncontent standardsubsection hidden">
@@ -611,15 +677,15 @@ arising out of or in connection with the use of this tool, the analysis performe
                                 <tr><th class="left" style="width:10%;">Source</th><th class="left" style="width:20%;">Name</th><th class="left" style="width:70%;">Value</th></tr>
                                                                     <tr><td>central</td><td>artifactid</td><td>logback-classic</td></tr>
                                                                     <tr><td>central</td><td>groupid</td><td>ch.qos.logback</td></tr>
-                                                                    <tr><td>central</td><td>version</td><td>1.1.7</td></tr>
-                                                                    <tr><td>file</td><td>name</td><td>logback-classic-1.1.7</td></tr>
-                                                                    <tr><td>file</td><td>version</td><td>1.1.7</td></tr>
+                                                                    <tr><td>central</td><td>version</td><td>1.1.8</td></tr>
+                                                                    <tr><td>file</td><td>name</td><td>logback-classic</td></tr>
+                                                                    <tr><td>file</td><td>version</td><td>1.1.8</td></tr>
                                                                     <tr><td>manifest</td><td>Bundle-Description</td><td>logback-classic module</td></tr>
                                                                     <tr><td>Manifest</td><td>bundle-docurl</td><td>http://www.qos.ch</td></tr>
                                                                     <tr><td>Manifest</td><td>Bundle-Name</td><td>Logback Classic Module</td></tr>
                                                                     <tr><td>Manifest</td><td>bundle-requiredexecutionenvironment</td><td>JavaSE-1.6</td></tr>
                                                                     <tr><td>Manifest</td><td>bundle-symbolicname</td><td>ch.qos.logback.classic</td></tr>
-                                                                    <tr><td>Manifest</td><td>Bundle-Version</td><td>1.1.7</td></tr>
+                                                                    <tr><td>Manifest</td><td>Bundle-Version</td><td>1.1.8</td></tr>
                                                                     <tr><td>Manifest</td><td>originally-created-by</td><td>Apache Maven Bundle Plugin</td></tr>
                                                                     <tr><td>Manifest</td><td>require-capability</td><td>osgi.ee;filter:=&quot;(&amp;(osgi.ee=JavaSE)(version=1.6))&quot;</td></tr>
                                                                     <tr><td>pom</td><td>artifactid</td><td>logback-classic</td></tr>
@@ -627,28 +693,28 @@ arising out of or in connection with the use of this tool, the analysis performe
                                                                     <tr><td>pom</td><td>groupid</td><td>ch.qos.logback</td></tr>
                                                                     <tr><td>pom</td><td>name</td><td>Logback Classic Module</td></tr>
                                                                     <tr><td>pom</td><td>parent-artifactid</td><td>logback-parent</td></tr>
-                                                                    <tr><td>pom</td><td>version</td><td>1.1.7</td></tr>
+                                                                    <tr><td>pom</td><td>version</td><td>1.1.8</td></tr>
                                                             </table>
                         </div>
                                                                                                                             <h4 id="header2" class="subsectionheader white">Identifiers</h4>
                                                 <div id="content2" class="subsectioncontent standardsubsection">
                                                      <ul>
-                                                                                                                                    <li><b>maven:</b>&nbsp;<a href="http://search.maven.org/#search|ga|1|1%3A%229865cf6994f9ff13fce0bf93f2054ef6c65bb462%22" target="_blank">ch.qos.logback:logback-classic:1.1.7</a>
+                                                                                                                                                                                                                                                                                        <li><b>maven:</b>&nbsp;<a href="http://search.maven.org/#search|ga|1|1%3A%22e54f49a227611976642f81cf2106b81c1ece8bf5%22" target="_blank">ch.qos.logback:logback-classic:1.1.8</a>
                                                                                                     &nbsp;&nbsp;<i>Confidence</i>:HIGHEST
                                                                                                                                 </li>
                                                         </ul>
                                                 </div>
                                     </div>
-                                    <h3 class="subsectionheader standardsubsection notvulnerable"><a name="l2_7873092d39ef741575ca91378a6a21c388363ac8"></a>logback-core-1.1.7.jar</h3>
+                                    <h3 class="subsectionheader standardsubsection notvulnerable"><a name="l2_0b4d1c3dea91727faf8b3d19cf4b9b972d6c0b89"></a>logback-core-1.1.8.jar</h3>
                     <div class="subsectioncontent notvulnerable">
                                                     <p><b>Description:</b>&nbsp;logback-core module<br/></p>
                                                 <p>
                                                                                 <b>License:</b><pre class="indent"><a href="http://www.eclipse.org/legal/epl-v10.html, http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html">http://www.eclipse.org/legal/epl-v10.html, http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html</a></pre>
-                                                                                <b>File&nbsp;Path:</b>&nbsp;/Users/anthony/.m2/repository/ch/qos/logback/logback-core/1.1.7/logback-core-1.1.7.jar<br/>
-                            <b>MD5:</b>&nbsp;4021551de5018dfa4b79ec553280f00a<br/>
-                            <b>SHA1:</b>&nbsp;7873092d39ef741575ca91378a6a21c388363ac8
-                                                            <br/><b>Referenced In Project:</b>
-                                                                    Sample Lombok Maven Project
+                                                                                <b>File&nbsp;Path:</b>&nbsp;/Users/anthony/.m2/repository/ch/qos/logback/logback-core/1.1.8/logback-core-1.1.8.jar<br/>
+                            <b>MD5:</b>&nbsp;a1419a01e9632c29080a3256de61b253<br/>
+                            <b>SHA1:</b>&nbsp;0b4d1c3dea91727faf8b3d19cf4b9b972d6c0b89
+                                                            <br/><b>Referenced In Project/Scope:</b>
+                                                                    Sample Lombok Maven Project:runtime
                                                                                                                 </p>
                                                 <h4 id="header3" class="subsectionheader expandable expandablesubsection white">Evidence</h4>
                         <div id="content3" class="subsectioncontent standardsubsection hidden">
@@ -656,15 +722,15 @@ arising out of or in connection with the use of this tool, the analysis performe
                                 <tr><th class="left" style="width:10%;">Source</th><th class="left" style="width:20%;">Name</th><th class="left" style="width:70%;">Value</th></tr>
                                                                     <tr><td>central</td><td>artifactid</td><td>logback-core</td></tr>
                                                                     <tr><td>central</td><td>groupid</td><td>ch.qos.logback</td></tr>
-                                                                    <tr><td>central</td><td>version</td><td>1.1.7</td></tr>
-                                                                    <tr><td>file</td><td>name</td><td>logback-core-1.1.7</td></tr>
-                                                                    <tr><td>file</td><td>version</td><td>1.1.7</td></tr>
+                                                                    <tr><td>central</td><td>version</td><td>1.1.8</td></tr>
+                                                                    <tr><td>file</td><td>name</td><td>logback-core</td></tr>
+                                                                    <tr><td>file</td><td>version</td><td>1.1.8</td></tr>
                                                                     <tr><td>manifest</td><td>Bundle-Description</td><td>logback-core module</td></tr>
                                                                     <tr><td>Manifest</td><td>bundle-docurl</td><td>http://www.qos.ch</td></tr>
                                                                     <tr><td>Manifest</td><td>Bundle-Name</td><td>Logback Core Module</td></tr>
                                                                     <tr><td>Manifest</td><td>bundle-requiredexecutionenvironment</td><td>JavaSE-1.6</td></tr>
                                                                     <tr><td>Manifest</td><td>bundle-symbolicname</td><td>ch.qos.logback.core</td></tr>
-                                                                    <tr><td>Manifest</td><td>Bundle-Version</td><td>1.1.7</td></tr>
+                                                                    <tr><td>Manifest</td><td>Bundle-Version</td><td>1.1.8</td></tr>
                                                                     <tr><td>Manifest</td><td>originally-created-by</td><td>Apache Maven Bundle Plugin</td></tr>
                                                                     <tr><td>Manifest</td><td>require-capability</td><td>osgi.ee;filter:=&quot;(&amp;(osgi.ee=JavaSE)(version=1.6))&quot;</td></tr>
                                                                     <tr><td>pom</td><td>artifactid</td><td>logback-core</td></tr>
@@ -672,13 +738,13 @@ arising out of or in connection with the use of this tool, the analysis performe
                                                                     <tr><td>pom</td><td>groupid</td><td>ch.qos.logback</td></tr>
                                                                     <tr><td>pom</td><td>name</td><td>Logback Core Module</td></tr>
                                                                     <tr><td>pom</td><td>parent-artifactid</td><td>logback-parent</td></tr>
-                                                                    <tr><td>pom</td><td>version</td><td>1.1.7</td></tr>
+                                                                    <tr><td>pom</td><td>version</td><td>1.1.8</td></tr>
                                                             </table>
                         </div>
                                                                                                                             <h4 id="header4" class="subsectionheader white">Identifiers</h4>
                                                 <div id="content4" class="subsectioncontent standardsubsection">
                                                      <ul>
-                                                                                                                                    <li><b>maven:</b>&nbsp;<a href="http://search.maven.org/#search|ga|1|1%3A%227873092d39ef741575ca91378a6a21c388363ac8%22" target="_blank">ch.qos.logback:logback-core:1.1.7</a>
+                                                                                                                                                                                                                                                                                        <li><b>maven:</b>&nbsp;<a href="http://search.maven.org/#search|ga|1|1%3A%220b4d1c3dea91727faf8b3d19cf4b9b972d6c0b89%22" target="_blank">ch.qos.logback:logback-core:1.1.8</a>
                                                                                                     &nbsp;&nbsp;<i>Confidence</i>:HIGHEST
                                                                                                                                 </li>
                                                         </ul>
@@ -694,8 +760,8 @@ arising out of or in connection with the use of this tool, the analysis performe
                                                                                 <b>File&nbsp;Path:</b>&nbsp;/Users/anthony/.m2/repository/javax/validation/validation-api/1.1.0.Final/validation-api-1.1.0.Final.jar<br/>
                             <b>MD5:</b>&nbsp;4c257f52462860b62ab3cdab45f53082<br/>
                             <b>SHA1:</b>&nbsp;8613ae82954779d518631e05daa73a6a954817d5
-                                                            <br/><b>Referenced In Project:</b>
-                                                                    Sample Lombok Maven Project
+                                                            <br/><b>Referenced In Project/Scope:</b>
+                                                                    Sample Lombok Maven Project:compile
                                                                                                                 </p>
                                                 <h4 id="header5" class="subsectionheader expandable expandablesubsection white">Evidence</h4>
                         <div id="content5" class="subsectioncontent standardsubsection hidden">
@@ -704,7 +770,7 @@ arising out of or in connection with the use of this tool, the analysis performe
                                                                     <tr><td>central</td><td>artifactid</td><td>validation-api</td></tr>
                                                                     <tr><td>central</td><td>groupid</td><td>javax.validation</td></tr>
                                                                     <tr><td>central</td><td>version</td><td>1.1.0.Final</td></tr>
-                                                                    <tr><td>file</td><td>name</td><td>validation-api-1.1.0.Final</td></tr>
+                                                                    <tr><td>file</td><td>name</td><td>validation-api</td></tr>
                                                                     <tr><td>file</td><td>version</td><td>1.1.0</td></tr>
                                                                     <tr><td>manifest</td><td>Bundle-Description</td><td>Bean Validation API</td></tr>
                                                                     <tr><td>Manifest</td><td>Bundle-Name</td><td>Bean Validation API</td></tr>
@@ -723,7 +789,7 @@ arising out of or in connection with the use of this tool, the analysis performe
                                                                                                                             <h4 id="header6" class="subsectionheader white">Identifiers</h4>
                                                 <div id="content6" class="subsectioncontent standardsubsection">
                                                      <ul>
-                                                                                                                                    <li><b>maven:</b>&nbsp;<a href="http://search.maven.org/#search|ga|1|1%3A%228613ae82954779d518631e05daa73a6a954817d5%22" target="_blank">javax.validation:validation-api:1.1.0.Final</a>
+                                                                                                                                                                                                                                                                                        <li><b>maven:</b>&nbsp;<a href="http://search.maven.org/#search|ga|1|1%3A%228613ae82954779d518631e05daa73a6a954817d5%22" target="_blank">javax.validation:validation-api:1.1.0.Final</a>
                                                                                                     &nbsp;&nbsp;<i>Confidence</i>:HIGHEST
                                                                                                                                 </li>
                                                         </ul>
@@ -736,8 +802,8 @@ arising out of or in connection with the use of this tool, the analysis performe
                                                     <b>File&nbsp;Path:</b>&nbsp;/Users/anthony/.m2/repository/org/slf4j/slf4j-api/1.7.21/slf4j-api-1.7.21.jar<br/>
                             <b>MD5:</b>&nbsp;c9be56284a92dcb2576679282eff80bf<br/>
                             <b>SHA1:</b>&nbsp;139535a69a4239db087de9bab0bee568bf8e0b70
-                                                            <br/><b>Referenced In Project:</b>
-                                                                    Sample Lombok Maven Project
+                                                            <br/><b>Referenced In Project/Scope:</b>
+                                                                    Sample Lombok Maven Project:compile
                                                                                                                 </p>
                                                 <h4 id="header7" class="subsectionheader expandable expandablesubsection white">Evidence</h4>
                         <div id="content7" class="subsectioncontent standardsubsection hidden">
@@ -746,7 +812,7 @@ arising out of or in connection with the use of this tool, the analysis performe
                                                                     <tr><td>central</td><td>artifactid</td><td>slf4j-api</td></tr>
                                                                     <tr><td>central</td><td>groupid</td><td>org.slf4j</td></tr>
                                                                     <tr><td>central</td><td>version</td><td>1.7.21</td></tr>
-                                                                    <tr><td>file</td><td>name</td><td>slf4j-api-1.7.21</td></tr>
+                                                                    <tr><td>file</td><td>name</td><td>slf4j-api</td></tr>
                                                                     <tr><td>file</td><td>version</td><td>1.7.21</td></tr>
                                                                     <tr><td>manifest</td><td>Bundle-Description</td><td>The slf4j API</td></tr>
                                                                     <tr><td>Manifest</td><td>Bundle-Name</td><td>slf4j-api</td></tr>
@@ -769,7 +835,7 @@ arising out of or in connection with the use of this tool, the analysis performe
                                                                                                                             <h4 id="header8" class="subsectionheader white">Identifiers</h4>
                                                 <div id="content8" class="subsectioncontent standardsubsection">
                                                      <ul>
-                                                                                                                                    <li><b>maven:</b>&nbsp;<a href="http://search.maven.org/#search|ga|1|1%3A%22139535a69a4239db087de9bab0bee568bf8e0b70%22" target="_blank">org.slf4j:slf4j-api:1.7.21</a>
+                                                                                                                                                                                                                                                                                        <li><b>maven:</b>&nbsp;<a href="http://search.maven.org/#search|ga|1|1%3A%22139535a69a4239db087de9bab0bee568bf8e0b70%22" target="_blank">org.slf4j:slf4j-api:1.7.21</a>
                                                                                                     &nbsp;&nbsp;<i>Confidence</i>:HIGHEST
                                                                                                                                 </li>
                                                         </ul>
