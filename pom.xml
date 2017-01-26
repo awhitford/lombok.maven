@@ -73,7 +73,7 @@
     <maven.api.version>3.3.9</maven.api.version>
     <lombok.version>1.16.12</lombok.version>
     <releaseProfiles>sonatype-oss-release</releaseProfiles>
-    <version.dependency-check>1.4.4.1</version.dependency-check>
+    <version.dependency-check>1.4.5</version.dependency-check>
     <version.dependency-plugin>3.0.0</version.dependency-plugin>
     <version.java>1.6</version.java>
     <version.javadoc-plugin>2.10.4</version.javadoc-plugin>
@@ -101,7 +101,7 @@
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-compiler-plugin</artifactId>
-          <version>3.6.0</version>
+          <version>3.6.1</version>
           <configuration>
             <compilerArgs>
               <arg>-Xlint</arg>
