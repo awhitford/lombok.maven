@@ -23,7 +23,7 @@ under the License.
     <link>https://awhitford.github.com/lombok.maven/test-maven-lombok/</link>
     <description>Sample Lombok Maven Project - Checkstyle report</description>
     <language>en-us</language>
-    <copyright>&#169;2010 - 2016 Anthony Whitford</copyright>
+    <copyright>&#169;2010 - 2017 Anthony Whitford</copyright>
     <item>
       <title>File: 2,
              Errors: 7,
