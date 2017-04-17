@@ -31,10 +31,6 @@
     </developer>
   </developers>
 
-  <prerequisites>
-    <maven>${maven.api.minimum}</maven>
-  </prerequisites>
-
   <modules>
     <module>lombok-maven-plugin</module>
     <module>test-maven-lombok</module>
