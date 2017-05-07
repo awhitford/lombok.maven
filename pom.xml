@@ -73,7 +73,7 @@
     <version.dependency-plugin>3.0.0</version.dependency-plugin>
     <version.java>1.6</version.java>
     <version.javadoc-plugin>2.10.4</version.javadoc-plugin>
-    <version.pmd-plugin>3.7</version.pmd-plugin>
+    <version.pmd-plugin>3.8</version.pmd-plugin>
   </properties>
 
   <build>
