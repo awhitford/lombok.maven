@@ -70,7 +70,7 @@
     <lombok.version>1.16.16</lombok.version>
     <releaseProfiles>sonatype-oss-release</releaseProfiles>
     <version.dependency-check>1.4.5</version.dependency-check>
-    <version.dependency-plugin>3.0.0</version.dependency-plugin>
+    <version.dependency-plugin>3.0.1</version.dependency-plugin>
     <version.java>1.6</version.java>
     <version.javadoc-plugin>2.10.4</version.javadoc-plugin>
     <version.pmd-plugin>3.8</version.pmd-plugin>
