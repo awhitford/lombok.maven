@@ -47,7 +47,10 @@ public class TestDelombokMojo extends AbstractDelombokMojo {
 
     @Override
     protected String getSourcePath() {
-        return StringUtils.join(this.project.getTestCompileSourceRoots(), File.pathSeparatorChar);
+      return StringUtils.joinWith(File.pathSeparator,
+          StringUtils.join(this.project.getCompileSourceRoots(), File.pathSeparatorChar),
+          StringUtils.join(this.project.getTestCompileSourceRoots(), File.pathSeparatorChar)
+      );
     }
 
     @Override
