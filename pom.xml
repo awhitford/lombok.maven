@@ -69,7 +69,7 @@
     <maven.api.version>3.5.0</maven.api.version>
     <lombok.version>1.16.18</lombok.version>
     <releaseProfiles>sonatype-oss-release</releaseProfiles>
-    <version.dependency-check>2.1.0</version.dependency-check>
+    <version.dependency-check>3.0.1</version.dependency-check>
     <version.dependency-plugin>3.0.2</version.dependency-plugin>
     <version.java>1.6</version.java>
     <version.javadoc-plugin>2.10.4</version.javadoc-plugin>
