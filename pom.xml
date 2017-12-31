@@ -69,10 +69,10 @@
     <maven.api.version>3.5.2</maven.api.version>
     <lombok.version>1.16.18</lombok.version>
     <releaseProfiles>sonatype-oss-release</releaseProfiles>
-    <version.dependency-check>3.0.1</version.dependency-check>
+    <version.dependency-check>3.0.2</version.dependency-check>
     <version.dependency-plugin>3.0.2</version.dependency-plugin>
     <version.java>1.6</version.java>
-    <version.javadoc-plugin>2.10.4</version.javadoc-plugin>
+    <version.javadoc-plugin>3.0.0</version.javadoc-plugin>
     <version.pmd-plugin>3.8</version.pmd-plugin>
   </properties>
 
@@ -175,7 +175,7 @@
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-site-plugin</artifactId>
-          <version>3.6</version>
+          <version>3.7</version>
           <configuration>
             <!-- We are deploying site using scm-publish, not site-deploy... -->
             <skipDeploy>true</skipDeploy>
