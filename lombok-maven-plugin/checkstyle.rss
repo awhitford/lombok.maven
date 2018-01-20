@@ -23,7 +23,7 @@ under the License.
     <link>https://awhitford.github.com/lombok.maven/lombok-maven-plugin/</link>
     <description>Lombok Maven Plugin - Checkstyle report</description>
     <language>en-us</language>
-    <copyright>&#169;2010 - 2017 Anthony Whitford</copyright>
+    <copyright>&#169;2010 - 2018 Anthony Whitford</copyright>
     <item>
       <title>File: 4,
              Errors: 207,
@@ -83,7 +83,7 @@ under the License.
                   0
                 </td>
                 <td>
-                  86
+                  85
                 </td>
               </tr>
                           <tr>
@@ -97,7 +97,7 @@ under the License.
                   0
                 </td>
                 <td>
-                  29
+                  30
                 </td>
               </tr>
                       </tbody>
