@@ -207,6 +207,11 @@
             <cveValidForHours>8</cveValidForHours>
           </configuration>
         </plugin>
+        <plugin>
+          <groupId>org.codehaus.mojo</groupId>
+          <artifactId>versions-maven-plugin</artifactId>
+          <version>2.5</version>
+        </plugin>
       </plugins>
     </pluginManagement>
     <plugins>
@@ -315,7 +320,6 @@
       <plugin>
         <groupId>org.codehaus.mojo</groupId>
         <artifactId>versions-maven-plugin</artifactId>
-        <version>2.5</version>
       </plugin>
       <plugin>
         <groupId>org.owasp</groupId>
