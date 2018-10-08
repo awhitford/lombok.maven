@@ -1,22 +1,6 @@
 Usage
 
-  Note that Lombok requires Java 6, so an explicit declaration of 1.6 compatibility to the compiler may also be required:
-
-+--
-<build>
-  <plugins>
-    <plugin>
-      <groupId>org.apache.maven.plugins</groupId>
-      <artifactId>maven-compiler-plugin</artifactId>
-      <configuration>
-        <compilerVersion>1.6</compilerVersion>
-        <source>1.6</source>
-        <target>1.6</target>
-      </configuration>
-    </plugin>
-  </plugins>
-</build>
-+--
+  Note that Lombok requires Java 6, but the plugin requires Java 7, or later, to execute at build time.
 
 * Delombok
 
