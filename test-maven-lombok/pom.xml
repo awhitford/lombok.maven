@@ -80,7 +80,6 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-pmd-plugin</artifactId>
-        <version>${version.pmd-plugin}</version>
       </plugin>
       <plugin>
         <groupId>org.codehaus.mojo</groupId>
