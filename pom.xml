@@ -65,7 +65,7 @@
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-    <maven.api.minimum>3.0.4</maven.api.minimum>
+    <maven.api.minimum>3.3.9</maven.api.minimum>
     <maven.api.version>3.5.4</maven.api.version>
     <lombok.version>1.18.2</lombok.version>
     <releaseProfiles>sonatype-oss-release</releaseProfiles>
