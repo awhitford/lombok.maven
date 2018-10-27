@@ -9,7 +9,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.commons.lang3.JavaVersion;
 import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang3.SystemUtils;
 import org.apache.maven.artifact.Artifact;
 import org.apache.maven.plugin.AbstractMojo;
 import org.apache.maven.plugin.MojoExecutionException;
@@ -47,7 +49,7 @@ public abstract class AbstractDelombokMojo extends AbstractMojo {
      */
     @Parameter(property="lombok.verbose", defaultValue="false", required=true)
     protected boolean verbose;
- 
+
     /**
      * Add output directory flag.  Adds the output directory to the Maven build path.
      */
@@ -116,18 +118,20 @@ public abstract class AbstractDelombokMojo extends AbstractMojo {
             for (final Artifact artifact : pluginArtifacts) {
                 classPathBuilder.append(artifact.getFile()).append(File.pathSeparatorChar);
             }
-            // delombok needs tools.jar...
-            final String javaHome = System.getProperty("java.home");
-            final File toolsJar = new File (javaHome,
-                ".." + File.separatorChar + "lib" + File.separatorChar + "tools.jar");
-            if (toolsJar.exists()) {
-                try {
-                    pluginDescriptor.getClassRealm().addURL(toolsJar.toURI().toURL());
-                } catch (final IOException e) {
-                    logger.warn("Unable to add tools.jar; " + toolsJar);
+            // delombok needs tools.jar (prior to Java 9)...
+            if (!SystemUtils.isJavaVersionAtLeast(JavaVersion.JAVA_9)) {
+                final String javaHome = System.getProperty("java.home");
+                final File toolsJar = new File (javaHome,
+                    ".." + File.separatorChar + "lib" + File.separatorChar + "tools.jar");
+                if (toolsJar.exists()) {
+                    try {
+                        pluginDescriptor.getClassRealm().addURL(toolsJar.toURI().toURL());
+                    } catch (final IOException e) {
+                        logger.warn("Unable to add tools.jar; " + toolsJar);
+                    }
+                } else {
+                    logger.warn("Unable to detect tools.jar; java.home is " + javaHome);
                 }
-            } else {
-                logger.warn("Unable to detect tools.jar; java.home is " + javaHome);
             }
             final String classPath = classPathBuilder.toString();
             logger.debug("classpath: " + classPath);
@@ -170,7 +174,7 @@ public abstract class AbstractDelombokMojo extends AbstractMojo {
                     if (buildContext.hasDelta(sourceDirectory)) {
                         delombok.delombok();
                         logger.info(goal + " complete.");
-                    
+
                         if (this.addOutputDirectory) {
                             // adding generated sources to Maven project
                             addSourceRoot(outputDirectory.getCanonicalPath());
