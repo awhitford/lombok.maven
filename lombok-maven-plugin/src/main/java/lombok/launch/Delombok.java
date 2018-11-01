@@ -27,7 +27,7 @@ public class Delombok {
     private final Method setSourcepath;
 
     public Delombok () throws ClassNotFoundException, IllegalAccessException, InstantiationException, NoSuchMethodException {
-        final ClassLoader shadowClassLoader = Main.createShadowClassLoader();
+        final ClassLoader shadowClassLoader = Main.getShadowClassLoader();
         final Class<?> delombokClass = shadowClassLoader.loadClass("lombok.delombok.Delombok");
         this.delombokInstance = delombokClass.newInstance();
         // Get method handles...
