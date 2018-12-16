@@ -200,7 +200,8 @@
         <plugin>
           <groupId>org.owasp</groupId>
           <artifactId>dependency-check-maven</artifactId>
-          <version>4.0.0</version>
+          <!-- Version 4.0.0 requires Java 8, so sticking to 3.3.4 to maintain Java 7 compatibility. -->
+          <version>3.3.4</version>
           <configuration>
             <nuspecAnalyzerEnabled>false</nuspecAnalyzerEnabled>
             <assemblyAnalyzerEnabled>false</assemblyAnalyzerEnabled>
