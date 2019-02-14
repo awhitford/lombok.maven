@@ -37,7 +37,7 @@
   </modules>
 
   <scm>
-    <connection>scm:git:git@github.com:awhitford/lombok.maven.git</connection>
+    <connection>scm:git:ssh://git@github.com/awhitford/lombok.maven.git</connection>
     <developerConnection>scm:git:git@github.com:awhitford/lombok.maven.git</developerConnection>
     <url>git@github.com:awhitford/lombok.maven.git</url>
     <tag>HEAD</tag>
