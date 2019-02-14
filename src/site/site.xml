@@ -7,7 +7,6 @@
   </skin>
   <custom>
     <fluidoSkin>
-      <googlePlusOne/>
       <ohloh>
         <projectId>lombok_maven</projectId>
       </ohloh>
