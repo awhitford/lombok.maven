@@ -65,6 +65,7 @@
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+    <project.scm.id>awhitford-github-server</project.scm.id>
     <maven.api.minimum>3.3.9</maven.api.minimum>
     <maven.api.version>3.6.0</maven.api.version>
     <lombok.version>1.18.6</lombok.version>
