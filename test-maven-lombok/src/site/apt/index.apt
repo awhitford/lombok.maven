@@ -4,7 +4,7 @@ About Sample Maven Lombok Project
 
   The following links demonstrate how the <<delombok>> goal may be used so that Java analysis reports look complete:
 
-   * {{{./cobertura/org.projectlombok.test.DataExample.html}Cobertura Test Coverage Report}}
+   * {{{./jacoco/org.projectlombok.test/DataExample.html}JaCoCo Test Coverage Report}}
 
    * {{{./apidocs/org/projectlombok/test/DataExample.html}JavaDocs}}
 
