@@ -1,4 +1,5 @@
 [![Build Status](https://travis-ci.org/awhitford/lombok.maven.png)](https://travis-ci.org/awhitford/lombok.maven)
+[![MIT License](https://img.shields.io/github/license/awhitford/lombok.maven.svg)](https://github.com/awhitford/lombok.maven/blob/master/LICENSE)
 
 This project contains two sub projects:
 
