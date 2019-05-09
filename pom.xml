@@ -315,6 +315,7 @@
         <artifactId>maven-javadoc-plugin</artifactId>
         <configuration>
           <linksource>true</linksource>
+          <source>${version.java}</source>
         </configuration>
         <!-- We just need javadoc, not aggregate or test docs... -->
         <reportSets>
