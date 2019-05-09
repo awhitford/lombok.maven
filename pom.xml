@@ -36,7 +36,7 @@
     <module>test-maven-lombok</module>
   </modules>
 
-  <scm>
+  <scm child.scm.url.inherit.append.path="false">
     <connection>scm:git:https://github.com/awhitford/lombok.maven.git</connection>
     <developerConnection>scm:git:ssh://git@github.com/awhitford/lombok.maven.git</developerConnection>
     <url>https://github.com/awhitford/lombok.maven</url>
