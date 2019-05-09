@@ -31,6 +31,7 @@
     <dependency>
       <groupId>org.apache.commons</groupId>
       <artifactId>commons-lang3</artifactId>
+      <!-- Note: 3.9+ now targets Java 8.0, so sticking with 3.8.1 for Java 7 support. -->
       <version>3.8.1</version>
     </dependency>
     <dependency>
