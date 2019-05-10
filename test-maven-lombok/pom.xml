@@ -15,6 +15,10 @@
   <name>Sample Lombok Maven Project</name>
   <description>This project is a simple demonstration of how to use the maven-lombok-plugin.</description>
 
+  <scm>
+    <url>https://github.com/awhitford/lombok.maven</url>
+  </scm>
+
   <dependencies>
     <dependency>
       <groupId>javax.validation</groupId>
