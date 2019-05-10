@@ -4,4 +4,5 @@ target/
 .project
 .classpath
 .settings/
-
+# Maven wrapper artifacts
+.mvn/wrapper/maven-wrapper.jar
