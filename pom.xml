@@ -397,6 +397,9 @@
             <executions>
               <execution>
                 <id>attach-javadocs</id>
+                <configuration>
+                  <source>${version.java}</source>
+                </configuration>
                 <goals>
                   <goal>jar</goal>
                 </goals>
