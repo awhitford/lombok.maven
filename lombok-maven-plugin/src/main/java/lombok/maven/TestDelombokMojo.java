@@ -1,8 +1,12 @@
 package lombok.maven;
 
 import java.io.File;
+import java.io.IOException;
+import java.util.Iterator;
+import java.util.List;
 
 import org.apache.commons.lang3.StringUtils;
+import org.apache.maven.plugin.logging.Log;
 import org.apache.maven.plugins.annotations.LifecyclePhase;
 import org.apache.maven.plugins.annotations.Mojo;
 import org.apache.maven.plugins.annotations.Parameter;
@@ -56,5 +60,66 @@ public class TestDelombokMojo extends AbstractDelombokMojo {
     @Override
     protected void addSourceRoot(final String path) {
         project.addTestCompileSourceRoot(path);
+    }
+
+    @Override
+    protected void removeSourceFromRoot() throws IOException
+    {
+        final Log logger = getLog();
+        assert null != logger;
+        List<String> roots = project.getCompileSourceRoots();
+        if (roots == null)
+        {
+            logger.warn("roots are null");
+        }
+        else
+        {
+            Iterator<String> i = roots.iterator();
+            while (i.hasNext())
+            {
+                String root = i.next();
+                if (sourceDirectory.getName().equals(root))
+                {
+                    i.remove();
+                    logger.info("removing root: " + root);
+                }
+                else if (sourceDirectory.getCanonicalFile().getName().equals(root))
+                {
+                    i.remove();
+                    logger.info("removing root: " + root);
+                }
+                else
+                {
+                    logger.debug("ignoring root: " + root);
+                }
+            }
+        }
+        roots = project.getTestCompileSourceRoots();
+        if (roots == null)
+        {
+            logger.warn("test roots are null");
+        }
+        else
+        {
+            Iterator<String> i = roots.iterator();
+            while (i.hasNext())
+            {
+                String root = i.next();
+                if (sourceDirectory.getName().equals(root))
+                {
+                    i.remove();
+                    logger.info("removing root: " + root);
+                }
+                else if (sourceDirectory.getCanonicalFile().getName().equals(root))
+                {
+                    i.remove();
+                    logger.info("removing root: " + root);
+                }
+                else
+                {
+                    logger.debug("ignoring root: " + root);
+                }
+            }
+        }
     }
 }

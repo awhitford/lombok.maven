@@ -57,6 +57,19 @@ public abstract class AbstractDelombokMojo extends AbstractMojo {
     protected boolean addOutputDirectory;
 
     /**
+     * Remove source directory flag. Removes the source directory from the Maven build path.
+     * Has no effect unless {@link #addOutputDirectory} is true.
+     */
+    @Parameter(property = "lombok.removeSourceDirectory", defaultValue = "false", required = true)
+    protected boolean removeSourceDirectory;
+
+    /**
+     * Add found artifacts to classpath.
+     */
+    @Parameter(property = "lombok.addToClasspath", defaultValue = "true", required = true)
+    protected boolean addToClasspath;
+
+    /**
      * Formatting preferences.
      */
     @Parameter
@@ -92,6 +105,8 @@ public abstract class AbstractDelombokMojo extends AbstractMojo {
     protected abstract String getSourcePath();
 
     protected abstract void addSourceRoot(String path);
+
+    protected abstract void removeSourceFromRoot() throws IOException;
 
     @Override
     public void execute() throws MojoExecutionException {
@@ -138,7 +153,7 @@ public abstract class AbstractDelombokMojo extends AbstractMojo {
             try {
                 final Delombok delombok = new Delombok();
                 delombok.setVerbose(this.verbose);
-                delombok.setClasspath(classPath);
+                if (addToClasspath) delombok.setClasspath(classPath);
 
                 if (StringUtils.isNotBlank(this.encoding)) {
                     try {
@@ -179,6 +194,10 @@ public abstract class AbstractDelombokMojo extends AbstractMojo {
                             // adding generated sources to Maven project
                             addSourceRoot(outputDirectory.getCanonicalPath());
                             // Notify build context about a file created, updated or deleted...
+                            if (this.removeSourceDirectory)
+                            {
+                                removeSourceFromRoot();
+                            }
                             buildContext.refresh(outputDirectory);
                         }
                     } else {
