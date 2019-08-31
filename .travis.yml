@@ -1,14 +1,16 @@
-dist: bionic
 language: java
+dist: bionic
+addons:
+ apt:
+  packages:
+   - openjdk-8-jdk
 jdk:
   - oraclejdk12
   - openjdk12
   - oraclejdk11
   - openjdk11
   - openjdk10
-  - oraclejdk9
   - openjdk9
-  - oraclejdk8
   - openjdk8
   - openjdk7
 
