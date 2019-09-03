@@ -36,10 +36,10 @@
 <span class="sourceLineNo">026</span><a id="line.26">    private final Method setOutput;</a>
 <span class="sourceLineNo">027</span><a id="line.27">    private final Method setSourcepath;</a>
 <span class="sourceLineNo">028</span><a id="line.28"></a>
-<span class="sourceLineNo">029</span><a id="line.29">    public Delombok () throws ClassNotFoundException, IllegalAccessException, InstantiationException, NoSuchMethodException {</a>
+<span class="sourceLineNo">029</span><a id="line.29">    public Delombok () throws ClassNotFoundException, IllegalAccessException, InstantiationException, InvocationTargetException, NoSuchMethodException {</a>
 <span class="sourceLineNo">030</span><a id="line.30">        final ClassLoader shadowClassLoader = Main.getShadowClassLoader();</a>
 <span class="sourceLineNo">031</span><a id="line.31">        final Class&lt;?&gt; delombokClass = shadowClassLoader.loadClass("lombok.delombok.Delombok");</a>
-<span class="sourceLineNo">032</span><a id="line.32">        this.delombokInstance = delombokClass.newInstance();</a>
+<span class="sourceLineNo">032</span><a id="line.32">        this.delombokInstance = delombokClass.getDeclaredConstructor().newInstance();</a>
 <span class="sourceLineNo">033</span><a id="line.33">        // Get method handles...</a>
 <span class="sourceLineNo">034</span><a id="line.34">        this.addDirectory = delombokClass.getMethod("addDirectory", File.class);</a>
 <span class="sourceLineNo">035</span><a id="line.35">        this.delombok = delombokClass.getMethod("delombok");</a>
