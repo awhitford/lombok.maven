@@ -1,5 +1,5 @@
 language: java
-dist: trusty
+dist: bionic
 addons:
  apt:
   packages:
