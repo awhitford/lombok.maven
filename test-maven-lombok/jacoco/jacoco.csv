@@ -1,6 +1,6 @@
 GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
 Sample Lombok Maven Project,org.projectlombok.test,AnotherDataExample.Coin,59,0,0,0,9,0,3,0,3,0
-Sample Lombok Maven Project,org.projectlombok.test,DataExample,129,47,15,5,21,15,17,6,7,6
+Sample Lombok Maven Project,org.projectlombok.test,DataExample,124,52,15,5,20,16,15,8,5,8
 Sample Lombok Maven Project,org.projectlombok.test,AnotherDataExample,132,0,22,0,29,0,20,0,9,0
 Sample Lombok Maven Project,org.projectlombok.test,DataExample.Exercise,130,0,22,0,27,0,19,0,8,0
 Sample Lombok Maven Project,org.projectlombok.test,App,7,0,0,0,3,0,2,0,2,0
