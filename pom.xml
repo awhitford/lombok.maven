@@ -142,6 +142,8 @@
           <version>3.2.0</version>
           <configuration>
             <source>${version.java}</source>
+            <!-- See https://issues.apache.org/jira/browse/MJAVADOC-595 -->
+            <javadocExecutable>${java.home}/bin/javadoc</javadocExecutable>
           </configuration>
         </plugin>
         <plugin>
