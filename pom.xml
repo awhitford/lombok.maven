@@ -206,7 +206,7 @@
         <plugin>
           <groupId>org.owasp</groupId>
           <artifactId>dependency-check-maven</artifactId>
-          <version>6.0.5</version>
+          <version>6.1.0</version>
           <configuration>
             <nuspecAnalyzerEnabled>false</nuspecAnalyzerEnabled>
             <assemblyAnalyzerEnabled>false</assemblyAnalyzerEnabled>
@@ -308,7 +308,7 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-checkstyle-plugin</artifactId>
-        <version>3.1.1</version>
+        <version>3.1.2</version>
       </plugin>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
