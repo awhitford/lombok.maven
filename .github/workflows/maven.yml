@@ -5,22 +5,24 @@ name: Java CI with Maven
 
 on:
   push:
-    branches: [ master ]
+    branches: [master]
   pull_request:
-    branches: [ master ]
+    branches: [master]
 
 jobs:
   build:
-    runs-on: ubuntu-latest
     strategy:
       matrix:
         java: [8, 11, 15]
+        os: [macos-latest, ubuntu-latest, windows-latest]
+
+    runs-on: ${{ matrix.os }}
 
     steps:
-    - uses: actions/checkout@v2
-    - name: Set up JDK
-      uses: actions/setup-java@v1
-      with:
-        java-version: ${{ matrix.java }}
-    - name: Build with Maven
-      run: mvn -B install
+      - uses: actions/checkout@v2
+      - name: Set up JDK
+        uses: actions/setup-java@v1
+        with:
+          java-version: ${{ matrix.java }}
+      - name: Build with Maven
+        run: mvn -V -B install
