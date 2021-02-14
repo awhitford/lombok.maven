@@ -14,7 +14,9 @@ jobs:
         with:
           # Use Java LTS version
           java-version: 11
-      - name: Build Site with Maven
+      - name: Build Plugin
+        run: mvn -V -B install
+      - name: Build Site
         run: mvn -V -B site site:stage
       - name: Publish Site to GitHub Pages
         run: mvn -V -B scm-publish:publish-scm
