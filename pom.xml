@@ -47,7 +47,7 @@
     <url>https://github.com/awhitford/lombok.maven/issues</url>
   </issueManagement>
   <ciManagement>
-    <system>GitHub Actions</system>
+    <system>github</system>
     <url>https://github.com/awhitford/lombok.maven/actions</url>
   </ciManagement>
   <distributionManagement>
@@ -57,8 +57,8 @@
       <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
     </repository>
     <site>
-      <id>github.lombok.maven</id>
-      <url>scm:git:git@github.com:awhitford/lombok.maven.git</url>
+      <id>github</id>
+      <url>scm:git:ssh://git@github.com/awhitford/lombok.maven.git</url>
     </site>
   </distributionManagement>
 
