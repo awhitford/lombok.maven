@@ -1,0 +1,20 @@
+name: Maven Site
+
+on: workflow_dispatch
+
+jobs:
+  build:
+    name: Generate Maven Site
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up JDK
+        uses: actions/setup-java@v1
+        with:
+          # Use Java LTS version
+          java-version: 11
+      - name: Build Site with Maven
+        run: mvn -V -B site site:stage
+      - name: Publish Site to GitHub Pages
+        run: mvn -V -B scm-publish:publish-scm
