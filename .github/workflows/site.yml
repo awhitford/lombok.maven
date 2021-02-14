@@ -18,7 +18,11 @@ jobs:
         run: mvn -V -B install
       - name: Build Site
         run: mvn -V -B site site:stage
-      # Setup Github Server in settings.xml
-      - uses: s4u/maven-settings-action@v2
+      - name: Configure Git User
+        run: |
+          git config user.email "actions@github.com"
+          git config user.name "GitHub Actions"
+      - name: Setup Github Server in settings.xml
+        uses: s4u/maven-settings-action@v2
       - name: Publish Site to GitHub Pages
         run: mvn -V -B scm-publish:publish-scm
