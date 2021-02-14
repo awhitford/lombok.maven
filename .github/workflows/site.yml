@@ -19,4 +19,5 @@ jobs:
       - name: Build Site
         run: mvn -V -B site site:stage
       - name: Publish Site to GitHub Pages
+        uses: s4u/maven-settings-action@v2
         run: mvn -V -B scm-publish:publish-scm
