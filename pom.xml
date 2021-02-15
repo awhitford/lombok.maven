@@ -58,8 +58,7 @@
     </repository>
     <site>
       <id>github</id>
-      <url>scm:git:https://github.com/awhitford/lombok.maven.git</url>
-      <!-- <url>scm:git:ssh://git@github.com/awhitford/lombok.maven.git</url> -->
+      <url>scm:git:ssh://git@github.com/awhitford/lombok.maven.git</url>
     </site>
   </distributionManagement>
 
