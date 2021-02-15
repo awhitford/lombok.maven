@@ -25,4 +25,4 @@ jobs:
       - name: Setup Github Server in settings.xml
         uses: s4u/maven-settings-action@v2
       - name: Publish Site to GitHub Pages
-        run: mvn -V -B scm-publish:publish-scm
+        run: mvn -V -B scm-publish:publish-scm -DserverId=github
