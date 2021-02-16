@@ -1,1 +1,1 @@
-packageSearchIndex = [{"l":"All Packages","url":"allpackages-index.html"},{"l":"lombok.launch"},{"l":"lombok.maven"}]
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"lombok.launch"},{"l":"lombok.maven"}];updateSearchResults();
