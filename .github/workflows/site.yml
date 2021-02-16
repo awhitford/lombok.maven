@@ -39,7 +39,5 @@ jobs:
               "username": "git",
               "privateKey": "${user.home}/.ssh/id_rsa"
             }]
-      - name: Inspect Maven Settings
-        run: cat ~/.m2/settings.xml
       - name: Publish Site to GitHub Pages
-        run: mvn -V -B scm-publish:publish-scm
+        run: mvn -V -B -X scm-publish:publish-scm
