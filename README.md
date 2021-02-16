@@ -1,4 +1,4 @@
-![Java CI with Maven](https://github.com/awhitford/lombok.maven/workflows/Java%20CI%20with%20Maven/badge.svg)
+[![Build](https://github.com/awhitford/lombok.maven/workflows/Maven%20Build/badge.svg)](https://github.com/awhitford/lombok.maven/actions?query=workflow%3A%22Maven+Build%22)
 [![MIT License](https://img.shields.io/github/license/awhitford/lombok.maven.svg)](https://github.com/awhitford/lombok.maven/blob/master/LICENSE)
 
 This project contains two sub projects:
