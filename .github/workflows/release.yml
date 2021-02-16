@@ -11,8 +11,8 @@ jobs:
       - uses: actions/checkout@v2
       - name: Configure Git User
         run: |
-          git config --global user.email "actions@github.com"
-          git config --global user.name "GitHub Actions"
+          git config user.email "actions@github.com"
+          git config user.name "GitHub Actions"
       - name: Set up JDK
         uses: actions/setup-java@v1
         with:
@@ -23,31 +23,6 @@ jobs:
           server-password: OSSRH_PASSWORD
           gpg-private-key: ${{ secrets.GPG_PRIVATE_KEY }}
           gpg-passphrase: GPG_PASSPHRASE
-      - name: Install SSH key for Pushing Git Changes
-        uses: shimataro/ssh-key-action@v2
-        with:
-          key: ${{ secrets.SSH_PRIVATE_KEY }}
-          known_hosts: ${{ secrets.SSH_KNOWN_HOSTS }}
-      - name: Configure Github Server for Pushing Git Changes
-        uses:
-          awhitford/maven-settings-action@servers-dist
-          # s4u/maven-settings-action@v2
-        with:
-          githubServer: false
-          servers: |
-            [
-              {
-                "id": "awhitford-github-server",
-                "username": "git",
-                "privateKey": "${user.home}/.ssh/id_rsa"
-              }
-            ]
-
-      #              {
-      #                "id": "sonatype-nexus-staging",
-      #                "username": "${{ secrets.OSSRH_USERNAME }}",
-      #                "password": "${{ secrets.OSSRH_PASSWORD }}"
-      #              },
       - name: Prepare Release
         env:
           OSSRH_USERNAME: ${{ secrets.OSSRH_USERNAME }}
