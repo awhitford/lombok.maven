@@ -35,5 +35,6 @@ jobs:
           GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
         run: |
           mvn -V -B release:prepare -DdryRun=true
+          mvn -V -B release:clean
           mvn -V -B release:prepare
           mvn -V -B release:perform
