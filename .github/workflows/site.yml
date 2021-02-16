@@ -9,20 +9,11 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-        with:
-          # SSH Key required for publishing to gh-pages
-          ssh-key: ${{ secrets.SSH_PRIVATE_KEY }}
       - name: Set up JDK
         uses: actions/setup-java@v1
         with:
           # Use Java LTS version
           java-version: 11
-      - name: Inspect id_rsa
-        run: |
-          mvn -B help:evaluate -Dexpression=user.home
-          echo ~
-          ls -la ~/.ssh
-          cat ~/.ssh/id_rsa || true
       - name: Build Plugin
         run: mvn -V -B install
       - name: Build Site
@@ -36,11 +27,6 @@ jobs:
         with:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           known_hosts: ${{ secrets.SSH_KNOWN_HOSTS }}
-      - name: Inspect id_rsa again
-        run: |
-          echo ~
-          ls -la ~/.ssh
-          cat ~/.ssh/id_rsa || true
       - name: Configure Github Server for Publishing
         uses:
           awhitford/maven-settings-action@servers-dist
@@ -53,5 +39,7 @@ jobs:
               "username": "git",
               "privateKey": "${user.home}/.ssh/id_rsa"
             }]
+      - name: Inspect Maven Settings
+        run: cat ~/.m2/settings.xml
       - name: Publish Site to GitHub Pages
         run: mvn -V -B scm-publish:publish-scm
