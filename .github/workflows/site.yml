@@ -1,14 +1,28 @@
 name: Maven Site
 
-on: workflow_dispatch
+on:
+  push:
+    branches:
+      - "!*"
+    tags:
+      - "*"
+  workflow_dispatch:
+    inputs:
+      siteRef:
+        description: "Optional Git reference (tag/branch/sha) to use for Site"
+        required: false
+        default: ""
 
 jobs:
   build:
     name: Generate Maven Site
     runs-on: ubuntu-latest
-
+    if: github.event_name = 'workflow_dispatch' || (github.event_name == 'push' && startsWith(github.event.head_commit.message, '[maven-release-plugin] prepare release'))
     steps:
+      - uses: hmarr/debug-action@v1
       - uses: actions/checkout@v2
+        with:
+          ref: ${{ github.event.inputs.siteRef }}
       - name: Set up JDK
         uses: actions/setup-java@v1
         with:
