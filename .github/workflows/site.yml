@@ -27,17 +27,5 @@ jobs:
         with:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           known_hosts: ${{ secrets.SSH_KNOWN_HOSTS }}
-      # - name: Configure Github Server for Publishing
-      #  uses:
-      #    awhitford/maven-settings-action@servers-dist
-      #    # s4u/maven-settings-action@v2
-      #  with:
-      #    githubServer: false
-      #    servers: |
-      #      [{
-      #        "id": "awhitford-github-server",
-      #        "username": "git",
-      #        "privateKey": "${user.home}/.ssh/id_rsa"
-      #      }]
       - name: Publish Site to GitHub Pages
         run: mvn -V -B scm-publish:publish-scm
