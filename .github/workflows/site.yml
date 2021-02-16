@@ -40,4 +40,4 @@ jobs:
               "privateKey": "${user.home}/.ssh/id_rsa"
             }]
       - name: Publish Site to GitHub Pages
-        run: mvn -V -B -X scm-publish:publish-scm
+        run: mvn -V -B scm-publish:publish-scm
