@@ -7,7 +7,7 @@ updates:
       interval: "daily"
     ignore:
       # Note: 3.9+ targets Java 8, so sticking with 3.8.1 for Java 7 support.
-      - dependency-name: "commons-lang3"
+      - dependency-name: "org.apache.commons:commons-lang3"
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:
