@@ -19,7 +19,6 @@ jobs:
     runs-on: ubuntu-latest
     if: github.event_name == 'workflow_dispatch' || (github.event_name == 'push' && startsWith(github.event.head_commit.message, '[maven-release-plugin] prepare release'))
     steps:
-      - uses: hmarr/debug-action@v1
       - uses: actions/checkout@v2
         with:
           ref: ${{ github.event.inputs.siteRef }}
