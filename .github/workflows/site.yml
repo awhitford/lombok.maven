@@ -17,6 +17,12 @@ jobs:
         with:
           # Use Java LTS version
           java-version: 11
+      - name: Inspect id_rsa
+        run: |
+          mvn help:evaluate -Dexpression=user.home
+          echo ~
+          ls -la ~/.ssh
+          cat ~/.ssh/id_rsa || true
       - name: Build Plugin
         run: mvn -V -B install
       - name: Build Site
