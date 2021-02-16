@@ -1,9 +1,13 @@
 version: 2
+# See https://docs.github.com/en/github/administering-a-repository/configuration-options-for-dependency-updates
 updates:
   - package-ecosystem: "maven"
     directory: "/"
     schedule:
       interval: "daily"
+    ignore:
+      # Note: 3.9+ targets Java 8, so sticking with 3.8.1 for Java 7 support.
+      - dependency-name: "commons-lang3"
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:
