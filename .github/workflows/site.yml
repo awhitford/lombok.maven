@@ -19,7 +19,7 @@ jobs:
           java-version: 11
       - name: Inspect id_rsa
         run: |
-          mvn help:evaluate -Dexpression=user.home
+          mvn -B help:evaluate -Dexpression=user.home
           echo ~
           ls -la ~/.ssh
           cat ~/.ssh/id_rsa || true
@@ -31,11 +31,16 @@ jobs:
         run: |
           git config --global user.email "actions@github.com"
           git config --global user.name "GitHub Actions"
-      #- name: Install SSH key for Publish to gh-pages
-      #  uses: shimataro/ssh-key-action@v2
-      #  with:
-      #    key: ${{ secrets.SSH_PRIVATE_KEY }}
-      #    known_hosts: ${{ secrets.SSH_KNOWN_HOSTS }}
+      - name: Install SSH key for Publish to gh-pages
+        uses: shimataro/ssh-key-action@v2
+        with:
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          known_hosts: ${{ secrets.SSH_KNOWN_HOSTS }}
+      - name: Inspect id_rsa again
+        run: |
+          echo ~
+          ls -la ~/.ssh
+          cat ~/.ssh/id_rsa || true
       - name: Configure Github Server for Publishing
         uses:
           awhitford/maven-settings-action@servers-dist
