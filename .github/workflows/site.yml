@@ -32,7 +32,7 @@ jobs:
       #    known_hosts: ${{ secrets.SSH_KNOWN_HOSTS }}
       - name: Configure Github Server for Publishing
         uses:
-          awhitford/maven-settings-action@servers
+          awhitford/maven-settings-action@servers-dist
           # s4u/maven-settings-action@v2
         with:
           githubServer: false
