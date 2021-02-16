@@ -1,0 +1,60 @@
+name: Maven Release
+
+on: workflow_dispatch
+
+jobs:
+  build:
+    name: Cut a Maven Release
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Configure Git User
+        run: |
+          git config --global user.email "actions@github.com"
+          git config --global user.name "GitHub Actions"
+      - name: Set up JDK
+        uses: actions/setup-java@v1
+        with:
+          # Use Java LTS version
+          java-version: 11
+          server-id: sonatype-nexus-staging
+          server-username: OSSRH_USERNAME
+          server-password: OSSRH_PASSWORD
+          gpg-private-key: ${{ secrets.GPG_PRIVATE_KEY }}
+          gpg-passphrase: GPG_PASSPHRASE
+      - name: Install SSH key for Pushing Git Changes
+        uses: shimataro/ssh-key-action@v2
+        with:
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          known_hosts: ${{ secrets.SSH_KNOWN_HOSTS }}
+      - name: Configure Github Server for Pushing Git Changes
+        uses:
+          awhitford/maven-settings-action@servers-dist
+          # s4u/maven-settings-action@v2
+        with:
+          githubServer: false
+          servers: |
+            [
+              {
+                "id": "awhitford-github-server",
+                "username": "git",
+                "privateKey": "${user.home}/.ssh/id_rsa"
+              }
+            ]
+
+      #              {
+      #                "id": "sonatype-nexus-staging",
+      #                "username": "${{ secrets.OSSRH_USERNAME }}",
+      #                "password": "${{ secrets.OSSRH_PASSWORD }}"
+      #              },
+      - name: Prepare Release
+        env:
+          OSSRH_USERNAME: ${{ secrets.OSSRH_USERNAME }}
+          OSSRH_PASSWORD: OSSRH_PW_SHH # ${{ secrets.OSSRH_PASSWORD }}
+          GPG_PASSPHRASE: SUPER_SECRET # ${{ secrets.GPG_PASSPHRASE }}
+        run: |
+          cat ~/.m2/settings.xml
+          mvn -V -B release:prepare -DdryRun=true
+      # mvn -V -B release:prepare
+      # mvn -V -B release:perform
