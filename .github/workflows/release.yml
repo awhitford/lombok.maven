@@ -26,10 +26,9 @@ jobs:
       - name: Prepare Release
         env:
           OSSRH_USERNAME: ${{ secrets.OSSRH_USERNAME }}
-          OSSRH_PASSWORD: OSSRH_PW_SHH # ${{ secrets.OSSRH_PASSWORD }}
-          GPG_PASSPHRASE: SUPER_SECRET # ${{ secrets.GPG_PASSPHRASE }}
+          OSSRH_PASSWORD: ${{ secrets.OSSRH_PASSWORD }}
+          GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
         run: |
-          cat ~/.m2/settings.xml
           mvn -V -B release:prepare -DdryRun=true
-      # mvn -V -B release:prepare
-      # mvn -V -B release:perform
+          mvn -V -B release:prepare -Drepository.url=https://${GITHUB_ACTOR}:${{ secrets.GITHUB_TOKEN }}@github.com/${GITHUB_REPOSITORY}.git
+          mvn -V -B release:perform -Drepository.url=https://${GITHUB_ACTOR}:${{ secrets.GITHUB_TOKEN }}@github.com/${GITHUB_REPOSITORY}.git
