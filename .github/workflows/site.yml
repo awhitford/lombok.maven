@@ -5,7 +5,7 @@ on:
     branches:
       - "!*"
     tags:
-      - "*"
+      - "lombok-maven-*"
   workflow_dispatch:
     inputs:
       siteRef:
