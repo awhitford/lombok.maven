@@ -14,7 +14,7 @@ on:
         default: ""
 
 jobs:
-  build:
+  site:
     name: Generate Maven Site
     runs-on: ubuntu-latest
     if: github.event_name == 'workflow_dispatch' || (github.event_name == 'push' && startsWith(github.event.head_commit.message, '[maven-release-plugin] prepare release'))

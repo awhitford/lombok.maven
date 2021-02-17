@@ -3,7 +3,7 @@ name: Maven Release
 on: workflow_dispatch
 
 jobs:
-  build:
+  release:
     name: Cut a Maven Release
     runs-on: ubuntu-latest
 
