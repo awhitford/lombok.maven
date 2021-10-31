@@ -2,7 +2,7 @@
 <project name="Maven Lombok Plugin">
   <body>
     <breadcrumbs>
-      <item name="Sample" href="http://awhitford.github.com/lombok.maven/test-maven-lombok/" />
+      <item name="Sample" href="http://awhitford.github.io/lombok.maven/test-maven-lombok/" />
     </breadcrumbs>
     <menu name="Overview">
       <item name="Introduction" href="index.html" />

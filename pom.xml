@@ -9,7 +9,7 @@
 
   <name>Maven Plugin for Project Lombok</name>
   <description>Maven Plugin for Project Lombok</description>
-  <url>https://awhitford.github.com/lombok.maven/</url>
+  <url>https://awhitford.github.io/lombok.maven/</url>
   <inceptionYear>2010</inceptionYear>
   <organization>
     <name>Anthony Whitford</name>

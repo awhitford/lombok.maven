@@ -2,7 +2,7 @@
 <project name="Lombok Maven Plugin">
   <body>
     <breadcrumbs>
-      <item name="Plugin" href="http://awhitford.github.com/lombok.maven/lombok-maven-plugin/" />
+      <item name="Plugin" href="http://awhitford.github.io/lombok.maven/lombok-maven-plugin/" />
     </breadcrumbs>
     <menu name="Overview">
       <item name="Introduction" href="index.html" />

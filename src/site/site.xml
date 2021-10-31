@@ -20,7 +20,7 @@
   <body>
     <breadcrumbs>
       <item name="Project Lombok" href="http://projectlombok.org/" />
-      <item name="Maven" href="http://awhitford.github.com/lombok.maven/" />
+      <item name="Maven" href="http://awhitford.github.io/lombok.maven/" />
     </breadcrumbs>
     <menu name="Overview">
       <item name="Introduction" href="index.html" />
