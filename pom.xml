@@ -114,7 +114,7 @@
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-enforcer-plugin</artifactId>
-          <version>3.0.0-M3</version>
+          <version>3.0.0</version>
         </plugin>
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
@@ -212,7 +212,7 @@
         <plugin>
           <groupId>org.owasp</groupId>
           <artifactId>dependency-check-maven</artifactId>
-          <version>6.2.2</version>
+          <version>6.4.1</version>
           <configuration>
             <nuspecAnalyzerEnabled>false</nuspecAnalyzerEnabled>
             <assemblyAnalyzerEnabled>false</assemblyAnalyzerEnabled>
