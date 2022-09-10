@@ -67,7 +67,7 @@
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     <project.scm.id>awhitford-github-server</project.scm.id>
     <maven.api.minimum>3.3.9</maven.api.minimum>
-    <maven.api.version>3.8.5</maven.api.version>
+    <maven.api.version>3.8.6</maven.api.version>
     <lombok.version>1.18.20</lombok.version>
     <releaseProfiles>sonatype-oss-release</releaseProfiles>
     <version.java>1.7</version.java>
@@ -188,7 +188,7 @@
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-site-plugin</artifactId>
-          <version>3.12.0</version>
+          <version>3.12.1</version>
           <configuration>
             <!-- We are deploying site using scm-publish, not site-deploy... -->
             <skipDeploy>true</skipDeploy>
