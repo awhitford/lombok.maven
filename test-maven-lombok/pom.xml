@@ -63,6 +63,10 @@
                 <javaLangAsFQN>skip</javaLangAsFQN>
               </formatPreferences>
               <verbose>true</verbose>
+              <sourceDirectories>
+	              <sourceDirectory>${project.basedir}/src/main/lombok1</sourceDirectory>
+	              <sourceDirectory>${project.basedir}/src/main/lombok2</sourceDirectory>
+              </sourceDirectories>
             </configuration>
           </execution>
           <execution>

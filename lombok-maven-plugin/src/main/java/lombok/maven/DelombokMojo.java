@@ -1,6 +1,7 @@
 package lombok.maven;
 
 import java.io.File;
+import java.util.List;
 
 import org.apache.commons.lang3.StringUtils;
 import org.apache.maven.plugins.annotations.LifecyclePhase;
@@ -22,7 +23,7 @@ public class DelombokMojo extends AbstractDelombokMojo {
      * Location of the lombok annotated source files.
      */
     @Parameter(property="lombok.sourceDirectory", defaultValue="${project.basedir}/src/main/lombok", required=true)
-    private File sourceDirectory;
+    private List<File> sourceDirectories;
 
     /**
      * Location of the generated source files.
@@ -41,8 +42,8 @@ public class DelombokMojo extends AbstractDelombokMojo {
     }
 
     @Override
-    protected File getSourceDirectory() {
-        return sourceDirectory;
+    protected List<File> getSourceDirectories() {
+        return sourceDirectories;
     }
 
     @Override
