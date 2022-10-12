@@ -108,7 +108,7 @@ public abstract class AbstractDelombokMojo extends AbstractMojo {
         logger.debug("sourcePath: " + sourcePath);
 
         if (this.skip) {
-            logger.warn("Skipping " + goal);
+            logger.info("Skipping " + goal);
         } else if (sourceDirectory.exists()) {
             // Build a classPath for delombok...
             final StringBuilder classPathBuilder = new StringBuilder();
