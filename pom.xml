@@ -214,10 +214,11 @@
           <artifactId>dependency-check-maven</artifactId>
           <version>8.2.1</version>
           <configuration>
-            <nuspecAnalyzerEnabled>false</nuspecAnalyzerEnabled>
-            <assemblyAnalyzerEnabled>false</assemblyAnalyzerEnabled>
             <skipProvidedScope>true</skipProvidedScope>
             <cveValidForHours>8</cveValidForHours>
+            <!-- Increasing from default 4000 because MacOS GitHub Action builds are failing to successfully download -->
+            <!-- Also note that NIST has a limit of 5 requests per 30 second window -->
+            <cveWaitTime>12000</cveWaitTime>
           </configuration>
         </plugin>
         <plugin>
