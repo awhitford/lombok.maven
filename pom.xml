@@ -70,7 +70,7 @@
     <maven.api.version>3.9.1</maven.api.version>
     <lombok.version>1.18.20</lombok.version>
     <releaseProfiles>sonatype-oss-release</releaseProfiles>
-    <version.java>1.7</version.java>
+    <version.java>8</version.java>
   </properties>
 
   <build>
