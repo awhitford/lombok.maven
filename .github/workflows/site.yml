@@ -25,7 +25,7 @@ jobs:
       - name: Set up JDK
         uses: actions/setup-java@v3
         with:
-          distribution: "zulu"
+          distribution: temurin
           # Use Java LTS version
           java-version: 11
       - name: Build Plugin
