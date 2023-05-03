@@ -22,6 +22,7 @@ public class Delombok {
     private final Method setVerbose;
     private final Method setCharset;
     private final Method setClasspath;
+    private final Method setModulepath;
     private final Method setFormatPreferences;
     private final Method setOutput;
     private final Method setSourcepath;
@@ -37,6 +38,7 @@ public class Delombok {
         this.setVerbose = delombokClass.getMethod("setVerbose", boolean.class);
         this.setCharset = delombokClass.getMethod("setCharset", String.class);
         this.setClasspath = delombokClass.getMethod("setClasspath", String.class);
+        this.setModulepath = delombokClass.getMethod("setModulepath", String.class);
         this.setFormatPreferences = delombokClass.getMethod("setFormatPreferences", Map.class);
         this.setOutput = delombokClass.getMethod("setOutput", File.class);
         this.setSourcepath = delombokClass.getMethod("setSourcepath", String.class);
@@ -65,6 +67,10 @@ public class Delombok {
 
     public void setClasspath (final String classpath) throws IllegalAccessException, InvocationTargetException {
         setClasspath.invoke(delombokInstance, classpath);
+    }
+
+    public void setModulepath (final String modulepath) throws IllegalAccessException, InvocationTargetException {
+        setModulepath.invoke(delombokInstance, modulepath);
     }
 
     public void setFormatPreferences (final Map<String, String> prefs) throws IllegalAccessException, InvocationTargetException {

@@ -6,6 +6,7 @@ import java.lang.reflect.InvocationTargetException;
 import java.nio.charset.Charset;
 import java.nio.charset.UnsupportedCharsetException;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 
@@ -20,6 +21,9 @@ import org.apache.maven.plugin.descriptor.PluginDescriptor;
 import org.apache.maven.plugins.annotations.Component;
 import org.apache.maven.plugins.annotations.Parameter;
 import org.apache.maven.project.MavenProject;
+import org.codehaus.plexus.languages.java.jpms.LocationManager;
+import org.codehaus.plexus.languages.java.jpms.ResolvePathsRequest;
+import org.codehaus.plexus.languages.java.jpms.ResolvePathsResult;
 import org.sonatype.plexus.build.incremental.BuildContext;
 
 import lombok.launch.Delombok;
@@ -111,12 +115,12 @@ public abstract class AbstractDelombokMojo extends AbstractMojo {
             logger.info("Skipping " + goal);
         } else if (sourceDirectory.exists()) {
             // Build a classPath for delombok...
-            final StringBuilder classPathBuilder = new StringBuilder();
-            for (final Object artifact : project.getArtifacts()) {
-                classPathBuilder.append(((Artifact)artifact).getFile()).append(File.pathSeparatorChar);
+            final List<File> classPathElements = new ArrayList<>(project.getArtifacts().size() + pluginArtifacts.size());
+            for (final Artifact artifact : project.getArtifacts()) {
+                classPathElements.add(artifact.getFile());
             }
             for (final Artifact artifact : pluginArtifacts) {
-                classPathBuilder.append(artifact.getFile()).append(File.pathSeparatorChar);
+                classPathElements.add(artifact.getFile());
             }
             // delombok needs tools.jar (prior to Java 9)...
             if (!SystemUtils.isJavaVersionAtLeast(JavaVersion.JAVA_9)) {
@@ -133,12 +137,20 @@ public abstract class AbstractDelombokMojo extends AbstractMojo {
                     logger.warn("Unable to detect tools.jar; java.home is " + javaHome);
                 }
             }
-            final String classPath = classPathBuilder.toString();
+            final String classPath = toPath(classPathElements);
             logger.debug("classpath: " + classPath);
+
+            final File moduleDescriptorPath = new File(sourceDirectory, "module-info.java");
+            final String modulePath = buildModulePath(moduleDescriptorPath, classPathElements);
+
             try {
                 final Delombok delombok = new Delombok();
                 delombok.setVerbose(this.verbose);
                 delombok.setClasspath(classPath);
+
+                if (!modulePath.isEmpty()) {
+                    delombok.setModulepath(modulePath);
+                }
 
                 if (StringUtils.isNotBlank(this.encoding)) {
                     try {
@@ -202,5 +214,43 @@ public abstract class AbstractDelombokMojo extends AbstractMojo {
         } else {
             logger.warn("Skipping " + goal + "; no source to process.");
         }
+    }
+
+    private String buildModulePath(final File moduleDescriptorPath, final List<File> classPathElements) {
+        if (!moduleDescriptorPath.exists()) {
+            return "";
+        }
+        try {
+            ResolvePathsRequest<File> request =
+                    ResolvePathsRequest.ofFiles(classPathElements)
+                            .setIncludeStatic(true)
+                            .setMainModuleDescriptor(moduleDescriptorPath);
+
+            ResolvePathsResult<File> resolvePathsResult = new LocationManager().resolvePaths(request);
+
+            for (Map.Entry<File, Exception> pathException : resolvePathsResult.getPathExceptions().entrySet()) {
+                Throwable cause = pathException.getValue();
+                while (cause.getCause() != null) {
+                    cause = cause.getCause();
+                }
+                String fileName = pathException.getKey().getName();
+                getLog().warn("Can't extract module name from " + fileName + ": " + cause.getMessage());
+            }
+
+            final String modulePath = toPath(resolvePathsResult.getModulepathElements().keySet());
+            getLog().debug("modulepath: " + modulePath);
+            return modulePath;
+        } catch (IOException e) {
+            getLog().warn("Cannot build module path: " + e.getMessage());
+            return "";
+        }
+    }
+
+    private static String toPath(final Collection<File> elements) {
+        final StringBuilder pathBuilder = new StringBuilder();
+        for (File file : elements) {
+            pathBuilder.append(file.getPath()).append(File.pathSeparator);
+        }
+        return pathBuilder.toString();
     }
 }
