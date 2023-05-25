@@ -68,7 +68,7 @@
     <project.scm.id>awhitford-github-server</project.scm.id>
     <maven.api.minimum>3.3.9</maven.api.minimum>
     <maven.api.version>3.9.1</maven.api.version>
-    <lombok.version>1.18.20</lombok.version>
+    <lombok.version>1.18.28</lombok.version>
     <releaseProfiles>sonatype-oss-release</releaseProfiles>
     <version.java>8</version.java>
   </properties>
